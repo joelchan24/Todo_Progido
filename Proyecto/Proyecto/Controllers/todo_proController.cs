@@ -12,17 +12,20 @@ namespace Proyecto.Controllers
     {
         // GET: todo_pro
         loginDAO log = new loginDAO();
-        public ActionResult inicio()
-        {
-            return View();
-        }
-        public ActionResult vacio1()
+        public ActionResult inicio1()
         {
             return View();
         }
         public ActionResult vacio()
         {
-            // return View(id==""  ? new usuarioBO() :log.obtener(id));
+            return View();
+        }
+        public ActionResult inicio( )
+        {
+            if (Session["usuario"]!=null)
+            {
+                return View((usuarioBO)Session["usuario"]);
+            }
             return View();
         }
         public ActionResult login(usuarioBO usuario)
@@ -30,24 +33,25 @@ namespace Proyecto.Controllers
             if (log.verificar(usuario))
             {
                 var i = log.buscarelid(usuario);
-                Session["id_tipo"] = i;
-                Response.Write("<script>alert('usuario correcto')</script>");
 
+                Response.Write("<script>alert('usuario correcto')</script>");
+                usuarioBO usu = log.obtener(usuario.nombre, usuario.contraseña);
+                Session["usuario"] = usu;
 
                 if (i == 1)
                 {
-              return  Redirect("~/todo_pro/inicio");
-
+          
+                    return View("vacio", usu);
 
                 }
                 else if (i == 2)
                 {
-              return     Redirect("~/todo_pro/inicio");
+                    return View("inicio", usu);
                 }
                 else if (i == 3)
                 {
 
-           return   Redirect("~/todo_pro/inicio");
+                    return View("inicio", usu);
                 }
                 
             }

@@ -39,14 +39,14 @@ namespace Proyecto.DAO
 
 
         }
-        public usuarioBO obtener(string id)
+        public usuarioBO obtener(string i,string o)
         {
             ConexionDAO conexion = new ConexionDAO();
             var usuario = new usuarioBO();
-            string strbuscar = string.Format("select ID_tipo, nombre from usuario where	Nombre='"+id+"'");
+            string strbuscar = string.Format("select nombre  from usuario where	Nombre='"+i+"' and contraseña='"+o+"'");
             DataTable datos = conexion.ejercutarsentrenciasdatable(strbuscar);
             DataRow row = datos.Rows[0];
-            usuario.id = Convert.ToInt32(row["id"]);
+         
             usuario.nombre = row["nombre"].ToString();
            
             return usuario;
