@@ -12,19 +12,37 @@ namespace Proyecto.Controllers
     {
         // GET: todo_pro
         loginDAO log = new loginDAO();
-        public ActionResult inicio1()
-        {
-            return View();
-        }
+        usuarioDAO usuario_dao = new usuarioDAO();
+
         public ActionResult vacio()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+            return View();
+        }
+        public ActionResult guardar(usuarioBO usuario)
+        {
+            usuario_dao.guardar(usuario);
+            return Redirect("~/todo_pro/inicio");
+        }
+        public ActionResult registro()
+        {
+
+           
+
+            Session.Remove("usuario");
+            Session.Abandon();
             return View();
         }
         public ActionResult inicio( )
         {
             if (Session["usuario"]!=null)
             {
-                return View((usuarioBO)Session["usuario"]);
+                ViewBag.usuario =(usuarioBO) Session["usuario"];
+                return View();
             }
             return View();
         }

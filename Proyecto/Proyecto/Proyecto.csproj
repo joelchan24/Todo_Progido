@@ -175,6 +175,7 @@
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
     <Compile Include="DAO\loginDAO.cs" />
+    <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -318,6 +319,7 @@
     <Content Include="Content\assets\img\logo.png" />
     <Content Include="Content\assets\img\marc.jpg" />
     <Content Include="Content\assets\img\profile.jpg" />
+    <Content Include="Content\assets\img\sos_pro.jpg" />
     <Content Include="Content\assets\js\bootstrap-datepicker.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\jquery.min.js" />
@@ -440,6 +442,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\todo_pro\inicio.cshtml" />
     <Content Include="Views\todo_pro\vacio.cshtml" />
+    <Content Include="Views\todo_pro\registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
