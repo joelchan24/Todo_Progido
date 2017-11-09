@@ -64,15 +64,37 @@
                         </a>
 
                     </li>
-                 
+                 @if (ViewBag.usuario != null)
+                 {
                     <li>
                         <a data-toggle="modal" data-target="#myModal">
-                            <i class="material-icons">dashboard</i>@(Model != null ? Model.nombre : " Iniciar sesion" )
+                            <i class="material-icons">dashboard</i>@ViewBag.usuario.nombre
 
                         </a>
                     
                     
                   
+                    </li>
+                    <li>
+                        <a href="/todo_pro/cerrar" >
+                            CERRAR SESION
+
+                        </a>
+
+
+
+                    </li>
+                 }
+                 else
+                 {
+                    <li>
+                        <a data-toggle="modal" data-target="#myModal">
+                            <i class="material-icons">dashboard</i>iniciar sesion
+
+                        </a>
+
+
+
                     </li>
                     <li>
                         <a data-toggle="modal" data-target="#myModal1">
@@ -83,6 +105,8 @@
 
 
                     </li>
+                 }
+                   
                   
                 </ul>
             </div>

@@ -28,13 +28,23 @@ namespace Proyecto.Controllers
             usuario_dao.guardar(usuario);
             return Redirect("~/todo_pro/inicio");
         }
-        public ActionResult registro()
+        public ActionResult cerrar()
         {
 
            
 
             Session.Remove("usuario");
             Session.Abandon();
+            return Redirect("~/todo_pro/inicio");
+        }
+        public ActionResult registro()
+        {
+
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return View();
         }
         public ActionResult inicio( )
@@ -55,7 +65,7 @@ namespace Proyecto.Controllers
                 Response.Write("<script>alert('usuario correcto')</script>");
                 usuarioBO usu = log.obtener(usuario.nombre, usuario.contraseña);
                 Session["usuario"] = usu;
-
+                
                 if (i == 1)
                 {
           
