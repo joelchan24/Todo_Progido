@@ -7,5 +7,6 @@ namespace Proyecto.BO
 {
     public class gay
     {
+        string pornito;
     }
 }
