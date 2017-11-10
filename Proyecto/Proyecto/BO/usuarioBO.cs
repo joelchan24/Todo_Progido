@@ -15,5 +15,6 @@ namespace Proyecto.BO
         public string telefono { get; set; }
         public string correo { get; set; }
         public string facebook { get; set; }
+        public string facebook2 { get; set; }
     }
 }
