@@ -16,7 +16,7 @@ namespace Proyecto
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "VBackend", action = "Vprueba", id = UrlParameter.Optional }
+                defaults: new { controller = "todo_pro", action = "inicio", id = UrlParameter.Optional }
             );
         }
     }
