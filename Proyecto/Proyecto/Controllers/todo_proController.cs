@@ -14,6 +14,13 @@ namespace Proyecto.Controllers
         loginDAO log = new loginDAO();
         usuarioDAO usuario_dao = new usuarioDAO();
 
+        public ActionResult IndexPro()
+        {
+            return View();
+        }
+
+
+
         public ActionResult vacio()
         {
             if (Session["usuario"] != null)
@@ -26,7 +33,7 @@ namespace Proyecto.Controllers
         public ActionResult guardar(usuarioBO usuario)
         {
             usuario_dao.guardar(usuario);
-            return Redirect("~/todo_pro/inicio");
+            return Redirect("~/todo_pro/IndexPro");
         }
         public ActionResult cerrar()
         {

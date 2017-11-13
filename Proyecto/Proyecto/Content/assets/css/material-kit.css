@@ -239,7 +239,7 @@ a .material-icons, a:hover .material-icons, a:focus .material-icons {
 .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle, .open >
 .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus, .open >
 .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover {
-  background-color: #9c27b0;
+  background-color: #ff5252;
   color: #FFFFFF;
 }
 .btn.btn-primary:focus, .btn.btn-primary:active, .btn.btn-primary:hover,
@@ -1435,7 +1435,7 @@ output {
 }
 .form-group.is-focused .form-control {
   outline: none;
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#212121, #212121), linear-gradient(#D2D2D2, #D2D2D2);
   background-size: 100% 2px, 100% 1px;
   box-shadow: none;
   transition-duration: 0.3s;
@@ -1445,7 +1445,7 @@ output {
 }
 .form-group.is-focused label,
 .form-group.is-focused label.control-label {
-  color: #9c27b0;
+  color: #212121;
 }
 .form-group.is-focused.label-placeholder label,
 .form-group.is-focused.label-placeholder label.control-label {
@@ -2110,7 +2110,7 @@ legend {
   line-height: 1.42857;
 }
 .navbar, .navbar.navbar-default {
-  background-color: #9c27b0;
+  background-color: #2196f3;
   color: #ffffff;
 }
 .navbar .navbar-form .form-group input.form-control::-moz-placeholder,
