@@ -1,32 +1,119 @@
-﻿
+﻿@using Proyecto.BO;
+@model usuarioBO
+
 @{
     ViewBag.Title = "Vprueba";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
 
 @section SideBar{
-<li class="active">
-    <a href="#">
-        <i class="pe-7s-graph"></i>
-        <p>Inicio</p>
-    </a>
-</li>
-<li>
-    <a href="#">
-        <i class="pe-7s-graph"></i>
-        <p>Perfil</p>
-    </a>
-</li>
-<li>
-    <a href="#">
-        <i class="pe-7s-graph"></i>
-        <p>Perfil</p>
-    </a>
-</li>
-<li>
-    <a href="#">
-        <i class="pe-7s-graph"></i>
-        <p>Perfil</p>
-    </a>
-</li>
-    }
+    <li class="active">
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Perfil</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Perfil</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Perfil</p>
+        </a>
+    </li>
+}
+
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Edicion de texto pagina principal</h4>
+            </div>
+            <div class="content">
+                <form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Titulo 1</label>
+                                @Html.TextBoxFor(x => x.t1, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Texto 1</label>
+                                @Html.TextAreaFor(x => x.te1, new { @class = "form-control", @row = "5" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Guardar Cambios</button>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Titulo 1</label>
+                                @Html.TextBoxFor(x => x.t2, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Texto 1</label>
+                                @Html.TextAreaFor(x => x.te2, new { @class = "form-control", @row = "5" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Guardar Cambios</button>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Titulo 1</label>
+                                @Html.TextBoxFor(x => x.t3, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Texto 1</label>
+                                @Html.TextAreaFor(x => x.te3, new { @class = "form-control", @row = "5" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Guardar Cambios</button>
+
+
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div> <!-- end row -->
