@@ -13,10 +13,11 @@ namespace Proyecto.Controllers
         // GET: todo_pro
         loginDAO log = new loginDAO();
         usuarioDAO usuario_dao = new usuarioDAO();
+        BackEndDAO Obj_back = new BackEndDAO();
 
         public ActionResult IndexPro()
         {
-            return View();
+            return View(Obj_back.ObtenerDatosIndex());
         }
 
 

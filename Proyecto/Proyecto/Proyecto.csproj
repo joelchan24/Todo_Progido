@@ -185,6 +185,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\todo_proController.cs" />
     <Compile Include="Controllers\VBackendController.cs" />
+    <Compile Include="DAO\BackEndDAO.cs" />
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
     <Compile Include="DAO\loginDAO.cs" />
