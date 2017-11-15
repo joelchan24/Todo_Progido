@@ -13,7 +13,7 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("select count(nombre) ID from usuario where nombre=@usuario and contraseña=@contra");
+            SqlCommand cmd = new SqlCommand("select count(correo) ID from usuario where correo=@usuario and contraseña=@contra");
             cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario.nombre;
             cmd.Parameters.Add("@contra", SqlDbType.VarChar).Value = usuario.contraseña;
             cmd.CommandType = CommandType.Text;
@@ -28,7 +28,7 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("select ID_tipo, nombre from usuario where	Nombre=@usuario and contraseña=@contra");
+            SqlCommand cmd = new SqlCommand("select ID_tipo, correo from usuario where	correo=@usuario and contraseña=@contra");
             cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario.nombre;
             cmd.Parameters.Add("@contra", SqlDbType.VarChar).Value = usuario.contraseña;
             cmd.CommandType = CommandType.Text;
@@ -43,12 +43,13 @@ namespace Proyecto.DAO
         {
             ConexionDAO conexion = new ConexionDAO();
             var usuario = new usuarioBO();
-            string strbuscar = string.Format("select nombre  from usuario where	Nombre='"+i+"' and contraseña='"+o+"'");
+            string strbuscar = string.Format("select *  from usuario where	correo='"+i+"' and contraseña='"+o+"'");
             DataTable datos = conexion.ejercutarsentrenciasdatable(strbuscar);
             DataRow row = datos.Rows[0];
          
+            usuario.correo = row["correo"].ToString();
             usuario.nombre = row["nombre"].ToString();
-           
+
             return usuario;
         }
     }

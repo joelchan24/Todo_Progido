@@ -43,7 +43,7 @@ namespace Proyecto.Controllers
 
             Session.Remove("usuario");
             Session.Abandon();
-            return Redirect("~/todo_pro/inicio");
+            return Redirect("~/todo_pro/vacio");
         }
         public ActionResult registro()
         {
@@ -88,11 +88,11 @@ namespace Proyecto.Controllers
                 {
 
                     return View("inicio", usu);
-                }
-                
+                }                
+
             }
            
-        return Redirect("~/todo_pro/vacio");
+        return Redirect("~/todo_pro/indexPro");
             
 
             

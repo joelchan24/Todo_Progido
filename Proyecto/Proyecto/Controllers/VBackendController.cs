@@ -15,5 +15,9 @@ namespace Proyecto.Controllers
         {
             return View(Obj.ObtenerDatosIndex());
         }
+        public ActionResult usuario()
+        {
+            return View();
+        }
     }
 }

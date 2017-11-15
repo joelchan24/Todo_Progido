@@ -184,6 +184,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\todo_proController.cs" />
+    <Compile Include="Controllers\usuariofronController.cs" />
     <Compile Include="Controllers\VBackendController.cs" />
     <Compile Include="DAO\BackEndDAO.cs" />
     <Compile Include="DAO\ConexionDAO.cs" />
@@ -499,6 +500,9 @@
     <Content Include="Views\Shared\IndexBackEndMaster.cshtml" />
     <Content Include="Views\VBackend\Vprueba.cshtml" />
     <Content Include="Views\todo_pro\IndexPro.cshtml" />
+    <Content Include="Views\VBackend\Usuario.cshtml" />
+    <Content Include="Views\Shared\frontend_usuario.cshtml" />
+    <Content Include="Views\usuariofron\prueva.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
