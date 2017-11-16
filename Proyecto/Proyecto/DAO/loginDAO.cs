@@ -49,6 +49,7 @@ namespace Proyecto.DAO
          
             usuario.correo = row["correo"].ToString();
             usuario.nombre = row["nombre"].ToString();
+            
 
             return usuario;
         }

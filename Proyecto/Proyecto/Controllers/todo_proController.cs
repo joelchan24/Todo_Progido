@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Proyecto.BO;
 using Proyecto.DAO;
 
+
 namespace Proyecto.Controllers
 {
     public class todo_proController : Controller
@@ -43,7 +44,7 @@ namespace Proyecto.Controllers
 
             Session.Remove("usuario");
             Session.Abandon();
-            return Redirect("~/todo_pro/vacio");
+            return Redirect("~/todo_pro/IndexFinal");
         }
         public ActionResult registro()
         {
@@ -55,15 +56,7 @@ namespace Proyecto.Controllers
             }
             return View();
         }
-        public ActionResult inicio( )
-        {
-            if (Session["usuario"]!=null)
-            {
-                ViewBag.usuario =(usuarioBO) Session["usuario"];
-                return View();
-            }
-            return View();
-        }
+      
         public ActionResult login(usuarioBO usuario)
         {
             if (log.verificar(usuario))
@@ -76,19 +69,16 @@ namespace Proyecto.Controllers
                 
                 if (i == 1)
                 {
-          
-                    return View("vacio", usu);
+
+
+                    return Redirect("~/usuariofron/miscontactos");
 
                 }
                 else if (i == 2)
                 {
-                    return View("inicio", usu);
+                    return Redirect("~/VBackend/usuario");
                 }
-                else if (i == 3)
-                {
-
-                    return View("inicio", usu);
-                }                
+                            
 
             }
            
