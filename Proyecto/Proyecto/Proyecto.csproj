@@ -225,6 +225,24 @@
     <Content Include="Content\assetsBack\js\moment.min.js" />
     <Content Include="Content\assetsBack\js\perfect-scrollbar.jquery.min.js" />
     <Content Include="Content\assetsBack\js\sweetalert2.js" />
+    <Content Include="Content\assetsPRO\css\bootstrap.min.css" />
+    <Content Include="Content\assetsPRO\css\demo.css" />
+    <Content Include="Content\assetsPRO\css\material-kit.css" />
+    <Content Include="Content\assetsPRO\css\vertical-nav.css" />
+    <Content Include="Content\assetsPRO\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\assetsPRO\js\bootstrap-selectpicker.js" />
+    <Content Include="Content\assetsPRO\js\bootstrap-tagsinput.js" />
+    <Content Include="Content\assetsPRO\js\bootstrap.min.js" />
+    <Content Include="Content\assetsPRO\js\countUp.min.js" />
+    <Content Include="Content\assetsPRO\js\jasny-bootstrap.min.js" />
+    <Content Include="Content\assetsPRO\js\jquery-3.1.1.min.js" />
+    <Content Include="Content\assetsPRO\js\jquery.min.js" />
+    <Content Include="Content\assetsPRO\js\material-kit.js" />
+    <Content Include="Content\assetsPRO\js\material.min.js" />
+    <Content Include="Content\assetsPRO\js\modernizr.js" />
+    <Content Include="Content\assetsPRO\js\moment.min.js" />
+    <Content Include="Content\assetsPRO\js\nouislider.min.js" />
+    <Content Include="Content\assetsPRO\js\vertical-nav.js" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\demo.css" />
     <Content Include="Content\assets\css\material-kit.css" />
@@ -365,19 +383,6 @@
     <Content Include="Content\assets\js\material-kit.js" />
     <Content Include="Content\assets\js\material.min.js" />
     <Content Include="Content\assets\js\nouislider.min.js" />
-    <Content Include="Content\assets_kit_pro\css\bootstrap.min.css" />
-    <Content Include="Content\assets_kit_pro\css\material-kit.css" />
-    <Content Include="Content\assets_kit_pro\img\índice.png" />
-    <Content Include="Content\assets_kit_pro\js\bootstrap-datetimepicker.js" />
-    <Content Include="Content\assets_kit_pro\js\bootstrap-selectpicker.js" />
-    <Content Include="Content\assets_kit_pro\js\bootstrap-tagsinput.js" />
-    <Content Include="Content\assets_kit_pro\js\bootstrap.min.js" />
-    <Content Include="Content\assets_kit_pro\js\jasny-bootstrap.min.js" />
-    <Content Include="Content\assets_kit_pro\js\jquery.min.js" />
-    <Content Include="Content\assets_kit_pro\js\material-kit.js" />
-    <Content Include="Content\assets_kit_pro\js\material.min.js" />
-    <Content Include="Content\assets_kit_pro\js\moment.min.js" />
-    <Content Include="Content\assets_kit_pro\js\nouislider.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\examples\landing-page.html" />
@@ -387,6 +392,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\bootstrap_logo.png" />
+    <Content Include="Imagenes\card-profile1.jpg" />
+    <Content Include="Imagenes\components.jpg" />
+    <Content Include="Imagenes\content-test.png" />
+    <Content Include="Imagenes\Creative-Tim-logo-5b8666f5.png" />
+    <Content Include="Imagenes\header.jpg" />
+    <Content Include="Imagenes\logo UTM-01.png" />
+    <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\css\.DS_Store" />
@@ -503,6 +516,7 @@
     <Content Include="Views\VBackend\Usuario.cshtml" />
     <Content Include="Views\Shared\frontend_usuario.cshtml" />
     <Content Include="Views\usuariofron\prueva.cshtml" />
+    <Content Include="Views\todo_pro\IndexFinal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

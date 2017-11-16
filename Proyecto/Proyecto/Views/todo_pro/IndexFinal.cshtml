@@ -1,0 +1,860 @@
+﻿@using Proyecto.BO;
+@model usuarioBO
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Todo Protegido SOS</title>
+
+    <script src="~/Content/assetsPRO/js/jquery-3.1.1.min.js"></script>
+
+
+    <script src="~/Content/assetsPRO/js/countUp.min.js"></script>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="http://www.creative-tim.com/product/material-kit-pro" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="~/Content/assetsPRO/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/assetsPRO/css/material-kit.css" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/Content/assetsPRO/css/vertical-nav.css" rel="stylesheet" />
+    <link href="~/Content/assetsPRO/css/demo.css" rel="stylesheet" />
+
+</head>
+
+<body class="index-page">
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top navbar-color-on-scroll" color-on-scroll=" " id="sectionsNav">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Todo Protegido SOS</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a data-toggle="modal" data-target="#signupModal">
+                            <i class="material-icons">apps</i> Registrate
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-target="#loginModal">
+                            <i class="material-icons">apps</i> Iniciar sesión 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header  clear-filter" data-parallax="true" style="background-image: url('../Imagenes/header.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="brand">
+                        <h1>Todo Protegido SOS</h1>
+                        <h3 class="title">Siempre cuidando de ti!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="main main-raised">
+
+        <div class="cards">
+
+            <div class="container">
+                <div class="title">
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="title">
+                            <center><h2 class="title">¿Qué es Todo protegido SOS?</h2></center>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <div class="card-content">
+
+
+                            <p class="text-muted">
+                                Todo Protegido SOS es un proyecto que dará paso hacia un nuevo concepto de protección. Dicho de este modo se creara un sistema de seguridad donde tu usuario puedes alertar mediante diferentes canales a tus contactos de confianza en cuestión de segundos en caso de estar en involucrado en alguna situación que atente contra tu integridad.
+                            </p>
+                            <p class="text-muted">De igual modo entraras a una comunidad que buscara protegerse a sí misma mediante la creación de denominados puntos de peligro que servirán para indicar que lugares pueden ponerte en peligro al momento de salir a la calle. Estos tendrán categorías establecidas las  cuales estarán distribuidas por toda tu ciudad. Todo protegido SOS se encuentra disponible actualmente para plataforma la Web y dispositivos Android.</p>
+
+
+                            <center>
+                                <h4 class="title">Así que únete hoy mismo y se parte de este gran proyecto!!!</h4>
+                                <a data-toggle="modal" data-target="#signupModal" class="btn btn-danger btn-round">
+                                    <i class="material-icons">subject</i> Registrarse
+                                </a>
+                            </center>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <br />
+                <br />
+                <div class="section-components">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h3 class="title">Novedades de la App</h3>
+                                <h5 class="description">•	Alerta a sus contactos mediante SMS más geolocalización. </h5>
+                                <h5 class="description">•	Alerta a sus contactos mediante MAIL más geolocalización. </h5>
+                                <h5 class="description">•	Gestión de contactos. </h5>
+                                <h5 class="description">•	Alarma de lugares peligrosos. </h5>
+                                <h5 class="description">•	Widget para pantalla principal </h5>
+                                <center>
+                                    <a href="#pablo" class="btn btn-danger btn-round">
+                                        <i class="material-icons">subject</i> Descargar
+                                    </a>
+                                </center>
+
+                            </div>
+                            <div class="col-md-6 col-md-offset-1">
+                                <div class="image-container">
+                                    <img src="../Imagenes/content-test.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="section-components">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-6 ">
+                                <div class="image-container">
+                                    <img src="../Imagenes/components.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-md-offset-1">
+                                <h3 class="title">Novedades de la aplicacion web</h3>
+
+                                <h5 class="description">•	Gestión de contactos. </h5>
+                                <h5 class="description">•	Información de aplicación. </h5>
+                                <h5 class="description">•	Uso de aplicación.</h5>
+                                <h5 class="description">•	Generar punto peligroso</h5>
+                                <h5 class="description">•	Descargar aplicación</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="section-gray">
+                <div class="row">
+                    <div class="col-md-6">
+                        <center>
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">chat</i>
+                                </div>
+
+                                <h4 class="info-title">Usuarios registrados</h4>
+                            </div>
+
+                        </center>
+
+
+
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <center>
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">place</i>
+                                </div>
+                                <h3 id="counter2" class="info-title"></h3>
+                                <h4 class="info-title">Puntos creados</h4>
+                            </div>
+
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <br />
+
+            <!--     *********     FEATURES 5      *********      -->
+         
+            <div class="features-5" style="background-image: url('../Imagenes/uSfurk36A7zVjHL1uM219x1v.jpeg')">
+
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h2 class="title">Estadísticas de puntos creados</h2>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h2 class="info-title">Asalto de auto</h2>
+                                <h3 id="as" class="info-title"></h3>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h2 class="info-title">Asalto de casa</h2>
+                                <h3 id="ac" class="info-title"></h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h3 class="info-title">Asalto de comercio</h3>
+                                <h3 id="aco" class="info-title"></h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h3 class="info-title">Asalto de persona</h3>
+                                <h3 id="ap" class="info-title"></h3>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h2 class="info-title">Actividad sospechosa</h2>
+                                <h3 id="asos" class="info-title"></h3>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h2 class="info-title">Homicidio</h2>
+                                <h3 id="h" class="info-title"></h3>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h2 class="info-title">Otros</h2>
+                                <h3 id="o" class="info-title"></h3>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info">
+                                <div class="icon">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <h2 class="info-title">Vandalismo</h2>
+                                <h3 id="v" class="info-title"></h3>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <br />
+            <br />
+            <div class="cards">
+                <div class="container">
+                    <div class="title">
+                        <center><h2 class="title">Equipo de desarrollo</h2></center>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card card-profile">
+                                <div class="card-image">
+                                    <a href="#pablo">
+                                        <img class="img" src="../Imagenes/card-profile1.jpg"  />
+                                    </a>
+                                </div>
+
+                                <div class="card-content">
+                                    <h4 class="card-title">Anthony Yam</h4>
+                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+
+                                    <div class="footer">
+                                        <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-google btn-round"><i class="fa fa-google"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-profile">
+                                <div class="card-image">
+                                    <a href="#pablo">
+                                        <img class="img" src="../Imagenes/card-profile1.jpg" />
+                                    </a>
+                                </div>
+
+                                <div class="card-content">
+                                    <h4 class="card-title">Adan Soberanis</h4>
+                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+
+                                    <div class="footer">
+                                        <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-google btn-round"><i class="fa fa-google"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-profile">
+                                <div class="card-image">
+                                    <a href="#pablo">
+                                        <img class="img" src="../Imagenes/card-profile1.jpg" />
+                                    </a>
+                                </div>
+
+                                <div class="card-content">
+                                    <h4 class="card-title">Joel Chan</h4>
+                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+
+                                    <div class="footer">
+                                        <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-google btn-round"><i class="fa fa-google"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div class="contactus-1 section-image" style="background-image: url('assets/img/examples/city.jpg')">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+
+
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="card card-contact">
+                                <form role="form" id="contact-form" method="post">
+                                    <div class="header header-raised header-primary text-center">
+                                        <h4 class="card-title">Tienes alguna sugerencia?</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nombre</label>
+                                                    <input type="text" name="name" class="form-control">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Correo Electronico</label>
+                                            <input type="email" name="email" class="form-control" />
+                                        </div>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Cuentanos tu seugerencia...</label>
+                                            <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-primary pull-right">ENVIAR</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="our-clients">
+                <div class="title">
+                    <center><h4 class="title"> Sitio creado con ayuda de:</h4></center>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <center>
+                            <img src="../Imagenes/bootstrap_logo.png" style="width: 100%; max-width: 140px; margin: 25px auto; display: inline-block;" />
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="../Imagenes/Creative-Tim-logo-5b8666f5.png" style="width: 100%; max-width: 140px; margin: 0 auto; display: inline-block;" />
+                        </center>
+
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="../Imagenes/logo UTM-01.png"  style="width: 100%; max-width: 140px; margin: 0 0 15px 0; display: inline-block;" />
+                        </center>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <nav class="pull-left">
+                <ul>
+                    <li>
+                        <a href="http://www.creative-tim.com">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://presentation.creative-tim.com">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://blog.creative-tim.com">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.creative-tim.com/license">
+                            Licenses
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright pull-right">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script>, Creado con <i class="material-icons">favorite</i> por AAJ para una web mejor.
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+ 
+  
+ 
+    <!--    end small modal -->
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+@using (Html.BeginForm("login", "todo_pro", FormMethod.Post))
+{
+    <div class="card card-signup card-plain">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+
+            <div class="header header-primary text-center">
+                <h4 class="card-title">Iniciar sesión </h4>
+                <div class="social-line">
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <form class="form" method="" action="">
+
+                <div class="card-content">
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+
+                        <div class="form-group label-floating">
+                            <label class="control-label">Email</label>
+                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @type = "email", @id = "txt_nombre" })
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock_outline</i>
+                        </span>
+                        <div class="form-group label-floating">
+                            <label class="control-label">Contraseña</label>
+                            @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer text-center">
+            <button class="btn btn-simple btn-primary btn-lg"> Registrar</button>  
+        </div>
+    </div>
+}           
+            </div>
+        </div>
+    </div>
+    <!--  End Modal -->
+    <!-- Register Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-signup">
+            <div class="modal-content">
+                <div class="card card-signup">
+
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-1">
+                            <div class="info info-horizontal">
+                                <div class="icon icon-rose">
+                                    <i class="material-icons">timeline</i>
+                                </div>
+                                <div class="description">
+                                    <h4 class="info-title">@(Model.t1)</h4>
+                                    <p class="description">
+                                        @(Model.te1)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info info-horizontal">
+                                <div class="icon icon-primary">
+                                    <i class="material-icons">code</i>
+                                </div>
+                                <div class="description">
+                                    <h4 class="info-title">@(Model.t2)</h4>
+                                    <p class="description">
+                                        @(Model.te2)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info info-horizontal">
+                                <div class="icon icon-info">
+                                    <i class="material-icons">group</i>
+                                </div>
+                                <div class="description">
+                                    <h4 class="info-title">@(Model.t3)</h4>
+                                    <p class="description">
+                                        @(Model.te3)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="social text-center">
+
+                                <h2 class="card-title text-center"> Regístrate </h2>
+                            </div>
+                            @using (Html.BeginForm("guardar", "todo_pro", FormMethod.Post))
+                            {
+                                <form class="form" method=" " action=" ">
+                                    <div class="card-content">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">accessibility</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Nombre</label>
+                                                @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @id = "txt_nombre" })
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">email</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Email</label>
+                                                @Html.TextBoxFor(x => x.correo, new { @class = "form-control", @type = "email" })
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Contraseña</label>
+                                                @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password" })
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">event</i>
+                                            </span>
+
+
+                                            @Html.TextBoxFor(x => x.fecha, new { @class = "datepicker form-control", @type = "text", @value = "03/12/2016" })
+
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">stay_current_portrait</i>
+                                            </span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Telefono celular</label>
+                                                @Html.TextBoxFor(x => x.telefono, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+                                            </div>
+                                        </div>
+
+                                        <!-- If you want to add a checkbox to this form, uncomment this code -->
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" checked>
+                                                Acepto los <a href="#something">términos y condiciones </a>.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="footer text-center">
+                                        <button class="btn btn-simple btn-primary btn-lg"> Registrar</button>
+                                    </div>
+                                </form>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  End Modal -->
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("as", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("ac", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("aco", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("ap", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("asos", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("h", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("o", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+    <script type="text/javascript">
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    prefix: '',
+                    suffix: '+'
+                };
+                var demo = new CountUp("v", 0, 4200, 0, 10, options);
+                demo.start();
+    </script>
+
+
+
+</body>
+<!--   Core JS Files   -->
+<script src="~/Content/assetsPRO/js/jquery.min.js"></script>
+<script src="~/Content/assetsPRO/js/bootstrap.min.js"></script>
+<script src="~/Content/assetsPRO/js/material.min.js"></script>
+
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+<script src="~/Content/assetsPRO/js/moment.min.js"></script>
+
+<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="~/Content/assetsPRO/js/nouislider.min.js"></script>
+
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="~/Content/assetsPRO/js/bootstrap-datetimepicker.js"></script>
+<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="~/Content/assetsPRO/js/bootstrap-selectpicker.js"></script>
+
+
+<!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
+<script src="~/Content/assetsPRO/js/bootstrap-tagsinput.js"></script>
+
+<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="~/Content/assetsPRO/js/jasny-bootstrap.min.js"></script>
+
+<!-- Plugin For Google Maps -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFPQibxeDaLIUHsC6_KqDdFaUdhrbhZ3M"></script>
+
+<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+
+
+<script src="~/Content/assetsPRO/js/material-kit.js"></script>
+
+<!-- Fixed Sidebar Nav - JS For Demo Purpose, Don't Include it in your project -->
+<script src="~/Content/assetsPRO/js/modernizr.js"></script>
+<script src="~/Content/assetsPRO/js/vertical-nav.js"></script>
+
+<script type="text/javascript">
+
+		$(document).ready(function(){
+			var slider = document.getElementById('sliderRegular');
+
+	        noUiSlider.create(slider, {
+	            start: 40,
+	            connect: [true,false],
+	            range: {
+	                min: 0,
+	                max: 100
+	            }
+	        });
+
+	        var slider2 = document.getElementById('sliderDouble');
+
+	        noUiSlider.create(slider2, {
+	            start: [ 20, 60 ],
+	            connect: true,
+	            range: {
+	                min:  0,
+	                max:  100
+	            }
+	        });
+
+
+
+			materialKit.initFormExtendedDatetimepickers();
+
+		});
+</script>
+
+
+
+</html>

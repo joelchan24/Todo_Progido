@@ -15,7 +15,7 @@ namespace Proyecto.Controllers
         usuarioDAO usuario_dao = new usuarioDAO();
         BackEndDAO Obj_back = new BackEndDAO();
 
-        public ActionResult IndexPro()
+        public ActionResult IndexFinal()
         {
             return View(Obj_back.ObtenerDatosIndex());
         }
