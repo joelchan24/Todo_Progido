@@ -15,7 +15,7 @@ namespace Proyecto.Controllers
         {
             return View(Obj.ObtenerDatosIndex());
         }
-        public ActionResult usuario()
+        public ActionResult inicio()
         {
             if (Session["usuario"] != null)
             {

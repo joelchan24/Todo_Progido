@@ -517,7 +517,7 @@
     <Content Include="Views\todo_pro\IndexFinal.cshtml" />
     <Content Include="Views\usuariofron\miscontactos.cshtml" />
     <Content Include="Views\usuariofron\puntos.cshtml" />
-    <Content Include="Views\VBackend\usuario.cshtml" />
+    <Content Include="Views\VBackend\inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
