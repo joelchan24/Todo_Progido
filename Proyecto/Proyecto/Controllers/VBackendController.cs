@@ -11,6 +11,8 @@ namespace Proyecto.Controllers
     {
         // GET: VBackend
         BackEndDAO Obj = new BackEndDAO();
+        loginDAO ObjLogin = new loginDAO();
+        usuarioBO ObjusuarioBO = new usuarioBO();
         public ActionResult Vprueba()
         {
             return View(Obj.ObtenerDatosIndex());
@@ -25,5 +27,34 @@ namespace Proyecto.Controllers
 
             return View();
         }
+
+        public ActionResult Vusuario()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+
+            return View();
+        }
+
+        public ActionResult prueba()
+        {
+            return Redirect("~/VBackend/Vprueba");
+        }
+
+        public ActionResult VistaUsuario()
+        {
+
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View(ObjLogin.obtenerperfil());
+            }
+            return View(ObjLogin.obtenerperfil());
+        }
+
+       
     }
 }

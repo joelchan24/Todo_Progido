@@ -9,6 +9,8 @@ namespace Proyecto.BO
     {
         public int id { get; set; }
         public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string sexo { get; set; }
         public string contraseña { get; set; }
         public DateTime  fecha  { get; set; }
         public int id_tipo { get; set; }

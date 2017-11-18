@@ -466,6 +466,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -518,6 +519,8 @@
     <Content Include="Views\usuariofron\miscontactos.cshtml" />
     <Content Include="Views\usuariofron\puntos.cshtml" />
     <Content Include="Views\VBackend\inicio.cshtml" />
+    <Content Include="Views\VBackend\Vusuario.cshtml" />
+    <Content Include="Views\VBackend\VistaUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
