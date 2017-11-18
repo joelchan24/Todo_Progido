@@ -18,7 +18,7 @@ namespace Proyecto.Controllers
 
         public ActionResult IndexFinal()
         {
-            return View(Obj_back.ObtenerDatosIndex());
+            return View( Obj_back.ObtenerDatosIndex());
         }
 
 
@@ -76,7 +76,7 @@ namespace Proyecto.Controllers
                 }
                 else if (i == 2)
                 {
-                    return Redirect("~/VBackend/usuario");
+                    return Redirect("~/VBackend/inicio");
                 }
                             
 

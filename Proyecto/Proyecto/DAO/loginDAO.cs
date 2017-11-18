@@ -9,6 +9,7 @@ namespace Proyecto.DAO
 {
     public class loginDAO
     {
+        public string idtemp;
         public bool verificar(object agregar)
         {
             usuarioBO usuario = (usuarioBO)agregar;
@@ -49,9 +50,34 @@ namespace Proyecto.DAO
             usuario.id = Convert.ToInt32(row["id"]);
             usuario.correo = row["correo"].ToString();
             usuario.nombre = row["nombre"].ToString();
+            idtemp = i;
+          
             
 
             return usuario;
         }
+
+
+
+        public usuarioBO obtenerperfil()
+        {
+            ConexionDAO conexion = new ConexionDAO();
+            var usuario = new usuarioBO();
+            string strbuscar = string.Format("select * from Usuario where correo='" + idtemp + "';");
+            DataTable dats = conexion.ejercutarsentrenciasdatable(strbuscar);
+            DataRow row = dats.Rows[0];
+
+            usuario.correo = row["Correo"].ToString();
+            usuario.nombre = row["Nombre"].ToString();
+            usuario.apellido = row["Apellido"].ToString();
+            usuario.sexo = row["sexo"].ToString();
+            usuario.correo = row["Correo"].ToString();
+            usuario.telefono = row["Telefono"].ToString();
+            usuario.fecha = Convert.ToDateTime(row["Fecha"].ToString());
+
+
+            return usuario;
+        }
+
     }
 }
