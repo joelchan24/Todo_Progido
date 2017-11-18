@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Proyecto.BO
+{
+    public class punto_peligrosoBO
+    { 
+        public int id { get; set; }
+        public int id_peligro_tipo { get; set; }
+        public string longitud { get; set; }
+        public string latitud { get; set; }
+
+
+        public string zona { get; set; }
+        public int id_usuario { get; set; }
+
+
+        public byte status { get; set; }
+        public DateTime fecha { get; set; }
+        public byte[] imagen { get; set; }
+
+
+        public string nom_imagen { get; set; }
+        public string comentario { get; set; }
+
+
+
+
+
+
+
+
+    }
+}

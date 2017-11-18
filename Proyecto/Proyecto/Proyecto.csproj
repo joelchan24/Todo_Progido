@@ -179,6 +179,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BO\punto_peligrosoBO.cs" />
+    <Compile Include="BO\tipo_peligroBO.cs" />
     <Compile Include="BO\usuarioBO.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
     <Compile Include="DAO\loginDAO.cs" />
+    <Compile Include="DAO\punto_DAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +200,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\peligros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -397,6 +401,7 @@
     <Content Include="Imagenes\components.jpg" />
     <Content Include="Imagenes\content-test.png" />
     <Content Include="Imagenes\Creative-Tim-logo-5b8666f5.png" />
+    <Content Include="Imagenes\delitoa.jpg" />
     <Content Include="Imagenes\header.jpg" />
     <Content Include="Imagenes\logo UTM-01.png" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
@@ -466,11 +471,11 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\assets\js\locationpicker.jquery.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -519,8 +524,7 @@
     <Content Include="Views\usuariofron\miscontactos.cshtml" />
     <Content Include="Views\usuariofron\puntos.cshtml" />
     <Content Include="Views\VBackend\inicio.cshtml" />
-    <Content Include="Views\VBackend\Vusuario.cshtml" />
-    <Content Include="Views\VBackend\VistaUsuario.cshtml" />
+    <Content Include="Views\usuariofron\peligros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

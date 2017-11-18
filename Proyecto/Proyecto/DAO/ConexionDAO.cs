@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Web.Mvc;
 namespace Proyecto.DAO
 {
     public class ConexionDAO
@@ -106,6 +106,29 @@ namespace Proyecto.DAO
             this.cerrarConexion();
 
             return id;
+        }
+        public List<SelectListItem> EjecutarSetencialistEst1(String strSql)
+        {
+            var peligros = new List<SelectListItem>();
+            this.abrirConexion();
+            var query = new SqlCommand(strSql, this.establecerConexion());
+            using (var dr = query.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+
+                    var estados = new SelectListItem
+                    {
+                        Text = dr["Peligro"].ToString(),
+                        Value = dr["ID"].ToString()
+                    };
+
+
+                    peligros.Add(estados);
+                }
+            }
+            this.cerrarConexion();
+            return peligros;
         }
 
 
