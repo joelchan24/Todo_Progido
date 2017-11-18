@@ -46,7 +46,7 @@ namespace Proyecto.DAO
             string strbuscar = string.Format("select *  from usuario where	correo='"+i+"' and contraseña='"+o+"'");
             DataTable datos = conexion.ejercutarsentrenciasdatable(strbuscar);
             DataRow row = datos.Rows[0];
-         
+            usuario.id = Convert.ToInt32(row["id"]);
             usuario.correo = row["correo"].ToString();
             usuario.nombre = row["nombre"].ToString();
             

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Proyecto.BO;
 using Proyecto.Models;
 using Proyecto.DAO;
+using System.Data;
 
 namespace Proyecto.Controllers
 {
@@ -33,13 +34,17 @@ namespace Proyecto.Controllers
     
             return View();
         }
-        public ActionResult Guardar_puntos()
+        public ActionResult Guardar_puntos(punto_peligrosoBO puntos)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                
             }
+            var r = puntos.id > 0 ?
+                pun.editar(puntos) :
+                pun.Guardar(puntos, ViewBag.usuario.id);
+
 
             return View();
         }
@@ -48,6 +53,19 @@ namespace Proyecto.Controllers
             peligros viewModel = new peligros();
             viewModel.Peligro = pun.listartipo();
             return PartialView(viewModel);
+        }
+        public ActionResult mis_puntos()
+        {
+     
+            return View();
+        }
+        public ActionResult mandar()
+        {
+            
+        
+          
+        
+            return Content(pun.mandaedatos());
         }
     }
 }
