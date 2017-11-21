@@ -51,21 +51,31 @@ namespace Proyecto.Controllers
         public ActionResult peligros()
         {
             peligros viewModel = new peligros();
-            viewModel.Peligro = pun.listartipo();
+            ConexionDAO Conexion = new ConexionDAO();
+            viewModel.Peligrooooooo = pun.listartipo();
             return PartialView(viewModel);
         }
         public ActionResult mis_puntos()
         {
-     
+           
+            ViewBag.mapa = pun.mandaedatos(); 
+            ViewData["datos"] =pun.mandaedatos();
             return View();
         }
+
+        public ActionResult devolverpuntos()
+        {
+            return Json(pun.mandaedatos(), JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult mandar()
         {
-            
-        
-          
-        
-            return Content(pun.mandaedatos());
+           
+
+
+
+
+            return Redirect("~/usuariofron/mis_puntos");
         }
     }
 }

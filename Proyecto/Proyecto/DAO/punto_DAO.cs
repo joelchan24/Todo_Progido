@@ -86,22 +86,39 @@ namespace Proyecto.DAO
             var peligro = new List<SelectListItem>();
             String strBuscar = string.Format("SELECT [ID],[Peligro] FROM [Niveles-peligro]");
             peligro = marisa.EjecutarSetencialistEst1(strBuscar);
-            IEnumerable<SelectListItem> estados = peligro;
+            IEnumerable<SelectListItem> peligros = peligro;
 
-            return estados;
+            return peligros;
         }
+
+
+
+        //public List<Punto> mandaedatos()
+        //{
+        //    DataTable tabla = mostrar().Tables[0];
+        //    List<Punto> Lista = new List<Punto>();
+        //    foreach (DataRow dr in tabla.Rows)
+        //    {
+        //        Punto P = new Punto();
+        //        P.punton = "'Kinchil, 97360 Kinchil, Yuc., México'";
+        //        P.x= 20.9169054;
+        //        P.y = -89.94771109999999;
+        //        Lista.Add(P);
+        //    }
+        //    return Lista;
+        //}
 
         public string mandaedatos()
         {
-            DataTable tabla =mostrar().Tables[0];
+            DataTable tabla = mostrar().Tables[0];
             string datos = "[";
             foreach (DataRow dr in tabla.Rows)
             {
                 datos = datos + "[";
-                datos = datos + "'" + dr[0] + " " + dr[4] + "'" + "," + dr[2] + "," + dr[3];
-                datos = datos + "],";
+                datos = datos + "'" + dr[4] + "'" + "," + dr[3] + "," + dr[2];
+                datos = datos + "]";
             }
-            datos= datos + "]";
+            datos = datos + "]";
             return datos;
         }
 

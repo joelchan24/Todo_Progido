@@ -192,6 +192,7 @@
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
     <Compile Include="DAO\loginDAO.cs" />
+    <Compile Include="DAO\Punto.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">

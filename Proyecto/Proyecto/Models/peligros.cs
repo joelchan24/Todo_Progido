@@ -8,6 +8,6 @@ namespace Proyecto.Models
 {
     public class peligros
     {
-        public IEnumerable<SelectListItem> Peligro { get; set; }
+        public IEnumerable<SelectListItem> Peligrooooooo { get; set; }
     }
 }

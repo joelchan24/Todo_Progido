@@ -16,19 +16,11 @@ namespace Proyecto.DAO
         SqlConnection coneccion;
 
 
-        public ConexionDAO()
-        {
-            adaptador = new SqlDataAdapter();
-            comandosql = new SqlCommand();
-            coneccion = new SqlConnection();
-
-
-
-        }
+      
 
         public SqlConnection establecerConexion()
         {
-            string cs = "Data Source=KAREN\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
+            string cs = "Data Source=DESKTOP-TT12AGM\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
             coneccion = new SqlConnection(cs);
             return coneccion;
         }
@@ -110,8 +102,9 @@ namespace Proyecto.DAO
         public List<SelectListItem> EjecutarSetencialistEst1(String strSql)
         {
             var peligros = new List<SelectListItem>();
+            establecerConexion();
             this.abrirConexion();
-            var query = new SqlCommand(strSql, this.establecerConexion());
+            var query = new SqlCommand(strSql, this.coneccion);
             using (var dr = query.ExecuteReader())
             {
                 while (dr.Read())

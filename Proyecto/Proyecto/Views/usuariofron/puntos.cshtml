@@ -22,13 +22,13 @@
     <li class="active">
         <a href="#">
             <i class="pe-7s-graph"></i>
-            <p>@Html.ActionLink("Agregar puntos", "puntos", "usuariofron")</p>
+            <p href="~/usuariofron/puntos">Agregar puntos</p>
         </a>
     </li>
     <li>
         <a href="#">
             <i class="pe-7s-graph"></i>
-            <p>Perfil</p>
+            <p href="~/usuariofron/mis_puntos">Mis puntos</p>
         </a>
     </li>
 }
@@ -61,8 +61,8 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Crimen</label>
-                      <!-- <div id="sel_crimen"></div>-->
-                        @Html.TextBoxFor(x => x.id_peligro_tipo, new {  @class = "form-control" })
+                  <div id="sel_crimen"></div>
+                  
                      
                     </div>
                 </div>
@@ -118,38 +118,13 @@
     </div>
 }
 </div>
-
-    
-
-
-<script>
-    (function () {
-        $('#sel_crimen').load('/usuariofron/peligros');
-    }()    );
-        $('#ModalMapPreview').locationpicker({
-            radius: 0,
-            location: {
-                latitude: $('#longitud').val(),
-                longitude: $('#latitud').val()
-            },
-            inputBinding: {
-                latitudeInput: $('#latitud'),
-                longitudeInput: $('#longitud'),
-                locationNameInput: $('#zona')
-            },
-            enableAutocomplete: true
-
-
-        });
-
-
-
-
-
-    
-
+<script type="text/javascript">
+    (function(){
+        $("#sel_crimen").load('/usuariofron/peligros');
+    }());
 </script>
 <script>
+
     function mostrarImagen(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -173,7 +148,29 @@
         $('#fecha').val(id);
         $('#comentario').val(id_peligro);
         $('#imagen').val(distribuidor);
-       
+
 
     }
 </script>
+
+<script type="text/javascript">
+
+        $('#ModalMapPreview').locationpicker({
+            radius: 0,
+            location: {
+                latitude: $('#longitud').val(),
+                longitude: $('#latitud').val()
+            },
+            inputBinding: {
+                latitudeInput: $('#latitud'),
+                longitudeInput: $('#longitud'),
+                locationNameInput: $('#zona')
+            },
+            enableAutocomplete: true
+
+
+        });
+
+</script>
+    
+
