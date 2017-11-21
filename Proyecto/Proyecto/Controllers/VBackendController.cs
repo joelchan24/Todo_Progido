@@ -15,7 +15,7 @@ namespace Proyecto.Controllers
         usuarioBO ObjusuarioBO = new usuarioBO();
         public ActionResult Vprueba()
         {
-            return View(Obj.ObtenerDatosIndex());
+            return View();
         }
         public ActionResult inicio()
         {
