@@ -525,6 +525,7 @@
     <Content Include="Views\VBackend\inicio.cshtml" />
     <Content Include="Views\usuariofron\peligros.cshtml" />
     <Content Include="Views\usuariofron\mis_puntos.cshtml" />
+    <Content Include="Views\VBackend\PerfilAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
