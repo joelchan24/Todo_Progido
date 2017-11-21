@@ -3323,7 +3323,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-   z-index:2000;
+  
 }
 .datepicker > div {
   display: none;

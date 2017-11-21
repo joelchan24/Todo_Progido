@@ -22,22 +22,21 @@
     <li class="active">
         <a href="#">
             <i class="pe-7s-graph"></i>
-            <p href="~/usuariofron/puntos">Agregar puntos</p>
+            <p>Agregar puntos</p>
         </a>
     </li>
     <li>
         <a href="#">
             <i class="pe-7s-graph"></i>
-            <p href="~/usuariofron/mis_puntos">Mis puntos</p>
+            <p>Perfil</p>
         </a>
     </li>
 }
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
-
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
 <script src="~/Content/assets/js/locationpicker.jquery.js"></script>
 
 
@@ -53,7 +52,7 @@
 
 
 
-            @Html.HiddenFor(x=>x.id)
+
             @Html.HiddenFor(x => x.longitud)
             @Html.HiddenFor(x => x.latitud)
 
@@ -61,8 +60,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Crimen</label>
-                  <div id="sel_crimen"></div>
-                  
+                        <div id="sel_crimen"></div>
                      
                     </div>
                 </div>
@@ -112,49 +110,20 @@
 
                         <button type="submit" class="btn btn-info btn-fill pull-left">Guardar</button>
            
-         
+            <button type="submit" class="btn btn-success btn-fill pull-left">Editar</button>
             <div class="clearfix"></div>
         </form>
     </div>
 }
 </div>
-<script type="text/javascript">
-    (function(){
-        $("#sel_crimen").load('/usuariofron/peligros');
-    }());
-</script>
+
+    
+
+
 <script>
-
-    function mostrarImagen(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#img_destino').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#imagen").change(function () {
-        mostrarImagen(this);
-    });
-</script>
-<script>
-    function llenardatos(id, id_peligro, longitud, latitud, zona, fecha, imagen, imagen_nom, comentario) {
-        $('#id').val(id);
-        $('#longitud').val(id_peligro);
-        $('#latitud').val(distribuidor);
-        $('#id_peligro_tipo').val(precio);
-        $('#fecha').val(id);
-        $('#comentario').val(id_peligro);
-        $('#imagen').val(distribuidor);
-
-
-    }
-</script>
-
-<script type="text/javascript">
-
+    (function () {
+        $('#sel_crimen').load('/usuariofron/peligros');
+    }()    );
         $('#ModalMapPreview').locationpicker({
             radius: 0,
             location: {
@@ -171,6 +140,34 @@
 
         });
 
-</script>
+
+
+
+
     
 
+</script>
+<script>
+    function mostrarImagen(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_destino').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imagen").change(function () {
+        mostrarImagen(this);
+    });
+</script>
+<script>
+    function llenardatos(id, id_peligro, longitud, latitud, zona, id_usuario, status, fecha, imagen, imagen_nom, comentario) {
+        $('#id').val(id);
+        $('#pelicula').val(id_peligro);
+        $('#distribuidor').val(distribuidor);
+        $('#precio').val(precio);
+
+    }
+</script>
