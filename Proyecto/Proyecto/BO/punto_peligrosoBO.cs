@@ -24,6 +24,7 @@ namespace Proyecto.BO
 
         public string nom_imagen { get; set; }
         public string comentario { get; set; }
+        public string tipo_peligro { get; set; }
 
 
 

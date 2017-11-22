@@ -20,7 +20,7 @@ namespace Proyecto.DAO
             usuario.status = 0;
             usuario.nom_imagen = "jj";
          
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[imagen_nom],[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@comentario )");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@comentario )");
            
             cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
@@ -30,7 +30,7 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = usuario.fecha.ToString("yyyy-MM-dd");
             // cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = usuario.imagen;,@imagen,@imagennom
-            //cmd.Parameters.Add("@imagennom", SqlDbType.VarChar).Value = usuario.nom_imagen;
+            //cmd.Parameters.Add("@imagennom", SqlDbType.VarChar).Value = usuario.nom_imagen;,[imagen],[imagen_nom],
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
             cmd.CommandType = CommandType.Text;
           
@@ -122,6 +122,11 @@ namespace Proyecto.DAO
             return datos;
         }
 
-
+        public List<punto_peligrosoBO> listar()
+        {
+            var alumnos = new List<punto_peligrosoBO>();
+            String strBuscar = string.Format("SELECT id,pelicula,distribuidor,precio FROM pelicula");
+            return alumnos = marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
     }
 }

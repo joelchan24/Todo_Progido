@@ -4,27 +4,61 @@
     ViewBag.Title = "puntos";
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
 }
-
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
+<script src="~/Content/assets/js/locationpicker.jquery.js"></script>
 
 @section SideBar{
-    <li >
+    <li>
         <a href="~/usuariofron/miscontactos">
             <i class="pe-7s-graph"></i>
             <p>Mis Contactos</p>
         </a>
     </li>
-    <li class="active">
-        <a href="~/usuariofron/puntos">
-            <i class="pe-7s-graph"></i>
-            <p>Agregar puntos</p>
-        </a>
-    </li>
+
     <li>
-        <a href="~/usuariofron/mis_puntos">
-            <i class="pe-7s-graph"></i>
-            <p>Mis puntos</p>
+        <a data-toggle="collapse" href="#formsExamples">
+            <i class="pe-7s-note2"></i>
+            <p>
+                Puntos de peligro
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse in" id="formsExamples">
+            <ul class="nav">
+                <li class="active">
+                    <a href="~/usuariofron/puntos">
+                        <i class="pe-7s-graph"></i>
+                        <p>Agregar puntos</p>
+                    </a>
+
+
+                </li>
+                <li >
+                    <a href="~/usuariofron/mis_puntos">
+                        <i class="pe-7s-graph"></i>
+                        <p>Mis puntos</p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
     </li>
+<li>
+    <a data-toggle="collapse" href="#formsExamples">
+        <i class="pe-7s-note2"></i>
+        <p>
+            Forms
+            <b class="caret"></b>
+        </p>
+    </a>
+ 
+</li>
+
     <li>
         <a href="~/usuariofron/miscontactos">
             <i class="pe-7s-graph"></i>
@@ -33,12 +67,7 @@
     </li>
 
 }
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
-<script src="~/Content/assets/js/locationpicker.jquery.js"></script>
+
 
 
 
