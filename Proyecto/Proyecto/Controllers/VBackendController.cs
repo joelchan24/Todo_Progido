@@ -17,6 +17,11 @@ namespace Proyecto.Controllers
         {
             return View();
         }
+
+        public ActionResult PerfilAdmin()
+        {
+            return View();
+        } 
         public ActionResult inicio()
         {
             if (Session["usuario"] != null)
