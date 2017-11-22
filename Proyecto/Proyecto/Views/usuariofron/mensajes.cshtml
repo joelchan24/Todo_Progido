@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "mensajes";
+    Layout = "~/Views/Shared/frontend_usuario.cshtml";
+}
+
+<h2>mensajes</h2>
+
+@section SideBar{
+    <li>
+        <a href="~/usuariofron/miscontactos">
+            <i class="pe-7s-graph"></i>
+            <p>Mis Contactos</p>
+        </a>
+    </li>
+
+    <li>
+        <a data-toggle="collapse" href="#formsExamples">
+            <i class="pe-7s-note2"></i>
+            <p>
+                Puntos de peligro
+                <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse in" id="formsExamples">
+            <ul class="nav">
+                <li class="active">
+                    <a href="~/usuariofron/puntos">
+                        <i class="pe-7s-graph"></i>
+                        <p>Agregar puntos</p>
+                    </a>
+
+
+                </li>
+                <li>
+                    <a href="~/usuariofron/mis_puntos">
+                        <i class="pe-7s-graph"></i>
+                        <p>Mis puntos</p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a data-toggle="collapse" href="#formsExamples">
+            <i class="pe-7s-note2"></i>
+            <p>
+                Forms
+                <b class="caret"></b>
+            </p>
+        </a>
+
+    </li>
+
+    <li>
+        <a href="~/usuariofron/miscontactos">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+
+}
+<div class="col-md-12">
+
+    <div class="card">
+        <div class="header">Stacked Form</div>
+        <div class="content">
+            <form method="#" action="#">
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" placeholder="Enter email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <input id="checkbox30" type="checkbox">
+                        <label for="checkbox30">
+                            Subscribe to newsletter
+                        </label>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-fill btn-info">Submit</button>
+            </form>
+        </div>
+    </div> <!-- end card -->
+
+</div>

@@ -81,6 +81,11 @@ namespace Proyecto.Controllers
 
             return PartialView(pun.listar_eventos_con_peligro());
         }
+        public ActionResult mensajes()
+        {
+
+            return View();
+        }
 
 
 
