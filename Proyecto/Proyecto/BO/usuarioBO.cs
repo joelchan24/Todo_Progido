@@ -26,7 +26,7 @@ namespace Proyecto.BO
 
 
         //Seccion de contactos
-        public string idcontacto { get; set; }
+        public int idcontacto { get; set; }
         public string nombrecontacto1 { get; set; }
         public string mensajecontacto1 { get; set; }
         public string telefonocontacto1 { get; set; }

@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
 }
 
+
 @if (ViewBag.usuario != null)
-            {
+{
     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
         <span>
             @ViewBag.usuario.id
@@ -99,6 +100,8 @@
 
 
                                 </div>
+                                <td colspan="2"><button type="submit" class="btn-success">Guardar</button>  </td>
+
                             </div>
                         </div>
 
