@@ -25,16 +25,33 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult miscontactos()
+        public ActionResult miscontactos(/*int id=0*/)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                 return View(Obj.ObtenerContactos());
             }
+            //return View(id == 0 ? new usuarioBO() : Obj.Obtener(id));
 
             return View(Obj.ObtenerContactos());
         }
+        // esto
+        //public ActionResult Editar(int id = 0)
+        //{
+        //    return View(id == 0 ? new usuarioBO() : Obj.Obtener(id));
+        //}
+
+        //public ActionResult Guardar2(usuarioBO obj)
+        //{
+        //    var r = obj.idcontacto > 0 ?
+        //      Obj.ModificarContactos(obj) :
+        //    Obj.ModificarContactos(obj);
+
+
+        //    return Redirect("~/usuariofron/miscontactos");
+        //}
+        ////aqui
         public ActionResult mis_puntos()
         {
             if (Session["usuario"] != null)
@@ -68,9 +85,24 @@ namespace Proyecto.Controllers
         }
         public ActionResult puntos_generados()
         {
-            return View(pun.buscarAlumno());
+            
+            return View(pun.listar_eventos_con_peligro());
         }
+        public ActionResult prueva()
+        {
+           
+            return View("parcial");
+        }
+        public ActionResult parcial()
+        {
 
+            return PartialView(pun.listar_eventos_con_peligro());
+        }
+        public ActionResult mensajes()
+        {
+
+            return View();
+        }
 
 
 

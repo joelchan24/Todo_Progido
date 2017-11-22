@@ -529,7 +529,9 @@
     <Content Include="Views\usuariofron\mis_puntos.cshtml" />
     <Content Include="Views\VBackend\PerfilAdmin.cshtml" />
     <Content Include="Views\usuariofron\puntos_generados.cshtml" />
-    <Content Include="Views\VBackend\EditarPerfilAdmin.cshtml" />
+    <Content Include="Views\usuariofron\prueva.cshtml" />
+    <Content Include="Views\usuariofron\parcial.cshtml" />
+    <Content Include="Views\usuariofron\mensajes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

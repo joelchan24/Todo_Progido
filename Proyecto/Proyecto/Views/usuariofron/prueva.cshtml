@@ -1,8 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "puntos_generados";
+    ViewBag.Title = "prueva";
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
 }
+
+<h2>prueva</h2>
 
 @section SideBar{
     <li>
@@ -66,38 +68,3 @@
         $('#vista').load('/usuariofron/parcial');
     }());
 </script>
-
-
-@*<table style="width:500px">
-    <thead>
-        <tr>
-            <th style="text-align:left;">ID</th>
-            <th style="width:150px;text-align:left;">Zona</th>
-            <th style="width:150px;text-align:left;">comentario</th>
-            <th style="width:150px;text-align:left;">fecha</th>
-
-            <th style="width:150px;text-align:left;">tipo de peligro</th>
-            <th style="width:200px;">Acciones</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (DataRow u in Model.Rows)
-        {
-            <tr>
-                <td>@u["p.id"]</td>
-
-                <td style="width:150px;text-align:left;">@u["zona"]</td>
-                <td style="width:150px;text-align:left;">@u["comentario"]</td>
-                <td style="width:150px;text-align:left;">@u["fecha"]</td>
-                <td style="width:150px;text-align:left;">@u["Pelig"]</td>
-
-
-                <td style="width:200px;">
-                    <a>eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>*@
-

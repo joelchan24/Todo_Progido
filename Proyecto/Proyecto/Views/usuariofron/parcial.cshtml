@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "parcial";
+}
+
+@model List<Proyecto.BO.punto_peligrosoBO>
+<table style="width:500px">
+    <thead>
+        <tr>
+            <th style="text-align:left;">ID</th>
+            <th style="width:150px;text-align:left;">Zona</th>
+            <th style="width:150px;text-align:left;">comentario</th>
+            <th style="width:150px;text-align:left;">fecha</th>
+
+            <th style="width:150px;text-align:left;">tipo de peligro</th>
+            <th style="width:200px;">Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.id</td>
+
+                <td style="width:150px;text-align:left;">@u.zona</td>
+                <td style="width:150px;text-align:left;">@u.comentario</td>
+                <td style="width:150px;text-align:left;">@u.fecha</td>
+                <td style="width:150px;text-align:left;">@u.tipo_peligro</td>
+
+
+                <td style="width:200px;">
+                    <a>eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
