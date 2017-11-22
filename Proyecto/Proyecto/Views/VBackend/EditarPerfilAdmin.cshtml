@@ -2,20 +2,47 @@
 @model usuarioBO
 
 @{
-    ViewBag.Title = "VistaUsuario";
+    ViewBag.Title = "EditarPerfilAdmin";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
 
+@section Sideusu{
+    <div class="collapse" id="collapseExample">
+        <ul class="nav">
+            <li >
+                <a href="@Url.Action("PerfilAdmin", "VBackend")">
+                    <span class="sidebar-mini">MP</span>
+                    <span class="sidebar-normal">Perfil</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="#">
+                    <span class="sidebar-mini">EP</span>
+                    <span class="sidebar-normal">Editar Perfil</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#pablo">
+                    <span class="sidebar-mini">S</span>
+                    <span class="sidebar-normal">Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+
 @section SideBar{
-    <li class="active">
+    <li>
         <a>
             <i class="pe-7s-graph"></i>
             <p>Inicio</p>
         </a>
     </li>
     <li>
-
-        <a id="enlaceajax" href="~/Views/VBackend/Vprueba">
+        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
             <i class="pe-7s-graph"></i>
             <p>Gestion puntos</p>
         </a>
@@ -51,6 +78,7 @@
         </a>
     </li>
 }
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -65,14 +93,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @readonly = "readonly" })
-                                        
+                                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control"})
+
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Apellidos</label>
-                                        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control"})
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +108,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Correo Electronico</label>
-                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled" })
                                     </div>
                                 </div>
                             </div>
@@ -88,20 +116,20 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Numero Telefonico</label>
-                                        @Html.TextBoxFor(x => x.telefono, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.telefono, new { @class = "form-control disabled"})
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fecha de nacimiento</label>
-                                        @Html.TextBoxFor(x => x.fecha, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.fecha, new { @class = "form-control disabled" })
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Sexo</label>
-                                        @Html.TextBoxFor(x => x.sexo, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.sexo, new { @class = "form-control disabled" })
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +143,7 @@
                                 <div class="content">
                                     <div class="author">
                                         <a href="#">
-                                            <img class="avatar border-gray" src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
+                                            <img class="avatar border-gray" src="@Url.Action("convertirImagen", "VBackend")" />
 
                                             <h5 class="title">
                                                 <br />
@@ -132,19 +160,14 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
     </div>
-  
+
 
 </div>
-
-
-
-
-
 
 
 

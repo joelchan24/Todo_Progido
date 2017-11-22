@@ -63,7 +63,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conexion = new ConexionDAO();
             var usuario = new usuarioBO();
-            string strbuscar = string.Format("select * from Usuario where correo='" + idtemp + "';");
+            string strbuscar = string.Format("select * from Usuario where ID='1007';");
             DataTable dats = conexion.ejercutarsentrenciasdatable(strbuscar);
             DataRow row = dats.Rows[0];
           
@@ -73,11 +73,27 @@ namespace Proyecto.DAO
             usuario.sexo = row["sexo"].ToString();
             usuario.correo = row["Correo"].ToString();
             usuario.telefono = row["Telefono"].ToString();
-            usuario.fecha = Convert.ToDateTime(row["Fecha"].ToString());
+            usuario.fecha = ((DateTime)row["fecha"]);
+            usuario.foto = (byte[])row["foto"];
 
 
             return usuario;
         }
 
+
+        public usuarioBO obtnerfoto()
+        {
+            ConexionDAO conexion = new ConexionDAO();
+            var usuario = new usuarioBO();
+            string strbuscar = string.Format("select * from Usuario where ID='1007';");
+            DataTable dats = conexion.ejercutarsentrenciasdatable(strbuscar);
+            DataRow row = dats.Rows[0];
+
+      
+            usuario.foto = (byte[])row["foto"];
+
+
+            return usuario;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto.DAO;
 using Proyecto.BO;
+using System.IO;
 namespace Proyecto.Controllers
 {
     public class VBackendController : Controller
@@ -17,11 +18,22 @@ namespace Proyecto.Controllers
         {
             return View();
         }
+        public ActionResult EditarPerfilAdmin()
+        {
+            return View();
+        }
+
 
         public ActionResult PerfilAdmin()
         {
-            return View();
-        } 
+            return View(ObjLogin.obtenerperfil());
+        }
+
+        public ActionResult convertirImagen()
+        {
+            var ImagenCliente = ObjLogin.obtnerfoto();
+            return File(ImagenCliente.foto, "image/jpeg");
+        }
         public ActionResult inicio()
         {
             if (Session["usuario"] != null)
