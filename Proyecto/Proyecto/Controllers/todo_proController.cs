@@ -18,7 +18,8 @@ namespace Proyecto.Controllers
 
         public ActionResult IndexFinal()
         {
-            return View( );
+            //return View( Obj_back.ObtenerDatosIndex());
+            return View();
         }
 
 

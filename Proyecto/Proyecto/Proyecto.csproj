@@ -179,6 +179,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BO\ContactoBO.cs" />
     <Compile Include="BO\punto_peligrosoBO.cs" />
     <Compile Include="BO\tipo_peligroBO.cs" />
     <Compile Include="BO\usuarioBO.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="DAO\BackEndDAO.cs" />
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
+    <Compile Include="DAO\ContactosDAO.cs" />
     <Compile Include="DAO\loginDAO.cs" />
     <Compile Include="DAO\Punto.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
