@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto.BO;
 using Proyecto.DAO;
+using System.IO;
 
 
 namespace Proyecto.Controllers
@@ -18,7 +19,12 @@ namespace Proyecto.Controllers
 
         public ActionResult IndexFinal()
         {
-            return View( );
+            return View();
+        }
+
+        public ActionResult IndexPro()
+        {
+            return View();
         }
 
 
@@ -32,16 +38,30 @@ namespace Proyecto.Controllers
             }
             return View();
         }
-        public ActionResult guardar(usuarioBO usuario)
+
+
+
+        
+        public ActionResult guardar(usuarioBO usua)
         {
-            usuario_dao.guardar(usuario);
-            return Redirect("~/todo_pro/IndexPro");
+            
+           
+            
+                usuario_dao.guardar(usua);
+                return Redirect("~/todo_pro/IndexFinal");
+            
+
+            
+           
         }
+
+
+
+
+
+
         public ActionResult cerrar()
         {
-
-           
-
             Session.Remove("usuario");
             Session.Abandon();
             return Redirect("~/todo_pro/IndexFinal");

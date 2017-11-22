@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
     <!-- CSS Files -->
-    <link href="~/Content/assets_kit_pro/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/assets_kit_pro/css/material-kit.css" rel="stylesheet" />
+    <link href="~/Content/assetsPRO/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/assetsPRO/css/material-kit.css" rel="stylesheet" />
 </head>
 
 <body class="signup-page">
@@ -61,160 +61,189 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-
-                    <div class="card card-signup">
-                       
-                        <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
-                                <div class="info info-horizontal">
-                                    <div class="icon icon-rose">
-                                        <i class="material-icons">timeline</i>
-                                    </div>
-                                    <div class="description">
-                                        <h4 class="info-title"></h4>
-                                        <p class="description">
-                                            
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="info info-horizontal">
-                                    <div class="icon icon-primary">
-                                        <i class="material-icons">code</i>
-                                    </div>
-                                    <div class="description">
-                                        <h4 class="info-title"></h4>
-                                        <p class="description">
-                                           
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="info info-horizontal">
-                                    <div class="icon icon-info">
-                                        <i class="material-icons">group</i>
-                                    </div>
-                                    <div class="description">
-                                        <h4 class="info-title"></h4>
-                                        <p class="description">
-                                            
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="social text-center">
-                                    
-                                    <h2 class="card-title text-center"> Regístrate </h2>
-                                </div>
 @using (Html.BeginForm("guardar", "todo_pro", FormMethod.Post))
 {
-                    <form class="form" method=" " action=" ">
-                        <div class="card-content">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="material-icons">accessibility</i>
-                                </span>
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Nombre</label>
-                                    @Html.TextBoxFor(x => x.nombre , new { @class = "form-control", @id = "txt_nombre" })
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="material-icons">email</i>
-                                </span>
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Email</label>
-                                    @Html.TextBoxFor(x => x.correo, new { @class = "form-control", @type = "email" })
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="material-icons">lock</i>
-                                </span>
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Contraseña</label>
-                                    @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password" })
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="material-icons">event</i>
-                                </span>
-                              
 
-                                    @Html.TextBoxFor(x => x.fecha, new { @class = "datepicker form-control", @type = "text", @value = "03/12/2016"})
-                               
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="material-icons">stay_current_portrait</i>
-                                </span>
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Telefono celular</label>
-                                    @Html.TextBoxFor(x => x.telefono, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+                        <div class="card card-signup">
+                            <h2 class="card-title text-center">Register</h2>
+                            <div class="row">
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-rose">
+                                            <i class="material-icons">timeline</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Marketing</h4>
+                                            <p class="description">
+                                                We've created the marketing campaign of the website. It was a very interesting collaboration.
+                                            </p>
+                                        </div>
+                                    </div>
+                                  
+                                    <form class="form" method="" action="">
+                                        <div class="card-content">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">accessibility</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nombre</label>
+                                                    @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @id = "txt_nombre" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">accessibility</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Apellidos</label>
+                                                    @Html.TextBoxFor(x => x.apellido, new { @class = "form-control", @id = "txt_apellidos" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">email</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Email</label>
+                                                    @Html.TextBoxFor(x => x.correo, new { @class = "form-control", @type = "email" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Contraseña</label>
+                                                    @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-5">
+
+
+                                    <form class="form" method="" action="">
+                                        <div class="card-content">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">stay_current_portrait</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Telefono celular</label>
+                                                    @Html.TextBoxFor(x => x.telefono, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">stay_current_portrait</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Fecha de nacimiento</label>
+                                                    @Html.TextBoxFor(x => x.fecha, new { @class = "datepicker form-control", @type = "text", @value = "03/12/2016" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">stay_current_portrait</i>
+                                                </span>
+                                                <div class="form-group label-floating">
+
+                                                    @Html.DropDownListFor(model => model.sexo, new List<SelectListItem> { new SelectListItem { Text = "Selecciona", Value = "1", Disabled = true }, new SelectListItem { Text = "Femenino", Value = "Femenino" }, new SelectListItem { Text = "Masculino", Value = "Masculino" } }, new { @class = "selectpicker", data_style = "select-with-transition", data_size = "7", @title = "Sexo" })
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle img-raised">
+                                                    <img src="../Imagenes/índice.jpg" />
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised"></div>
+                                                <div>
+                                                    <span class="btn btn-raised btn-round btn-default btn-file">
+                                                        <span class="fileinput-new">Agregar foto</span>
+                                                        <span class="fileinput-exists">Cambiar</span>
+                                                        @Html.TextBoxFor(model => model.foto, htmlAttributes: new { @type = "file", @name = "..." })
+
+                                                    </span>
+                                                    <br />
+                                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes" checked>
+                                            I agree to the <a href="#something">terms and conditions</a>.
+                                        </label>
+                                    </div>
 
-                            <!-- If you want to add a checkbox to this form, uncomment this code -->
 
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="optionsCheckboxes" checked>
-                                    Acepto los <a href="#something">términos y condiciones </a>.
-                                </label>
+
+                                    <div class="footer text-center">
+                                        <button class="btn btn-simple btn-primary btn-lg"> Registrar</button>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4"></div>
                             </div>
                         </div>
-                        <div class="footer text-center">
-                            <button class="btn btn-simple btn-primary btn-lg"> Registrar</button>   
-                        </div>
-                    </form>
 
 }
-                             
-                            </div>
-                        </div>
+                  
+                    
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <nav class="pull-left">
+                        <ul>
+                            <li>
+                                <a href="http://www.creative-tim.com">
+                                    Creative Tim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://presentation.creative-tim.com">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://blog.creative-tim.com">
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.creative-tim.com/license">
+                                    Licenses
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright pull-right">
+                        &copy;
+                        <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
                     </div>
-
                 </div>
-            </div>
+            </footer>
         </div>
-
-        <footer class="footer">
-            <div class="container">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://presentation.creative-tim.com">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
-                                Blog
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.creative-tim.com/license">
-                                Licenses
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright pull-right">
-                    &copy;
-                    <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
-                </div>
-            </div>
-        </footer>
-
-    </div>
     <!-- Sart Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -275,25 +304,31 @@
 
 </script>
 <!--   Core JS Files   -->
-<script src="~/Content/assets_kit_pro/js/jquery.min.js"></script>
-<script src="~/Content/assets_kit_pro/js/bootstrap.min.js"></script>
-<script src="~/Content/assets_kit_pro/js/material.min.js"></script>
+
+<script src="~/Content/assetsPRO/js/jquery.min.js"></script>
+<script src="~/Content/assetsPRO/js/bootstrap.min.js"></script>
+<script src="~/Content/assetsPRO/js/material.min.js"></script>
 
 <!--    Plugin for Date Time Picker and Full Calendar Plugin   -->
-<script src="~/Content/assets_kit_pro/js/moment.min.js"></script>
+<script src="~/Content/assetsPRO/js/moment.min.js"></script>
 <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/   -->
-<script src="~/Content/assets_kit_pro/js/nouislider.min.js"></script>
+<script src="~/Content/assetsPRO/js/nouislider.min.js"></script>
 <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker   -->
-<script src="~/Content/assets/js/bootstrap-datepicker.js"></script>
+
+<script src="~/Content/assetsPRO/js/bootstrap-datetimepicker.js"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select   -->
-<script src="~/Content/assets_kit_pro/js/bootstrap-selectpicker.js"></script>
+
+<script src="~/Content/assetsPRO/js/bootstrap-selectpicker.js"></script>
 <!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/   -->
-<script src="~/Content/assets_kit_pro/js/bootstrap-tagsinput.js"></script>
+
+<script src="~/Content/assetsPRO/js/bootstrap-tagsinput.js"></script>
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput   -->
-<script src="~/Content/assets_kit_pro/js/jasny-bootstrap.min.js"></script>
+
+<script src="~/Content/assetsPRO/js/jasny-bootstrap.min.js"></script>
 <!--    Plugin For Google Maps   -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFPQibxeDaLIUHsC6_KqDdFaUdhrbhZ3M"></script>
 
 <!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
-<script src="~/Content/assets_kit_pro/js/material-kit.js"></script>
+
+<script src="~/Content/assetsPRO/js/material-kit.js"></script>
 </html>
