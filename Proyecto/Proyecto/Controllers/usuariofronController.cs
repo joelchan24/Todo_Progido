@@ -13,7 +13,8 @@ namespace Proyecto.Controllers
     {
 
         punto_DAO pun = new punto_DAO();
-        
+        ContactosDAO Obj = new ContactosDAO();
+
         public ActionResult puntos()
         {
             if (Session["usuario"] != null)
@@ -23,14 +24,16 @@ namespace Proyecto.Controllers
             }
             return View();
         }
+
         public ActionResult miscontactos()
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                return View(Obj.ObtenerContactos());
             }
-            return View();
+
+            return View(Obj.ObtenerContactos());
         }
         public ActionResult mis_puntos()
         {
@@ -66,5 +69,10 @@ namespace Proyecto.Controllers
             viewModel.Peligrooooooo = pun.listartipo();
             return PartialView(viewModel);
         }
+       
+
+
+
+        //seccion de contactos
     }
 }
