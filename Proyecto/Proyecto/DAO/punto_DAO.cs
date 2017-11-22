@@ -16,21 +16,21 @@ namespace Proyecto.DAO
         ConexionDAO marisa = new ConexionDAO();
         public int Guardar(object agregar,int id_usuario)
         {
-            punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
+          punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
             usuario.status = 0;
             usuario.nom_imagen = "jj";
          
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[imagen_nom],[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@imagennom,@comentario )");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@comentario )");
            
-            cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro_tipo;
+            cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
             cmd.Parameters.Add("@zona", SqlDbType.VarChar).Value = usuario.zona;
             cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = id_usuario;
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = usuario.fecha.ToString("yyyy-MM-dd");
-             cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = usuario.imagen;
-            cmd.Parameters.Add("@imagennom", SqlDbType.VarChar).Value = usuario.nom_imagen;
+            // cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = usuario.imagen;,@imagen,@imagennom
+            //cmd.Parameters.Add("@imagennom", SqlDbType.VarChar).Value = usuario.nom_imagen;,[imagen],[imagen_nom],
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
             cmd.CommandType = CommandType.Text;
           
@@ -52,18 +52,18 @@ namespace Proyecto.DAO
         public int editar(object edi)
         {
             punto_peligrosoBO usuario = (punto_peligrosoBO)edi;
-            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Puntos-peligrosos]SET [id_peligro] = @id_peligro,[Longitud] =@longitud,[Latitud] = @latitud,[Zona] = @zona  ,[id_usuario] = @id_usuario  ,[Estatus] = @estatus ,[fecha] = @fecha   ,[imagen] = @imagen   ,[imagen_nom] = @imagennom ,[comentario] = @comentario WHERE id=@id");
+            SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Puntos-peligrosos]SET [id_peligro] = @id_peligro,[Longitud] =@longitud,[Latitud] = @latitud,[Zona] = @zona  ,[id_usuario] = @id_usuario  ,[Estatus] = @estatus ,[fecha] = @fecha       ,[comentario] = @comentario WHERE id=@id");
 
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = usuario.id;
-            cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro_tipo;
+            cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
             cmd.Parameters.Add("@zona", SqlDbType.VarChar).Value = usuario.zona;
             cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = usuario.id_usuario;
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = usuario.fecha.ToString("yyyy-MM-dd");
-            cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = usuario.imagen;
-            cmd.Parameters.Add("@imagennom", SqlDbType.VarChar).Value = usuario.nom_imagen;
+            //  cmd.Parameters.Add("@imagen", SqlDbType.Image).Value = usuario.imagen;[imagen] = @imagen
+            //cmd.Parameters.Add("@imagennom", SqlDbType.VarChar).Value = usuario.nom_imagen;[imagen_nom] = @imagennom
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
@@ -122,6 +122,11 @@ namespace Proyecto.DAO
             return datos;
         }
 
-
+        public List<punto_peligrosoBO> listar()
+        {
+            var alumnos = new List<punto_peligrosoBO>();
+            String strBuscar = string.Format("SELECT id,pelicula,distribuidor,precio FROM pelicula");
+            return alumnos = marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
     }
 }

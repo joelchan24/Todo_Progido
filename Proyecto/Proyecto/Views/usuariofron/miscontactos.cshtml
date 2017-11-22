@@ -1,33 +1,398 @@
-﻿
+﻿@using Proyecto.BO;
+@model usuarioBO
 @{
     ViewBag.Title = "miscontactos";
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
 }
 
-<h2>miscontactos</h2>
+@if (ViewBag.usuario != null)
+            {
+    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+        <span>
+            @ViewBag.usuario.id
+            <b class="caret"></b>
+        </span>
+    </a>
+}
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            @*<div class="col-md-8 col-md-offset-2">*@
+            <div class="col-md-6">
+                <div class="card card-wizard" id="wizardCard">
+                    <form id="wizardForm" method="" action="">
+
+                        <div class="header text-center">
+                            <h3 class="title">Mis contactos</h3>
+                        </div>
+
+                        <div class="content">
+                            <ul class="nav">
+                                <li><a href="#tab1" data-toggle="tab">Contacto 1</a></li>
+                                <li><a href="#tab2" data-toggle="tab">Contacto 2</a></li>
+                                <li><a href="#tab3" data-toggle="tab">Contacto 3</a></li>
+                                <li><a href="#tab4" data-toggle="tab">Contacto 4</a></li>
+                                <li><a href="#tab5" data-toggle="tab">Contacto 5</a></li>
+                                <li><a href="#tab6" data-toggle="tab">Contacto 6</a></li>
+                            </ul>
+
+
+                        </div>
+
+                        <div class="footer">
+                         
+
+                            @*botones*@
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="tab-content">
+                    <div class="tab-pane" id="tab1">
+                        <h5 class="text-center">Contacto 1</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.nombrecontacto1, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                            
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Mensaje<star>*</star></label>
+                                    @Html.TextAreaFor(x => x.mensajecontacto1, new { @class = "form-control", @row = "5" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.telefonocontacto1, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Correo<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.correocontacto1, new { @class = "form-control", @type = "email" })
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="tab-pane" id="tab2">
+                        <h5 class="text-center">Contacto 2</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.nombrecontacto2, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Mensaje<star>*</star></label>
+                                    @Html.TextAreaFor(x => x.mensajecontacto2, new { @class = "form-control", @row = "5" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.telefonocontacto2, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Correo<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.correocontacto2, new { @class = "form-control", @type = "email" })
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        <h5 class="text-center">Contacto 3</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.nombrecontacto3, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Mensaje<star>*</star></label>
+                                    @Html.TextAreaFor(x => x.mensajecontacto3, new { @class = "form-control", @row = "5" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.telefonocontacto3, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Correo<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.correocontacto3, new { @class = "form-control", @type = "email" })
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="tab4">
+                        <h5 class="text-center">Contacto 4</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.nombrecontacto4, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Mensaje<star>*</star></label>
+                                    @Html.TextAreaFor(x => x.mensajecontacto4, new { @class = "form-control", @row = "5" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.telefonocontacto4, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Correo<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.correocontacto4, new { @class = "form-control", @type = "email" })
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="tab5">
+                        <h5 class="text-center">Contacto 5</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.nombrecontacto5, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Mensaje<star>*</star></label>
+                                    @Html.TextAreaFor(x => x.mensajecontacto5, new { @class = "form-control", @row = "5" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.telefonocontacto5, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Correo<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.correocontacto5, new { @class = "form-control", @type = "email" })
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane" id="tab6">
+                        <h5 class="text-center">Contacto 6</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.nombrecontacto6, new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Mensaje<star>*</star></label>
+                                    @Html.TextAreaFor(x => x.mensajecontacto6, new { @class = "form-control", @row = "5" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.telefonocontacto6, new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="form-group">
+                                    <label class="control-label">Correo<star>*</star></label>
+                                    @Html.TextBoxFor(x => x.correocontacto6, new { @class = "form-control", @type = "email" })
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>  
+
+
+                </div>
+            </div>
+
+        <div class="footer">
+
+   @*botones*@
+
+
+            <div class="clearfix"></div>
+        </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
 
 
 
 @section SideBar{
-    <li class="">
+    <li class="active">
+        <a  href="~/usuariofron/miscontactos">
             <i class="pe-7s-graph"></i>
             <p>Mis Contactos</p>
         </a>
     </li>
     <li >
-        <a href="~/usuariofron/miscontactos">
+        <a href="~/usuariofron/puntos">
             <i class="pe-7s-graph"></i>
             <p>Agregar puntos</p>
         </a>
     </li>
     <li >
-        <a href="#">
+        <a  href="~/usuariofron/mis_puntos">
             <i class="pe-7s-graph"></i>
             <p>Mis puntos</p>
         </a>
     </li>
     <li>
-        <a href="#">
+        <a  href="~/usuariofron/miscontactos">
             <i class="pe-7s-graph"></i>
             <p>Mensajes</p>
         </a>

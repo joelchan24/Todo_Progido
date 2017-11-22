@@ -2,30 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
 namespace Proyecto.BO
 {
-    public class usuarioBO
+    public class ContactoBO
     {
-        public int id { get; set; }
-    
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string sexo { get; set; }
-        public string contraseña { get; set; }
-     
-        public DateTime  fecha  { get; set; }
-        public int id_tipo { get; set; }
-        
-        public string telefono { get; set; }
-      
-        public string correo { get; set; }
-  
-        public byte[] foto { get; set; }
-
-
-        //Seccion de contactos
         public string idcontacto { get; set; }
         public string nombrecontacto1 { get; set; }
         public string mensajecontacto1 { get; set; }
@@ -52,8 +33,5 @@ namespace Proyecto.BO
         public string telefonocontacto6 { get; set; }
         public string correocontacto6 { get; set; }
         public string idusuariocontacto { get; set; }
-
-
-
     }
 }

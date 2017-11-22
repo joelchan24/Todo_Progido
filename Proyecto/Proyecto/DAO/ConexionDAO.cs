@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
+using Proyecto.BO
 namespace Proyecto.DAO
 {
     public class ConexionDAO
@@ -16,11 +17,13 @@ namespace Proyecto.DAO
         SqlConnection coneccion;
 
 
-      
+
 
         public SqlConnection establecerConexion()
         {
-            string cs = "Data Source=KAREN\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
+            //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
+            string cs = "Data Source=ADAN--PC; Initial catalog=ProyectoSOS;  integrated security=true";
+
             coneccion = new SqlConnection(cs);
             return coneccion;
         }
@@ -58,6 +61,58 @@ namespace Proyecto.DAO
             adapter.Fill(tabla);
             cerrarConexion();
             return tabla;
+        }
+        public List<punto_peligrosoBO> EjecutarSetencialist_puntos(String strSql)
+
+        {
+
+            var peli = new List<punto_peligrosoBO>();
+            establecerConexion();
+
+
+
+            var query = new SqlCommand(strSql, this.coneccion);
+
+            using (var dr = query.ExecuteReader())
+
+            {
+
+                while (dr.Read())
+
+                {
+
+                    // Usuario
+
+                    var usuario = new punto_peligrosoBO
+
+                    {
+
+                        id = Convert.ToInt32(dr["id"]),
+
+                        id_peligro = Convert.ToInt32(dr["id_peligro"]),
+
+                        zona = dr["zona"].ToString(),
+
+                        comentario = dr["comentario"].ToString(),
+                        tipo_peligro = dr["comentario"].ToString()
+
+
+                    };
+
+
+
+                    // Agregamos el usuario a la lista genreica
+
+                    peli.Add(usuario);
+
+                }
+
+            }
+
+            this.cerrarConexion();
+
+            return peli;
+
         }
         public int ejecutarSentencia1(String strSql) //insert,update, delete
         {
@@ -126,4 +181,5 @@ namespace Proyecto.DAO
 
 
     }
+  
 }

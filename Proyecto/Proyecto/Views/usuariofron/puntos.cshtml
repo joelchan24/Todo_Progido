@@ -4,40 +4,70 @@
     ViewBag.Title = "puntos";
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
 }
-
-
-@section SideBar{
-    <li >
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Mis Perfil</p>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Mis Contactos</p>
-        </a>
-    </li>
-    <li class="active">
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Agregar puntos</p>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Perfil</p>
-        </a>
-    </li>
-}
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
 <script src="~/Content/assets/js/locationpicker.jquery.js"></script>
+
+@section SideBar{
+    <li>
+        <a href="~/usuariofron/miscontactos">
+            <i class="pe-7s-graph"></i>
+            <p>Mis Contactos</p>
+        </a>
+    </li>
+
+    <li>
+        <a data-toggle="collapse" href="#formsExamples">
+            <i class="pe-7s-note2"></i>
+            <p>
+                Puntos de peligro
+                <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse in" id="formsExamples">
+            <ul class="nav">
+                <li class="active">
+                    <a href="~/usuariofron/puntos">
+                        <i class="pe-7s-graph"></i>
+                        <p>Agregar puntos</p>
+                    </a>
+
+
+                </li>
+                <li >
+                    <a href="~/usuariofron/mis_puntos">
+                        <i class="pe-7s-graph"></i>
+                        <p>Mis puntos</p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </li>
+<li>
+    <a data-toggle="collapse" href="#formsExamples">
+        <i class="pe-7s-note2"></i>
+        <p>
+            Forms
+            <b class="caret"></b>
+        </p>
+    </a>
+ 
+</li>
+
+    <li>
+        <a href="~/usuariofron/miscontactos">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+
+}
+
 
 
 
@@ -51,7 +81,7 @@
         <form>
 
 
-
+            @Html.HiddenFor(x => x.id)
 
             @Html.HiddenFor(x => x.longitud)
             @Html.HiddenFor(x => x.latitud)
@@ -108,9 +138,9 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-info btn-fill pull-left">Guardar</button>
+                        <button type="submit" class="btn btn-info btn-fill pull-left" >Guardar</button>
            
-            <button type="submit" class="btn btn-success btn-fill pull-left">Editar</button>
+           
             <div class="clearfix"></div>
         </form>
     </div>
@@ -118,12 +148,14 @@
 </div>
 
     
-
-
 <script>
     (function () {
         $('#sel_crimen').load('/usuariofron/peligros');
-    }()    );
+    }());
+</script>
+
+<script>
+    
         $('#ModalMapPreview').locationpicker({
             radius: 0,
             location: {
@@ -162,12 +194,20 @@
         mostrarImagen(this);
     });
 </script>
+@section scripts
+{
 <script>
-    function llenardatos(id, id_peligro, longitud, latitud, zona, id_usuario, status, fecha, imagen, imagen_nom, comentario) {
+    function llenardatos(id, id_peligro, longitud, latitud, zona, fecha,  comentario) {
         $('#id').val(id);
-        $('#pelicula').val(id_peligro);
-        $('#distribuidor').val(distribuidor);
-        $('#precio').val(precio);
+        $('#idpeligro').val(id_peligro);
+        $('#longitud').val(longitud);
+        $('#latitud').val(latitud);
+        $('#zona').val(zona);
+      
+        $('#fecha').val(fecha);
+        $('#comentario').val(comentario);
+    
 
     }
 </script>
+    }
