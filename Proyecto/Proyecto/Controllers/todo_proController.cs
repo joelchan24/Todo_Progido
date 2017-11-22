@@ -19,7 +19,7 @@ namespace Proyecto.Controllers
 
         public ActionResult IndexFinal()
         {
-            return View();
+            return View( );
         }
 
         public ActionResult IndexPro()
