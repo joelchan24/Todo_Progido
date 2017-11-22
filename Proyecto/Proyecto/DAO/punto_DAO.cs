@@ -122,11 +122,16 @@ namespace Proyecto.DAO
             return datos;
         }
 
-        public List<punto_peligrosoBO> listar()
+        public List<punto_peligrosoBO> listar_eventos_con_peligro()
         {
             var alumnos = new List<punto_peligrosoBO>();
-            String strBuscar = string.Format("SELECT id,pelicula,distribuidor,precio FROM pelicula");
-            return alumnos = marisa.ejercutarsentrenciasdatable(strBuscar);
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID ,zona ,comentario , fecha,[Niveles-peligro].Peligro from [Puntos-peligrosos] INNER JOIN [Niveles-peligro] on [Niveles-peligro].id=[Puntos-peligrosos].id_peligro");
+            return alumnos = marisa.EjecutarSetencialist_puntos(strBuscar);
+        }
+        public DataTable buscarAlumno()
+        {
+            String strBuscar = string.Format("select * from [Puntos-peligrosos]");
+            return marisa.EjercutarSentenciaBus(strBuscar);
         }
     }
 }
