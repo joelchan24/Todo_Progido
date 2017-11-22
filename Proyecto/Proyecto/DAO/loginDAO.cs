@@ -66,7 +66,7 @@ namespace Proyecto.DAO
             string strbuscar = string.Format("select * from Usuario where correo='" + idtemp + "';");
             DataTable dats = conexion.ejercutarsentrenciasdatable(strbuscar);
             DataRow row = dats.Rows[0];
-
+          
             usuario.correo = row["Correo"].ToString();
             usuario.nombre = row["Nombre"].ToString();
             usuario.apellido = row["Apellido"].ToString();

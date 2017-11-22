@@ -42,13 +42,22 @@ namespace Proyecto.Controllers
             ViewBag.mapa = pun.mandaedatos();
             return View();
         }
-        public ActionResult guardar()
+        public ActionResult Guardar_puntos(usuarioBO usu)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+              
             }
+            var r = usu.id > 0 ?
+                pun.editar(usu) :
+                pun.Guardar(usu,ViewBag.usuario.id);
+                /*   
+            var i = pel.id > 0 ?
+                 peli.modificar(pel) :
+                 peli.agregar(pel);
+            return View("listalum", peli.listar()); */
+
             return View();
         }
         public ActionResult peligros()

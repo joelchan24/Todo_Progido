@@ -52,7 +52,7 @@
         <form>
 
 
-
+            @Html.HiddenFor(x => x.id)
 
             @Html.HiddenFor(x => x.longitud)
             @Html.HiddenFor(x => x.latitud)
@@ -109,9 +109,9 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-info btn-fill pull-left">Guardar</button>
+                        <button type="submit" class="btn btn-info btn-fill pull-left" >Guardar</button>
            
-            <button type="submit" class="btn btn-success btn-fill pull-left">Editar</button>
+           
             <div class="clearfix"></div>
         </form>
     </div>
@@ -119,12 +119,14 @@
 </div>
 
     
-
-
 <script>
     (function () {
         $('#sel_crimen').load('/usuariofron/peligros');
-    }()    );
+    }());
+</script>
+
+<script>
+    
         $('#ModalMapPreview').locationpicker({
             radius: 0,
             location: {
@@ -163,12 +165,20 @@
         mostrarImagen(this);
     });
 </script>
+@section scripts
+{
 <script>
-    function llenardatos(id, id_peligro, longitud, latitud, zona, id_usuario, status, fecha, imagen, imagen_nom, comentario) {
+    function llenardatos(id, id_peligro, longitud, latitud, zona, fecha,  comentario) {
         $('#id').val(id);
-        $('#pelicula').val(id_peligro);
-        $('#distribuidor').val(distribuidor);
-        $('#precio').val(precio);
+        $('#idpeligro').val(id_peligro);
+        $('#longitud').val(longitud);
+        $('#latitud').val(latitud);
+        $('#zona').val(zona);
+      
+        $('#fecha').val(fecha);
+        $('#comentario').val(comentario);
+    
 
     }
 </script>
+    }

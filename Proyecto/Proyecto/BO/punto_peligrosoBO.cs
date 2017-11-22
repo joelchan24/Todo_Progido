@@ -8,7 +8,7 @@ namespace Proyecto.BO
     public class punto_peligrosoBO
     { 
         public int id { get; set; }
-        public int id_peligro_tipo { get; set; }
+        public int id_peligro { get; set; }
         public string longitud { get; set; }
         public string latitud { get; set; }
 
