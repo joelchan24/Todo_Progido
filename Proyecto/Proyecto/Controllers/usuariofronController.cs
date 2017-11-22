@@ -85,9 +85,19 @@ namespace Proyecto.Controllers
         }
         public ActionResult puntos_generados()
         {
-            return View(pun.buscarAlumno());
+            
+            return View(pun.listar_eventos_con_peligro());
         }
+        public ActionResult prueva()
+        {
+           
+            return View("parcial");
+        }
+        public ActionResult parcial()
+        {
 
+            return PartialView(pun.listar_eventos_con_peligro());
+        }
 
 
 

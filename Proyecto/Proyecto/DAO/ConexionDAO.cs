@@ -95,18 +95,18 @@ namespace Proyecto.DAO
 
                     // Usuario
 
-                    var usuario = new punto_peligrosoBO
+                    var val = new punto_peligrosoBO
 
                     {
 
-                        id = Convert.ToInt32(dr["ID"]),
+                        id = Convert.ToInt32(dr["clave"]),
 
                     fecha =Convert.ToDateTime(dr["fecha"]),
 
                         zona = dr["zona"].ToString(),
 
                         comentario = dr["comentario"].ToString(),
-                        tipo_peligro = dr["Peligro"].ToString()
+                        tipo_peligro = dr["peli"].ToString()
 
 
                     };
@@ -115,7 +115,7 @@ namespace Proyecto.DAO
 
                     // Agregamos el usuario a la lista genreica
 
-                    peli.Add(usuario);
+                    peli.Add(val);
 
                 }
 
