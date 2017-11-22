@@ -66,7 +66,11 @@ namespace Proyecto.Controllers
             viewModel.Peligrooooooo = pun.listartipo();
             return PartialView(viewModel);
         }
-       
+        public ActionResult puntos_generados()
+        {
+            return View(pun.buscarAlumno());
+        }
+
 
 
 

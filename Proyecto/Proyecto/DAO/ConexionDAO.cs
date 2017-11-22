@@ -5,7 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
-using Proyecto.BO
+using Proyecto.BO;
 namespace Proyecto.DAO
 {
     public class ConexionDAO
@@ -21,8 +21,9 @@ namespace Proyecto.DAO
 
         public SqlConnection establecerConexion()
         {
+            // string cs = "Data Source=ADAN--PC; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
-            string cs = "Data Source=ADAN--PC; Initial catalog=ProyectoSOS;  integrated security=true";
+            string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
 
             coneccion = new SqlConnection(cs);
             return coneccion;
@@ -50,6 +51,17 @@ namespace Proyecto.DAO
 
             return datasetadaptador;
         }
+        public DataTable EjercutarSentenciaBus(String strSql) //SELECT
+        {
+            establecerConexion();
+            SqlDataAdapter adapter = new SqlDataAdapter(strSql, this.coneccion);
+            DataTable tabla = new DataTable();
+            abrirConexion();
+            //rellenar un objeto DataSet con los resultados del elemento SelectCommand
+            adapter.Fill(tabla);
+            cerrarConexion();
+            return tabla;
+        }
         //dos maneras de hacer select 
         public DataTable ejercutarsentrenciasdatable(string sql)
         {
@@ -69,7 +81,7 @@ namespace Proyecto.DAO
             var peli = new List<punto_peligrosoBO>();
             establecerConexion();
 
-
+            this.abrirConexion();
 
             var query = new SqlCommand(strSql, this.coneccion);
 
@@ -87,14 +99,14 @@ namespace Proyecto.DAO
 
                     {
 
-                        id = Convert.ToInt32(dr["id"]),
+                        id = Convert.ToInt32(dr["ID"]),
 
-                        id_peligro = Convert.ToInt32(dr["id_peligro"]),
+                    fecha =Convert.ToDateTime(dr["fecha"]),
 
                         zona = dr["zona"].ToString(),
 
                         comentario = dr["comentario"].ToString(),
-                        tipo_peligro = dr["comentario"].ToString()
+                        tipo_peligro = dr["Peligro"].ToString()
 
 
                     };

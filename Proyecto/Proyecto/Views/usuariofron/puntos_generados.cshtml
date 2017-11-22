@@ -1,4 +1,6 @@
 ﻿
+@using System.Data;
+@model DataTable
 @{
     ViewBag.Title = "puntos_generados";
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
@@ -6,31 +8,34 @@
 
 <h2>puntos_generados</h2>
 
-@model List<Proyecto.BO.punto_peligrosoBO>
+
 <table style="width:500px">
     <thead>
         <tr>
             <th style="text-align:left;">ID</th>
-            <th style="width:150px;text-align:left;">pelicula</th>
-            <th style="width:150px;text-align:left;">Distribuidor</th>
+            <th style="width:150px;text-align:left;">Zona</th>
+            <th style="width:150px;text-align:left;">comentario</th>
+            <th style="width:150px;text-align:left;">fecha</th>
 
-            <th style="width:150px;text-align:left;">precio</th>
+            <th style="width:150px;text-align:left;">tipo de peligro</th>
             <th style="width:200px;">Acciones</th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach (var u in Model)
+        @foreach (DataRow u in Model.Rows)
         {
             <tr>
-                <td>@u.id</td>
-                <td style="width:150px;text-align:left;">@u.pelicula</td>
-                <td style="width:150px;text-align:left;">@u.distribuidor</td>
-                <td style="width:150px;text-align:left;">@u.precio</td>
+                <td>@u["ID"]</td>
+             
+                <td style="width:150px;text-align:left;">@u["zona"]</td>
+                <td style="width:150px;text-align:left;">@u["comentario"]</td>
+                <td style="width:150px;text-align:left;">@u["fecha"]</td>
+                <td style="width:150px;text-align:left;">@u["id_peligro"]</td>
+
 
                 <td style="width:200px;">
-                    <a title="Editar" onclick="llenardatos(@u.id,@u.pelicula,@u.precio,@u.distribuidor)" style="cursor:pointer">editar</a>
-                    <a title="Eliminar" onclick="eliminar(@u.id)" style="cursor:pointer">Eliminar</a>
+                   <a>eliminar</a>
                 </td>
             </tr>
         }
