@@ -41,20 +41,30 @@ namespace Proyecto.Controllers
 
 
 
-        
-        public ActionResult guardar(usuarioBO usua)
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult IndexPro([Bind(Include = "nombre,apellido,correo,contraseña,telefono,fecha,sexo")] usuarioBO cliente, HttpPostedFileBase foto)
         {
-            
-           
-            
-                usuario_dao.guardar(usua);
-                return Redirect("~/todo_pro/IndexFinal");
-            
+            if (foto != null && foto.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                cliente.foto = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                usuario_dao.guardar(cliente);
 
-            
-           
+                return Redirect("~/VBackend/inicio");
+            }
+
+            return View(cliente);
         }
-
 
 
 
