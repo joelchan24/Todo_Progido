@@ -60,11 +60,15 @@
     $('#apro').load('/VBackend/parcial_aprovados')
 }());
 
- function actualizar_apro ()
+ function actualizar_apro (id)
 {
      $.ajax({
-         url:
-     })
+         url: 'Actualizar_apro/',
+         data:{id:id},
+     }).done(function () {
+         $('#apro').load('/VBackend/parcial_aprovados')
+     }
+         )
 
 }
 

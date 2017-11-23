@@ -63,5 +63,16 @@
 (function(){
     $('#noapro').load('/VBackend/parcial_no_aprovados')
 }());
+
+function actualizar_noaprovados(id) {
+    $.ajax({
+        url: 'actualizar_no/',
+        data: { id: id },
+    }).done(function () {
+        $('#noapro').load('/VBackend/parcial_no_aprovados')
+    }
+        )
+
+}
 </script>
 
