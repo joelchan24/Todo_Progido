@@ -3,6 +3,53 @@
     ViewBag.Title = "aprovados";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
+@section sidebar{
+    <li class="active">
+        <a>
+            <i class="pe-7s-graph"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+    <li>
+
+        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+            <i class="pe-7s-graph"></i>
+            <p>Gestion puntos</p>
+        </a>
+    </li>
+    <li>
+        bgbb0h
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de vistas</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de Actividad</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Reportes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>backup</p>
+        </a>
+    </li>
+}
+
 
 <h2>aprovados</h2>
 
@@ -10,7 +57,31 @@
 
 <script >
 (function(){
-    $('#apro').load('/IndexBackEndMaster/parcial_aprovados')
+    $('#apro').load('/VBackend/parcial_aprovados')
 }());
+
+ function actualizar_apro ()
+{
+     $.ajax({
+         url:
+     })
+
+}
+
+    /* function eliminar(id) {
+        $.ajax({
+            url: 'eliminar/',
+            data: { id: id },
+
+
+        }).done(function () {
+            $('#vista').load('/usuariofron/parcial')
+        }
+        )
+    }*/
+
+
+
+
 </script>
  

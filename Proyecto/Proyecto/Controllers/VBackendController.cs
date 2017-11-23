@@ -93,6 +93,18 @@ namespace Proyecto.Controllers
 
             return PartialView(objpunto.listar_eventos_con_peligro_noaprovados());
         }
+        public ActionResult Actualizar_apro(int id)
+        {
+            objpunto.actaulzar_apro(id);
+
+            return Content("hecho");
+        }
+        public ActionResult actualizar_no(int id)
+        {
+            objpunto.actaulzar_noapro(id);
+
+            return Content("hecho");
+        }
 
     }
 }

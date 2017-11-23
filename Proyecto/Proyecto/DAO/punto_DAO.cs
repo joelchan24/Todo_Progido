@@ -158,5 +158,23 @@ namespace Proyecto.DAO
             String strBuscar = string.Format("    select  p.ID as clave ,u.Nombre  as usuario,zona ,comentario ,p.fecha as fecha1,n.Peligro as peli from [Puntos-peligrosos] p INNER JOIN [Niveles-peligro] n on n.id=p.id_peligro inner join Usuario u on u.ID=p.id_usuario where p.Estatus=1");
             return alumnos = marisa.EjecutarSetencialist_puntos_aprovados(strBuscar);
         }
+        public int actaulzar_apro(int id)
+        {
+
+            SqlCommand comando = new SqlCommand("update [Puntos-peligrosos] set estatus=0 where id=@id");
+            comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarComando(comando);
+
+        }
+        public int actaulzar_noapro(int id)
+        {
+
+            SqlCommand comando = new SqlCommand("update [Puntos-peligrosos] set estatus=1 where id=@id");
+            comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarComando(comando);
+
+        }
     }
 }
