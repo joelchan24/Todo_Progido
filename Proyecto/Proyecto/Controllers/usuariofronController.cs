@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Proyecto.BO;
 using Proyecto.DAO;
 using Proyecto.Models;
+using System.IO;
 
 namespace Proyecto.Controllers
 {
@@ -62,21 +63,86 @@ namespace Proyecto.Controllers
             ViewBag.mapa = pun.mandaedatos();
             return View();
         }
-        public ActionResult Guardar_puntos(punto_peligrosoBO usu)
+        [HttpPost]
+        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona")]punto_peligrosoBO usu, HttpPostedFileBase imagen)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-              
-            }
-            var r = usu.id > 0 ?
-                pun.editar(usu) :
-                pun.Guardar(usu, ViewBag.usuario.id);
-                  
-        
 
-            return View();
+            }
+            if (imagen != null && imagen.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(imagen.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imagen.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                usu.imagen = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                var jjj = usu.id > 0 ?
+                  pun.editar(usu) :
+                  pun.Guardar(usu, ViewBag.usuario.id);
+
+                return Redirect("~/usuariofron/puntos");
+            }
+
+
+
+            return View(usu);
+
+
+
+          
         }
+
+        //public ActionResult Guardar_puntos(punto_peligrosoBO usu)
+        //{
+
+        //    if (Session["usuario"] != null)
+        //    {
+        //        ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+        //    }
+        //    var r = usu.id > 0 ?
+        //        pun.editar(usu) :
+        //        pun.Guardar(usu, ViewBag.usuario.id);
+
+
+
+        //    return View();
+        //}
+
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult IndexPro([Bind(Include = "nombre,apellido,correo,contraseña,telefono,fecha,sexo")] usuarioBO cliente, HttpPostedFileBase foto)
+        //{
+        //    if (foto != null && foto.ContentLength > 0)
+        //    {
+        //        byte[] imageData = null;
+        //        using (var binaryReader = new BinaryReader(foto.InputStream))
+        //        {
+        //            imageData = binaryReader.ReadBytes(foto.ContentLength);
+        //        }
+        //        //setear la imagen a la entidad que se creara
+        //        cliente.foto = imageData;
+        //    }
+        //    if (ModelState.IsValid)
+        //    {
+        //        usuario_dao.guardar(cliente);
+
+        //        return Redirect("~/VBackend/inicio");
+        //    }
+
+        //    return View(cliente);
+        //}
+
+
         public ActionResult peligros()
         {
            peligros  viewModel = new peligros();

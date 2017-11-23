@@ -75,9 +75,11 @@
   
     <div class="header">
      
-    </div>
-@using (Ajax.BeginForm("Guardar_puntos", "usuariofron", new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))
-{
+    </div> Guardar_puntos usu
+@*@using (Ajax.BeginForm("Guardar_puntos", "usuariofron", new { enctype = "multipart/form-data" }, new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))*@
+ @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+ {
     <div class="content">
         
         <form>
@@ -119,7 +121,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Evidencia</label>
-                        @Html.TextBoxFor(x => x.imagen, new { @type = "file" })
+                        @Html.TextBoxFor(x => x.imagen, htmlAttributes: new { @type = "file", @name="imagen" })
                         <img style="width:500px;height:300px;" id="img_destino" src="../imagenes/delitoa.jpg" alt="Tu imagen">
                        
                     </div>
@@ -218,7 +220,7 @@
         //$('#latitud').val(latitud); longitud, latitud,
         $('#zona').val(zona);
         
-        $('#fecha').val(fecha);
+        $('#fecha').val(fecha.format('yyyy-MM-dd'));
         $('#comentario').val(comentario);
 
 

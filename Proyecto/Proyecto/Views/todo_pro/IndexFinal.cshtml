@@ -52,13 +52,13 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a data-toggle="modal" data-target="#signupModal">
-                            <i class="material-icons">apps</i> Registrate
+                        <a href="@Url.Action("IndexPro", "todo_pro")">
+                            <i class="material-icons">person_add</i> Registrate
                         </a>
                     </li>
                     <li>
                         <a data-toggle="modal" data-target="#loginModal">
-                            <i class="material-icons">apps</i> Iniciar sesión 
+                            <i class="material-icons">person</i> Iniciar sesión
                         </a>
                     </li>
                 </ul>
@@ -111,7 +111,7 @@
 
                             <center>
                                 <h4 class="title">Así que únete hoy mismo y se parte de este gran proyecto!!!</h4>
-                                <a data-toggle="modal" data-target="#signupModal" class="btn btn-danger btn-round">
+                                <a  href="@Url.Action("IndexPro", "todo_pro")" class="btn btn-danger btn-round">
                                     <i class="material-icons">subject</i> Registrarse
                                 </a>
                             </center>
