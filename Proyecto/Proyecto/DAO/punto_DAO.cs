@@ -133,5 +133,17 @@ namespace Proyecto.DAO
             String strBuscar = string.Format("  select * from [Niveles-peligro] ");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
+        public List<punto_peligrosoBO> listar_eventos_con_peligro_noaprovados()
+        {
+            var alumnos = new List<punto_peligrosoBO>();
+            String strBuscar = string.Format("     select  p.ID as clave ,u.Nombre  as usuario,zona ,comentario ,p.fecha as fecha1,n.Peligro as peli from [Puntos-peligrosos] p INNER JOIN [Niveles-peligro] n on n.id=p.id_peligro inner join Usuario u on u.ID=p.id_usuario where p.Estatus=0");
+            return alumnos = marisa.EjecutarSetencialist_puntos_noaprovados(strBuscar);
+        }
+        public List<punto_peligrosoBO> aprovados()
+        {
+            var alumnos = new List<punto_peligrosoBO>();
+            String strBuscar = string.Format("    select  p.ID as clave ,u.Nombre  as usuario,zona ,comentario ,p.fecha as fecha1,n.Peligro as peli from [Puntos-peligrosos] p INNER JOIN [Niveles-peligro] n on n.id=p.id_peligro inner join Usuario u on u.ID=p.id_usuario where p.Estatus=1");
+            return alumnos = marisa.EjecutarSetencialist_puntos_aprovados(strBuscar);
+        }
     }
 }

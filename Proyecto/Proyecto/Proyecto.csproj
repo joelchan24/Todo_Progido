@@ -532,6 +532,10 @@
     <Content Include="Views\usuariofron\prueva.cshtml" />
     <Content Include="Views\usuariofron\parcial.cshtml" />
     <Content Include="Views\usuariofron\mensajes.cshtml" />
+    <Content Include="Views\VBackend\parcial_no_aprovados.cshtml" />
+    <Content Include="Views\VBackend\parcial_aprovados.cshtml" />
+    <Content Include="Views\VBackend\no_aprovados.cshtml" />
+    <Content Include="Views\VBackend\aprovados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

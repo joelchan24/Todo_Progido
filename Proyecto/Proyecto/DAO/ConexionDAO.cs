@@ -126,6 +126,112 @@ namespace Proyecto.DAO
             return peli;
 
         }
+        public List<punto_peligrosoBO> EjecutarSetencialist_puntos_noaprovados(String strSql)
+
+        {
+
+            var peli = new List<punto_peligrosoBO>();
+            establecerConexion();
+
+            this.abrirConexion();
+
+            var query = new SqlCommand(strSql, this.coneccion);
+
+            using (var dr = query.ExecuteReader())
+
+            {
+
+                while (dr.Read())
+
+                {
+
+                    // Usuario
+
+                    var val = new punto_peligrosoBO
+
+                    {
+
+                        id = Convert.ToInt32(dr["clave"]),
+
+                        fecha = Convert.ToDateTime(dr["fecha1"]),
+
+                        zona = dr["zona"].ToString(),
+                        nombre_usuario = dr["usuario"].ToString(),
+
+                        //  comentario = dr["comentario"].ToString(),
+                        tipo_peligro = dr["peli"].ToString()
+
+
+                    };
+
+
+
+                    // Agregamos el usuario a la lista genreica
+
+                    peli.Add(val);
+
+                }
+
+            }
+
+            this.cerrarConexion();
+
+            return peli;
+
+        }
+        public List<punto_peligrosoBO> EjecutarSetencialist_puntos_aprovados(String strSql)
+
+        {
+
+            var peli = new List<punto_peligrosoBO>();
+            establecerConexion();
+
+            this.abrirConexion();
+
+            var query = new SqlCommand(strSql, this.coneccion);
+
+            using (var dr = query.ExecuteReader())
+
+            {
+
+                while (dr.Read())
+
+                {
+
+                    // Usuario
+
+                    var val = new punto_peligrosoBO
+
+                    {
+                        id = Convert.ToInt32(dr["clave"]),
+
+                        fecha = Convert.ToDateTime(dr["fecha1"]),
+
+                        zona = dr["zona"].ToString(),
+                        nombre_usuario = dr["usuario"].ToString(),
+
+                        //  comentario = dr["comentario"].ToString(),
+                        tipo_peligro = dr["peli"].ToString()
+
+
+
+                    };
+
+
+
+                    // Agregamos el usuario a la lista genreica
+
+                    peli.Add(val);
+
+                }
+
+            }
+
+            this.cerrarConexion();
+
+            return peli;
+
+        }
         public int ejecutarSentencia1(String strSql) //insert,update, delete
         {
             try
