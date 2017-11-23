@@ -21,7 +21,7 @@ namespace Proyecto.DAO
 
         public SqlConnection establecerConexion()
         {
-            string cs = "Data Source=ADAN--PC; Initial catalog=ProyectoSOS;  integrated security=true";
+            string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
 

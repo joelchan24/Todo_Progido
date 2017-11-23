@@ -40,11 +40,11 @@ namespace Proyecto.DAO
 
 
         }
-        public int eliminar (object eliminar)
+        public int eliminar (int id)
         {
-            punto_peligrosoBO peligroso = (punto_peligrosoBO)eliminar;
+           
             SqlCommand comando = new SqlCommand("delete from [Puntos-peligrosos] where id=@id");
-            comando.Parameters.Add("@id", SqlDbType.Int).Value = peligroso.id;
+            comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
             comando.CommandType = CommandType.Text;
             return conectar.EjecutarComando(comando);
 
@@ -91,7 +91,20 @@ namespace Proyecto.DAO
             return peligros;
         }
 
-
+        public List<Punto> mandaedatos()
+        {
+            DataTable tabla = mostrar().Tables[0];
+            List<Punto> Lista = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = dr[4].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Lista.Add(P);
+            }
+            return Lista;
+        }
 
         //public List<Punto> mandaedatos()
         //{
@@ -108,19 +121,19 @@ namespace Proyecto.DAO
         //    return Lista;
         //}
 
-        public string mandaedatos()
-        {
-            DataTable tabla = mostrar().Tables[0];
-            string datos = "[";
-            foreach (DataRow dr in tabla.Rows)
-            {
-                datos = datos + "[";
-                datos = datos + "'" + dr[4] + "'" + "," + dr[3] + "," + dr[2];
-                datos = datos + "]";
-            }
-            datos = datos + "]";
-            return datos;
-        }
+        //public string mandaedatos()
+        //{
+        //    DataTable tabla = mostrar().Tables[0];
+        //    string datos = "[";
+        //    foreach (DataRow dr in tabla.Rows)
+        //    {
+        //        datos = datos + "[";
+        //        datos = datos + "'" + dr[4] + "'" + "," + dr[3] + "," + dr[2];
+        //        datos = datos + "]";
+        //    }
+        //    datos = datos + "]";
+        //    return datos;
+        //}
 
         public List<punto_peligrosoBO> listar_eventos_con_peligro()
         {

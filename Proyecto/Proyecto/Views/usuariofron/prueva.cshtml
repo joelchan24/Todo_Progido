@@ -64,7 +64,20 @@
 }
 <div id="vista"></div>
 <script>
+ 
     (function () {
         $('#vista').load('/usuariofron/parcial');
     }());
+    function eliminar(id) {
+        $.ajax({
+            url: 'eliminar/',
+            data: { id: id },
+
+
+        }).done(function () {
+            $('#vista').load('/usuariofron/parcial')
+        }
+        )
+    }
+
 </script>
