@@ -180,6 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BO\ContactoBO.cs" />
+    <Compile Include="BO\hjhjhj.cs" />
     <Compile Include="BO\punto_peligrosoBO.cs" />
     <Compile Include="BO\tipo_peligroBO.cs" />
     <Compile Include="BO\usuarioBO.cs" />
