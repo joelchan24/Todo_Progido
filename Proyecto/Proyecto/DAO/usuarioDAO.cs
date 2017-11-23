@@ -13,7 +13,7 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("insert into usuario (nombre,contraseña,fecha,id_tipo,telefono,correo,Apellido,sexo,foto) values (@nom,@contra,@fecha,@id_tipo,@telefono,@correo,@apellido,@sexo,@foto)");
+            SqlCommand cmd = new SqlCommand("insert into usuario (nombre,contraseña,fecha,id_tipo,telefono,correo,Apellido,sexo) values (@nom,@contra,@fecha,@id_tipo,@telefono,@correo,@apellido,@sexo)");
             usuario.id_tipo = 2;
             cmd.Parameters.Add("@nom", SqlDbType.VarChar).Value = usuario.nombre;
             cmd.Parameters.Add("@contra", SqlDbType.VarChar).Value = usuario.contraseña;
@@ -22,7 +22,6 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@telefono", SqlDbType.VarChar).Value = usuario.telefono;
             cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = usuario.correo;
             cmd.Parameters.Add("@apellido", SqlDbType.VarChar).Value = usuario.apellido;
-            cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.foto;
          
             cmd.Parameters.Add("@sexo", SqlDbType.VarChar).Value = usuario.sexo;
             cmd.CommandType = CommandType.Text;

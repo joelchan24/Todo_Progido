@@ -9,21 +9,17 @@ namespace Proyecto.BO
     public class usuarioBO
     {
         public int id { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
+    
         public string nombre { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
         public string apellido { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
         public string sexo { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
         public string contraseña { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
+     
         public DateTime  fecha  { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
         public int id_tipo { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
+        
         public string telefono { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
+      
         public string correo { get; set; }
   
         public byte[] foto { get; set; }

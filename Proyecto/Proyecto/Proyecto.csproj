@@ -408,7 +408,6 @@
     <Content Include="Imagenes\header.jpg" />
     <Content Include="Imagenes\logo UTM-01.png" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
-    <Content Include="Imagenes\índice.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\css\.DS_Store" />
@@ -533,7 +532,6 @@
     <Content Include="Views\usuariofron\prueva.cshtml" />
     <Content Include="Views\usuariofron\parcial.cshtml" />
     <Content Include="Views\usuariofron\mensajes.cshtml" />
-    <Content Include="Views\VBackend\EditarPerfilAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
