@@ -72,12 +72,14 @@
 
 
 <div class="card">
+  
     <div class="header">
-        <h3  class="title cen">Edit Profile</h3>
+     
     </div>
 @using (Ajax.BeginForm("Guardar_puntos", "usuariofron", new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))
 {
     <div class="content">
+        
         <form>
 
 
@@ -146,8 +148,7 @@
     </div>
 }
 </div>
-
-    
+<div id="vista"></div>
 <script>
     (function () {
         $('#sel_crimen').load('/usuariofron/peligros');
@@ -194,20 +195,32 @@
         mostrarImagen(this);
     });
 </script>
-@section scripts
-{
 <script>
-    function llenardatos(id, id_peligro, longitud, latitud, zona, fecha,  comentario) {
+
+    (function () {
+        $('#vista').load('/usuariofron/parcial');
+    }());
+    function eliminar(id) {
+        $.ajax({
+            url: 'eliminar/',
+            data: { id: id },
+
+
+        }).done(function () {
+            $('#vista').load('/usuariofron/parcial')
+        }
+        )
+    }
+    function llenardatos(id, id_peligro, zona, fecha, comentario) {
         $('#id').val(id);
         $('#idpeligro').val(id_peligro);
-        $('#longitud').val(longitud);
-        $('#latitud').val(latitud);
+        //$('#longitud').val(longitud);
+        //$('#latitud').val(latitud); longitud, latitud,
         $('#zona').val(zona);
-      
+        
         $('#fecha').val(fecha);
         $('#comentario').val(comentario);
-    
+
 
     }
 </script>
-    }

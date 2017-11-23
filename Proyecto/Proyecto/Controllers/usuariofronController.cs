@@ -88,7 +88,7 @@ namespace Proyecto.Controllers
             
             return View(pun.listar_eventos_con_peligro());
         }
-        public ActionResult prueva()
+        public ActionResult puntos_eliminar_act()
         {
            
             return View();

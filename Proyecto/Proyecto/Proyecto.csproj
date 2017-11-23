@@ -531,7 +531,7 @@
     <Content Include="Views\usuariofron\mis_puntos.cshtml" />
     <Content Include="Views\VBackend\PerfilAdmin.cshtml" />
     <Content Include="Views\usuariofron\puntos_generados.cshtml" />
-    <Content Include="Views\usuariofron\prueva.cshtml" />
+    <Content Include="Views\usuariofron\puntos_eliminar_act.cshtml" />
     <Content Include="Views\usuariofron\parcial.cshtml" />
     <Content Include="Views\usuariofron\mensajes.cshtml" />
     <Content Include="Views\VBackend\parcial_no_aprovados.cshtml" />
