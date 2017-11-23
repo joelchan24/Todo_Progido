@@ -91,7 +91,7 @@ namespace Proyecto.Controllers
         public ActionResult prueva()
         {
            
-            return View("parcial");
+            return View();
         }
         public ActionResult parcial()
         {
@@ -104,7 +104,15 @@ namespace Proyecto.Controllers
             return View();
         }
 
-
+        public ActionResult devolverpuntos()
+        {
+            return Json(pun.mandaedatos(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult eliminar(int id)
+        {
+            pun.eliminar(id);
+            return Content("eliminado");
+        }
 
         //seccion de contactos
     }

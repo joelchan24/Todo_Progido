@@ -180,6 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BO\ContactoBO.cs" />
+    <Compile Include="BO\parajoelcls.cs" />
     <Compile Include="BO\punto_peligrosoBO.cs" />
     <Compile Include="BO\tipo_peligroBO.cs" />
     <Compile Include="BO\usuarioBO.cs" />
@@ -386,6 +387,7 @@
     <Content Include="Content\assets\img\sos_pro.jpg" />
     <Content Include="Content\assets\js\bootstrap-datepicker.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\jquery-3.2.1.min.js" />
     <Content Include="Content\assets\js\jquery.min.js" />
     <Content Include="Content\assets\js\material-kit.js" />
     <Content Include="Content\assets\js\material.min.js" />
@@ -532,6 +534,10 @@
     <Content Include="Views\usuariofron\prueva.cshtml" />
     <Content Include="Views\usuariofron\parcial.cshtml" />
     <Content Include="Views\usuariofron\mensajes.cshtml" />
+    <Content Include="Views\VBackend\parcial_no_aprovados.cshtml" />
+    <Content Include="Views\VBackend\parcial_aprovados.cshtml" />
+    <Content Include="Views\VBackend\no_aprovados.cshtml" />
+    <Content Include="Views\VBackend\aprovados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

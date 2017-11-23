@@ -28,6 +28,7 @@ namespace Proyecto.BO
 
 
 
+        public string nombre_usuario { get; set; }
 
 
 

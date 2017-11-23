@@ -14,6 +14,7 @@ namespace Proyecto.Controllers
         BackEndDAO Obj = new BackEndDAO();
         loginDAO ObjLogin = new loginDAO();
         usuarioBO ObjusuarioBO = new usuarioBO();
+        punto_DAO objpunto = new punto_DAO();
         public ActionResult Vprueba()
         {
             return View();
@@ -71,7 +72,39 @@ namespace Proyecto.Controllers
             }
             return View(ObjLogin.obtenerperfil());
         }
+        public ActionResult aprovados()
+        {
 
-       
+            return View();
+        }
+        public ActionResult no_aprovados()
+        {
+
+            return View();
+        }
+        public ActionResult parcial_aprovados()
+        {
+
+            return PartialView(objpunto.aprovados());
+        }
+        public ActionResult parcial_no_aprovados()
+        {
+
+
+            return PartialView(objpunto.listar_eventos_con_peligro_noaprovados());
+        }
+        public ActionResult Actualizar_apro(int id)
+        {
+            objpunto.actaulzar_apro(id);
+
+            return Content("hecho");
+        }
+        public ActionResult actualizar_no(int id)
+        {
+            objpunto.actaulzar_noapro(id);
+
+            return Content("hecho");
+        }
+
     }
 }
