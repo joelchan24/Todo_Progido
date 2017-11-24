@@ -538,6 +538,7 @@
     <Content Include="Views\VBackend\parcial_aprovados.cshtml" />
     <Content Include="Views\VBackend\no_aprovados.cshtml" />
     <Content Include="Views\VBackend\aprovados.cshtml" />
+    <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
