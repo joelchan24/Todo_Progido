@@ -409,6 +409,7 @@
     <Content Include="Imagenes\delitoa.jpg" />
     <Content Include="Imagenes\header.jpg" />
     <Content Include="Imagenes\logo UTM-01.png" />
+    <Content Include="Imagenes\mapaheader.jpg" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -538,6 +539,7 @@
     <Content Include="Views\VBackend\parcial_aprovados.cshtml" />
     <Content Include="Views\VBackend\no_aprovados.cshtml" />
     <Content Include="Views\VBackend\aprovados.cshtml" />
+    <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
