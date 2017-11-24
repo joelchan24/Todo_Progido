@@ -64,7 +64,7 @@ namespace Proyecto.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona")]punto_peligrosoBO usu, HttpPostedFileBase imagen)
+        public ActionResult Guardar_puntos([Bind(Include = "idpeligro,longitud,latitud,fecha,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen)
         {
             if (Session["usuario"] != null)
             {

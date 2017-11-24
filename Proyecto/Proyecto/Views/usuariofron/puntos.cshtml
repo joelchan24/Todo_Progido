@@ -77,7 +77,7 @@
      
     </div> Guardar_puntos usu
 @*@using (Ajax.BeginForm("Guardar_puntos", "usuariofron", new { enctype = "multipart/form-data" }, new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))*@
- @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data" , UpdateTargetId = "sel_crimen" }))
 
  {
     <div class="content">

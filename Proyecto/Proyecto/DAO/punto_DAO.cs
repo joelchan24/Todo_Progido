@@ -21,8 +21,8 @@ namespace Proyecto.DAO
             usuario.nom_imagen = "jj";
          
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario )");
-           
-            cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
+
+            cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = 1;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
             cmd.Parameters.Add("@zona", SqlDbType.VarChar).Value = usuario.zona;
