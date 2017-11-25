@@ -543,9 +543,6 @@
     <Content Include="Views\VBackend\no_aprovados.cshtml" />
     <Content Include="Views\VBackend\aprovados.cshtml" />
     <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
-    <Content Include="Views\VBackend\estadisticas.cshtml" />
-    <Content Include="Views\VBackend\tiposdepeligro.cshtml" />
-    <Content Include="Views\VBackend\parcial_peligros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

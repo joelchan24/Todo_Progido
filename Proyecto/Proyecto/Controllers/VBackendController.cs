@@ -70,6 +70,28 @@ namespace Proyecto.Controllers
             return View();
         }
 
+        public ActionResult Backud()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+
+            return View();
+        }
+
+        public ActionResult Actividad()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+
+            return View();
+        }
+
         public ActionResult Vusuario()
         {
             if (Session["usuario"] != null)
