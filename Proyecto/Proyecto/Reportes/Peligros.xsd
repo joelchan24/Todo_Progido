@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
-<xs:schema id="Peligros" 
-                  targetNamespace="http://tempuri.org/Peligros.xsd"
+<xs:schema id="peligros" 
+                  targetNamespace="http://tempuri.org/peligros.xsd"
                   elementFormDefault="qualified"
                   attributeFormDefault="qualified"
-                  xmlns="http://tempuri.org/Peligros.xsd"
-                  xmlns:mstns="http://tempuri.org/Peligros.xsd"
+                  xmlns="http://tempuri.org/peligros.xsd"
+                  xmlns:mstns="http://tempuri.org/peligros.xsd"
                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
                   xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
                   xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-    <xs:element name="Peligros" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
+    <xs:element name="peligros" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
         <xs:complexType>
             <xs:choice minOccurs="0" maxOccurs="unbounded"></xs:choice>
         </xs:complexType>

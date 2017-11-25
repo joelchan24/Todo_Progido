@@ -49,6 +49,22 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReportViewerForMvc, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportViewerForMvc.1.1.1\lib\net45\ReportViewerForMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -209,10 +225,10 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\peligros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\Peligros.Designer.cs">
+    <Compile Include="Reportes\peligros.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Peligros.xsd</DependentUpon>
+      <DependentUpon>peligros.xsd</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -443,6 +459,7 @@
     <Content Include="Imagenes\logo UTM-01.png" />
     <Content Include="Imagenes\mapaheader.jpg" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
+    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\css\.DS_Store" />
@@ -505,6 +522,17 @@
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Reportes\peligros.xsc">
+      <DependentUpon>peligros.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\peligros.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>peligros.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\peligros.xss">
+      <DependentUpon>peligros.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\char.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
