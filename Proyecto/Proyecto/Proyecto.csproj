@@ -608,6 +608,7 @@
     <Content Include="Views\VBackend\estadisticas.cshtml" />
     <Content Include="Views\VBackend\parcial_peligros.cshtml" />
     <Content Include="Views\VBackend\tiposdepeligro.cshtml" />
+    <Content Include="Views\VBackend\Reporte_peligros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

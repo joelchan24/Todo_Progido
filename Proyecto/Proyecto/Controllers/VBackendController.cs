@@ -6,6 +6,10 @@ using System.Web.Mvc;
 using Proyecto.DAO;
 using Proyecto.BO;
 using System.IO;
+using Microsoft.Reporting.WebForms;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using Proyecto.Reportes;
 namespace Proyecto.Controllers
 {
     public class VBackendController : Controller
@@ -21,9 +25,39 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-    
+        
              public ActionResult tiposdepeligro()
         {
+            return View();
+        }
+        peligros daset_reportes = new peligros();
+        //ReportViewer reporte = new ReportViewer();
+        ////reporte.ProcessingMode = ProcessingMode.Local;
+        //    reporte.SizeToReportContent = true;
+        //    //reporte.Width = Unit.Percentage(900);
+        //    //reporte.Height = Unit.Percentage(900);
+        //    ConexionDAO cone = new ConexionDAO();
+        //string instrucción = "select id,cliente,monto,tasa,plazo,fecha_inicio from prestamo";
+        //SqlDataAdapter adaptador = new SqlDataAdapter(instrucción, cone.establecerConexion());
+        ////ds.Tables.Add(sistema1.mostrar());
+        //adaptador.Fill(ds, "prestamo1");
+            
+        //    reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"reportes/Report1.rdlc";
+        //    reporte.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables[0]));
+        //    ViewBag.reporte12 = reporte;
+        //    return View();
+        public ActionResult Reporte_peligros()
+        {
+            ReportViewer reporte = new ReportViewer();
+            reporte.ProcessingMode = ProcessingMode.Local;
+            reporte.SizeToReportContent = true;
+            string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
+            ConexionDAO cone = new ConexionDAO();
+            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
+            adaptador.Fill(daset_reportes, "peligros1");
+            reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/peligros.rdlc";
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("peligros", daset_reportes.Tables[0]));
+            ViewBag.repo = reporte;
             return View();
         }
         public ActionResult guardar_peligro(PeligroBO peli)
@@ -157,7 +191,8 @@ namespace Proyecto.Controllers
 
             return Content("hecho");
         }
-
+       
+         
         public ActionResult ListaDePuntosM()
         {
             return View();

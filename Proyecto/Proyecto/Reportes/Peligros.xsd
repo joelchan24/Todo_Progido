@@ -1,16 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<xs:schema id="peligros" 
-                  targetNamespace="http://tempuri.org/peligros.xsd"
-                  elementFormDefault="qualified"
-                  attributeFormDefault="qualified"
-                  xmlns="http://tempuri.org/peligros.xsd"
-                  xmlns:mstns="http://tempuri.org/peligros.xsd"
-                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-    <xs:element name="peligros" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
-        <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded"></xs:choice>
-        </xs:complexType>
-    </xs:element>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="peligros" targetNamespace="http://tempuri.org/peligros.xsd" xmlns:mstns="http://tempuri.org/peligros.xsd" xmlns="http://tempuri.org/peligros.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="peligros" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="peligros" msprop:Generator_UserDSName="peligros">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="peligros1" msprop:Generator_TableClassName="peligros1DataTable" msprop:Generator_TableVarName="tablepeligros1" msprop:Generator_TablePropName="peligros1" msprop:Generator_RowDeletingName="peligros1RowDeleting" msprop:Generator_RowChangingName="peligros1RowChanging" msprop:Generator_RowEvHandlerName="peligros1RowChangeEventHandler" msprop:Generator_RowDeletedName="peligros1RowDeleted" msprop:Generator_UserTableName="peligros1" msprop:Generator_RowChangedName="peligros1RowChanged" msprop:Generator_RowEvArgName="peligros1RowChangeEvent" msprop:Generator_RowClassName="peligros1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="peligro" msprop:Generator_ColumnVarNameInTable="columnpeligro" msprop:Generator_ColumnPropNameInRow="peligro" msprop:Generator_ColumnPropNameInTable="peligroColumn" msprop:Generator_UserColumnName="peligro" type="xs:string" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -1,0 +1,53 @@
+﻿@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "Reporte_peligros";
+    Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
+}
+@section sidebar{
+    <li class="active">
+        <a>
+            <i class="pe-7s-graph"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+    <li>
+
+        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+            <i class="pe-7s-graph"></i>
+            <p>Gestion puntos</p>
+        </a>
+    </li>
+    <li>
+        bgbb0h
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de vistas</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de Actividad</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Reportes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>backup</p>
+        </a>
+    </li>
+}
+@Html.ReportViewer(ViewBag.repo as Microsoft.Reporting.WebForms.ReportViewer)
+
