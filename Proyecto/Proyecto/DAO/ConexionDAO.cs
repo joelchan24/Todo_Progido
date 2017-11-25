@@ -101,7 +101,7 @@ namespace Proyecto.DAO
 
                         id = Convert.ToInt32(dr["clave"]),
 
-                    fecha =Convert.ToDateTime(dr["fecha"]),
+                    nom_imagen =Convert.ToDateTime(dr["fecha"]).ToString("yyyy-MM-dd"),
 
                         zona = dr["zona"].ToString(),
 
@@ -160,6 +160,54 @@ namespace Proyecto.DAO
 
                         //  comentario = dr["comentario"].ToString(),
                         tipo_peligro = dr["peli"].ToString()
+
+
+                    };
+
+
+
+                    // Agregamos el usuario a la lista genreica
+
+                    peli.Add(val);
+
+                }
+
+            }
+
+            this.cerrarConexion();
+
+            return peli;
+
+        }
+        public List<PeligroBO> EjecutarSetencialist_peligrososos(String strSql)
+
+        {
+
+            var peli = new List<PeligroBO>();
+            establecerConexion();
+
+            this.abrirConexion();
+
+            var query = new SqlCommand(strSql, this.coneccion);
+
+            using (var dr = query.ExecuteReader())
+
+            {
+
+                while (dr.Read())
+
+                {
+
+                    // Usuario
+
+                    var val = new PeligroBO
+
+                    {
+
+                        id = Convert.ToInt32(dr["id"]),
+
+                      
+                        tipo = dr["peligro"].ToString()
 
 
                     };

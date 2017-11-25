@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "estadisticas";
+    Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
+}
+
+<h2>estadisticas</h2>
+@section sidebar{
+    <li class="active">
+        <a>
+            <i class="pe-7s-graph"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+    <li>
+
+        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+            <i class="pe-7s-graph"></i>
+            <p>Gestion puntos</p>
+        </a>
+    </li>
+    <li>
+        bgbb0h
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de vistas</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de Actividad</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Reportes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>backup</p>
+        </a>
+    </li>
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                Public Preferences
+                <p class="category">Pie Chart</p>
+            </div>
+            <div class="content">
+                <div id="columnchart_values" style="width: 500px; height: 300px;">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                Public Preferences
+                <p class="category">Pie Chart</p>
+            </div>
+            <div id="piechart"
+                 style="width:500px;height:455px;"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      var markers;
+      $.ajax({
+          url: "/usuariofron/devolverchar",
+          success: function (data) {
+              var array = [['Task', 'Hours per Day'],]
+              for (var i = 0; i < data.length; i++) {
+                  array.push([data[i]["nombre"], data[i]["total"]])
+              }
+              markers = array;
+
+              drawChart()
+          }
+
+      })
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(markers);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
+    <script>
+
+
+    google.charts.load ("current", {packages: ['corechart']});
+    google.charts.setOnLoadCallback (drawChart);
+    function drawChart () {
+    var data = google.visualization.arrayToDataTable ([
+    ["Element", "Density", {role: "style"}],
+    ["Cobre", 8.94, "# b87333"],
+    ["Plata", 10.49, "plata"],
+    ["Oro", 19.30, "oro"],
+    ["Platinum", 21.45, "color: # e5e4e2"]
+    ]);
+
+    var view = new google.visualization.DataView (datos);
+    view.setColumns ([0, 1,
+    {calc: "stringify",
+    sourceColumn: 1,
+    tipo: "cadena",
+    rol: "anotación"},
+    2]);
+
+    var options = {
+    título: "Densidad de metales preciosos, en g / cm ^ 3",
+    ancho: 600,
+    altura: 400,
+    bar: {groupWidth: "95%"},
+    leyenda: {posición: "ninguno"},
+    };
+    var chart = new google.visualization.ColumnChart (document.getElementById ("columnchart_values"));
+    chart.draw ( ver , opciones);
+    }
+
+    </script>

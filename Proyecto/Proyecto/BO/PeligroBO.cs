@@ -5,7 +5,9 @@ using System.Web;
 
 namespace Proyecto.BO
 {
-    public class parajoelcls
-    {public int id { get; set; }
+    public class PeligroBO
+    {
+        public int id { get; set; }
+        public string tipo { get; set; }
     }
 }

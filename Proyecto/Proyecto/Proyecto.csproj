@@ -180,7 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BO\ContactoBO.cs" />
-    <Compile Include="BO\parajoelcls.cs" />
+    <Compile Include="BO\PeligroBO.cs" />
     <Compile Include="BO\punto_peligrosoBO.cs" />
     <Compile Include="BO\tipo_peligroBO.cs" />
     <Compile Include="BO\usuarioBO.cs" />
@@ -191,12 +191,14 @@
     <Compile Include="Controllers\usuariofronController.cs" />
     <Compile Include="Controllers\VBackendController.cs" />
     <Compile Include="DAO\BackEndDAO.cs" />
+    <Compile Include="DAO\char_.cs" />
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
     <Compile Include="DAO\ContactosDAO.cs" />
     <Compile Include="DAO\loginDAO.cs" />
     <Compile Include="DAO\Punto.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
+    <Compile Include="DAO\tipo_peligroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -474,6 +476,7 @@
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\char.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -540,6 +543,9 @@
     <Content Include="Views\VBackend\no_aprovados.cshtml" />
     <Content Include="Views\VBackend\aprovados.cshtml" />
     <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
+    <Content Include="Views\VBackend\estadisticas.cshtml" />
+    <Content Include="Views\VBackend\tiposdepeligro.cshtml" />
+    <Content Include="Views\VBackend\parcial_peligros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

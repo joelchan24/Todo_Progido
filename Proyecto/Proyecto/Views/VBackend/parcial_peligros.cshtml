@@ -1,0 +1,32 @@
+﻿@model List<Proyecto.BO.PeligroBO>
+
+<table style="width:500px">
+    <thead>
+        <tr>
+            <th style="text-align:left;">ID</th>
+            <th style="width:150px;text-align:left;">peligro</th>
+           
+            <th style="width:200px;">Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.id</td>
+
+                <td style="width:150px;text-align:left;">@u.tipo</td>
+            
+
+
+                <td style="width:200px;">
+                    <a title="Eliminar" onclick="eliminar(@u.id)" style="cursor:pointer">eliminar</a>
+                    <a title="Eliminar"  onclick="llenardatos('@u.id','@u.tipo')" style="cursor:pointer">actualizar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

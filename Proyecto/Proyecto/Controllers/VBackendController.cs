@@ -15,11 +15,35 @@ namespace Proyecto.Controllers
         loginDAO ObjLogin = new loginDAO();
         usuarioBO ObjusuarioBO = new usuarioBO();
         punto_DAO objpunto = new punto_DAO();
+        tipo_peligroDAO peligrodao = new tipo_peligroDAO();
         public ActionResult Vprueba()
         {
             return View();
         }
+    
+             public ActionResult tiposdepeligro()
+        {
+            return View();
+        }
+        public ActionResult guardar_peligro(PeligroBO peli)
+        {
+            var r = peli.id > 0 ?
+                peligrodao.editar(peli) :
+                peligrodao.Guardar(peli);
+
+            return Redirect("~/VBackend/tiposdepeligro");
+        }
+        public ActionResult Borrar_peligro(int id)
+        {
+            peligrodao.eliminar(id);
+
+            return Content("hecho");
+        }
         public ActionResult EditarPerfilAdmin()
+        {
+            return View();
+        }
+        public ActionResult estadisticas()
         {
             return View();
         }
@@ -81,6 +105,11 @@ namespace Proyecto.Controllers
         {
 
             return View();
+        }
+        public ActionResult parcial_peligros()
+        {
+
+            return PartialView(peligrodao.peligros());
         }
         public ActionResult parcial_aprovados()
         {
