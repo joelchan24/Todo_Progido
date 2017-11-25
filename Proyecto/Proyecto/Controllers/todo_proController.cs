@@ -16,10 +16,11 @@ namespace Proyecto.Controllers
         loginDAO log = new loginDAO();
         usuarioDAO usuario_dao = new usuarioDAO();
         BackEndDAO Obj_back = new BackEndDAO();
+        IndexDAO ObjIndex = new IndexDAO();
 
         public ActionResult IndexFinal()
         {
-            return View( );
+            return View(ObjIndex.Obtenerindex());
         }
 
         public ActionResult IndexPro()

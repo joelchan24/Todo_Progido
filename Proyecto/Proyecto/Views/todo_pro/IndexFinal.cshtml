@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand">Todo Protegido SOS</a>
+                <a class="navbar-brand">Todo Protegido S.O.S</a>
             </div>
 
             <div class="collapse navbar-collapse">
@@ -66,12 +66,12 @@
         </div>
     </nav>
 
-    <div class="page-header  clear-filter" data-parallax="true" style="background-image: url('../Imagenes/mapaheader.jpg');">
+    <div class="page-header" filter-color="blue" data-parallax="true" style="background-image: url('../Imagenes/mapaheader.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="brand">
-                        <h1>Todo Protegido SOS</h1>
+                        <h1>Todo Protegido S.O.S</h1>
                         <h3 class="title">Siempre cuidando de ti!</h3>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="title">
-                            <center><h2 class="title">¿Qué es Todo protegido SOS?</h2></center>
+                            <center><h2 class="title">@(Model.titulopresentacion)</h2></center>
                         </div>
                     </div>
 
@@ -103,10 +103,7 @@
                         <div class="card-content">
 
 
-                            <p class="text-muted">
-                                Todo Protegido SOS es un proyecto que dará paso hacia un nuevo concepto de protección. Dicho de este modo se creara un sistema de seguridad donde tu usuario puedes alertar mediante diferentes canales a tus contactos de confianza en cuestión de segundos en caso de estar en involucrado en alguna situación que atente contra tu integridad.
-                            </p>
-                            <p class="text-muted">De igual modo entraras a una comunidad que buscara protegerse a sí misma mediante la creación de denominados puntos de peligro que servirán para indicar que lugares pueden ponerte en peligro al momento de salir a la calle. Estos tendrán categorías establecidas las  cuales estarán distribuidas por toda tu ciudad. Todo protegido SOS se encuentra disponible actualmente para plataforma la Web y dispositivos Android.</p>
+                            <p class="text-muted">@Html.Raw(Model.textopresentacion)</p>
 
 
                             <center>
@@ -128,12 +125,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-5">
-                                <h3 class="title">Novedades de la App</h3>
-                                <h5 class="description">•	Alerta a sus contactos mediante SMS más geolocalización. </h5>
-                                <h5 class="description">•	Alerta a sus contactos mediante MAIL más geolocalización. </h5>
-                                <h5 class="description">•	Gestión de contactos. </h5>
-                                <h5 class="description">•	Alarma de lugares peligrosos. </h5>
-                                <h5 class="description">•	Widget para pantalla principal </h5>
+                                <h3 class="title">@Html.Raw(Model.tituloizquierda)</h3>
+                                <h5 class="description">@Html.Raw(Model.textoizquierda)</h5>
+                             
                                 <center>
                                     <a href="#pablo" class="btn btn-danger btn-round">
                                         <i class="material-icons">subject</i> Descargar
@@ -160,13 +154,10 @@
                                 </div>
                             </div>
                             <div class="col-md-5 col-md-offset-1">
-                                <h3 class="title">Novedades de la aplicacion web</h3>
+                                <h3 class="title">@Html.Raw(Model.tituloderecha)</h3>
 
-                                <h5 class="description">•	Gestión de contactos. </h5>
-                                <h5 class="description">•	Información de aplicación. </h5>
-                                <h5 class="description">•	Uso de aplicación.</h5>
-                                <h5 class="description">•	Generar punto peligroso</h5>
-                                <h5 class="description">•	Descargar aplicación</h5>
+                                <h5 class="description">@Html.Raw(Model.textoderecha)</h5>
+                                
                             </div>
                         </div>
                     </div>
@@ -330,8 +321,8 @@
                                 </div>
 
                                 <div class="card-content">
-                                    <h4 class="card-title">Anthony Yam</h4>
-                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+                                    <h4 class="card-title">@(Model.nom1)</h4>
+                                    <h6 class="category text-gray">@(Model.rol1)</h6>
 
                                     <div class="footer">
                                         <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
@@ -350,8 +341,8 @@
                                 </div>
 
                                 <div class="card-content">
-                                    <h4 class="card-title">Adan Soberanis</h4>
-                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+                                    <h4 class="card-title">@(Model.nom2)</h4>
+                                    <h6 class="category text-gray">@(Model.rol2)</h6>
 
                                     <div class="footer">
                                         <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
@@ -370,8 +361,8 @@
                                 </div>
 
                                 <div class="card-content">
-                                    <h4 class="card-title">Joel Chan</h4>
-                                    <h6 class="category text-gray">CEO / Co-Founder</h6>
+                                    <h4 class="card-title">@(Model.nom3)</h4>
+                                    <h6 class="category text-gray">@(Model.rol3)</h6>
 
                                     <div class="footer">
                                         <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
@@ -568,6 +559,7 @@
         <div class="modal-footer text-center">
             <button class="btn btn-simple btn-primary btn-lg"> Iniciar Sesión</button>  
         </div>
+        <br />
     </div>
 }           
             </div>
@@ -739,3 +731,5 @@
 
 
 </html>
+
+

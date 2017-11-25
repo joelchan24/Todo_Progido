@@ -58,6 +58,39 @@ namespace Proyecto.BO
         public string idusuariocontacto { get; set; }
 
 
+        //Seccion de index
+
+        public byte[]imagenbanner { get; set; }
+        public string textopresentacion { get; set; }
+        public string titulopresentacion { get; set; }
+        public string tituloizquierda { get; set; }
+        public byte[] imagenizquierda { get; set; }
+        public string textoizquierda { get; set; }
+        public byte[] imagenderecha { get; set; }
+        public string textoderecha { get; set; }
+        public string tituloderecha { get; set; }
+
+        //seccion 
+        public string nom1 { get; set; }
+        public string nom2 { get; set; }
+        public string nom3 { get; set; }
+
+        public string rol1 { get; set; }
+        public string rol2 { get; set; }
+        public string rol3 { get; set; }
+        public string r1 { get; set; }
+        public string re1 { get; set; }
+        public string red1 { get; set; }
+
+        public string r2 { get; set; }
+        public string re2 { get; set; }
+        public string red2 { get; set; }
+
+        public string r3 { get; set; }
+        public string re3 { get; set; }
+        public string red3 { get; set; }
+
+
 
     }
 }
