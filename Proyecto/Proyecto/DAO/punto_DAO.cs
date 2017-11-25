@@ -21,7 +21,7 @@ namespace Proyecto.DAO
             usuario.nom_imagen = "jj";
          
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario )");
-           
+
             cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
@@ -78,7 +78,16 @@ namespace Proyecto.DAO
             return conectar.EjecutarSentencia(comando);
 
         }
-      
+        public DataSet mostrar_pie_char()
+        {
+
+            SqlCommand comando = new SqlCommand("   select n.Peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro   ");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
 
 
         public IEnumerable<SelectListItem> listartipo()
@@ -104,6 +113,20 @@ namespace Proyecto.DAO
                 Lista.Add(P);
             }
             return Lista;
+        }
+        public List<char_> mandar_pie_char()
+        {
+            DataTable tabla = mostrar_pie_char().Tables[0];
+            List<char_> lista_char = new List<char_>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                char_ P = new char_();
+                P.nombre = dr[0].ToString();
+                P.total = int.Parse(dr[1].ToString());
+                
+                lista_char.Add(P);
+            }
+            return lista_char;
         }
 
         //public List<Punto> mandaedatos()

@@ -1,0 +1,129 @@
+﻿@using Proyecto.BO;
+@model PeligroBO
+@{
+    ViewBag.Title = "tiposdepeligro";
+    Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
+}
+
+<h2>tiposdepeligro</h2>
+
+@section SideBar{
+    <li>
+        <a>
+            <i class="pe-7s-graph"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+    <li>
+
+        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+            <i class="pe-7s-graph"></i>
+            <p>Gestion puntos</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de vistas</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de Actividad</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Reportes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>backup</p>
+        </a>
+    </li>
+}
+@*@using (Ajax.BeginForm("Guardar_puntos", "usuariofron",   new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))*@
+@using (Ajax.BeginForm("guardar_peligro", "VBackend", new AjaxOptions {HttpMethod="POST",InsertionMode=InsertionMode.Replace }))
+{
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+
+               @Html.HiddenFor(x=>x.id)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Tipo de peligro</label>
+                           @Html.TextBoxFor(x=>x.tipo , new {@class="form-control" })
+                        </div>
+                    </div>
+                  
+                </div>
+                
+               
+                <div class="clearfix">
+                    <button type="submit" class="btn btn-info btn-fill pull-left">Update Profile</button>
+                </div>
+                <div class="clearfix"></div>
+                
+
+
+
+</div>
+            <div id="apro"></div>
+</div>
+</div>
+</div>
+}
+<script>
+(function(){
+    $('#apro').load('/VBackend/parcial_peligros')
+}());
+
+ function eliminar (id)
+{
+     $.ajax({
+         url: 'Borrar_peligro/',
+         data:{id:id},
+     }).done(function () {
+         $('#apro').load('/VBackend/parcial_peligros')
+     }
+         )
+
+}
+ function llenardatos(id,peligro) {
+     //var dt = new date();
+     // fecha.format("dd-mmm-yyyy");
+     $('#id').val(id);
+     $('#tipo').val(peligro);
+  
+
+
+ }
+    /* function eliminar(id) {
+        $.ajax({
+            url: 'eliminar/',
+            data: { id: id },
+
+
+        }).done(function () {
+            $('#vista').load('/usuariofron/parcial')
+        }
+        )
+    }*/
+
+
+
+
+</script>

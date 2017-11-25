@@ -16,11 +16,35 @@ namespace Proyecto.Controllers
         usuarioBO ObjusuarioBO = new usuarioBO();
         punto_DAO objpunto = new punto_DAO();
         IndexDAO Obj_indexdao = new IndexDAO();
+        tipo_peligroDAO peligrodao = new tipo_peligroDAO();
         public ActionResult Vprueba()
         {
             return View();
         }
+    
+             public ActionResult tiposdepeligro()
+        {
+            return View();
+        }
+        public ActionResult guardar_peligro(PeligroBO peli)
+        {
+            var r = peli.id > 0 ?
+                peligrodao.editar(peli) :
+                peligrodao.Guardar(peli);
+
+            return Redirect("~/VBackend/tiposdepeligro");
+        }
+        public ActionResult Borrar_peligro(int id)
+        {
+            peligrodao.eliminar(id);
+
+            return Content("hecho");
+        }
         public ActionResult EditarPerfilAdmin()
+        {
+            return View();
+        }
+        public ActionResult estadisticas()
         {
             return View();
         }
@@ -37,6 +61,28 @@ namespace Proyecto.Controllers
             return File(ImagenCliente.foto, "image/jpeg");
         }
         public ActionResult inicio()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+
+            return View();
+        }
+
+        public ActionResult Backud()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+
+            return View();
+        }
+
+        public ActionResult Actividad()
         {
             if (Session["usuario"] != null)
             {
@@ -82,6 +128,11 @@ namespace Proyecto.Controllers
         {
 
             return View();
+        }
+        public ActionResult parcial_peligros()
+        {
+
+            return PartialView(peligrodao.peligros());
         }
         public ActionResult parcial_aprovados()
         {

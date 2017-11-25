@@ -24,13 +24,13 @@
 
                 <td style="width:150px;text-align:left;">@u.zona</td>
                 <td style="width:150px;text-align:left;">@u.comentario</td>
-                <td style="width:150px;text-align:left;">@u.fecha.ToString("yyyy-MM-dd")</td>
+                <td style="width:150px;text-align:left;">@u.nom_imagen</td>
                 <td style="width:150px;text-align:left;">@u.tipo_peligro</td>
 
 
                 <td style="width:200px;">
                     <a title="Eliminar"  onclick="eliminar(@u.id)" style="cursor:pointer">eliminar</a>
-                    <a title="Eliminar" onclick="llenardatos('@u.id','@u.tipo_peligro','@u.zona','@u.fecha','@u.comentario')"style="cursor:pointer">actualizar</a>
+                    <a title="Eliminar" onclick="llenardatos('@u.id','@u.tipo_peligro','@u.zona','@u.nom_imagen','@u.comentario')"style="cursor:pointer">actualizar</a>
                 </td>
             </tr>
         }

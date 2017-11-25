@@ -64,7 +64,7 @@ namespace Proyecto.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona")]punto_peligrosoBO usu, HttpPostedFileBase imagen)
+        public ActionResult Guardar_puntos([Bind(Include = "id_peligro,longitud,latitud,fecha,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen)
         {
             if (Session["usuario"] != null)
             {
@@ -173,6 +173,10 @@ namespace Proyecto.Controllers
         public ActionResult devolverpuntos()
         {
             return Json(pun.mandaedatos(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult devolverchar()
+        {
+            return Json(pun.mandar_pie_char(), JsonRequestBehavior.AllowGet);
         }
         public ActionResult eliminar(int id)
         {
