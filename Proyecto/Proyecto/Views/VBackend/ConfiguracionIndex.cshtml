@@ -1,0 +1,410 @@
+﻿@using Proyecto.BO;
+@model usuarioBO
+@{
+    ViewBag.Title = "ConfiguracionIndex";
+    Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
+}
+
+
+@section sidebar{
+    <li class="active">
+        <a>
+            <i class="pe-7s-graph"></i>
+            <p>Inicio</p>
+        </a>
+    </li>
+    <li>
+
+        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+            <i class="pe-7s-graph"></i>
+            <p>Gestion puntos</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de vistas</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Gestión de Actividad</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Mensajes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>Reportes</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="pe-7s-graph"></i>
+            <p>backup</p>
+        </a>
+    </li>
+}
+
+<div class="row">
+@using (Html.BeginForm("Guardarimagenbanner", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-4">
+        <div class="card">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="header">
+                <h4 class="title">Imagen Banner</h4>
+            </div>
+            <div class="content">
+                <div class="ct-chart">
+                    @Html.LabelFor(model => model.imagenbanner, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="" />
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+   
+@using (Html.BeginForm("Guardarpresentacion", "VBackend", FormMethod.Post ))
+{
+    <div class="col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Texto de presentación </h4>
+            </div>
+            <div class="content">
+                <div class="ct-chart">
+                <form>
+                    <div class="form-group">
+                        <label>Titulo</label>
+                        @Html.TextBoxFor(x => x.titulopresentacion, new  {@class="form-control", @type="text" })
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Texto</label>
+                        
+                        @Html.TextAreaFor(x=>x.textopresentacion, new { @class="form-control",@style="resize:none", @rows="7", @cols="50"})
+                    </div>
+                   
+                </form>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+@using (Html.BeginForm("Guardarizquierda", "VBackend", FormMethod.Post))
+{
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Presentación Izquierda</h4>
+            </div>
+            <div class="content">
+                <div class="ct-chart">
+                    <form>
+                        <div class="form-group">
+                            <label>Titulo</label>
+                          @Html.TextBoxFor(x => x.tituloizquierda, new { @class = "form-control", @type = "text" })
+                        </div>
+                        <div class="form-group">
+                            <label>Texto</label>
+                            @Html.TextAreaFor(x => x.textoizquierda, new { @class = "form-control", @style = "resize:none", @rows = "7", @cols = "50" })
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+        </div>
+}
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Imagen Izquierda</h4>
+            </div>
+            <div class="content">
+                <div class="ct-chart">
+
+
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Imagen Derecha</h4>
+            </div>
+            <div class="content">
+                <div class="ct-chart">
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-8">
+@using (Html.BeginForm("Guardarderecha", "VBackend", FormMethod.Post))
+{
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Presentación Derecha</h4>
+            </div>
+            <div class="content">
+                <div class="ct-chart">
+                    <form>
+                        <div class="form-group">
+                            <label>Titulo</label>
+                            @Html.TextBoxFor(x => x.tituloderecha, new { @class = "form-control", @type = "text" })
+                        </div>
+                        <div class="form-group">
+                            <label>Texto</label>
+                            @Html.TextAreaFor(x => x.textoderecha, new { @class = "form-control", @style = "resize:none", @rows = "7", @cols = "50" })
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+        </div>
+}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+@using (Html.BeginForm("in1", "VBackend", FormMethod.Post))
+{
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Integrante 1</h4>
+            </div>
+            <div class="card-user">
+                <div class="image">
+                </div>
+                <div class="content">
+                    <div class="author">
+                            <img class="avatar border-gray" style="width:190px; height:190px;" src="../Imagenes/header.jpg" alt="..." />
+
+                            <div class="title">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    @Html.TextBoxFor(x => x.nom1, new { @class = "form-control", @type = "text" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Rol del integrante</label>
+                                    @Html.TextBoxFor(x => x.rol1, new { @class = "form-control", @type = "text" })
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <i class="fa fa-facebook-square"></i>
+                                            @Html.TextBoxFor(x => x.r1, new { @class = "form-control", @type = "text" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <i class="fa fa-facebook-square"></i>
+                                            @Html.TextBoxFor(x => x.re1, new { @class = "form-control", @type = "text" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <i class="fa fa-facebook-square"></i>
+                                            @Html.TextBoxFor(x => x.red1, new { @class = "form-control", @type = "text" })
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+
+        </div>
+}
+    </div>
+    <div class="col-md-4">
+@using (Html.BeginForm("in2", "VBackend", FormMethod.Post))
+{
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Integrante 1</h4>
+            </div>
+            <div class="card-user">
+                <div class="image">
+                </div>
+                <div class="content">
+                    <div class="author">
+                        <img class="avatar border-gray" style="width:190px; height:190px;" src="../Imagenes/header.jpg" alt="..." />
+
+                        <div class="title">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                @Html.TextBoxFor(x => x.nom2, new { @class = "form-control", @type = "text" })
+                            </div>
+                            <div class="form-group">
+                                <label>Rol del integrante</label>
+                                @Html.TextBoxFor(x => x.rol2, new { @class = "form-control", @type = "text" })
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <i class="fa fa-facebook-square"></i>
+                                        @Html.TextBoxFor(x => x.r2, new { @class = "form-control", @type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <i class="fa fa-facebook-square"></i>
+                                        @Html.TextBoxFor(x => x.re2, new { @class = "form-control", @type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <i class="fa fa-facebook-square"></i>
+                                        @Html.TextBoxFor(x => x.red2, new { @class = "form-control", @type = "text" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+
+        </div>
+}
+    </div>
+    <div class="col-md-4">
+@using (Html.BeginForm("in3", "VBackend", FormMethod.Post))
+{
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Integrante 1</h4>
+            </div>
+            <div class="card-user">
+                <div class="image">
+                </div>
+                <div class="content">
+                    <div class="author">
+                        <img class="avatar border-gray" style="width:190px; height:190px;" src="../Imagenes/header.jpg" alt="..." />
+
+                        <div class="title">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                @Html.TextBoxFor(x => x.nom3, new { @class = "form-control", @type = "text" })
+                            </div>
+                            <div class="form-group">
+                                <label>Rol del integrante</label>
+                                @Html.TextBoxFor(x => x.rol3, new { @class = "form-control", @type = "text" })
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <i class="fa fa-facebook-square"></i>
+                                        @Html.TextBoxFor(x => x.r3, new { @class = "form-control", @type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <i class="fa fa-facebook-square"></i>
+                                        @Html.TextBoxFor(x => x.re3, new { @class = "form-control", @type = "text" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <i class="fa fa-facebook-square"></i>
+                                        @Html.TextBoxFor(x => x.red3, new { @class = "form-control", @type = "text" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <hr>
+                <div class="stats">
+                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
+                </div>
+            </div>
+
+        </div>
+}
+    </div>
+    
+
+    
+</div>
+

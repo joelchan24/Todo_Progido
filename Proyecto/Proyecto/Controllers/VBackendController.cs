@@ -15,6 +15,7 @@ namespace Proyecto.Controllers
         loginDAO ObjLogin = new loginDAO();
         usuarioBO ObjusuarioBO = new usuarioBO();
         punto_DAO objpunto = new punto_DAO();
+        IndexDAO Obj_indexdao = new IndexDAO();
         public ActionResult Vprueba()
         {
             return View();
@@ -104,6 +105,86 @@ namespace Proyecto.Controllers
             objpunto.actaulzar_noapro(id);
 
             return Content("hecho");
+        }
+
+        public ActionResult ListaDePuntosM()
+        {
+            return View();
+        }
+
+        public ActionResult ConfiguracionIndex()
+        {
+            return View(Obj_indexdao.Obtenerindex());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Guardarimagenbanner( HttpPostedFileBase imagenbanner)
+        {
+            usuarioBO cliente = new usuarioBO();
+            if (imagenbanner != null && imagenbanner.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(imagenbanner.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imagenbanner.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                cliente.imagenbanner = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                Obj_indexdao.GuardarImagen(cliente);
+
+                return Redirect("~/ VBackend / ConfiguracionIndex");
+            }
+
+            return View(cliente);
+        }
+        [HttpPost,ValidateInput(false)]
+        public ActionResult Guardarpresentacion(usuarioBO obj)
+        {
+            
+            Obj_indexdao.Guardarpre(obj);
+            return Redirect("~/ VBackend / ConfiguracionIndex");
+        }
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Guardarizquierda(usuarioBO obj)
+        {
+
+            Obj_indexdao.Guardarizquierda(obj);
+            return Redirect("~/ VBackend / ConfiguracionIndex");
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Guardarderecha(usuarioBO obj)
+        {
+
+            Obj_indexdao.Guardarderecha(obj);
+            return Redirect("~/ VBackend / ConfiguracionIndex");
+         
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult in1(usuarioBO obj)
+        {
+
+            Obj_indexdao.integrante1(obj);
+            return Redirect("~/ VBackend / ConfiguracionIndex");
+
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult in2(usuarioBO obj)
+        {
+            Obj_indexdao.integrante2(obj);
+            return Redirect("~/ VBackend / ConfiguracionIndex");
+        }
+        [HttpPost, ValidateInput(false)]
+        public ActionResult in3(usuarioBO obj)
+        {
+            Obj_indexdao.integrante3(obj);
+            return Redirect("~/ VBackend / ConfiguracionIndex");
         }
 
     }

@@ -194,6 +194,7 @@
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
     <Compile Include="DAO\ContactosDAO.cs" />
+    <Compile Include="DAO\IndexDAO.cs" />
     <Compile Include="DAO\loginDAO.cs" />
     <Compile Include="DAO\Punto.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
@@ -392,6 +393,30 @@
     <Content Include="Content\assets\js\material-kit.js" />
     <Content Include="Content\assets\js\material.min.js" />
     <Content Include="Content\assets\js\nouislider.min.js" />
+    <Content Include="Content\assets_tablanet\css\bootstrap.min.css" />
+    <Content Include="Content\assets_tablanet\css\demo.css" />
+    <Content Include="Content\assets_tablanet\css\light-bootstrap-dashboard.css" />
+    <Content Include="Content\assets_tablanet\css\pe-icon-7-stroke.css" />
+    <Content Include="Content\assets_tablanet\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Content\assets_tablanet\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\assets_tablanet\js\bootstrap-notify.js" />
+    <Content Include="Content\assets_tablanet\js\bootstrap-selectpicker.js" />
+    <Content Include="Content\assets_tablanet\js\bootstrap-switch-tags.min.js" />
+    <Content Include="Content\assets_tablanet\js\bootstrap-table.js" />
+    <Content Include="Content\assets_tablanet\js\bootstrap.min.js" />
+    <Content Include="Content\assets_tablanet\js\chartist.min.js" />
+    <Content Include="Content\assets_tablanet\js\demo.js" />
+    <Content Include="Content\assets_tablanet\js\fullcalendar.min.js" />
+    <Content Include="Content\assets_tablanet\js\jquery-jvectormap.js" />
+    <Content Include="Content\assets_tablanet\js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\assets_tablanet\js\jquery.datatables.js" />
+    <Content Include="Content\assets_tablanet\js\jquery.min.js" />
+    <Content Include="Content\assets_tablanet\js\jquery.sharrre.js" />
+    <Content Include="Content\assets_tablanet\js\jquery.validate.min.js" />
+    <Content Include="Content\assets_tablanet\js\light-bootstrap-dashboard.js" />
+    <Content Include="Content\assets_tablanet\js\moment.min.js" />
+    <Content Include="Content\assets_tablanet\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\assets_tablanet\js\sweetalert2.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\examples\landing-page.html" />
@@ -473,6 +498,9 @@
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Content\assetsBack\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Content\assets_tablanet\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\assets_tablanet\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\assets_tablanet\fonts\Pe-icon-7-stroke.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -540,6 +568,7 @@
     <Content Include="Views\VBackend\no_aprovados.cshtml" />
     <Content Include="Views\VBackend\aprovados.cshtml" />
     <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
+    <Content Include="Views\VBackend\ConfiguracionIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
