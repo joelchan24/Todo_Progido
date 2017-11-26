@@ -20,7 +20,7 @@ namespace Proyecto.DAO
             DataRow row = datos.Rows[0];
             indext.titulopresentacion = row["titulopresentacion"].ToString();
             indext.textopresentacion = row["textopresentacion"].ToString();
-            indext.imagenbanner = (byte[])row["imagenbanner"];
+           // indext.imagenbanner = (byte[])row["imagenbanner"];
             indext.textoizquierda = row["textoizquierda"].ToString();
             indext.tituloizquierda = row["tituloizquierda"].ToString();
             indext.tituloderecha = row["tituloderecha"].ToString();

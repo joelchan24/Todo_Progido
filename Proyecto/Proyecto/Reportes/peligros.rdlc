@@ -267,7 +267,7 @@
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Count(Fields!total.Value)</Y>
+                    <Y>=Aggregate(Fields!total.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -634,7 +634,12 @@
           <ChartTitle Name="Default">
             <Caption>Título del gráfico</Caption>
             <Style>
+              <Border>
+                <Width>2.5pt</Width>
+              </Border>
               <BackgroundGradientType>None</BackgroundGradientType>
+              <FontFamily>Arial Rounded MT Bold</FontFamily>
+              <FontSize>14pt</FontSize>
               <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>
               <VerticalAlign>Top</VerticalAlign>
