@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Web.Mvc;
 using Proyecto.BO;
+using System.IO;
 
 
 namespace Proyecto.DAO
@@ -72,7 +73,7 @@ namespace Proyecto.DAO
         public DataSet mostrar()
         {
           
-            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] ");
+            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] p inner join [Niveles-peligro] n on p.id_peligro=n.id ");
            
             comando.CommandType = CommandType.Text;
             return conectar.EjecutarSentencia(comando);
@@ -104,10 +105,13 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar().Tables[0];
             List<Punto> Lista = new List<Punto>();
+            byte[] imagen;
             foreach (DataRow dr in tabla.Rows)
             {
+                imagen = (byte[])dr[8];
                 Punto P = new Punto();
-                P.punton = dr[4].ToString();
+                P.punton = dr[4] + " \n\r " + dr[12] +dr[8];
+              
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
                 Lista.Add(P);
