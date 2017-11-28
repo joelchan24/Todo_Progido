@@ -105,12 +105,14 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar().Tables[0];
             List<Punto> Lista = new List<Punto>();
-            byte[] imagen;
+            //byte[] imagen;
+            //Convert.ToBase64String(imagen)
             foreach (DataRow dr in tabla.Rows)
             {
-                imagen = (byte[])dr[8];
+               
                 Punto P = new Punto();
-                P.punton = dr[4] + " \n\r " + dr[12] +Convert.ToBase64String(imagen);
+                P.punton = dr[4] + " \n\r " + dr[12] 
+                    ;
               
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
