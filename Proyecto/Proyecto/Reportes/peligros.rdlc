@@ -245,12 +245,12 @@
                   <GroupExpression>=Fields!peligro.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <Label>=Fields!peligro.Value</Label>
               <SortExpressions>
                 <SortExpression>
                   <Value>=Fields!peligro.Value</Value>
                 </SortExpression>
               </SortExpressions>
+              <Label>=Fields!peligro.Value</Label>
             </ChartMember>
           </ChartMembers>
         </ChartCategoryHierarchy>
@@ -267,7 +267,7 @@
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Aggregate(Fields!total.Value)</Y>
+                    <Y>=Count(Fields!total.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />

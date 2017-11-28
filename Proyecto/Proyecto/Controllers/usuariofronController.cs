@@ -60,7 +60,7 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                
             }
-            ViewBag.mapa = pun.mandaedatos();
+            ViewBag.nom = "pag";
             return View();
         }
         [HttpPost]

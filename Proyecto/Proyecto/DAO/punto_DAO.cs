@@ -110,7 +110,7 @@ namespace Proyecto.DAO
             {
                 imagen = (byte[])dr[8];
                 Punto P = new Punto();
-                P.punton = dr[4] + " \n\r " + dr[12] +dr[8];
+                P.punton = dr[4] + " \n\r " + dr[12] +Convert.ToBase64String(imagen);
               
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
