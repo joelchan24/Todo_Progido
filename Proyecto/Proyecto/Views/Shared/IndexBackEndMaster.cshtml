@@ -94,14 +94,13 @@
 {
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                             <span>
-                               @ViewBag.usuario.nombre
-                                @Html.TextBoxFor(x => x.correo, new { @class = "form-control",@value=@ViewBag.usuario.id })
-                                <p style="display:none">@ViewBag.usuario.id</p>
+                                @ViewBag.usuario.nombre
+                                
                             </span>
                         </a>
 }
 
-                       @*@RenderSection("Sideusu", required: true)*@
+                       @RenderSection("Sideusu", required: true)
                     </div>
                 </div>
 

@@ -1,9 +1,11 @@
-﻿@using Proyecto.BO
-@model usuarioBO
+﻿
 @{
-    ViewBag.Title = "PerfilAdmin";
+    ViewBag.Title = "mensajes";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
+
+<h2>mensajes</h2>
+
 @section Sideusu{
     <div class="collapse" id="collapseExample">
         <ul class="nav">
@@ -156,93 +158,3 @@
     </li>
 
 }
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="header">
-                <h4 class="title">Perfil de administrador</h4>
-            </div>
-            <div class="content">
-                <div class="row">
-                    <div class="col-md-8">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Nombre</label>
-                                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @readonly = "readonly" })
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Apellidos</label>
-                                        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control", @readonly = "readonly" })
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Correo Electronico</label>
-                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled", @readonly = "readonly" })
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label>Numero Telefonico</label>
-                                        @Html.TextBoxFor(x => x.telefono, new { @class = "form-control disabled", @readonly = "readonly" })
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Fecha de nacimiento</label>
-                                        @Html.TextBoxFor(x => x.fecha, new { @class = "form-control disabled", @readonly = "readonly" })
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Sexo</label>
-                                        @Html.TextBoxFor(x => x.sexo, new { @class = "form-control disabled", @readonly = "readonly" })
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col-md-12">
-                            <div class="card card-user">
-                                <div class="image">
-                                </div>
-                                <div class="content">
-                                    <div class="author">
-                                        <a href="#">
-                                            <img class="avatar border-gray" src="@Url.Action("convertirImagen", "VBackend")"/>
-
-                                            <h5 class="title">
-                                                <br />
-                                                <small>Foto de perfil</small>
-                                            </h5>
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-
-</div>
-

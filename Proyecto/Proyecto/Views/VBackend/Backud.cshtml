@@ -13,54 +13,159 @@
         </div>
     </div>
 </div>
+@section Sideusu{
+    <div class="collapse" id="collapseExample">
+        <ul class="nav">
+            <li class="active">
+                <a href="@Url.Action("EditarPerfilAdmin", "VBackend")">
+                    <span class="sidebar-mini">EP</span>
+                    <span class="sidebar-normal">Editar Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+}
 
-@section sidebar{
-    <li class="active">
-        <a href="~/VBackend/inicio">
-
+@section SideBar{
+    <li>
+        <a href="~/VBackend/estadisticas">
             <i class="pe-7s-graph"></i>
             <p>Inicio</p>
         </a>
     </li>
     <li>
 
-        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+
+        <a href="~/VBackend/Mapa_admin">
             <i class="pe-7s-graph"></i>
-            <p>Gestion puntos</p>
+            <p>Mapa</p>
         </a>
     </li>
     <li>
-        bgbb0h
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Gestión de vistas</p>
+        <a data-toggle="collapse" href="#tablesExamples">
+            <i class="pe-7s-news-paper"></i>
+            <p>
+                Gestion de Puntos
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse" id="tablesExamples">
+            <ul class="nav">
+                <li>
+                    <a href="~/VBackend/aprovados">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Aprovar Puntos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/no_aprovados">
+                        <span class="sidebar-mini">ET</span>
+                        <span class="sidebar-normal">Puntos Aprovados</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/tiposdepeligro">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Tipos De delitos</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
     </li>
     <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Gestión de Actividad</p>
+        <a data-toggle="collapse" href="#tablesExamples1">
+            <i class="pe-7s-news-paper"></i>
+            <p>
+                Configuración
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse" id="tablesExamples1">
+            <ul class="nav">
+
+                <li>
+                    <a href="~/VBackend/ConfiguracionIndex">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Index</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/listadeusuarios">
+                        <span class="sidebar-mini">ET</span>
+                        <span class="sidebar-normal">Lista de usuarios</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="~/VBackend/Backud">
+                        <span class="sidebar-mini">ET</span>
+                        <span class="sidebar-normal">Backup</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
     </li>
     <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Mensajes</p>
+        <a data-toggle="collapse" href="#tablesExamples2">
+            <i class="pe-7s-news-paper"></i>
+            <p>
+                Mensajeria
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse" id="tablesExamples2">
+            <ul class="nav">
+
+                <li>
+                    <a href="~/VBackend/mensajes">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Mensajes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/buzon_de_sugerencias">
+                        <span class="sidebar-mini">ET</span>
+                        <span class="sidebar-normal">Buzón de Sugerencias</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
     </li>
     <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Reportes</p>
+        <a data-toggle="collapse" href="#tablesExamples3">
+            <i class="pe-7s-news-paper"></i>
+            <p>
+                Reportes
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse" id="tablesExamples3">
+            <ul class="nav">
+
+                <li>
+                    <a href="~/VBackend/Reporte_peligros">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Reporte de peligros </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/reporte_usuarios">
+                        <span class="sidebar-mini">ET</span>
+                        <span class="sidebar-normal">Reporte de usuarios</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
     </li>
-    <li>
-        <a href="~/VBackend/Actividad">
-            <i class="pe-7s-graph"></i>
-            <p>backup</p>
-        </a>
-    </li>
+
 }
+
 
 <script>
     $(document).ready(function () {

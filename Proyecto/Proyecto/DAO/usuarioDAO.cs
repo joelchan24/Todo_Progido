@@ -14,7 +14,7 @@ namespace Proyecto.DAO
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
             SqlCommand cmd = new SqlCommand("insert into usuario (nombre,contraseña,fecha,id_tipo,telefono,correo,Apellido,sexo,foto) values (@nom,@contra,@fecha,@id_tipo,@telefono,@correo,@apellido,@sexo,@foto)");
-            usuario.id_tipo = 2;
+            usuario.id_tipo = 1;
             cmd.Parameters.Add("@nom", SqlDbType.VarChar).Value = usuario.nombre;
             cmd.Parameters.Add("@contra", SqlDbType.VarChar).Value = usuario.contraseña;
             cmd.Parameters.Add("@fecha", SqlDbType.DateTime).Value = usuario.fecha.ToString("yyyy-MM-dd");

@@ -582,13 +582,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\IndexBackEndMaster.cshtml" />
-    <Content Include="Views\VBackend\Vprueba.cshtml" />
     <Content Include="Views\todo_pro\IndexPro.cshtml" />
     <Content Include="Views\Shared\frontend_usuario.cshtml" />
     <Content Include="Views\todo_pro\IndexFinal.cshtml" />
     <Content Include="Views\usuariofron\miscontactos.cshtml" />
     <Content Include="Views\usuariofron\puntos.cshtml" />
-    <Content Include="Views\VBackend\inicio.cshtml" />
     <Content Include="Views\usuariofron\peligros.cshtml" />
     <Content Include="Views\usuariofron\mis_puntos.cshtml" />
     <Content Include="Views\VBackend\PerfilAdmin.cshtml" />
@@ -602,13 +600,16 @@
     <Content Include="Views\VBackend\aprovados.cshtml" />
     <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
     <Content Include="Views\VBackend\ConfiguracionIndex.cshtml" />
-    <Content Include="Views\VBackend\Actividad.cshtml" />
     <Content Include="Views\VBackend\Backud.cshtml" />
-    <Content Include="Views\VBackend\EditarPerfilAdmin.cshtml" />
     <Content Include="Views\VBackend\estadisticas.cshtml" />
     <Content Include="Views\VBackend\parcial_peligros.cshtml" />
     <Content Include="Views\VBackend\tiposdepeligro.cshtml" />
     <Content Include="Views\VBackend\Reporte_peligros.cshtml" />
+    <Content Include="Views\VBackend\listadeusuarios.cshtml" />
+    <Content Include="Views\VBackend\buzon_de_sugerencias.cshtml" />
+    <Content Include="Views\VBackend\Mapa_admin.cshtml" />
+    <Content Include="Views\VBackend\mensajes.cshtml" />
+    <Content Include="Views\VBackend\reporte_usuarios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

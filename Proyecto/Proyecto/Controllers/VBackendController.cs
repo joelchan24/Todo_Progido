@@ -25,8 +25,28 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-        
-             public ActionResult tiposdepeligro()
+        public ActionResult mensajes()
+        {
+            return View();
+        }
+        public ActionResult Mapa_admin()
+        {
+            return View();
+        }
+        public ActionResult listadeusuarios()
+        {
+            return View();
+        }
+        public ActionResult buzon_de_sugerencias()
+        {
+            return View();
+        }
+        public ActionResult reporte_usuarios()
+        {
+            return View();
+        }
+
+        public ActionResult tiposdepeligro()
         {
             return View();
         }
@@ -80,6 +100,11 @@ namespace Proyecto.Controllers
         }
         public ActionResult estadisticas()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return View();
         }
 
@@ -140,6 +165,11 @@ namespace Proyecto.Controllers
 
         public ActionResult prueba()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return Redirect("~/VBackend/Vprueba");
         }
 
@@ -155,21 +185,41 @@ namespace Proyecto.Controllers
         }
         public ActionResult aprovados()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return View();
         }
         public ActionResult no_aprovados()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return View();
         }
         public ActionResult parcial_peligros()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return PartialView(peligrodao.peligros());
         }
         public ActionResult parcial_aprovados()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return PartialView(objpunto.aprovados());
         }
@@ -195,6 +245,11 @@ namespace Proyecto.Controllers
          
         public ActionResult ListaDePuntosM()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return View();
         }
 
