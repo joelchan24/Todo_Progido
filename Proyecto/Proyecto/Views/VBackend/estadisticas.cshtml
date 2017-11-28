@@ -58,7 +58,7 @@
                 Public Preferences
                 <p class="category">Pie Chart</p>
             </div>
-            <div id="piechart1"
+            <div id="barchart_material"
                  style="width:500px;height:455px;"></div>
         </div>
     </div>
@@ -107,54 +107,22 @@
         chart.draw(data, options);
       }
 </script>
-    <script>
-
-
-    google.charts.load ("current", {packages: ['corechart']});
-    google.charts.setOnLoadCallback (drawChart);
-    function drawChart () {
-    var data = google.visualization.arrayToDataTable ([
-    ["Element", "Density", {role: "style"}],
-    ["Cobre", 8.94, "# b87333"],
-    ["Plata", 10.49, "plata"],
-    ["Oro", 19.30, "oro"],
-    ["Platinum", 21.45, "color: # e5e4e2"]
-    ]);
-
-    var view = new google.visualization.DataView (datos);
-    view.setColumns ([0, 1,
-    {calc: "stringify",
-    sourceColumn: 1,
-    tipo: "cadena",
-    rol: "anotación"},
-    2]);
-
-    var options = {
-    título: "Densidad de metales preciosos, en g / cm ^ 3",
-    ancho: 600,
-    altura: 400,
-    bar: {groupWidth: "95%"},
-    leyenda: {posición: "ninguno"},
-    };
-    var chart = new google.visualization.ColumnChart (document.getElementById ("columnchart_values"));
-    chart.draw ( ver , opciones);
-    }
-
-    </script>
+   
 <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
+      var datos = [['Language', 'Speakers (in millions)'],
+            ['Assamese', 13], ['Bengali', 83], ['Bodo', 1.4],
+            ['Dogri', 2.3], ['Gujarati', 46], ['Hindi', 300],
+            ['Kannada', 38], ['Kashmiri', 5.5], ['Konkani', 5],
+            ['Maithili', 20], ['Malayalam', 33], ['Manipuri', 1.5],
+            ['Marathi', 72], ['Nepali', 2.9], ['Oriya', 33],
+            ['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],
+            ['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]]
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Language', 'Speakers (in millions)'],
-          ['Assamese', 13], ['Bengali', 83], ['Bodo', 1.4],
-          ['Dogri', 2.3], ['Gujarati', 46], ['Hindi', 300],
-          ['Kannada', 38], ['Kashmiri', 5.5], ['Konkani', 5],
-          ['Maithili', 20], ['Malayalam', 33], ['Manipuri', 1.5],
-          ['Marathi', 72], ['Nepali', 2.9], ['Oriya', 33],
-          ['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],
-          ['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]
-        ]);
+        var data = google.visualization.arrayToDataTable(datos
+         
+        );
 
         var options = {
           title: 'Indian Language Use',
@@ -169,5 +137,31 @@
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
         chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      var datos = [['Year', 'Sales', 'Expenses'],
+            ['2014', 1000, 400],
+            ['2015', 1170, 460],
+            ['2016', 660, 1120],
+            ['2017', 1030, 540]]
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(datos
+       
+        );
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
 </script>
