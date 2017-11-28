@@ -53,45 +53,62 @@
     </li>
 }
 @*@using (Ajax.BeginForm("Guardar_puntos", "usuariofron",   new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))*@
-@using (Ajax.BeginForm("guardar_peligro", "VBackend", new AjaxOptions {HttpMethod="POST",InsertionMode=InsertionMode.Replace }))
+@using (Ajax.BeginForm("guardar_peligro", "VBackend", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))
 {
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="header">
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
 
-               @Html.HiddenFor(x=>x.id)
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Tipo de peligro</label>
-                           @Html.TextBoxFor(x=>x.tipo , new {@class="form-control" })
+                            @Html.HiddenFor(x => x.id)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Tipo de peligro</label>
+                                        @Html.TextBoxFor(x => x.tipo, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @*> 0 ? "Editar Alumno: "+ Model.nombre + " " + Model.ape_paterno : "Nuevo usuario"*@
+                                            <button type="submit" class="btn btn-info btn-fill pull-left">Guardar</button>
+                                        </div>
+                                        <
+
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                  
+                    
+            </div>
                 </div>
-                
-               
-                <div class="clearfix">
-                    <button type="submit" class="btn btn-info btn-fill pull-left">Update Profile</button>
-                </div>
-                <div class="clearfix"></div>
-                
+            </div>
+        
+</form>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card ">
+                <div  class="nav-align-center"id="apro"></div>
+            </div>
 
-
-
-</div>
-            <div id="apro"></div>
-</div>
-</div>
-</div>
+        </div>
+    </div>
 }
 <script>
 (function(){
     $('#apro').load('/VBackend/parcial_peligros')
 }());
 
- function eliminar (id)
+function eliminar(id)
 {
      $.ajax({
          url: 'Borrar_peligro/',
@@ -111,17 +128,7 @@
 
 
  }
-    /* function eliminar(id) {
-        $.ajax({
-            url: 'eliminar/',
-            data: { id: id },
-
-
-        }).done(function () {
-            $('#vista').load('/usuariofron/parcial')
-        }
-        )
-    }*/
+    
 
 
 

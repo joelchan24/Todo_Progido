@@ -1,12 +1,12 @@
 ﻿@model List<Proyecto.BO.PeligroBO>
-
-<table style="width:500px">
+<div class="content table-full-width"></div>
+<table class="table table-striped">
     <thead>
         <tr>
             <th style="text-align:left;">ID</th>
             <th style="width:150px;text-align:left;">peligro</th>
            
-            <th style="width:200px;">Acciones</th>
+            <th style="width:300px;">Acciones</th>
         </tr>
     </thead>
 
@@ -20,9 +20,11 @@
             
 
 
-                <td style="width:200px;">
-                    <a title="Eliminar" onclick="eliminar(@u.id)" style="cursor:pointer">eliminar</a>
-                    <a title="Eliminar"  onclick="llenardatos('@u.id','@u.tipo')" style="cursor:pointer">actualizar</a>
+                <td style="width:300px;">
+                    @*<a title="Eliminar" onclick="eliminar(@u.id)" style="cursor:pointer">eliminar</a>*@
+                    <a href="#" onclick="llenardatos('@u.id','@u.tipo')" style="cursor:pointer" class="btn btn-simple btn-warning btn-icon edit"><i class="fa fa-edit"></i></a>
+                    <a href="#"  onclick="eliminar(@u.id)" style="cursor:pointer" class="btn btn-simple btn-danger btn-icon remove"><i class="fa fa-times"></i></a>
+                    @*<a title="Eliminar"  onclick="llenardatos('@u.id','@u.tipo')" style="cursor:pointer">actualizar</a>*@
                 </td>
             </tr>
         }
