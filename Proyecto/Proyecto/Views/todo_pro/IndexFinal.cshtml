@@ -66,7 +66,7 @@
         </div>
     </nav>
 
-    <div class="page-header" filter-color="blue" data-parallax="true" style="background-image: url('../Imagenes/mapaheader.jpg');">
+    <div class="page-header" filter-color="blue" data-parallax="true" style="background-image: url('@Url.Action("obtenerbanner", "todo_pro")');">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -316,7 +316,8 @@
                             <div class="card card-profile">
                                 <div class="card-image">
                                     <a href="#pablo">
-                                        <img class="img" src="../Imagenes/card-profile1.jpg"  />
+                                        
+                                        <img class="img" src=@Url.Action("obtenern1", "VBackend") style="width:330px; height:219.85px" />
                                     </a>
                                 </div>
 
@@ -325,9 +326,9 @@
                                     <h6 class="category text-gray">@(Model.rol1)</h6>
 
                                     <div class="footer">
-                                        <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-google btn-round"><i class="fa fa-google"></i></a>
+                                        <a href="@(Model.r1)" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        <a href="@(Model.re1)" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
+                                        <a href="@(Model.red1)" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +337,7 @@
                             <div class="card card-profile">
                                 <div class="card-image">
                                     <a href="#pablo">
-                                        <img class="img" src="../Imagenes/card-profile1.jpg" />
+                                        <img class="img" src=@Url.Action("obtenern2", "VBackend") style="width:330px; height:219.85px" />
                                     </a>
                                 </div>
 
@@ -347,7 +348,7 @@
                                     <div class="footer">
                                         <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
                                         <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-google btn-round"><i class="fa fa-google"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -356,7 +357,7 @@
                             <div class="card card-profile">
                                 <div class="card-image">
                                     <a href="#pablo">
-                                        <img class="img" src="../Imagenes/card-profile1.jpg" />
+                                        <img class="img" src=@Url.Action("obtenern3", "VBackend") style="width:330px; height:219.85px" />
                                     </a>
                                 </div>
 
@@ -367,7 +368,7 @@
                                     <div class="footer">
                                         <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
                                         <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-google btn-round"><i class="fa fa-google"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>
                                     </div>
                                 </div>
                             </div>

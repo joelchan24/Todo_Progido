@@ -64,12 +64,18 @@
             </div>
             <div class="content">
                 <div class="ct-chart">
-                    @Html.LabelFor(model => model.imagenbanner, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <input type="file" name="" />
+                    <div class="form-group">
+                        <div class="img-container">
+                            <center> 
+    
+                                <img style="width:270px;height:230px;border-radius: 25px;" id="img_destino" src="@Url.Action("obtenerbanner", "VBackend")">
+                            </center>
+                        </div>
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.TextBoxFor(model => model.imagenbanner, htmlAttributes: new { @type = "file", @name = "imagenbanner", @style = "width:200px;" })
+                        </div>
                     </div>
-
-
                 </div>
             </div>
             <div class="footer">
@@ -150,15 +156,28 @@
         </div>
 }
     </div>
+@using (Html.BeginForm("imagenizquierdasave", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
     <div class="col-md-4">
         <div class="card">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="header">
                 <h4 class="title">Imagen Izquierda</h4>
             </div>
             <div class="content">
                 <div class="ct-chart">
-
-
+                    <div class="form-group">
+                        <div class="img-container">
+                            <center>
+                                <img style="width:270px;height:230px;border-radius: 25px;" id="img_izque" src="@Url.Action("obtenerizque", "VBackend")">
+                            </center>
+                        </div>
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.TextBoxFor(model => model.imagenizquierda, htmlAttributes: new { @type = "file", @name = "imagenizquierda", @style = "width:200px;" })
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer">
@@ -170,17 +189,34 @@
 
         </div>
     </div>
+}
+
+  
 </div>
 
 <div class="row">
+@using (Html.BeginForm("imagenderechasave", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
     <div class="col-md-4">
-
         <div class="card">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="header">
                 <h4 class="title">Imagen Derecha</h4>
             </div>
             <div class="content">
                 <div class="ct-chart">
+                    <div class="form-group">
+                        <div class="img-container">
+                            <center>
+                                <img style="width:270px;height:230px;border-radius: 25px;" id="img_dere" src="@Url.Action("obtenerdere", "VBackend")">
+                            </center>
+                        </div>
+                        <br />
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.TextBoxFor(model => model.imagenderecha, htmlAttributes: new { @type = "file", @name = "imagenderecha", @style = "width:200px;" })
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="footer">
@@ -189,9 +225,10 @@
                     <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
+}
 
     <div class="col-md-8">
 @using (Html.BeginForm("Guardarderecha", "VBackend", FormMethod.Post))
@@ -227,8 +264,9 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-@using (Html.BeginForm("in1", "VBackend", FormMethod.Post))
+@using (Html.BeginForm("in1", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
         <div class="card">
             <div class="header">
                 <h4 class="title">Integrante 1</h4>
@@ -237,8 +275,14 @@
                 <div class="image">
                 </div>
                 <div class="content">
+                   
                     <div class="author">
-                            <img class="avatar border-gray" style="width:190px; height:190px;" src="../Imagenes/header.jpg" alt="..." />
+                            
+                        <img class="avatar border-gray" style="width:190px; height:190px;" src="@Url.Action("obtenern1", "VBackend")" id="img_i1" />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.TextBoxFor(model => model.foto1, htmlAttributes: new { @type = "file", @name = "foto1", @style = "width:200px;" })
+                        </div>
 
                             <div class="title">
                                 <div class="form-group">
@@ -252,7 +296,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <i class="fa fa-facebook-square"></i>
+                                            <i class="fa fa-twitter"></i>
                                             @Html.TextBoxFor(x => x.r1, new { @class = "form-control", @type = "text" })
                                         </div>
                                     </div>
@@ -264,7 +308,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <i class="fa fa-facebook-square"></i>
+                                            <i class="fa fa-instagram"></i>
                                             @Html.TextBoxFor(x => x.red1, new { @class = "form-control", @type = "text" })
                                         </div>
                                     </div>
@@ -286,19 +330,23 @@
 }
     </div>
     <div class="col-md-4">
-@using (Html.BeginForm("in2", "VBackend", FormMethod.Post))
+@using (Html.BeginForm("in2", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
         <div class="card">
             <div class="header">
-                <h4 class="title">Integrante 1</h4>
+                <h4 class="title">Integrante 2</h4>
             </div>
             <div class="card-user">
                 <div class="image">
                 </div>
                 <div class="content">
                     <div class="author">
-                        <img class="avatar border-gray" style="width:190px; height:190px;" src="../Imagenes/header.jpg" alt="..." />
-
+                        <img class="avatar border-gray" style="width:190px; height:190px;" src="@Url.Action("obtenern2", "VBackend")" id="img_i2" />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.TextBoxFor(model => model.foto2, htmlAttributes: new { @type = "file", @name = "foto2", @style = "width:200px;" })
+                        </div>
                         <div class="title">
                             <div class="form-group">
                                 <label>Nombre</label>
@@ -311,7 +359,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <i class="fa fa-facebook-square"></i>
+                                        <i class="fa fa-twitter"></i>
                                         @Html.TextBoxFor(x => x.r2, new { @class = "form-control", @type = "text" })
                                     </div>
                                 </div>
@@ -323,7 +371,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <i class="fa fa-facebook-square"></i>
+                                        <i class="fa fa-instagram"></i>
                                         @Html.TextBoxFor(x => x.red2, new { @class = "form-control", @type = "text" })
                                     </div>
                                 </div>
@@ -345,19 +393,23 @@
 }
     </div>
     <div class="col-md-4">
-@using (Html.BeginForm("in3", "VBackend", FormMethod.Post))
+@using (Html.BeginForm("in3", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
         <div class="card">
             <div class="header">
-                <h4 class="title">Integrante 1</h4>
+                <h4 class="title">Integrante 3</h4>
             </div>
             <div class="card-user">
                 <div class="image">
                 </div>
                 <div class="content">
                     <div class="author">
-                        <img class="avatar border-gray" style="width:190px; height:190px;" src="../Imagenes/header.jpg" alt="..." />
-
+                        <img class="avatar border-gray" style="width:190px; height:190px;" src=@Url.Action("obtenern3", "VBackend") id="img_i3" />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.TextBoxFor(model => model.foto3, htmlAttributes: new { @type = "file", @name = "foto3", @style = "width:200px;" })
+                        </div>
                         <div class="title">
                             <div class="form-group">
                                 <label>Nombre</label>
@@ -370,7 +422,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <i class="fa fa-facebook-square"></i>
+                                        <i class="fa fa-twitter"></i>
                                         @Html.TextBoxFor(x => x.r3, new { @class = "form-control", @type = "text" })
                                     </div>
                                 </div>
@@ -382,7 +434,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <i class="fa fa-facebook-square"></i>
+                                        <i class="fa fa-instagram"></i>
                                         @Html.TextBoxFor(x => x.red3, new { @class = "form-control", @type = "text" })
                                     </div>
                                 </div>
@@ -407,4 +459,96 @@
 
     
 </div>
+
+<script>
+    function mostrarbanner(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_destino').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imagenbanner").change(function () {
+        mostrarbanner(this);
+    });
+</script>
+<script>
+    function mostrarImagen1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_izque').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imagenizquierda").change(function () {
+        mostrarImagen1(this);
+    });
+</script>
+<script>
+    function mostrarImagen2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_dere').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imagenderecha").change(function () {
+        mostrarImagen2(this);
+    });
+</script>
+<script>
+    function mostrarImagen3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_i1').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#foto1").change(function () {
+        mostrarImagen3(this);
+    });
+</script>
+<script>
+    function mostrarImagen4(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_i2').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#foto2").change(function () {
+        mostrarImagen4(this);
+    });
+</script>
+<script>
+    function mostrarImagen5(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_i3').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#foto3").change(function () {
+        mostrarImagen5(this);
+    });
+</script>
+
 

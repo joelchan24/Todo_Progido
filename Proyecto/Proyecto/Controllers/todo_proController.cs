@@ -108,7 +108,7 @@ namespace Proyecto.Controllers
                 }
                 else if (i == 2)
                 {
-                    return Redirect("~/VBackend/inicio");
+                    return Redirect("~/VBackend/estadisticas");
                 }
                             
 
@@ -119,6 +119,32 @@ namespace Proyecto.Controllers
 
             
       
+        }
+
+
+        public ActionResult obtenerbanner()
+        {
+            var Imagenbaner = ObjIndex.Obtenerindex();
+            return File(Imagenbaner.imagenbanner, "image/jpeg");
+        }
+
+
+        public ActionResult obtenern1()
+        {
+            var Imagenbaner = ObjIndex.Obtenerindex();
+            return File(Imagenbaner.foto1, "image/jpeg");
+        }
+
+        public ActionResult obtenern2()
+        {
+            var Imagenbaner = ObjIndex.Obtenerindex();
+            return File(Imagenbaner.foto2, "image/jpeg");
+        }
+
+        public ActionResult obtenern3()
+        {
+            var Imagenbaner = ObjIndex.Obtenerindex();
+            return File(Imagenbaner.foto3, "image/jpeg");
         }
     }
 }

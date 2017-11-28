@@ -90,6 +90,10 @@ namespace Proyecto.BO
         public string re3 { get; set; }
         public string red3 { get; set; }
 
+        public byte[] foto1 { get; set; }
+        public byte[] foto2 { get; set; }
+        public byte[] foto3 { get; set; }
+
 
 
     }

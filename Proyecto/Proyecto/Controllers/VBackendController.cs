@@ -251,26 +251,156 @@ namespace Proyecto.Controllers
          
         }
 
-        [HttpPost, ValidateInput(false)]
-        public ActionResult in1(usuarioBO obj)
-        {
+        
 
-            Obj_indexdao.integrante1(obj);
+  
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult in1([Bind(Include = "nom1,rol1,r1,re1,red1")]usuarioBO integrante1, HttpPostedFileBase foto1)
+        {
+            if (foto1 != null && foto1.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto1.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto1.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                integrante1.foto1 = imageData;
+            }
+            
+            Obj_indexdao.integrante1(integrante1);
             return Redirect("~/ VBackend / ConfiguracionIndex");
+            
+
+       
+       
 
         }
 
-        [HttpPost, ValidateInput(false)]
-        public ActionResult in2(usuarioBO obj)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult in2([Bind(Include = "nom2,rol2,r2,re2,red2")]usuarioBO obj, HttpPostedFileBase foto2)
         {
+            if (foto2 != null && foto2.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto2.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto2.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                obj.foto2 = imageData;
+            }
+           
             Obj_indexdao.integrante2(obj);
             return Redirect("~/ VBackend / ConfiguracionIndex");
         }
-        [HttpPost, ValidateInput(false)]
-        public ActionResult in3(usuarioBO obj)
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult in3([Bind(Include = "nom3,rol3,r3,re3,red3")]usuarioBO obj, HttpPostedFileBase foto3)
         {
+            if (foto3 != null && foto3.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto3.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto3.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                obj.foto3 = imageData;
+            }
+         
             Obj_indexdao.integrante3(obj);
             return Redirect("~/ VBackend / ConfiguracionIndex");
+        }
+
+        public ActionResult obtenerbanner()
+        {
+            var Imagenbaner = Obj_indexdao.Obtenerindex();
+            return File(Imagenbaner.imagenbanner, "image/jpeg");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult imagenizquierdasave(HttpPostedFileBase imagenizquierda)
+        {
+            usuarioBO cliente = new usuarioBO();
+            if (imagenizquierda != null && imagenizquierda.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(imagenizquierda.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imagenizquierda.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                cliente.imagenizquierda = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                Obj_indexdao.Guardarizque(cliente);
+
+                return Redirect("~/ VBackend / ConfiguracionIndex");
+            }
+
+            return View(cliente);
+        }
+
+        public ActionResult obtenerizque()
+        {
+            var Imagenbaner = Obj_indexdao.Obtenerindex();
+            return File(Imagenbaner.imagenizquierda, "image/jpeg/png");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult imagenderechasave(HttpPostedFileBase imagenderecha)
+        {
+            usuarioBO cliente = new usuarioBO();
+            if (imagenderecha != null && imagenderecha.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(imagenderecha.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imagenderecha.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                cliente.imagenderecha = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                Obj_indexdao.Guardardere(cliente);
+
+                return Redirect("~/ VBackend / ConfiguracionIndex");
+            }
+
+            return View(cliente);
+        }
+
+        public ActionResult obtenerdere()
+        {
+            var Imagenbaner = Obj_indexdao.Obtenerindex();
+            return File(Imagenbaner.imagenderecha, "image/jpeg");
+        }
+
+        public ActionResult obtenern1()
+        {
+            var Imagenbaner = Obj_indexdao.Obtenerindex();
+            return File(Imagenbaner.foto1, "image/jpeg");
+        }
+
+        public ActionResult obtenern2()
+        {
+            var Imagenbaner = Obj_indexdao.Obtenerindex();
+            return File(Imagenbaner.foto2, "image/jpeg");
+        }
+
+        public ActionResult obtenern3()
+        {
+            var Imagenbaner = Obj_indexdao.Obtenerindex();
+            return File(Imagenbaner.foto3, "image/jpeg");
         }
 
     }
