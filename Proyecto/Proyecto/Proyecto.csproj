@@ -214,6 +214,7 @@
     <Compile Include="DAO\IndexDAO.cs" />
     <Compile Include="DAO\loginDAO.cs" />
     <Compile Include="DAO\Punto.cs" />
+    <Compile Include="DAO\puntos_barras.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
     <Compile Include="DAO\tipo_peligroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />

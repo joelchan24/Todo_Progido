@@ -163,7 +163,7 @@
                 Public Preferences
                 <p class="category">Pie Chart</p>
             </div>
-            <div id="barchart_material"
+            <div id="donutchart"
                  style="width:500px;height:455px;"></div>
         </div>
     </div>
@@ -180,6 +180,7 @@
     </div>
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
 <script type="text/javascript">
     
       google.charts.load('current', {'packages':['corechart']});
@@ -213,7 +214,7 @@
       }
 </script>
    
-<script type="text/javascript">
+@*<script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       var datos = [['Language', 'Speakers (in millions)'],
@@ -243,15 +244,16 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
         chart.draw(data, options);
       }
-</script>
-<script type="text/javascript">
+</script>*@
+@*<script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
-      var datos = [['Year', 'Sales', 'Expenses'],
-            ['2014', 1000, 400],
-            ['2015', 1170, 460],
-            ['2016', 660, 1120],
-            ['2017', 1030, 540]]
+     
+      var datos = [[ 'qqaaa','aprovados', 'No aprovados'],
+            [ 1000, 400],
+            [ 1170, 460],
+            [660, 1120],
+            [ 1030, 540]]
       function drawChart() {
         var data = google.visualization.arrayToDataTable(datos
        
@@ -269,4 +271,46 @@
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
+</script>*@
+<script>
+//google.load("visualization", "1", {packages:["corechart"]});
+//google.setOnLoadCallback(drawChart);
+//var markers1;
+//$.ajax({
+//    url: "/VBackend/devolverpuntos_barras",
+//    success: function (data) {
+//        var array = [['Task', 'Hours per Day'], ]
+//        for (var i = 0; i < data.length; i++) {
+//            array.push([data[i]["aprovados"], data[i]["no_aprovados"]])
+//        }
+//        markers1 = array;
+
+//        drawChart()
+//    }
+
+//})
+    google.load("visualization", "1", { packages: ["corechart"] });
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work', 11],
+          ['Eat', 2],
+          ['Commute', 2],
+          ['Watch TV', 2],
+          ['Sleep', 7]
+        ]);
+
+        var options = {
+            title: 'My Daily Activities',
+            pieHole: 0.4,
+            chartArea: { left: '100' },
+            pieSliceText: 'label',
+            pieStartAngle: 0,
+            pieSliceTextStyle: { color: 'white', fontName: 'arial', fontSize: 10 }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
 </script>

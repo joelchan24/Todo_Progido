@@ -79,6 +79,15 @@ namespace Proyecto.DAO
             return conectar.EjecutarSentencia(comando);
 
         }
+        public DataSet mostrar_char_ba()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] p inner join [Niveles-peligro] n on p.id_peligro=n.id ");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
         public DataSet mostrar_pie_char()
         {
 
@@ -116,6 +125,24 @@ namespace Proyecto.DAO
               
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
+                Lista.Add(P);
+            }
+            return Lista;
+        }
+        public List<puntos_barras> mandaedatos_char_barras()
+        {
+            DataTable tabla = mostrar_char_ba().Tables[0];
+            List<puntos_barras> Lista = new List<puntos_barras>();
+            //byte[] imagen;
+            //Convert.ToBase64String(imagen)
+            foreach (DataRow dr in tabla.Rows)
+            {
+
+                puntos_barras P = new puntos_barras();
+        
+
+                P.aprovados = int.Parse(dr[3].ToString());
+                P.no_aprovados = int.Parse(dr[2].ToString());
                 Lista.Add(P);
             }
             return Lista;

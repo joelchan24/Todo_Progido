@@ -469,6 +469,10 @@ namespace Proyecto.Controllers
             var Imagenbaner = Obj_indexdao.Obtenerindex();
             return File(Imagenbaner.foto3, "image/jpeg");
         }
+        public ActionResult devolverpuntos_barras()
+        {
+            return Json(objpunto.mandaedatos_char_barras(), JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
