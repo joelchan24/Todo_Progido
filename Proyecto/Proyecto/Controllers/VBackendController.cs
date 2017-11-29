@@ -106,10 +106,7 @@ namespace Proyecto.Controllers
 
             return Content("hecho");
         }
-        public ActionResult EditarPerfilAdmin()
-        {
-            return View();
-        }
+       
         public ActionResult estadisticas()
         {
             if (Session["usuario"] != null)

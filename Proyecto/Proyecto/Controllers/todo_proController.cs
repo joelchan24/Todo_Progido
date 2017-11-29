@@ -59,7 +59,7 @@ namespace Proyecto.Controllers
             {
                 usuario_dao.guardar(cliente);
 
-                return Redirect("~/VBackend/inicio");
+                return Redirect("~/usuariofron/puntos");
             }
 
             return View(cliente);
