@@ -65,7 +65,7 @@ namespace Proyecto.Controllers
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
             reporte.SizeToReportContent = true;
-            string consulta = " select count( distinct estatus)  as total,count(  estatus)  as total1   from [Puntos-peligrosos]  where  Estatus=0";
+            string consulta = " select (select COUNT(*) from [Puntos-peligrosos] where Estatus = 0)as rechazados,(select COUNT(*) from [Puntos-peligrosos] where Estatus = 1)as aprobados";
             ConexionDAO cone = new ConexionDAO();
             SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
             adaptador.Fill(dataset_usuarios, "datos");
