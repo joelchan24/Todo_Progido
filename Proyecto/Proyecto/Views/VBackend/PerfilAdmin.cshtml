@@ -4,7 +4,7 @@
     ViewBag.Title = "PerfilAdmin";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
-@section Sideusu{
+@*@section Sideusu{
     <div class="collapse" id="collapseExample">
         <ul class="nav">
             <li class="active">
@@ -29,7 +29,7 @@
             </li>
         </ul>
     </div>
-}
+}*@
 
 
 @section SideBar{
@@ -92,14 +92,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control"})
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Apellidos</label>
-                                        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control" })
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Correo Electronico</label>
-                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled"})
                                     </div>
                                 </div>
                             </div>
@@ -115,20 +115,20 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Numero Telefonico</label>
-                                        @Html.TextBoxFor(x => x.telefono, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.telefono, new { @class = "form-control disabled" })
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fecha de nacimiento</label>
-                                        @Html.TextBoxFor(x => x.fecha, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.TextBoxFor(x => x.fecha, new { @class = "form-control disabled", @type="date" })
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Sexo</label>
-                                        @Html.TextBoxFor(x => x.sexo, new { @class = "form-control disabled", @readonly = "readonly" })
+                                        @Html.DropDownListFor(x => x.sexo, new List<SelectListItem> { new SelectListItem { Text = "Selecciona", Value = "1", Disabled = true }, new SelectListItem { Text = "Femenino", Value = "Femenino" }, new SelectListItem { Text = "Masculino", Value = "Masculino" } }, htmlAttributes: new { @class = "selectpicker", data_style = "btn-default btn-block", data_size = "7", @data_menu_style = "dropdown-blue", @title = "Sexo" })
                                     </div>
                                 </div>
                             </div>
@@ -141,14 +141,16 @@
                                 </div>
                                 <div class="content">
                                     <div class="author">
-                                        <a href="#">
-                                            <img class="avatar border-gray" src="@Url.Action("convertirImagen", "VBackend")"/>
-
+                                        
+                                            <img class="avatar border-gray" style="width:190px; height:190px;"  id="img_perfil" src="@Url.Action("convertirImagen", "VBackend")"/>
+                                            <div class="col-md-offset-2 col-md-10">
+                                                @Html.TextBoxFor(model => model.foto, htmlAttributes: new { @type = "file", @name = "foto", @style = "width:200px;" })
+                                            </div>
                                             <h5 class="title">
                                                 <br />
                                                 <small>Foto de perfil</small>
                                             </h5>
-                                        </a>
+                                       
                                     </div>
 
                                 </div>
@@ -167,4 +169,21 @@
 
 
 </div>
+
+
+<script>
+    function mostrarfoto(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_perfil').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#foto").change(function () {
+        mostrarfoto(this);
+    });
+</script>
 

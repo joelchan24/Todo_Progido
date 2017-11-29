@@ -63,7 +63,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conexion = new ConexionDAO();
             var usuario = new usuarioBO();
-            string strbuscar = string.Format("select * from Usuario where ID='1007';");
+            string strbuscar = string.Format("select * from Usuario where ID='1006';");
             DataTable dats = conexion.ejercutarsentrenciasdatable(strbuscar);
             DataRow row = dats.Rows[0];
           
