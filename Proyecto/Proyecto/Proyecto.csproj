@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BO\ContactoBO.cs" />
+    <Compile Include="BO\mensajeBO.cs" />
     <Compile Include="BO\PeligroBO.cs" />
     <Compile Include="BO\punto_peligrosoBO.cs" />
     <Compile Include="BO\tipo_peligroBO.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="DAO\ContactosDAO.cs" />
     <Compile Include="DAO\IndexDAO.cs" />
     <Compile Include="DAO\loginDAO.cs" />
+    <Compile Include="DAO\mensajeDAO.cs" />
     <Compile Include="DAO\Punto.cs" />
     <Compile Include="DAO\puntos_barras.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
