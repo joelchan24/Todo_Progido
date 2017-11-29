@@ -1,4 +1,4 @@
-﻿
+﻿@using ReportViewerForMvc;
 @{
     ViewBag.Title = "reporte_usuarios";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
@@ -158,3 +158,4 @@
     </li>
 
 }
+@Html.ReportViewer(ViewBag.repo as Microsoft.Reporting.WebForms.ReportViewer)

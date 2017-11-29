@@ -230,6 +230,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>peligros.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\usuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>usuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -533,6 +538,17 @@
     <Content Include="Reportes\peligros.xss">
       <DependentUpon>peligros.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\usuarios.xsc">
+      <DependentUpon>usuarios.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\usuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>usuarios.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\usuarios.xss">
+      <DependentUpon>usuarios.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\char.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -624,6 +640,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\peligros.rdlc" />
+    <EmbeddedResource Include="Reportes\usuarios1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

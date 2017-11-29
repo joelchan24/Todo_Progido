@@ -43,6 +43,18 @@ namespace Proyecto.Controllers
         }
         public ActionResult reporte_usuarios()
         {
+            usuarios dataset_usuarios = new usuarios();
+            ReportViewer reporte = new ReportViewer();
+            reporte.ProcessingMode = ProcessingMode.Local;
+            reporte.SizeToReportContent = true;
+            string consulta = " select count( distinct estatus)  as total,count(  estatus)  as total1   from [Puntos-peligrosos]  where  Estatus=0";
+            ConexionDAO cone = new ConexionDAO();
+            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
+            adaptador.Fill(dataset_usuarios, "datos");
+            reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/usuarios1.rdlc";
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("usuarios", dataset_usuarios.Tables[0]));
+            ViewBag.repo = reporte;
+          
             return View();
         }
 
