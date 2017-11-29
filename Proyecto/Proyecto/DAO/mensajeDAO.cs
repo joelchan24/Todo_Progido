@@ -15,11 +15,10 @@ namespace Proyecto.DAO
         public int Guardar(object agregar, int id_deso)
         {
             mensajeBO usuario = (mensajeBO)agregar;
-         
-
-            SqlCommand cmd = new SqlCommand("insert into mansaje_pagina (mensaje,id_remitente,id_destinatario,estatus)values(@mensaje,@id_remi,@id_destina,@id_estatus)");
-
-            cmd.Parameters.Add("@mensaje", SqlDbType.Text).Value = usuario.mensaje;
+          
+            SqlCommand cmd = new SqlCommand("insert into [mansaje_pagina] ([mensaje],[id_remitente],[id_destinatario],[estatus])values(@mensaje,@id_remi,@id_destina,@id_estatus)");
+            usuario.mensaje = "ddd";
+            cmd.Parameters.Add("@mensaje", SqlDbType.VarChar).Value = usuario.mensaje;
             cmd.Parameters.Add("@id_remi", SqlDbType.Int).Value = id_deso;
             cmd.Parameters.Add("@id_destina", SqlDbType.Int).Value = usuario.id_destinatario;
             cmd.Parameters.Add("@id_estatus", SqlDbType.Int).Value =0;

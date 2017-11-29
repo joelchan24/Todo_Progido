@@ -43,7 +43,8 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
     
             }
-            obj_mensaje.Guardar(mensaje, ViewBag.usuario.id);
+            int i = 2;
+            obj_mensaje.Guardar(mensaje, i);
             return View();
         }
         

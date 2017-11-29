@@ -1,5 +1,5 @@
 ﻿@using Proyecto.BO;
-
+@model mensajeBO
 @{
     ViewBag.Title = "mensajes";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
@@ -159,8 +159,11 @@
     </li>
 
 }
-@model mensajeBO
-@using (Html.BeginForm("guardar_mensaje", "VBackend", FormMethod.Post, new { UpdateTargetId = "usu" }))
+
+
+
+@using (Ajax.BeginForm("guardar_mensaje", "VBackend", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))
+
 {
 <div class="container">
     <div class="row">
@@ -187,13 +190,14 @@
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-10">
                               
-                                @Html.TextAreaFor(x => x.mensaje, new { @class = "form-control", @rows = "7" })
+                                @Html.TextBoxFor(x => x.mensaje, new { @class = "form-control", @rows = "7" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            
+                                <input type="submit" class="btn-block" value="guadra" />
                             </div>
                         </div>
                     </fieldset>
