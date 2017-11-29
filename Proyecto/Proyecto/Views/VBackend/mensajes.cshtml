@@ -1,18 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "Backud";
+    ViewBag.Title = "mensajes";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
 
-<h2>Backup</h2>
-<div class="col-md-12">
-    <div class="card">
-        <div class="content text-center">
-            <h5>Generar Backup</h5>
-            <button class="btn btn-default btn-fill" onclick="demo.showSwal('success-message')">Generar backup</button>
-        </div>
-    </div>
-</div>
+<h2>mensajes</h2>
+
 @section Sideusu{
     <div class="collapse" id="collapseExample">
         <ul class="nav">
@@ -165,21 +158,3 @@
     </li>
 
 }
-
-
-<script>
-    $(document).ready(function () {
-        $("#enlaceajax").click(function (evento) {
-            //elimino el comportamiento por defecto del enlace
-            evento.preventDefault();
-            //Aquí pondría el código de la llamada a Ajax
-        });
-    })
-
-
-
-</script>
-
-
-
-

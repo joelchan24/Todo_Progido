@@ -25,8 +25,40 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-        
-             public ActionResult tiposdepeligro()
+        public ActionResult mensajes()
+        {
+            return View();
+        }
+        public ActionResult Mapa_admin()
+        {
+            return View();
+        }
+        public ActionResult listadeusuarios()
+        {
+            return View();
+        }
+        public ActionResult buzon_de_sugerencias()
+        {
+            return View();
+        }
+        public ActionResult reporte_usuarios()
+        {
+            usuarios dataset_usuarios = new usuarios();
+            ReportViewer reporte = new ReportViewer();
+            reporte.ProcessingMode = ProcessingMode.Local;
+            reporte.SizeToReportContent = true;
+            string consulta = " select count( distinct estatus)  as total,count(  estatus)  as total1   from [Puntos-peligrosos]  where  Estatus=0";
+            ConexionDAO cone = new ConexionDAO();
+            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
+            adaptador.Fill(dataset_usuarios, "datos");
+            reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/usuarios1.rdlc";
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("usuarios", dataset_usuarios.Tables[0]));
+            ViewBag.repo = reporte;
+          
+            return View();
+        }
+
+        public ActionResult tiposdepeligro()
         {
             return View();
         }
@@ -77,6 +109,11 @@ namespace Proyecto.Controllers
        
         public ActionResult estadisticas()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return View();
         }
 
@@ -137,6 +174,11 @@ namespace Proyecto.Controllers
 
         public ActionResult prueba()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return Redirect("~/VBackend/Vprueba");
         }
 
@@ -152,21 +194,41 @@ namespace Proyecto.Controllers
         }
         public ActionResult aprovados()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return View();
         }
         public ActionResult no_aprovados()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return View();
         }
         public ActionResult parcial_peligros()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return PartialView(peligrodao.peligros());
         }
         public ActionResult parcial_aprovados()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
 
             return PartialView(objpunto.aprovados());
         }
@@ -192,6 +254,11 @@ namespace Proyecto.Controllers
          
         public ActionResult ListaDePuntosM()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return View();
         }
 
@@ -398,6 +465,10 @@ namespace Proyecto.Controllers
         {
             var Imagenbaner = Obj_indexdao.Obtenerindex();
             return File(Imagenbaner.foto3, "image/jpeg");
+        }
+        public ActionResult devolverpuntos_barras()
+        {
+            return Json(objpunto.mandaedatos_char_barras(), JsonRequestBehavior.AllowGet);
         }
 
     }

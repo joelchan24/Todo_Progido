@@ -214,6 +214,7 @@
     <Compile Include="DAO\IndexDAO.cs" />
     <Compile Include="DAO\loginDAO.cs" />
     <Compile Include="DAO\Punto.cs" />
+    <Compile Include="DAO\puntos_barras.cs" />
     <Compile Include="DAO\punto_DAO.cs" />
     <Compile Include="DAO\tipo_peligroDAO.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
@@ -229,6 +230,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>peligros.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\usuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>usuarios.xsd</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -533,6 +539,17 @@
     <Content Include="Reportes\peligros.xss">
       <DependentUpon>peligros.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\usuarios.xsc">
+      <DependentUpon>usuarios.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\usuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>usuarios.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\usuarios.xss">
+      <DependentUpon>usuarios.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\char.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -582,13 +599,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\IndexBackEndMaster.cshtml" />
-    <Content Include="Views\VBackend\Vprueba.cshtml" />
     <Content Include="Views\todo_pro\IndexPro.cshtml" />
     <Content Include="Views\Shared\frontend_usuario.cshtml" />
     <Content Include="Views\todo_pro\IndexFinal.cshtml" />
     <Content Include="Views\usuariofron\miscontactos.cshtml" />
     <Content Include="Views\usuariofron\puntos.cshtml" />
-    <Content Include="Views\VBackend\inicio.cshtml" />
     <Content Include="Views\usuariofron\peligros.cshtml" />
     <Content Include="Views\usuariofron\mis_puntos.cshtml" />
     <Content Include="Views\VBackend\PerfilAdmin.cshtml" />
@@ -602,12 +617,16 @@
     <Content Include="Views\VBackend\aprovados.cshtml" />
     <Content Include="Views\VBackend\ListaDePuntosM.cshtml" />
     <Content Include="Views\VBackend\ConfiguracionIndex.cshtml" />
-    <Content Include="Views\VBackend\Actividad.cshtml" />
     <Content Include="Views\VBackend\Backud.cshtml" />
     <Content Include="Views\VBackend\estadisticas.cshtml" />
     <Content Include="Views\VBackend\parcial_peligros.cshtml" />
     <Content Include="Views\VBackend\tiposdepeligro.cshtml" />
     <Content Include="Views\VBackend\Reporte_peligros.cshtml" />
+    <Content Include="Views\VBackend\listadeusuarios.cshtml" />
+    <Content Include="Views\VBackend\buzon_de_sugerencias.cshtml" />
+    <Content Include="Views\VBackend\Mapa_admin.cshtml" />
+    <Content Include="Views\VBackend\mensajes.cshtml" />
+    <Content Include="Views\VBackend\reporte_usuarios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -622,6 +641,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\peligros.rdlc" />
+    <EmbeddedResource Include="Reportes\usuarios1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

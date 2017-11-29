@@ -3,54 +3,159 @@
     ViewBag.Title = "estadisticas";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
+@section Sideusu{
+    <div class="collapse" id="collapseExample">
+        <ul class="nav">
+            <li class="active">
+                <a href="@Url.Action("EditarPerfilAdmin", "VBackend")">
+                    <span class="sidebar-mini">EP</span>
+                    <span class="sidebar-normal">Editar Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+}
 
-<h2>estadisticas</h2>
-@section sidebar{
-    <li class="active">
-        <a>
+@section SideBar{
+    <li>
+        <a href="~/VBackend/estadisticas">
             <i class="pe-7s-graph"></i>
             <p>Inicio</p>
         </a>
     </li>
     <li>
 
-        <a id="enlaceajax" href="@Url.Action("Vprueba", "VBackend")">
+
+        <a href="~/VBackend/Mapa_admin">
             <i class="pe-7s-graph"></i>
-            <p>Gestion puntos</p>
+            <p>Mapa</p>
         </a>
     </li>
     <li>
-        bgbb0h
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Gestión de vistas</p>
+        <a data-toggle="collapse" href="#tablesExamples">
+            <i class="pe-7s-news-paper"></i>
+            <p>
+                Gestion de Puntos
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse" id="tablesExamples">
+            <ul class="nav">
+                <li>
+                    <a href="~/VBackend/aprovados">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Aprovar Puntos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/no_aprovados">
+                        <span class="sidebar-mini">ET</span>
+                        <span class="sidebar-normal">Puntos Aprovados</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/VBackend/tiposdepeligro">
+                        <span class="sidebar-mini">RT</span>
+                        <span class="sidebar-normal">Tipos De delitos</span>
+                    </a>
+                </li>
+           
+            </ul>
+        </div>
     </li>
-    <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Gestión de Actividad</p>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Mensajes</p>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>Reportes</p>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <i class="pe-7s-graph"></i>
-            <p>backup</p>
-        </a>
-    </li>
+<li>
+    <a data-toggle="collapse" href="#tablesExamples1">
+        <i class="pe-7s-news-paper"></i>
+        <p>
+           Configuración
+            <b class="caret"></b>
+        </p>
+    </a>
+    <div class="collapse" id="tablesExamples1">
+        <ul class="nav">
+         
+            <li>
+                <a href="~/VBackend/ConfiguracionIndex">
+                    <span class="sidebar-mini">RT</span>
+                    <span class="sidebar-normal">Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/VBackend/listadeusuarios">
+                    <span class="sidebar-mini">ET</span>
+                    <span class="sidebar-normal">Lista de usuarios</span>
+                </a>
+            </li>
+           
+            <li>
+                <a href="~/VBackend/Backud">
+                    <span class="sidebar-mini">ET</span>
+                    <span class="sidebar-normal">Backup</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</li>
+<li>
+    <a data-toggle="collapse" href="#tablesExamples2">
+        <i class="pe-7s-news-paper"></i>
+        <p>
+            Mensajeria
+            <b class="caret"></b>
+        </p>
+    </a>
+    <div class="collapse" id="tablesExamples2">
+        <ul class="nav">
+
+            <li>
+                <a href="~/VBackend/mensajes">
+                    <span class="sidebar-mini">RT</span>
+                    <span class="sidebar-normal">Mensajes</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/VBackend/buzon_de_sugerencias">
+                    <span class="sidebar-mini">ET</span>
+                    <span class="sidebar-normal">Buzón de Sugerencias</span>
+                </a>
+            </li>
+           
+
+        </ul>
+    </div>
+</li>
+<li>
+    <a data-toggle="collapse" href="#tablesExamples3">
+        <i class="pe-7s-news-paper"></i>
+        <p>
+            Reportes
+            <b class="caret"></b>
+        </p>
+    </a>
+    <div class="collapse" id="tablesExamples3">
+        <ul class="nav">
+
+            <li>
+                <a href="~/VBackend/Reporte_peligros">
+                    <span class="sidebar-mini">RT</span>
+                    <span class="sidebar-normal">Reporte de peligros </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/VBackend/reporte_usuarios">
+                    <span class="sidebar-mini">ET</span>
+                    <span class="sidebar-normal">Reporte de usuarios</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+</li>
+    
 }
+
 <div class="row">
     <div class="col-md-6">
         <div class="card">
@@ -58,7 +163,7 @@
                 Public Preferences
                 <p class="category">Pie Chart</p>
             </div>
-            <div id="piechart1"
+            <div id="donutchart"
                  style="width:500px;height:455px;"></div>
         </div>
     </div>
@@ -75,6 +180,7 @@
     </div>
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
 <script type="text/javascript">
     
       google.charts.load('current', {'packages':['corechart']});
@@ -107,54 +213,22 @@
         chart.draw(data, options);
       }
 </script>
-    <script>
-
-
-    google.charts.load ("current", {packages: ['corechart']});
-    google.charts.setOnLoadCallback (drawChart);
-    function drawChart () {
-    var data = google.visualization.arrayToDataTable ([
-    ["Element", "Density", {role: "style"}],
-    ["Cobre", 8.94, "# b87333"],
-    ["Plata", 10.49, "plata"],
-    ["Oro", 19.30, "oro"],
-    ["Platinum", 21.45, "color: # e5e4e2"]
-    ]);
-
-    var view = new google.visualization.DataView (datos);
-    view.setColumns ([0, 1,
-    {calc: "stringify",
-    sourceColumn: 1,
-    tipo: "cadena",
-    rol: "anotación"},
-    2]);
-
-    var options = {
-    título: "Densidad de metales preciosos, en g / cm ^ 3",
-    ancho: 600,
-    altura: 400,
-    bar: {groupWidth: "95%"},
-    leyenda: {posición: "ninguno"},
-    };
-    var chart = new google.visualization.ColumnChart (document.getElementById ("columnchart_values"));
-    chart.draw ( ver , opciones);
-    }
-
-    </script>
-<script type="text/javascript">
+   
+@*<script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
+      var datos = [['Language', 'Speakers (in millions)'],
+            ['Assamese', 13], ['Bengali', 83], ['Bodo', 1.4],
+            ['Dogri', 2.3], ['Gujarati', 46], ['Hindi', 300],
+            ['Kannada', 38], ['Kashmiri', 5.5], ['Konkani', 5],
+            ['Maithili', 20], ['Malayalam', 33], ['Manipuri', 1.5],
+            ['Marathi', 72], ['Nepali', 2.9], ['Oriya', 33],
+            ['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],
+            ['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]]
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Language', 'Speakers (in millions)'],
-          ['Assamese', 13], ['Bengali', 83], ['Bodo', 1.4],
-          ['Dogri', 2.3], ['Gujarati', 46], ['Hindi', 300],
-          ['Kannada', 38], ['Kashmiri', 5.5], ['Konkani', 5],
-          ['Maithili', 20], ['Malayalam', 33], ['Manipuri', 1.5],
-          ['Marathi', 72], ['Nepali', 2.9], ['Oriya', 33],
-          ['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],
-          ['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]
-        ]);
+        var data = google.visualization.arrayToDataTable(datos
+         
+        );
 
         var options = {
           title: 'Indian Language Use',
@@ -170,4 +244,73 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
         chart.draw(data, options);
       }
+</script>*@
+@*<script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+     
+      var datos = [[ 'qqaaa','aprovados', 'No aprovados'],
+            [ 1000, 400],
+            [ 1170, 460],
+            [660, 1120],
+            [ 1030, 540]]
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(datos
+       
+        );
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+</script>*@
+<script>
+//google.load("visualization", "1", {packages:["corechart"]});
+//google.setOnLoadCallback(drawChart);
+//var markers1;
+//$.ajax({
+//    url: "/VBackend/devolverpuntos_barras",
+//    success: function (data) {
+//        var array = [['Task', 'Hours per Day'], ]
+//        for (var i = 0; i < data.length; i++) {
+//            array.push([data[i]["aprovados"], data[i]["no_aprovados"]])
+//        }
+//        markers1 = array;
+
+//        drawChart()
+//    }
+
+//})
+    google.load("visualization", "1", { packages: ["corechart"] });
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work', 11],
+          ['Eat', 2],
+          ['Commute', 2],
+          ['Watch TV', 2],
+          ['Sleep', 7]
+        ]);
+
+        var options = {
+            title: 'My Daily Activities',
+            pieHole: 0.4,
+            chartArea: { left: '100' },
+            pieSliceText: 'label',
+            pieStartAngle: 0,
+            pieSliceTextStyle: { color: 'white', fontName: 'arial', fontSize: 10 }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
 </script>
