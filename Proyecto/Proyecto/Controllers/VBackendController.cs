@@ -10,6 +10,7 @@ using Microsoft.Reporting.WebForms;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using Proyecto.Reportes;
+using Proyecto.Models;
 namespace Proyecto.Controllers
 {
     public class VBackendController : Controller
@@ -21,14 +22,31 @@ namespace Proyecto.Controllers
         punto_DAO objpunto = new punto_DAO();
         IndexDAO Obj_indexdao = new IndexDAO();
         tipo_peligroDAO peligrodao = new tipo_peligroDAO();
+        mensajeDAO obj_mensaje = new mensajeDAO();
         public ActionResult Vprueba()
         {
             return View();
         }
         public ActionResult mensajes()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
             return View();
         }
+        public ActionResult guardar_mensaje(mensajeBO mensaje)
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+    
+            }
+            obj_mensaje.Guardar(mensaje, ViewBag.usuario.id);
+            return View();
+        }
+        
         public ActionResult Mapa_admin()
         {
             return View();
@@ -62,7 +80,7 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-        peligros daset_reportes = new peligros();
+       Proyecto.Reportes.peligros daset_reportes = new Proyecto.Reportes.peligros();
         //ReportViewer reporte = new ReportViewer();
         ////reporte.ProcessingMode = ProcessingMode.Local;
         //    reporte.SizeToReportContent = true;
@@ -237,6 +255,14 @@ namespace Proyecto.Controllers
 
 
             return PartialView(objpunto.listar_eventos_con_peligro_noaprovados());
+        }
+        public ActionResult parcia_drop_usuarios()
+        {
+            usuarios_modelo viewModel = new usuarios_modelo();
+            viewModel.usuarios = objpunto.listartipo_usuarios();
+            return PartialView(viewModel);
+
+           
         }
         public ActionResult Actualizar_apro(int id)
         {

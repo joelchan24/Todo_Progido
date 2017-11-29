@@ -109,7 +109,15 @@ namespace Proyecto.DAO
 
             return peligros;
         }
+        public IEnumerable<SelectListItem> listartipo_usuarios()
+        {
+            var peligro = new List<SelectListItem>();
+            String strBuscar = string.Format("  select id ,nombre, apellido from [Usuario]");
+            peligro = marisa.EjecutarSetencialistEst_usuaios(strBuscar);
+            IEnumerable<SelectListItem> peligros = peligro;
 
+            return peligros;
+        }
         public List<Punto> mandaedatos()
         {
             DataTable tabla = mostrar().Tables[0];

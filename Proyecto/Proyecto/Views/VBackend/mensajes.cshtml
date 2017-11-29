@@ -1,4 +1,5 @@
-﻿
+﻿@using Proyecto.BO;
+
 @{
     ViewBag.Title = "mensajes";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
@@ -158,3 +159,54 @@
     </li>
 
 }
+@model mensajeBO
+@using (Html.BeginForm("guardar_mensaje", "VBackend", FormMethod.Post, new { UpdateTargetId = "usu" }))
+{
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p>kjkjkjkj</p>
+        </div>
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Contact us</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-6">
+                               <div id="usu"></div>
+                            </div>
+                        </div>
+                        
+
+                       
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-10">
+                              
+                                @Html.TextAreaFor(x => x.mensaje, new { @class = "form-control", @rows = "7" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+}
+<script>
+
+    (function () {
+        $('#usu').load('/VBackend/parcia_drop_usuarios');
+    }());
+  </script>
