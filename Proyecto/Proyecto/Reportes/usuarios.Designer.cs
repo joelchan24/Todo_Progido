@@ -279,9 +279,9 @@ namespace Proyecto.Reportes {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class datosDataTable : global::System.Data.TypedTableBase<datosRow> {
             
-            private global::System.Data.DataColumn columntotal;
+            private global::System.Data.DataColumn columnrechazados;
             
-            private global::System.Data.DataColumn columntotal1;
+            private global::System.Data.DataColumn columnaprobados;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -318,17 +318,17 @@ namespace Proyecto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn totalColumn {
+            public global::System.Data.DataColumn rechazadosColumn {
                 get {
-                    return this.columntotal;
+                    return this.columnrechazados;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn total1Column {
+            public global::System.Data.DataColumn aprobadosColumn {
                 get {
-                    return this.columntotal1;
+                    return this.columnaprobados;
                 }
             }
             
@@ -369,11 +369,11 @@ namespace Proyecto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public datosRow AdddatosRow(string total, string total1) {
+            public datosRow AdddatosRow(string rechazados, string aprobados) {
                 datosRow rowdatosRow = ((datosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        total,
-                        total1};
+                        rechazados,
+                        aprobados};
                 rowdatosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdatosRow);
                 return rowdatosRow;
@@ -396,17 +396,17 @@ namespace Proyecto.Reportes {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columntotal = base.Columns["total"];
-                this.columntotal1 = base.Columns["total1"];
+                this.columnrechazados = base.Columns["rechazados"];
+                this.columnaprobados = base.Columns["aprobados"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columntotal = new global::System.Data.DataColumn("total", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal);
-                this.columntotal1 = new global::System.Data.DataColumn("total1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal1);
+                this.columnrechazados = new global::System.Data.DataColumn("rechazados", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrechazados);
+                this.columnaprobados = new global::System.Data.DataColumn("aprobados", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaprobados);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -549,58 +549,58 @@ namespace Proyecto.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string total {
+            public string rechazados {
                 get {
                     try {
-                        return ((string)(this[this.tabledatos.totalColumn]));
+                        return ((string)(this[this.tabledatos.rechazadosColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'total\' de la tabla \'datos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'rechazados\' de la tabla \'datos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledatos.totalColumn] = value;
+                    this[this.tabledatos.rechazadosColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string total1 {
+            public string aprobados {
                 get {
                     try {
-                        return ((string)(this[this.tabledatos.total1Column]));
+                        return ((string)(this[this.tabledatos.aprobadosColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'total1\' de la tabla \'datos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'aprobados\' de la tabla \'datos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledatos.total1Column] = value;
+                    this[this.tabledatos.aprobadosColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IstotalNull() {
-                return this.IsNull(this.tabledatos.totalColumn);
+            public bool IsrechazadosNull() {
+                return this.IsNull(this.tabledatos.rechazadosColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SettotalNull() {
-                this[this.tabledatos.totalColumn] = global::System.Convert.DBNull;
+            public void SetrechazadosNull() {
+                this[this.tabledatos.rechazadosColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Istotal1Null() {
-                return this.IsNull(this.tabledatos.total1Column);
+            public bool IsaprobadosNull() {
+                return this.IsNull(this.tabledatos.aprobadosColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Settotal1Null() {
-                this[this.tabledatos.total1Column] = global::System.Convert.DBNull;
+            public void SetaprobadosNull() {
+                this[this.tabledatos.aprobadosColumn] = global::System.Convert.DBNull;
             }
         }
         

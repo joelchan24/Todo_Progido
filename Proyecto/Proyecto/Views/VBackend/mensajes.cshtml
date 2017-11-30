@@ -1,4 +1,5 @@
-﻿
+﻿@using Proyecto.BO;
+@model mensajeBO
 @{
     ViewBag.Title = "mensajes";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
@@ -100,34 +101,34 @@
             </ul>
         </div>
     </li>
-    <li>
-        <a data-toggle="collapse" href="#tablesExamples2">
-            <i class="pe-7s-news-paper"></i>
-            <p>
-                Mensajeria
-                <b class="caret"></b>
-            </p>
-        </a>
-        <div class="collapse" id="tablesExamples2">
-            <ul class="nav">
+<li class="active">
+    <a data-toggle="collapse" href="#tablesExamples2">
+        <i class="pe-7s-news-paper"></i>
+        <p>
+            Mensajeria
+            <b class="caret"></b>
+        </p>
+    </a>
+    <div class="collapse" id="tablesExamples2">
+        <ul class="nav">
 
-                <li>
-                    <a href="~/VBackend/mensajes">
-                        <span class="sidebar-mini">RT</span>
-                        <span class="sidebar-normal">Mensajes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/VBackend/buzon_de_sugerencias">
-                        <span class="sidebar-mini">ET</span>
-                        <span class="sidebar-normal">Buzón de Sugerencias</span>
-                    </a>
-                </li>
+            <li class="active">
+                <a href="~/VBackend/mensajes">
+                    <span class="sidebar-mini">RT</span>
+                    <span class="sidebar-normal">Mensajes</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/VBackend/buzon_de_sugerencias">
+                    <span class="sidebar-mini">ET</span>
+                    <span class="sidebar-normal">Buzón de Sugerencias</span>
+                </a>
+            </li>
 
 
-            </ul>
-        </div>
-    </li>
+        </ul>
+    </div>
+</li>
     <li>
         <a data-toggle="collapse" href="#tablesExamples3">
             <i class="pe-7s-news-paper"></i>
@@ -158,3 +159,58 @@
     </li>
 
 }
+
+
+
+@using (Ajax.BeginForm("guardar_mensaje", "VBackend", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace }))
+
+{
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p>kjkjkjkj</p>
+        </div>
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Contact us</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-6">
+                               <div id="id_destinatario"></div>
+                            </div>
+                        </div>
+                        
+
+                       
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-10">
+                              
+                                @Html.TextBoxFor(x => x.mensaje, new { @class = "form-control", @rows = "7" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                            
+                                <input type="submit" class="btn-block" value="guadra" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+}
+<script>
+
+    (function () {
+        $('#id_destinatario').load('/VBackend/parcia_drop_usuarios');
+    }());
+  </script>

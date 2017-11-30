@@ -10,6 +10,7 @@ using Microsoft.Reporting.WebForms;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using Proyecto.Reportes;
+using Proyecto.Models;
 namespace Proyecto.Controllers
 {
     public class VBackendController : Controller
@@ -21,14 +22,32 @@ namespace Proyecto.Controllers
         punto_DAO objpunto = new punto_DAO();
         IndexDAO Obj_indexdao = new IndexDAO();
         tipo_peligroDAO peligrodao = new tipo_peligroDAO();
+        mensajeDAO obj_mensaje = new mensajeDAO();
         public ActionResult Vprueba()
         {
             return View();
         }
         public ActionResult mensajes()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
             return View();
         }
+        public ActionResult guardar_mensaje([Bind(Include = "mensaje,id_destinatario")]mensajeBO usu)
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+    
+            }
+            int i = 2;
+            obj_mensaje.Guardar(usu, ViewBag.usuario.id);
+            return View();
+        }
+        
         public ActionResult Mapa_admin()
         {
             return View();
@@ -47,7 +66,7 @@ namespace Proyecto.Controllers
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
             reporte.SizeToReportContent = true;
-            string consulta = " select count( distinct estatus)  as total,count(  estatus)  as total1   from [Puntos-peligrosos]  where  Estatus=0";
+            string consulta = " select (select COUNT(*) from [Puntos-peligrosos] where Estatus = 0)as rechazados,(select COUNT(*) from [Puntos-peligrosos] where Estatus = 1)as aprobados";
             ConexionDAO cone = new ConexionDAO();
             SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
             adaptador.Fill(dataset_usuarios, "datos");
@@ -62,7 +81,7 @@ namespace Proyecto.Controllers
         {
             return View();
         }
-        peligros daset_reportes = new peligros();
+       Proyecto.Reportes.peligros daset_reportes = new Proyecto.Reportes.peligros();
         //ReportViewer reporte = new ReportViewer();
         ////reporte.ProcessingMode = ProcessingMode.Local;
         //    reporte.SizeToReportContent = true;
@@ -82,6 +101,8 @@ namespace Proyecto.Controllers
         {
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
+            reporte.Width = Unit.Percentage(1200);
+           //reporte.Height = Unit.Percentage(900);
             reporte.SizeToReportContent = true;
             string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
             ConexionDAO cone = new ConexionDAO();
@@ -237,6 +258,14 @@ namespace Proyecto.Controllers
 
 
             return PartialView(objpunto.listar_eventos_con_peligro_noaprovados());
+        }
+        public ActionResult parcia_drop_usuarios()
+        {
+            usuarios_modelo viewModel = new usuarios_modelo();
+            viewModel.usuarios = objpunto.listartipo_usuarios();
+            return PartialView(viewModel);
+
+           
         }
         public ActionResult Actualizar_apro(int id)
         {

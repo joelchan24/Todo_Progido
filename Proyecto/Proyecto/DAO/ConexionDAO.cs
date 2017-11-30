@@ -21,9 +21,9 @@ namespace Proyecto.DAO
 
         public SqlConnection establecerConexion()
         {
-            //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
+            string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=adan--pc; Initial catalog=ProyectoSOS;  integrated security=true";
-            string cs = "Data Source=KAREN\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
+            //string cs = "Data Source=DESKTOP-TT12AGM\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
 
             coneccion = new SqlConnection(cs);
             return coneccion;
@@ -344,8 +344,32 @@ namespace Proyecto.DAO
             this.cerrarConexion();
             return peligros;
         }
+        public List<SelectListItem> EjecutarSetencialistEst_usuaios(String strSql)
+        {
+            var peligros = new List<SelectListItem>();
+            establecerConexion();
+            this.abrirConexion();
+            var query = new SqlCommand(strSql, this.coneccion);
+            using (var dr = query.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+
+                    var estados = new SelectListItem
+                    {
+                        Text = dr["nombre"].ToString() + dr["apellido"].ToString(),
+                        Value = dr["id"].ToString()
+                    };
+
+
+                    peligros.Add(estados);
+                }
+            }
+            this.cerrarConexion();
+            return peligros;
+        }
 
 
     }
-  
+
 }
