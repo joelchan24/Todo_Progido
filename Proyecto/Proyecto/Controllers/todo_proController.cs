@@ -103,7 +103,7 @@ namespace Proyecto.Controllers
                 {
 
 
-                    return Redirect("~/usuariofron/miscontactos");
+                    return Redirect("~/usuariofron/puntos");
 
                 }
                 else if (i == 2)

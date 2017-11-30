@@ -232,5 +232,32 @@ namespace Proyecto.DAO
             return conectar.EjecutarComando(comando);
 
         }
+
+
+        public DataTable CargarTablaPuntos()
+        {
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=1");
+            return marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
+
+        public DataTable CargarTablaPuntosaprovados()
+        {
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=0");
+            return marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
+
+        public punto_peligrosoBO ObtenerImagen(int id)
+        {
+            ConexionDAO conex = new ConexionDAO();
+            var imagenp = new punto_peligrosoBO();
+            String strBuscar = string.Format("SELECT * FROM  [Puntos-peligrosos] where ID='"+id+"'");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            imagenp.imagen = (byte[])row["imagen"];
+
+            return imagenp;
+        }
+
+
     }
 }

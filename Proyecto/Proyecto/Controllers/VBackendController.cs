@@ -259,7 +259,17 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                 return View();
             }
-            return View();
+            return View(objpunto.CargarTablaPuntos());
+        }
+
+        public ActionResult PuntosAprovados()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
+            return View(objpunto.CargarTablaPuntosaprovados());
         }
 
         public ActionResult ConfiguracionIndex()
@@ -469,6 +479,12 @@ namespace Proyecto.Controllers
         public ActionResult devolverpuntos_barras()
         {
             return Json(objpunto.mandaedatos_char_barras(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ImagenPuntosTabla(int CodigoP)
+        {
+            var imagenCliente = objpunto.ObtenerImagen(CodigoP) ;
+            return File(imagenCliente.imagen, "image/jpeg");
         }
 
     }
