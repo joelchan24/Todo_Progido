@@ -298,14 +298,14 @@
     var markers1;
     $.ajax({
         url: "/VBackend/devolverpuntos_barras",
-        success: function (data) {
-            var array = [['Task', 'Hours per Day'], ]
+        success: function (data1) {
+            var array1 = [['Task', 'Hours per Day'], ]
 
 
-            array.push(["Aprovados", data[1]["aprovados"]])
-            array.push(["no aprovados", data[2]["no_aprovados"]])
+            array1.push(['No Aprovados', data1[0]["aprovados"]])
+            array1.push(['Aprovados', data1[0]["no_aprovados"]])
 
-            markers1 = array;
+            markers1 = array1;
 
             drawChart()
         }

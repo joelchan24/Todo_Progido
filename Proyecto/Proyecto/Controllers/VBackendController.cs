@@ -36,7 +36,7 @@ namespace Proyecto.Controllers
             }
             return View();
         }
-        public ActionResult guardar_mensaje(mensajeBO mensaje)
+        public ActionResult guardar_mensaje([Bind(Include = "mensaje,id_destinatario")]mensajeBO usu)
         {
             if (Session["usuario"] != null)
             {
@@ -44,7 +44,7 @@ namespace Proyecto.Controllers
     
             }
             int i = 2;
-            obj_mensaje.Guardar(mensaje, i);
+            obj_mensaje.Guardar(usu, ViewBag.usuario.id);
             return View();
         }
         
@@ -101,6 +101,8 @@ namespace Proyecto.Controllers
         {
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
+            reporte.Width = Unit.Percentage(1200);
+           //reporte.Height = Unit.Percentage(900);
             reporte.SizeToReportContent = true;
             string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
             ConexionDAO cone = new ConexionDAO();

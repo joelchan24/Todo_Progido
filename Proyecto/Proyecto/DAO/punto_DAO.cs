@@ -82,7 +82,7 @@ namespace Proyecto.DAO
         public DataSet mostrar_char_ba()
         {
 
-            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] p inner join [Niveles-peligro] n on p.id_peligro=n.id ");
+            SqlCommand comando = new SqlCommand(" select (select COUNT(*) from [Puntos-peligrosos] where Estatus = 0)as rechazados,(select COUNT(*) from [Puntos-peligrosos] where Estatus = 1)as aprobados ");
 
             comando.CommandType = CommandType.Text;
             return conectar.EjecutarSentencia(comando);
@@ -141,16 +141,17 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar_char_ba().Tables[0];
             List<puntos_barras> Lista = new List<puntos_barras>();
+            string [] array = { "no aprovados", "aprovados" };
             //byte[] imagen;
             //Convert.ToBase64String(imagen)
             foreach (DataRow dr in tabla.Rows)
             {
-
+               int i = 0;
                 puntos_barras P = new puntos_barras();
         
 
-                P.aprovados = int.Parse(dr[3].ToString());
-                P.no_aprovados = int.Parse(dr[2].ToString());
+                P.aprovados = int.Parse(dr[1].ToString());
+                P.no_aprovados = int.Parse(dr[0].ToString());
                 Lista.Add(P);
             }
             return Lista;
