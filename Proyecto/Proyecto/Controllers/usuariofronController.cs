@@ -152,7 +152,7 @@ namespace Proyecto.Controllers
         public ActionResult puntos_generados()
         {
             
-            return View(pun.listar_eventos_con_peligro());
+            return View(pun.aprovados());
         }
         public ActionResult puntos_eliminar_act()
         {

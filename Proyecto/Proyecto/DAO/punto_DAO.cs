@@ -203,7 +203,7 @@ namespace Proyecto.DAO
         public List<punto_peligrosoBO> listar_eventos_con_peligro()
         {
             var alumnos = new List<punto_peligrosoBO>();
-            String strBuscar = string.Format("  select p.ID as clave ,zona ,comentario , fecha,n.Peligro as peli from [Puntos-peligrosos] p INNER JOIN [Niveles-peligro] n on n.id=p.id_peligro");
+            String strBuscar = string.Format("  select p.ID as clave ,zona ,comentario , fecha,n.Peligro as peli from [Puntos-peligrosos] p INNER JOIN [Niveles-peligro] n on n.id=p.id_peligro ");
             return alumnos = marisa.EjecutarSetencialist_puntos(strBuscar);
         }
         public DataTable buscarAlumno()
