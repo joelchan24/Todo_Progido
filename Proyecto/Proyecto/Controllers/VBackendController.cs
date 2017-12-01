@@ -101,7 +101,7 @@ namespace Proyecto.Controllers
         {
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
-            reporte.Width = Unit.Percentage(1200);
+            //reporte.Width = Unit.Percentage(1200);
            //reporte.Height = Unit.Percentage(900);
             reporte.SizeToReportContent = true;
             string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
