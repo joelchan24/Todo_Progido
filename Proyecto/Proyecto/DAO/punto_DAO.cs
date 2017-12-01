@@ -18,7 +18,7 @@ namespace Proyecto.DAO
         public int Guardar(object agregar,int id_usuario)
         {
           punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
-            usuario.status = 0;
+            usuario.status = 1;
             usuario.nom_imagen = "jj";
          
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario )");
