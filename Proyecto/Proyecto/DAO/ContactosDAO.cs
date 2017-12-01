@@ -8,14 +8,15 @@ using Proyecto.BO;
 
 namespace Proyecto.DAO
 {
+    
     public class ContactosDAO
     {
         ConexionDAO Conex = new ConexionDAO();
         Conexion_DAOcomant conec = new Conexion_DAOcomant();
-        public usuarioBO ObtenerContactos()
+        public usuarioBO ObtenerContactos(/*string a*/)
         {
             var cont = new usuarioBO();
-            String strBuscar = string.Format("SELECT ID,Nombre,Mensaje,Telefono,Correo,Nombre2,Mensaje2,Telefono2,Correo2,Nombre3,Mensaje3,Telefono3,Correo3,Nombre4,Mensaje4,Telefono4,Correo4,Nombre5,Mensaje5,Telefono5,Correo5,Nombre6,Mensaje6,Telefono6,Correo6,id_usuario FROM Contactos");
+            String strBuscar = string.Format("SELECT ID,Nombre,Mensaje,Telefono,Correo,Nombre2,Mensaje2,Telefono2,Correo2,Nombre3,Mensaje3,Telefono3,Correo3,Nombre4,Mensaje4,Telefono4,Correo4,Nombre5,Mensaje5,Telefono5,Correo5,Nombre6,Mensaje6,Telefono6,Correo6,Correousuario FROM Contactos");
             DataTable datos = Conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
 
@@ -45,13 +46,14 @@ namespace Proyecto.DAO
             cont.mensajecontacto6 = row["Mensaje6"].ToString();
             cont.telefonocontacto6 = row["Telefono6"].ToString();
             cont.correocontacto6 = row["Correo6"].ToString();
-            cont.idusuariocontacto = row["id_usuario"].ToString();
+            cont.idusuariocontacto = row["Correousuario"].ToString();
+           
             return cont;
         }
-        public usuarioBO Obtener(int id)
+        public usuarioBO Obtener()
         {
             var cont = new usuarioBO();
-            String strBuscar = string.Format("SELECT ID,Nombre,Mensaje,Telefono,Correo,Nombre2,Mensaje2,Telefono2,Correo2,Nombre3,Mensaje3,Telefono3,Correo3,Nombre4,Mensaje4,Telefono4,Correo4,Nombre5,Mensaje5,Telefono5,Correo5,Nombre6,Mensaje6,Telefono6,Correo6,id_usuario FROM Contactos where ID="+id);
+            String strBuscar = string.Format("SELECT ID,Nombre,Mensaje,Telefono,Correo,Nombre2,Mensaje2,Telefono2,Correo2,Nombre3,Mensaje3,Telefono3,Correo3,Nombre4,Mensaje4,Telefono4,Correo4,Nombre5,Mensaje5,Telefono5,Correo5,Nombre6,Mensaje6,Telefono6,Correo6,Correousuario FROM Contactos ");
             DataTable datos = Conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
 
@@ -81,7 +83,7 @@ namespace Proyecto.DAO
             cont.mensajecontacto6 = row["Mensaje6"].ToString();
             cont.telefonocontacto6 = row["Telefono6"].ToString();
             cont.correocontacto6 = row["Correo6"].ToString();
-            cont.idusuariocontacto = row["id_mensaje"].ToString();
+            cont.idusuariocontacto = row["Correousuario"].ToString();
             return cont;
         }
         public int ModificarContactos(usuarioBO ocontacto)
