@@ -128,7 +128,7 @@ namespace Proyecto.DAO
             {
                
                 Punto P = new Punto();
-                P.punton = dr[4] + " \n\r " + dr[12] 
+                P.punton = dr[12] + " en  " + dr[4] 
                     ;
               
                 P.x = double.Parse(dr[3].ToString());
