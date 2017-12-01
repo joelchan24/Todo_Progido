@@ -70,14 +70,13 @@
   
     <div class="header">
      
-    </div> Guardar_puntos usu
-    @*@using (Ajax.BeginForm("Guardar_puntos", "usuariofron",   new AjaxOptions {  HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sel_crimen", OnSuccess = "limpiar()" }))*@
+   
+ 
+
+    @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data", UpdateTargetId = "sel_crimen" }))
+    {
 
 
-    @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data" , UpdateTargetId = "sel_crimen" }))
-
-
-{
     <div class="content">
         
         <form>
@@ -109,8 +108,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Comentario</label>
-                        @Html.TextAreaFor(x => x.comentario,  new { @class = "form-control", @cols = "20", @rows = "20",
-                       @style =" margin: 0px - 4.5px 0px 0px; height: 319px; width: 536px;"                       })
+                        @Html.TextAreaFor(x => x.comentario, new
+                   {
+                       @class = "form-control",
+                       @cols = "20",
+                       @rows = "20",
+                       @style = " margin: 0px - 4.5px 0px 0px; height: 319px; width: 536px;"
+                   })
 
 
                         
@@ -119,7 +123,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Evidencia</label>
-                        @Html.TextBoxFor(x => x.imagen, htmlAttributes: new { @type = "file", @name="imagen" })
+                        @Html.TextBoxFor(x => x.imagen, htmlAttributes: new { @type = "file", @name = "imagen" })
                         <img style="width:500px;height:300px;" id="img_destino" src="../imagenes/delitoa.jpg" alt="Tu imagen">
                        
                     </div>
@@ -146,7 +150,7 @@
             <div class="clearfix"></div>
         </form>
     </div>
-}
+    }
 </div>
 
 <script>
