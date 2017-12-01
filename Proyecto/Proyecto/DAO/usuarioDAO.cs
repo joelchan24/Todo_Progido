@@ -33,5 +33,20 @@ namespace Proyecto.DAO
 
 
         }
+        public int guardarCorreo(object agregar)
+        {
+            usuarioBO usuario = (usuarioBO)agregar;
+            Conexion_DAOcomant conectar = new Conexion_DAOcomant();
+            SqlCommand cmd = new SqlCommand("insert into Contactos (Correousuario) values (@correo)");
+           
+            cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = usuario.correo;
+            cmd.CommandType = CommandType.Text;
+
+
+            return conectar.EjecutarComando(cmd);
+
+
+
+        }
     }
 }

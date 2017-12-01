@@ -58,8 +58,9 @@ namespace Proyecto.Controllers
             if (ModelState.IsValid)
             {
                 usuario_dao.guardar(cliente);
+                usuario_dao.guardarCorreo(cliente);
 
-                return Redirect("~/usuariofron/puntos");
+                return Redirect("~/todo_pro/IndexFinal");
             }
 
             return View(cliente);

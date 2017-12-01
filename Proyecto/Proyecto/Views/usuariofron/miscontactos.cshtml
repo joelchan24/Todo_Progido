@@ -6,15 +6,8 @@
 }
 
 
-@if (ViewBag.usuario != null)
-{
-    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-        <span>
-            @ViewBag.usuario.id
-            <b class="caret"></b>
-        </span>
-    </a>
-}
+
+
 
 <div class="main-content">
     <div class="container-fluid">
@@ -422,7 +415,13 @@
     </li>
 
 }
+@if (ViewBag.usuario != null)
+{
 
+    @ViewBag.usuario.correo
+    <b class="caret"></b>
+
+}
 
 
 

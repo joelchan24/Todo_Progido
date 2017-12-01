@@ -26,6 +26,8 @@ namespace Proyecto.Controllers
             return View();
         }
 
+
+
         public ActionResult miscontactos(/*int id=0*/)
         {
             if (Session["usuario"] != null)
@@ -33,10 +35,11 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                 return View(Obj.ObtenerContactos());
             }
-            //return View(id == 0 ? new usuarioBO() : Obj.Obtener(id));
 
             return View(Obj.ObtenerContactos());
         }
+
+
         // esto
         //public ActionResult Editar(int id = 0)
         //{
