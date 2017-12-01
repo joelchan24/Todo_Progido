@@ -50,6 +50,11 @@ namespace Proyecto.Controllers
         
         public ActionResult Mapa_admin()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View();
+            }
             return View();
         }
         public ActionResult listadeusuarios()
@@ -62,6 +67,11 @@ namespace Proyecto.Controllers
         }
         public ActionResult reporte_usuarios()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+               
+            }
             usuarios dataset_usuarios = new usuarios();
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
@@ -79,6 +89,11 @@ namespace Proyecto.Controllers
 
         public ActionResult tiposdepeligro()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                
+            }
             return View();
         }
        Proyecto.Reportes.peligros daset_reportes = new Proyecto.Reportes.peligros();
@@ -99,6 +114,11 @@ namespace Proyecto.Controllers
         //    return View();
         public ActionResult Reporte_peligros()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                
+            }
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
             //reporte.Width = Unit.Percentage(1200);
@@ -115,6 +135,11 @@ namespace Proyecto.Controllers
         }
         public ActionResult guardar_peligro(PeligroBO peli)
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                
+            }
             var r = peli.id > 0 ?
                 peligrodao.editar(peli) :
                 peligrodao.Guardar(peli);
@@ -303,6 +328,11 @@ namespace Proyecto.Controllers
 
         public ActionResult ConfiguracionIndex()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
             return View(Obj_indexdao.Obtenerindex());
         }
 

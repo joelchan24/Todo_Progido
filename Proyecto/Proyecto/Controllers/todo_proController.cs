@@ -59,7 +59,7 @@ namespace Proyecto.Controllers
             {
                 usuario_dao.guardar(cliente);
 
-                return Redirect("~/usuariofron/puntos");
+                return Redirect("~/todo_pro/IndexFinal");
             }
 
             return View(cliente);
