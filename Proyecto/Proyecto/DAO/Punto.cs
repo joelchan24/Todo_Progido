@@ -10,5 +10,6 @@ namespace Proyecto.DAO
         public string punton;
         public double x;
         public double y;
+        public string id;
     }
 }
