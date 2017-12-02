@@ -56,6 +56,17 @@ namespace Proyecto.Controllers
         //    return Redirect("~/usuariofron/miscontactos");
         //}
         ////aqui
+
+        public ActionResult puntos_usuario()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+            ViewBag.nom = "pag";
+            return View();
+        }
         public ActionResult mis_puntos()
         {
             if (Session["usuario"] != null)

@@ -632,6 +632,7 @@
     <Content Include="Views\VBackend\reporte_usuarios.cshtml" />
     <Content Include="Views\VBackend\PuntosAprovados.cshtml" />
     <Content Include="Views\VBackend\parcia_drop_usuarios.cshtml" />
+    <Content Include="Views\usuariofron\puntos_usuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
