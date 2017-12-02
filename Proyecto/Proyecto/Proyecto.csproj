@@ -284,6 +284,29 @@
     <Content Include="Content\assetsPRO\js\moment.min.js" />
     <Content Include="Content\assetsPRO\js\nouislider.min.js" />
     <Content Include="Content\assetsPRO\js\vertical-nav.js" />
+    <Content Include="Content\assetspuntos\css\bootstrap.min.css" />
+    <Content Include="Content\assetspuntos\css\demo.css" />
+    <Content Include="Content\assetspuntos\css\light-bootstrap-dashboard.css" />
+    <Content Include="Content\assetspuntos\css\pe-icon-7-stroke.css" />
+    <Content Include="Content\assetspuntos\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\assetspuntos\js\bootstrap-notify.js" />
+    <Content Include="Content\assetspuntos\js\bootstrap-selectpicker.js" />
+    <Content Include="Content\assetspuntos\js\bootstrap-switch-tags.min.js" />
+    <Content Include="Content\assetspuntos\js\bootstrap-table.js" />
+    <Content Include="Content\assetspuntos\js\bootstrap.min.js" />
+    <Content Include="Content\assetspuntos\js\chartist.min.js" />
+    <Content Include="Content\assetspuntos\js\demo.js" />
+    <Content Include="Content\assetspuntos\js\fullcalendar.min.js" />
+    <Content Include="Content\assetspuntos\js\jquery-jvectormap.js" />
+    <Content Include="Content\assetspuntos\js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\assetspuntos\js\jquery.datatables.js" />
+    <Content Include="Content\assetspuntos\js\jquery.min.js" />
+    <Content Include="Content\assetspuntos\js\jquery.sharrre.js" />
+    <Content Include="Content\assetspuntos\js\jquery.validate.min.js" />
+    <Content Include="Content\assetspuntos\js\light-bootstrap-dashboard.js" />
+    <Content Include="Content\assetspuntos\js\moment.min.js" />
+    <Content Include="Content\assetspuntos\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\assetspuntos\js\sweetalert2.js" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\demo.css" />
     <Content Include="Content\assets\css\material-kit.css" />
@@ -425,6 +448,17 @@
     <Content Include="Content\assets\js\material-kit.js" />
     <Content Include="Content\assets\js\material.min.js" />
     <Content Include="Content\assets\js\nouislider.min.js" />
+    <Content Include="Content\assets_kit_pro\css\bootstrap.min.css" />
+    <Content Include="Content\assets_kit_pro\css\material-kit.css" />
+    <Content Include="Content\assets_kit_pro\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\assets_kit_pro\js\bootstrap-tagsinput.js" />
+    <Content Include="Content\assets_kit_pro\js\bootstrap.min.js" />
+    <Content Include="Content\assets_kit_pro\js\jasny-bootstrap.min.js" />
+    <Content Include="Content\assets_kit_pro\js\jquery.min.js" />
+    <Content Include="Content\assets_kit_pro\js\material-kit.js" />
+    <Content Include="Content\assets_kit_pro\js\material.min.js" />
+    <Content Include="Content\assets_kit_pro\js\moment.min.js" />
+    <Content Include="Content\assets_kit_pro\js\nouislider.min.js" />
     <Content Include="Content\assets_tablanet\css\bootstrap.min.css" />
     <Content Include="Content\assets_tablanet\css\demo.css" />
     <Content Include="Content\assets_tablanet\css\light-bootstrap-dashboard.css" />
@@ -632,7 +666,7 @@
     <Content Include="Views\VBackend\reporte_usuarios.cshtml" />
     <Content Include="Views\VBackend\PuntosAprovados.cshtml" />
     <Content Include="Views\VBackend\parcia_drop_usuarios.cshtml" />
-    <Content Include="Views\usuariofron\puntos_usuario.cshtml" />
+    <Content Include="Views\usuariofron\CrearPuntos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
