@@ -187,6 +187,13 @@ namespace Proyecto.Controllers
             return Content("eliminado");
         }
 
+        public ActionResult CrearPuntos()
+        {
+            return View();
+        }
+
         //seccion de contactos
+
+
     }
 }
