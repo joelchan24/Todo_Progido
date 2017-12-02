@@ -64,7 +64,7 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
 
             }
-            ViewBag.nom = "pag";
+            ViewBag.da = 1;
             return View();
         }
         public ActionResult mis_puntos()
@@ -74,7 +74,8 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                
             }
-            ViewBag.nom = "pag";
+            ViewBag.da = 1;
+          
             return View();
         }
         [HttpPost]

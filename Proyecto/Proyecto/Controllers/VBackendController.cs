@@ -53,8 +53,9 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                
             }
+            ViewBag.da = 1;
             return View();
         }
         public ActionResult listadeusuarios()

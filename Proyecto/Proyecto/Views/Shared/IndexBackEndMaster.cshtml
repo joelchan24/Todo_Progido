@@ -225,8 +225,13 @@
                     </div>
                 </div>
             </nav>
+@if (ViewBag.da != null)
+{
 
-            <!------- barra superior fin------->
+    @RenderBody()
+}
+else
+{
             <div class="main-content">
                 <div class="container-fluid">
                     @RenderBody()
@@ -267,10 +272,11 @@
                     </p>
                 </div>
             </footer>
-
+}   
 
         </div>
     </div>
+    
 
 
 
