@@ -130,7 +130,7 @@ namespace Proyecto.DAO
                 Punto P = new Punto();
                 P.punton = dr[12] + " en  " + dr[4] 
                     ;
-              
+                P.id = dr[1].ToString();
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
                 Lista.Add(P);
