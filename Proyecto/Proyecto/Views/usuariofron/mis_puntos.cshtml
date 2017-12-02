@@ -47,12 +47,12 @@
     </li>
 
 
-    <li>
+    @*<li>
         <a href="~/usuariofron/mensajes">
             <i class="pe-7s-graph"></i>
             <p>Mensajes</p>
         </a>
-    </li>
+    </li>*@
 
 }
 
@@ -83,7 +83,7 @@
         success: function (data) {
             var array = []
             for (var i = 0; i < data.length; i++) {
-                array.push([data[i]["punton"], data[i]["x"], data[i]["y"]])
+                array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
             }
             markers = array;
 
@@ -112,13 +112,36 @@
         var bounds = new google.maps.LatLngBounds();
 
         for (i = 0; i < markers.length; i++) {
-            var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-            bounds.extend(pos);
-            marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                icon:image
-            });
+            if (markers[i][3] == 6)
+            {
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 9)
+            {
+                image = "http://1.bp.blogspot.com/_GZzKwf6g1o8/S6xwK6CSghI/AAAAAAAAA98/_iA3r4Ehclk/s1600/marker-green.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 10) {
+                image = "http://1.bp.blogspot.com/_GZzKwf6g1o8/S6xwK6CSghI/AAAAAAAAA98/_iA3r4Ehclk/s1600/marker-green.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map
+                });
+            }
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
                     infowindow.setContent(markers[i][0]);

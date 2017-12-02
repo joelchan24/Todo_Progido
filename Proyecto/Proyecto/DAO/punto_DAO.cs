@@ -18,7 +18,7 @@ namespace Proyecto.DAO
         public int Guardar(object agregar,int id_usuario)
         {
           punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
-            usuario.status = 0;
+            usuario.status = 1;
             usuario.nom_imagen = "jj";
          
             SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario )");
@@ -128,9 +128,9 @@ namespace Proyecto.DAO
             {
                
                 Punto P = new Punto();
-                P.punton = dr[4] + " \n\r " + dr[12] 
+                P.punton = dr[12] + " en  " + dr[4] 
                     ;
-              
+                P.id = dr[1].ToString();
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
                 Lista.Add(P);

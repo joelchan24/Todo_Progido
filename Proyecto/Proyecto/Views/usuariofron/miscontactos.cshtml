@@ -374,7 +374,7 @@
 
 
 @section SideBar{
-    <li>
+    <li class="active">
 
         <a data-toggle="collapse" href="#tablesExamples">
             <i class="pe-7s-news-paper"></i>
@@ -392,7 +392,7 @@
                         <span class="sidebar-normal">Agregar puntos</span>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="~/usuariofron/mis_puntos">
                         <span class="sidebar-mini">ET</span>
                         <span class="sidebar-normal">Mis puntos</span>
@@ -405,20 +405,20 @@
         </div>
     </li>
 
-<li class="active">
-    <a href="~/usuariofron/miscontactos">
-        <i class="pe-7s-graph"></i>
-        <p>Mis Contactos</p>
-    </a>
-</li>
-
-
     <li>
-        <a href="~/usuariofron/mensajes">
+        <a href="~/usuariofron/miscontactos">
             <i class="pe-7s-graph"></i>
-            <p>Mensajes</p>
+            <p>Mis Contactos</p>
         </a>
     </li>
+
+
+    @*<li>
+            <a href="~/usuariofron/mensajes">
+                <i class="pe-7s-graph"></i>
+                <p>Mensajes</p>
+            </a>
+        </li>*@
 
 }
 @if (ViewBag.usuario != null)
