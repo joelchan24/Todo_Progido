@@ -189,6 +189,15 @@ namespace Proyecto.Controllers
         {
             return Json(pun.mandaedatos(), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult devolverpuntos_personales()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+            return Json(pun.mandaedatos__personales(ViewBag.usuario.id), JsonRequestBehavior.AllowGet);
+        }
         public ActionResult devolverchar()
         {
             return Json(pun.mandar_pie_char(), JsonRequestBehavior.AllowGet);

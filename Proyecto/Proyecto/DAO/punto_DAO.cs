@@ -79,6 +79,16 @@ namespace Proyecto.DAO
             return conectar.EjecutarSentencia(comando);
 
         }
+        public DataSet mostrar_persolanes(int id)
+        {
+
+            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] p inner join [Niveles-peligro] n on p.id_peligro=n.id where p.id_usuario=@id ");
+            comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
         public DataSet mostrar_char_ba()
         {
 
@@ -129,6 +139,44 @@ namespace Proyecto.DAO
                
                 Punto P = new Punto();
                 P.punton = dr[12] + " en  " + dr[4] 
+                    ;
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Lista.Add(P);
+            }
+            return Lista;
+        }
+        public List<Punto> mandaedatos_al_admin()
+        {
+            DataTable tabla = mostrar().Tables[0];
+            List<Punto> Lista = new List<Punto>();
+            //byte[] imagen;
+            //Convert.ToBase64String(imagen)
+            foreach (DataRow dr in tabla.Rows)
+            {
+
+                Punto P = new Punto();
+                P.punton = dr[12] + " en  " + dr[4]
+                    ;
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Lista.Add(P);
+            }
+            return Lista;
+        }
+        public List<Punto> mandaedatos__personales(int id)
+        {
+            DataTable tabla = mostrar_persolanes(id).Tables[0];
+            List<Punto> Lista = new List<Punto>();
+            //byte[] imagen;
+            //Convert.ToBase64String(imagen)
+            foreach (DataRow dr in tabla.Rows)
+            {
+
+                Punto P = new Punto();
+                P.punton = dr[12] + " en  " + dr[4]
                     ;
                 P.id = dr[1].ToString();
                 P.x = double.Parse(dr[3].ToString());
