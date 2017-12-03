@@ -21,7 +21,7 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-             
+               
             }
             return View();
         }
@@ -212,7 +212,17 @@ namespace Proyecto.Controllers
         {
             return View();
         }
+        public ActionResult Imagen_usuario(int id)
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
 
+            }
+
+            var imagenCliente = pun.Obtener_usuario_normal(id);
+            return File(imagenCliente.foto, "image/jpeg");
+        }
         //seccion de contactos
 
 

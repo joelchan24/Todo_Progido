@@ -89,6 +89,16 @@ namespace Proyecto.DAO
             return conectar.EjecutarSentencia(comando);
 
         }
+        public DataSet foto_del_usuaurio(int id)
+        {
+
+            SqlCommand comando = new SqlCommand("select foto from usuario where id =@id ");
+            comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
         public DataSet mostrar_char_ba()
         {
 
@@ -311,6 +321,28 @@ namespace Proyecto.DAO
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             imagenp.imagen = (byte[])row["imagen"];
+
+            return imagenp;
+        }
+        public usuarioBO Obtener_cli()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            var imagenp = new usuarioBO();
+            String strBuscar = string.Format("select foto from usuario where id =1006");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            imagenp.foto = (byte[])row["foto"];
+
+            return imagenp;
+        }
+        public usuarioBO Obtener_usuario_normal(int id)
+        {
+            ConexionDAO conex = new ConexionDAO();
+            var imagenp = new usuarioBO();
+            String strBuscar = string.Format("select foto from usuario where id ='" + id + "'");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            imagenp.foto = (byte[])row["foto"];
 
             return imagenp;
         }
