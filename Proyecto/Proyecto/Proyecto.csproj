@@ -288,6 +288,7 @@
     <Content Include="Content\assetspuntos\css\demo.css" />
     <Content Include="Content\assetspuntos\css\light-bootstrap-dashboard.css" />
     <Content Include="Content\assetspuntos\css\pe-icon-7-stroke.css" />
+    <Content Include="Content\assetspuntos\fonts\Pe-icon-7-stroke.svg" />
     <Content Include="Content\assetspuntos\js\bootstrap-datetimepicker.min.js" />
     <Content Include="Content\assetspuntos\js\bootstrap-notify.js" />
     <Content Include="Content\assetspuntos\js\bootstrap-selectpicker.js" />
@@ -583,6 +584,9 @@
     <Content Include="Reportes\peligros.xsc">
       <DependentUpon>peligros.xsd</DependentUpon>
     </Content>
+    <Content Include="Content\assetspuntos\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\assetspuntos\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\assetspuntos\fonts\Pe-icon-7-stroke.woff" />
     <None Include="Reportes\peligros.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
