@@ -7,7 +7,7 @@ using System.Data;
 using System.Web.Mvc;
 using Proyecto.BO;
 using System.IO;
-
+using System.Drawing;
 
 namespace Proyecto.DAO
 {
@@ -73,7 +73,7 @@ namespace Proyecto.DAO
         public DataSet mostrar()
         {
           
-            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] p inner join [Niveles-peligro] n on p.id_peligro=n.id ");
+            SqlCommand comando = new SqlCommand("select * from  [Puntos-peligrosos] p inner join [Niveles-peligro] n on p.id_peligro=n.id where p.Estatus=0 ");
            
             comando.CommandType = CommandType.Text;
             return conectar.EjecutarSentencia(comando);
@@ -142,14 +142,22 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar().Tables[0];
             List<Punto> Lista = new List<Punto>();
-            //byte[] imagen;
-            //Convert.ToBase64String(imagen)
+            byte[] imagen;
+          
+
             foreach (DataRow dr in tabla.Rows)
             {
+                
+               
+                imagen = (byte[])dr[8];
+                
+               
+
                
                 Punto P = new Punto();
-                P.punton = dr[12] + " en  " + dr[4] 
-                    ;
+                P.punton = "<h5>" + dr[12] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='data:image/jpg;base64,"+ Convert.ToBase64String(imagen)+"' "+"style ="+" width=100% height=300px />";
+                ;
+              
                 P.id = dr[1].ToString();
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
@@ -157,14 +165,15 @@ namespace Proyecto.DAO
             }
             return Lista;
         }
+       
         public List<Punto> mandaedatos_al_admin()
         {
             DataTable tabla = mostrar().Tables[0];
             List<Punto> Lista = new List<Punto>();
-            //byte[] imagen;
-            //Convert.ToBase64String(imagen)
+            byte[] imagen;
             foreach (DataRow dr in tabla.Rows)
             {
+                imagen = (byte[])dr[8];
 
                 Punto P = new Punto();
                 P.punton = dr[12] + " en  " + dr[4]
@@ -180,14 +189,13 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar_persolanes(id).Tables[0];
             List<Punto> Lista = new List<Punto>();
-            //byte[] imagen;
-            //Convert.ToBase64String(imagen)
+            byte[] imagen;
+            
             foreach (DataRow dr in tabla.Rows)
             {
-
+                imagen = (byte[])dr[8];
                 Punto P = new Punto();
-                P.punton = dr[12] + " en  " + dr[4]
-                    ;
+                P.punton = "<h5 style='center'>" + dr[12] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='data:image/jpg;base64," + Convert.ToBase64String(imagen) + "' " + "style =" + " width=100% height=300px />";
                 P.id = dr[1].ToString();
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
