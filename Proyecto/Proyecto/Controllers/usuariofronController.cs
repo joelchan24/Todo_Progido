@@ -15,6 +15,41 @@ namespace Proyecto.Controllers
 
         punto_DAO pun = new punto_DAO();
         ContactosDAO Obj = new ContactosDAO();
+        loginDAO objlogin = new loginDAO();
+        usuarioDAO usuusuus = new usuarioDAO();
+        
+             public ActionResult editar_datos()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+            return View(objlogin.obtenerperfil_usuario(ViewBag.usuario.id));
+        }
+        public ActionResult editar_datos_usuario([Bind(Include = "id,nombre,apellido,correo,telefono,fecha,contraseña,sexo")]usuarioBO usu, HttpPostedFileBase foto)
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+            if (foto != null && foto.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(foto.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(foto.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                usu.foto = imageData;
+            }
+           usuusuus.editar(usu,ViewBag.usuario.id);
+
+            return Redirect("~/usuariofron/editar_datos");
+        }
+
+
 
         public ActionResult puntos()
         {

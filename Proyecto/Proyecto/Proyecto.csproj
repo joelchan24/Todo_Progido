@@ -688,7 +688,6 @@
     <Content Include="Views\VBackend\parcia_drop_usuarios.cshtml" />
     <Content Include="Views\usuariofron\CrearPuntos.cshtml" />
     <Content Include="Views\usuariofron\puntos_usuario.cshtml" />
-    <Content Include="Views\usuariofron\Tablapuntousuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
