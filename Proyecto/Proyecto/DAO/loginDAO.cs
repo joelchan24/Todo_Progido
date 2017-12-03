@@ -75,7 +75,7 @@ namespace Proyecto.DAO
             usuario.sexo = row["sexo"].ToString();
             usuario.correo = row["Correo"].ToString();
             usuario.telefono = row["Telefono"].ToString();
-            usuario.fecha = ((DateTime)row["fecha"]);
+            usuario.contraseña = (Convert.ToDateTime(row["fecha"])).ToString("yyyy-MM-dd");
             usuario.foto = (byte[])row["foto"];
 
 
