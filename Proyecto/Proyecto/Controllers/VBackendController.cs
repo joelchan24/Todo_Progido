@@ -324,7 +324,7 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                return View(objpunto.CargarTablaPuntos());
             }
             return View(objpunto.CargarTablaPuntos());
         }
@@ -334,7 +334,7 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                return View(objpunto.CargarTablaPuntosaprovados());
             }
             return View(objpunto.CargarTablaPuntosaprovados());
         }
