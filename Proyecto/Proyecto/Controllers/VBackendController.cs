@@ -368,7 +368,7 @@ namespace Proyecto.Controllers
             {
                 Obj_indexdao.GuardarImagen(cliente);
 
-                return Redirect("~/ VBackend / ConfiguracionIndex");
+                return View();
             }
 
             return View(cliente);

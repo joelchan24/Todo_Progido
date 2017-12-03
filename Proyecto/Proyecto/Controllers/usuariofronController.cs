@@ -96,15 +96,29 @@ namespace Proyecto.Controllers
                 }
                 //setear la imagen a la entidad que se creara
                 usu.imagen = imageData;
-            }
-            if (ModelState.IsValid)
-            {
-                var jjj = usu.id > 0 ?
-                  pun.editar(usu) :
-                  pun.Guardar(usu, ViewBag.usuario.id);
 
-                return Redirect("~/usuariofron/puntos");
+                if (ModelState.IsValid)
+                {
+                    var jjj = usu.id > 0 ?
+                      pun.editar(usu) :
+                      pun.Guardar(usu, ViewBag.usuario.id);
+
+                    return Redirect("~/usuariofron/Tablapuntousuario");
+                }
             }
+            else
+            {
+                 usu.imagen= pun.optenerimagenpel();
+                if (ModelState.IsValid)
+                {
+                    var jjj = usu.id > 0 ?
+                      pun.editar(usu) :
+                      pun.Guardar(usu, ViewBag.usuario.id);
+
+                    return Redirect("~/usuariofron/Tablapuntousuario");
+                }
+            }
+          
 
 
 
@@ -232,6 +246,15 @@ namespace Proyecto.Controllers
         }
         //seccion de contactos
 
+        public ActionResult Tablapuntousuario()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                return View(pun.CargarTablausuario(ViewBag.usuario.id));
 
+            }
+            return View();
+        }
     }
 }

@@ -157,7 +157,7 @@
                         <div class="collapse" id="tablesExamples">
                             <ul class="nav">
                                 <li>
-                                    <a href="#">
+                                    <a href="~/usuariofron/Tablapuntousuario">
                                         <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
                                         <span class="sidebar-normal">Ver información</span>
                                     </a>
@@ -178,12 +178,7 @@
         <div class="main-panel">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    <div class="navbar-minimize">
-                        <button id="minimizeSidebar" class="btn btn-warning btn-fill btn-round btn-icon">
-                            <i class="fa fa-ellipsis-v visible-on-sidebar-regular"></i>
-                            <i class="fa fa-navicon visible-on-sidebar-mini"></i>
-                        </button>
-                    </div>
+                   
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse">
                             <span class="sr-only">Toggle navigation</span>
@@ -191,60 +186,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Mostrar</a>
+                        <a class="navbar-brand" href="#">Agregar Puntos</a>
                     </div>
                     <div class="collapse navbar-collapse">
 
-                        @*<form class="navbar-form navbar-left navbar-search-form" role="search">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                        </div>
-                    </form>*@
+                      
 
                         <ul class="nav navbar-nav navbar-right">
-                            @*<li>
-                            <a href="../charts.html">
-                                <i class="fa fa-line-chart"></i>
-                                <p>Stats</p>
-                            </a>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-gavel"></i>
-                                <p class="hidden-md hidden-lg">
-                                    Actions
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Create New Post</a></li>
-                                <li><a href="#">Manage Something</a></li>
-                                <li><a href="#">Do Nothing</a></li>
-                                <li><a href="#">Submit to live</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Another Action</a></li>
-                            </ul>
-                        </li>*@
-
-                            @*<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="notification">5</span>
-                                <p class="hidden-md hidden-lg">
-                                    Notifications
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                            </ul>
-                        </li>*@
+                      
 
                             <li class="dropdown dropdown-with-icons">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -255,27 +204,7 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-with-icons">
-                                    @*<li>
-                                    <a href="#">
-                                        <i class="pe-7s-mail"></i> Messages
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-help1"></i> Help Center
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-tools"></i> Settings
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">
-                                        <i class="pe-7s-lock"></i> Lock Screen
-                                    </a>
-                                </li>*@
+                                  
                                     <li>
                                         <a href="/todo_pro/cerrar" class="text-danger">
                                             <i class="pe-7s-close-circle"></i>
@@ -309,7 +238,7 @@
 
 
                                     <div class="header text-center">
-                                        <h3 class="title">Hazle saber a la comunidad los que has visto! </h3>
+                                        <h3 class="title">Hazle saber a la comunidad lo que has visto! </h3>
                                         <p class="category">Solo sigue los siguientes pasos y las indicaciones que se muestran y espera a que el administrador verifique tu punto S.O.S</p>
                                     </div>
 
@@ -491,10 +420,8 @@
                                                             <div class="col-md-1"></div>
                                                             <div class="col-md-10 ">
                                                                 <div class="form-group">
-
-
                                                                     <center>
-                                                                        <img style="width:390px;height:300px;border-radius: 25px;" id="img_destino" src="../imagenes/delitoa.jpg" alt="Tu imagen">
+                                                                        <img style="width:390px;height:300px;border-radius: 25px;" id="img_destino" src="../Imagenes/image_placeholder.jpg" alt="Tu imagen">
                                                                         <br />
                                                                         <br />
                                                                         @Html.TextBoxFor(x => x.imagen, htmlAttributes: new { @type = "file", @name = "imagen" })
@@ -537,31 +464,11 @@
                 <div class="container-fluid">
                     <nav class="pull-left">
                         <ul>
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
                         </ul>
                     </nav>
                     <p class="copyright pull-right">
                         &copy;
-                        <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                        <script>document.write(new Date().getFullYear())</script> <a href="#">Todo Protegido SOS</a>, lo mejor en seguridad
                     </p>
                 </div>
             </footer>
@@ -569,7 +476,47 @@
 
         </div>
     </div>
+    <div class="fixed-plugin">
+        <div class="dropdown">
+            <a href="#" data-toggle="dropdown">
+                <i class="fa fa-cog fa-2x"> </i>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header-title">Configuracion</li>
 
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Minizar barra</p>
+                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
+                               data-off-text="OFF"
+                               data-on-text="ON" />
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Filtros</p>
+                        <div class="pull-right">
+                            <span class="badge filter" data-color="black"></span>
+                            <span class="badge filter badge-azure" data-color="azure"></span>
+                            <span class="badge filter badge-green" data-color="green"></span>
+                            <span class="badge filter badge-orange active" data-color="orange"></span>
+                            <span class="badge filter badge-red" data-color="red"></span>
+                            <span class="badge filter badge-purple" data-color="purple"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
 
 
    
@@ -845,7 +792,7 @@
         function onFinishWizard(){
             //here you can do something, sent the form to server via ajax and show a success message with swal
 
-            swal("Good job!", "You clicked the finish button!", "success");
+            swal("Punto Enviado!", "Ahora solo espera que el administrador lo verifique ", "success");
         }
 
 

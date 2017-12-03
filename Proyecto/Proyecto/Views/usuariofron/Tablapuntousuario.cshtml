@@ -1,7 +1,7 @@
-﻿
-@using Proyecto.BO
-@using System.Data
+﻿@using System.Data;
 @model DataTable
+
+
 @{
     Layout = null;
 }
@@ -77,11 +77,11 @@
             -->
 
             <div class="logo">
-                <a href="#" class="simple-text logo-mini">
+                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
                     TP
                 </a>
 
-                <a href="#" class="simple-text logo-normal">
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
                     Todo Protegido SOS
                 </a>
             </div>
@@ -89,11 +89,12 @@
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="info">
-                        <div class="photo">
-                            <img src="../Imagenes/card-profile1.jpg" width="100%" height="100%" />
-                        </div>
+                       
                         @if (ViewBag.usuario != null)
                         {
+                            <div class="photo">
+                                <img src=@Url.Action("Imagen_usuario", "usuariofron" ,new {id=@ViewBag.usuario.id }) width="100%" height="100%" />
+                            </div>
                             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                                 <span>
                                     @ViewBag.usuario.nombre
@@ -102,30 +103,29 @@
                             </a>
                         }
 
-                        @*@RenderSection("Sideusu", required: true)*@
+                      
                     </div>
                 </div>
 
                 <ul class="nav">
                     <li>
-                        <a href="~/VBackend/estadisticas">
-                            <i class="pe-7s-global"></i>
-                            <p>Inicio</p>
-                        </a>
-                    </li>
-                    <li>
-
-
-                        <a href="~/VBackend/Mapa_admin">
-                            <i class="pe-7s-map-2"></i>
+                        <a href="~/usuariofron/mis_puntos">
+                            <i class="pe-7s-map"></i>
                             <p>Mapa</p>
                         </a>
                     </li>
+                    <li >
+                        <a href="~/usuariofron/CrearPuntos">
+                            <i class="pe-7s-map-2 "></i>
+                            <p>Agregar Puntos </p>
+                        </a>
+                    </li>
+
                     <li>
                         <a data-toggle="collapse" href="#tablesExamples">
                             <i class="pe-7s-map-marker"></i>
                             <p>
-                                Gestion de Puntos
+                                Mis puntos
                                 <b class="caret"></b>
                             </p>
                         </a>
@@ -133,117 +133,19 @@
                             <ul class="nav">
                                 <li class="active">
                                     <a href="#">
-                                        <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                                        <span class="sidebar-normal">Aprovar Puntos</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/PuntosAprovados">
-                                        <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                                        <span class="sidebar-normal">Puntos Aprovados</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/tiposdepeligro">
-                                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
-                                        <span class="sidebar-normal">Tipos De delitos</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples1">
-                            <i class="pe-7s-config"></i>
-                            <p>
-                                Configuración
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples1">
-                            <ul class="nav">
-
-                                <li>
-                                    <a href="~/VBackend/ConfiguracionIndex">
-                                        <span class="sidebar-mini"><i class="pe-7s-home"></i></span>
-                                        <span class="sidebar-normal">Index</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/listadeusuarios">
-                                        <span class="sidebar-mini"><i class="pe-7s-note2"></i></span>
-                                        <span class="sidebar-normal">Lista de usuarios</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="~/VBackend/Backud">
-                                        <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
-                                        <span class="sidebar-normal">Backup</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples2">
-                            <i class="pe-7s-mail"></i>
-                            <p>
-                                Mensajeria
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples2">
-                            <ul class="nav">
-
-                                <li>
-                                    <a href="~/VBackend/mensajes">
-                                        <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                                        <span class="sidebar-normal">Mensajes</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/buzon_de_sugerencias">
-                                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                                        <span class="sidebar-normal">Buzón de Sugerencias</span>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples3">
-                            <i class="pe-7s-graph2"></i>
-                            <p>
-                                Reportes
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples3">
-                            <ul class="nav">
-
-                                <li>
-                                    <a href="~/VBackend/Reporte_peligros">
                                         <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                                        <span class="sidebar-normal">Reporte de peligros </span>
+                                        <span class="sidebar-normal">Ver información</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="~/VBackend/reporte_usuarios">
-                                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                                        <span class="sidebar-normal">Reporte de usuarios</span>
+                                    <a href="~/usuariofron/puntos_usuario">
+                                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
+                                        <span class="sidebar-normal">Ver en Mapa</span>
                                     </a>
                                 </li>
-
-
                             </ul>
                         </div>
                     </li>
-                    
                 </ul>
             </div>
         </div>
@@ -259,17 +161,17 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Aprovar Puntos</a>
+                        <a class="navbar-brand" href="#">Ver información</a>
                     </div>
                     <div class="collapse navbar-collapse">
 
-                       
+                        
 
                         <ul class="nav navbar-nav navbar-right">
-                          
+                           
 
 
-                            
+                           
 
                             <li class="dropdown dropdown-with-icons">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -280,11 +182,10 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-with-icons">
-                                  
                                     <li>
-                                        <a href="#" class="text-danger">
+                                        <a href="/todo_pro/cerrar" class="text-danger">
                                             <i class="pe-7s-close-circle"></i>
-                                            Log out
+                                            Cerrar Sesión
                                         </a>
                                     </li>
                                 </ul>
@@ -314,10 +215,9 @@
                                                     <th>Imagen</th>
                                                     <th>Tipo de Peligro</th>
                                                     <th>Zona</th>
-                                                    <th>Creador</th>
                                                     <th>Fecha</th>
                                                     <th>Comentario</th>
-                                                    <th class="disabled-sorting text-left">Actions</th>
+                                                    <th>Estatus</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
@@ -325,36 +225,33 @@
                                                     <th>Imagen</th>
                                                     <th>Tipo de Peligro</th>
                                                     <th>Zona</th>
-                                                    <th>Creador</th>
                                                     <th>Fecha</th>
                                                     <th>Comentario</th>
-                                                    <th class="text-left">Actions</th>
+                                                    <th>Estatus</th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
-                                                @foreach (DataRow row1 in Model.Rows)
+                                                @foreach (DataRow row in Model.Rows)
                                                 {
                                                     <tr>
                                                         <td style="width:80px;">
                                                             <center>
                                                                 <div class="img-container">
-                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row1["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
+                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
                                                                 </div>
                                                             </center>
                                                         </td>
-                                                        <td style="width:90px;">@row1["Peligro"]</td>
-                                                        <td style="width:80px;">@row1["Zona"]</td>
-                                                        <td style="width:80px;">@row1["Nombre"]</td>
-                                                        <td style="width:80px;">@Convert.ToDateTime(row1["Fecha"]).ToLongDateString()</td>
-                                                        <td style="width:230px;">@row1["comentario"]</td>
-                                                        <td class="text-right" style="width:50px;">
-                                                            <a  class="btn btn-simple btn-info btn-icon" onclick=demo.showSwal('warning-message-and-cancel') ><i class="fa fa-check-square"></i></a>
-                                                            <a href="#"  onclick="actualizar_apro(@row1["ID"])" style="cursor:pointer"class="btn btn-simple btn-danger btn-icon remove"><i class="fa fa-times"></i></a>
-                                                        </td>
+                                                        <td style="width:90px;">@row["Peligro"]</td>
+                                                        <td style="width:80px;">@row["Zona"]</td>
+                                                   
+                                                        <td style="width:80px;">@Convert.ToDateTime(row["Fecha"]).ToLongDateString()</td>
+                                                        <td style="width:250px;">@row["comentario"]</td>
+                                                        <td style="width:80px;">@row["Estatus"]</td>
+
                                                     </tr>
                                                 }
                                             </tbody>
-</table>
+                                        </table>
                                     </div>
                                 </div><!-- end content-->
                             </div><!--  end card  -->
@@ -367,8 +264,9 @@
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="pull-left">
-                        
-                        
+                        <ul>
+                         
+                        </ul>
                     </nav>
                     <p class="copyright pull-right">
                         &copy;
@@ -554,7 +452,7 @@
             $().load('/VBackend/ListaDePuntosM')
         }
             )
-        
+
     }
 </script>
 

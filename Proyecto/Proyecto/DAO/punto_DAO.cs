@@ -355,6 +355,22 @@ namespace Proyecto.DAO
             return imagenp;
         }
 
+        public DataTable CargarTablausuario(int id)
+        {
+            String strBuscar = string.Format("select [Niveles-peligro].Peligro,[Puntos-peligrosos].ID, [Puntos-peligrosos].Zona,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario,[Puntos-peligrosos].Estatus from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and Usuario.Id = '" + id + "'");
+            return marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
 
+
+        public byte[] optenerimagenpel()
+        {
+            ConexionDAO conex = new ConexionDAO();
+         
+            String strBuscar = string.Format("  select imagen from evidencia");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            byte[] img = (byte[])row["imagen"];
+            return img;
+        }
     }
 }
