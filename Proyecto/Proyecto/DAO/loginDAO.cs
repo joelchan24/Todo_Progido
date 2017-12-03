@@ -50,6 +50,8 @@ namespace Proyecto.DAO
             usuario.id = Convert.ToInt32(row["id"]);
             usuario.correo = row["correo"].ToString();
             usuario.nombre = row["nombre"].ToString();
+            usuario.apellido = row["Apellido"].ToString();
+            //usuario.foto = (byte[])row["foto"];
             idtemp = i;
           
             

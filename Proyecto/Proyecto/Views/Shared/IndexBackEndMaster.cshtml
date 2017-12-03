@@ -85,13 +85,15 @@
             </div>
 
             <div class="sidebar-wrapper">
+
                 <div class="user">
                     <div class="info">
-                        <div class="photo">
-                            <img src="../Imagenes/card-profile1.jpg" width="100%" height="100%"/>
-                        </div>
 @if (ViewBag.usuario != null)
 {
+                        <div class="photo">
+                            <img src=@Url.Action("Imagen_usuario", "VBackend") width="100%" height="100%"/>
+                        </div>
+
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                             <span>
                                 @ViewBag.usuario.nombre
@@ -225,8 +227,13 @@
                     </div>
                 </div>
             </nav>
+@if (ViewBag.da != null)
+{
 
-            <!------- barra superior fin------->
+    @RenderBody()
+}
+else
+{
             <div class="main-content">
                 <div class="container-fluid">
                     @RenderBody()
@@ -267,10 +274,11 @@
                     </p>
                 </div>
             </footer>
-
+}   
 
         </div>
     </div>
+    
 
 
 

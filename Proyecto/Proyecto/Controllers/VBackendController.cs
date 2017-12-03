@@ -23,9 +23,21 @@ namespace Proyecto.Controllers
         IndexDAO Obj_indexdao = new IndexDAO();
         tipo_peligroDAO peligrodao = new tipo_peligroDAO();
         mensajeDAO obj_mensaje = new mensajeDAO();
+       
         public ActionResult Vprueba()
         {
             return View();
+        }
+        public ActionResult Imagen_usuario()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+            
+            var imagenCliente = objpunto.Obtener_cli();
+            return File(imagenCliente.foto ,"image/jpeg");
         }
         public ActionResult mensajes()
         {
@@ -53,8 +65,9 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                
             }
+            ViewBag.da = 1;
             return View();
         }
         public ActionResult listadeusuarios()

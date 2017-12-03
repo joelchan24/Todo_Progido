@@ -88,12 +88,14 @@
 
             <div class="sidebar-wrapper">
                 <div class="user">
+
                     <div class="info">
-                        <div class="photo">
-                            <img src="../../assets/img/default-avatar.png" />
-                        </div>
 @if (ViewBag.usuario != null)
 {
+                        <div class="photo">
+                            <img src=@Url.Action("Imagen_usuario", "usuariofron" ,new {id=@ViewBag.usuario.id })  width="100%" height="100%" />
+                        </div>
+
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                             <span>
                              @ViewBag.usuario.nombre
@@ -248,19 +250,24 @@
 
             <!------- barra superior fin------->
          
-          
-           
-          
+          @if (ViewBag.da != null)
+          {
+
+            @RenderBody()
+          }
+          else
+          {
               <div class="main-content">
                 <div class="container-fluid">
                   
                   
+                  
                     @RenderBody()
-
 
                 </div>
             </div>
-         }
+
+
             <footer class="footer">
                 <div class="container-fluid">
                     @*<nav class="pull-left">
@@ -287,13 +294,14 @@
                             </li>
                         </ul>
                     </nav>*@
+
                     <p class="copyright pull-right">
                         &copy;
                         <script>document.write(new Date().getFullYear())</script> <a href="@*http://www.creative-tim.com*@">Todo Protegido SOS</a>, lo mejor en seguridad
                     </p>
                 </div>
             </footer>
-
+          }
 
         </div>
     </div>

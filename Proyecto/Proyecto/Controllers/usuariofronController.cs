@@ -21,7 +21,7 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-             
+               
             }
             return View();
         }
@@ -64,7 +64,7 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
 
             }
-            ViewBag.nom = "pag";
+            ViewBag.da = 1;
             return View();
         }
         public ActionResult mis_puntos()
@@ -74,7 +74,8 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                
             }
-            ViewBag.nom = "pag";
+            ViewBag.da = 1;
+          
             return View();
         }
         [HttpPost]
@@ -188,6 +189,15 @@ namespace Proyecto.Controllers
         {
             return Json(pun.mandaedatos(), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult devolverpuntos_personales()
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+            return Json(pun.mandaedatos__personales(ViewBag.usuario.id), JsonRequestBehavior.AllowGet);
+        }
         public ActionResult devolverchar()
         {
             return Json(pun.mandar_pie_char(), JsonRequestBehavior.AllowGet);
@@ -202,7 +212,17 @@ namespace Proyecto.Controllers
         {
             return View();
         }
+        public ActionResult Imagen_usuario(int id)
+        {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
 
+            }
+
+            var imagenCliente = pun.Obtener_usuario_normal(id);
+            return File(imagenCliente.foto, "image/jpeg");
+        }
         //seccion de contactos
 
 

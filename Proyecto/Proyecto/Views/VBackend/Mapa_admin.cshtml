@@ -18,18 +18,7 @@
     </div>
 }
 
-@section Sideusu{
-    <div class="collapse" id="collapseExample">
-        <ul class="nav">
-            <li>
-                <a href="~/VBackend/PerfilAdmin">
-                    <span class="sidebar-mini">EP</span>
-                    <span class="sidebar-normal">Editar Perfil</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-}
+
 
 @section SideBar{
     <li>
@@ -170,18 +159,14 @@
     </li>
 
 }
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+@*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>*@
 <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
 
-<div id="map_canvas" style="width:1200px !important; height: 900px !important;margin:0 !important;    padding-right: 0 !important;
-    padding-left: 0 !important;
-    margin-right: 0 !important;
-    margin-left: 0 !important;"></div>
+<div id="map_canvas" style="width:100%; height:680px "></div>
 
 <script type="text/javascript">
 
@@ -192,7 +177,7 @@
         success: function (data) {
             var array = []
             for (var i = 0; i < data.length; i++) {
-                array.push([data[i]["punton"], data[i]["x"], data[i]["y"]])
+                array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
             }
             markers = array;
 
@@ -203,7 +188,7 @@
     var image = {
         url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
         // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(20, 32),
+        size: new google.maps.Size(40, 52),
         // The origin for this image is (0, 0).
         origin: new google.maps.Point(0, 0),
         // The anchor for this image is the base of the flagpole at (0, 32).
@@ -221,13 +206,89 @@
         var bounds = new google.maps.LatLngBounds();
 
         for (i = 0; i < markers.length; i++) {
-            var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-            bounds.extend(pos);
-            marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                icon:image
-            });
+            if (markers[i][3] == 0)
+                //robo
+            {
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225726/otros_fvfeur.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 4)//asalto de auto
+            {
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225725/Asalto_auto_q2sbix.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 5) {//asaldo de casa
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225725/asalto_casa_qnrmxf.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 6) {//asalro de comercio
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225725/asalto_comercio_k26sea.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 7) {//asalro de persona
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225725/asalto_persona_nb6glz.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 8) {//actividad sospechopsa
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225725/actividad_sospechosa1_eqsveu.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 9) {//homicidio
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225725/homicidio_vgtub1.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
+            else if (markers[i][3] == 10) {//vandalismo
+                image = "http://res.cloudinary.com/dlyngnwmw/image/upload/v1512225726/vandalismo_nwitki.png";
+                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(pos);
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image
+                });
+            }
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
                     infowindow.setContent(markers[i][0]);
@@ -238,6 +299,5 @@
         map.fitBounds(bounds);
     }
 
-    initializeMaps();
 
 </script>
