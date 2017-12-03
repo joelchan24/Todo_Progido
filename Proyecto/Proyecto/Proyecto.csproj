@@ -488,10 +488,16 @@
     <Content Include="Content\examples\landing-page.html" />
     <Content Include="Content\examples\profile-page.html" />
     <Content Include="Content\examples\signup-page.html" />
+    <Content Include="Content\modo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\000.png" />
+    <Content Include="Imagenes\0002.png" />
+    <Content Include="Imagenes\00220.png" />
+    <Content Include="Imagenes\11.png" />
+    <Content Include="Imagenes\ban.png" />
     <Content Include="Imagenes\bootstrap_logo.png" />
     <Content Include="Imagenes\card-profile1.jpg" />
     <Content Include="Imagenes\components.jpg" />
@@ -501,6 +507,7 @@
     <Content Include="Imagenes\header.jpg" />
     <Content Include="Imagenes\logo UTM-01.png" />
     <Content Include="Imagenes\mapaheader.jpg" />
+    <Content Include="Imagenes\Sin título-1.png" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
