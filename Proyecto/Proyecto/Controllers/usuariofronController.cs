@@ -79,8 +79,9 @@ namespace Proyecto.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Guardar_puntos([Bind(Include = "id_peligro,longitud,latitud,fecha,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen)
+        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
         {
+            usu.id_peligro = int.Parse(frm["Gender"].ToString());
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
@@ -210,6 +211,12 @@ namespace Proyecto.Controllers
 
         public ActionResult CrearPuntos()
         {
+            if (Session["usuario"] != null)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            }
+          
             return View();
         }
         public ActionResult Imagen_usuario(int id)

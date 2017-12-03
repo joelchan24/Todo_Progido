@@ -509,6 +509,14 @@
     <Content Include="Imagenes\mapaheader.jpg" />
     <Content Include="Imagenes\Sin título-1.png" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
+    <Content Include="puntosimg\1.png" />
+    <Content Include="puntosimg\2.png" />
+    <Content Include="puntosimg\3.png" />
+    <Content Include="puntosimg\4.png" />
+    <Content Include="puntosimg\5.png" />
+    <Content Include="puntosimg\6.png" />
+    <Content Include="puntosimg\7.png" />
+    <Content Include="puntosimg\actividad_sospechosa.png" />
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

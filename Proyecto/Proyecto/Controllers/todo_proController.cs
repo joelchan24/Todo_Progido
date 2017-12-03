@@ -104,7 +104,7 @@ namespace Proyecto.Controllers
                 {
 
 
-                    return Redirect("~/usuariofron/puntos");
+                    return Redirect("~/usuariofron/mis_puntos");
 
                 }
                 else if (i == 2)

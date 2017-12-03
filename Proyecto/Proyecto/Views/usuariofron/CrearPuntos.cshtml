@@ -75,263 +75,101 @@
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="orange" data-image="../../../assets/img/full-screen-image-3.jpg">
+        <div class="sidebar" data-color="orange" data-image="../../assets/img/full-screen-image-3.jpg">
             <!--
 
-                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-                Tip 2: you can also add an image using data-image tag
+            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+            Tip 2: you can also add an image using data-image tag
 
-            -->
+        -->
 
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="logo-text">
-                    Creative Tim
+                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                    TP
                 </a>
-            </div>
-            <div class="logo logo-mini">
-                <a href="http://www.creative-tim.com" class="logo-text">
-                    Ct
+
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                    Todo Protegido SOS
                 </a>
             </div>
 
             <div class="sidebar-wrapper">
-
                 <div class="user">
-                    <div class="photo">
-                        <img src="../../assets/img/default-avatar.png" />
-                    </div>
                     <div class="info">
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            Tania Andrew
-                            <b class="caret"></b>
-                        </a>
-                        <div class="collapse" id="collapseExample">
-                            <ul class="nav">
-                                <li><a href="#">My Profile</a></li>
-                                <li><a href="#">Edit Profile</a></li>
-                                <li><a href="#">Settings</a></li>
-                            </ul>
+                       @if (ViewBag.usuario != null)
+                       {
+                        <div class="photo">
+                            <img src=@Url.Action("Imagen_usuario", "usuariofron" ,new {id=@ViewBag.usuario.id }) width="100%" height="100%" />
                         </div>
+
+                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                            <span>
+                                @ViewBag.usuario.nombre
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                       }
+
+                    <div class="collapse" id="collapseExample">
+                        <ul class="nav">
+                            <li>
+                                <a href="#pablo">
+                                    <span class="sidebar-mini">MP</span>
+                                    <span class="sidebar-normal">Mi Perfil</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#pablo">
+                                    <span class="sidebar-mini">EP</span>
+                                    <span class="sidebar-normal">Editar Perfil</span>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
                     </div>
                 </div>
 
                 <ul class="nav">
                     <li>
-                        <a href="../dashboard.html">
-                            <i class="pe-7s-graph"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#componentsExamples">
-                            <i class="pe-7s-plugin"></i>
-                            <p>
-                                Components
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="componentsExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="../components/buttons.html">
-                                        <span class="sidebar-mini">B</span>
-                                        <span class="sidebar-normal">Buttons</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../components/grid.html">
-                                        <span class="sidebar-mini">GS</span>
-                                        <span class="sidebar-normal">Grid System</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../components/panels.html">
-                                        <span class="sidebar-mini">P</span>
-                                        <span class="sidebar-normal">Panels</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../components/sweet-alert.html">
-                                        <span class="sidebar-mini">SA</span>
-                                        <span class="sidebar-normal">Sweet Alert</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../components/notifications.html">
-                                        <span class="sidebar-mini">N</span>
-                                        <span class="sidebar-normal">Notifications</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../components/icons.html">
-                                        <span class="sidebar-mini">I</span>
-                                        <span class="sidebar-normal">Icons</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../components/typography.html">
-                                        <span class="sidebar-mini">T</span>
-                                        <span class="sidebar-normal">Typography</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#formsExamples">
-                            <i class="pe-7s-note2"></i>
-                            <p>
-                                Forms
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse in" id="formsExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="../forms/regular.html">
-                                        <span class="sidebar-mini">Rf</span>
-                                        <span class="sidebar-normal">Regular Forms</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../forms/extended.html">
-                                        <span class="sidebar-mini">Ef</span>
-                                        <span class="sidebar-normal">Extended Forms</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../forms/validation.html">
-                                        <span class="sidebar-mini">Vf</span>
-                                        <span class="sidebar-normal">Validation Forms</span>
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <a href="../forms/wizard.html">
-                                        <span class="sidebar-mini">W</span>
-                                        <span class="sidebar-normal">Wizard</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
+
                         <a data-toggle="collapse" href="#tablesExamples">
                             <i class="pe-7s-news-paper"></i>
                             <p>
-                                Tables
+                                Puntos de peligro
                                 <b class="caret"></b>
                             </p>
                         </a>
                         <div class="collapse" id="tablesExamples">
                             <ul class="nav">
-                                <li>
-                                    <a href="../tables/regular.html">
+                                <li class="active">
+
+                                    <a href="~/usuariofron/puntos">
                                         <span class="sidebar-mini">RT</span>
-                                        <span class="sidebar-normal">Regular Tables</span>
+                                        <span class="sidebar-normal">Agregar puntos</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../tables/extended.html">
+                                    <a href="~/usuariofron/mis_puntos">
                                         <span class="sidebar-mini">ET</span>
-                                        <span class="sidebar-normal">Extended Tables</span>
+                                        <span class="sidebar-normal">Todos los puntos</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../tables/bootstrap-table.html">
-                                        <span class="sidebar-mini">BT</span>
-                                        <span class="sidebar-normal">Bootstrap Table</span>
+                                    <a href="~/usuariofron/puntos_usuario">
+                                        <span class="sidebar-mini">OD</span>
+                                        <span class="sidebar-normal">Mis puntos</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="../tables/datatables.net.html">
-                                        <span class="sidebar-mini">DT</span>
-                                        <span class="sidebar-normal">DataTables.net</span>
-                                    </a>
-                                </li>
+
+
+
                             </ul>
                         </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#mapsExamples">
-                            <i class="pe-7s-map-marker"></i>
-                            <p>
-                                Maps
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="mapsExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="../maps/google.html">
-                                        <span class="sidebar-mini">GM</span>
-                                        <span class="sidebar-normal">Google Maps</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../maps/vector.html">
-                                        <span class="sidebar-mini">VM</span>
-                                        <span class="sidebar-normal">Vector maps</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../maps/fullscreen.html">
-                                        <span class="sidebar-mini">FSM</span>
-                                        <span class="sidebar-normal">Full Screen Map</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="../charts.html">
-                            <i class="pe-7s-graph1"></i>
-                            <p>Charts</p>
-                        </a>
                     </li>
 
-                    <li>
-                        <a href="../calendar.html">
-                            <i class="pe-7s-date"></i>
-                            <p>Calendar</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="pe-7s-gift"></i>
-                            <p>
-                                Pages
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="pagesExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="../pages/user.html">
-                                        <span class="sidebar-mini">UP</span>
-                                        <span class="sidebar-normal">User Page</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/login.html">
-                                        <span class="sidebar-mini">LP</span>
-                                        <span class="sidebar-normal">Login Page</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/register.html">
-                                        <span class="sidebar-mini">RP</span>
-                                        <span class="sidebar-normal">Register Page</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/lock.html">
-                                        <span class="sidebar-mini">LSP</span>
-                                        <span class="sidebar-normal">Lock Screen Page</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -352,60 +190,60 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Wizard</a>
+                        <a class="navbar-brand" href="#">Mostrar</a>
                     </div>
                     <div class="collapse navbar-collapse">
 
-                        <form class="navbar-form navbar-left navbar-search-form" role="search">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                            </div>
-                        </form>
+                        @*<form class="navbar-form navbar-left navbar-search-form" role="search">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" value="" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>*@
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="../charts.html">
-                                    <i class="fa fa-line-chart"></i>
-                                    <p>Stats</p>
-                                </a>
-                            </li>
+                            @*<li>
+                            <a href="../charts.html">
+                                <i class="fa fa-line-chart"></i>
+                                <p>Stats</p>
+                            </a>
+                        </li>
 
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-gavel"></i>
-                                    <p class="hidden-md hidden-lg">
-                                        Actions
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Create New Post</a></li>
-                                    <li><a href="#">Manage Something</a></li>
-                                    <li><a href="#">Do Nothing</a></li>
-                                    <li><a href="#">Submit to live</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Another Action</a></li>
-                                </ul>
-                            </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-gavel"></i>
+                                <p class="hidden-md hidden-lg">
+                                    Actions
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Create New Post</a></li>
+                                <li><a href="#">Manage Something</a></li>
+                                <li><a href="#">Do Nothing</a></li>
+                                <li><a href="#">Submit to live</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Another Action</a></li>
+                            </ul>
+                        </li>*@
 
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="notification">5</span>
-                                    <p class="hidden-md hidden-lg">
-                                        Notifications
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notification 1</a></li>
-                                    <li><a href="#">Notification 2</a></li>
-                                    <li><a href="#">Notification 3</a></li>
-                                    <li><a href="#">Notification 4</a></li>
-                                    <li><a href="#">Another notification</a></li>
-                                </ul>
-                            </li>
+                            @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="notification">5</span>
+                                <p class="hidden-md hidden-lg">
+                                    Notifications
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                            </ul>
+                        </li>*@
 
                             <li class="dropdown dropdown-with-icons">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -416,31 +254,31 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-with-icons">
+                                    @*<li>
+                                    <a href="#">
+                                        <i class="pe-7s-mail"></i> Messages
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="pe-7s-help1"></i> Help Center
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="pe-7s-tools"></i> Settings
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">
+                                        <i class="pe-7s-lock"></i> Lock Screen
+                                    </a>
+                                </li>*@
                                     <li>
-                                        <a href="#">
-                                            <i class="pe-7s-mail"></i> Messages
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="pe-7s-help1"></i> Help Center
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="pe-7s-tools"></i> Settings
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="pe-7s-lock"></i> Lock Screen
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-danger">
+                                        <a href="/todo_pro/cerrar" class="text-danger">
                                             <i class="pe-7s-close-circle"></i>
-                                            Log out
+                                            Cerrar Sesión
                                         </a>
                                     </li>
                                 </ul>
@@ -454,21 +292,21 @@
 
 
             <div class="main-content">
-                <div class="container-fluid">
-                    <div class="form-group">
-                       
+                @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data", UpdateTargetId = "sel_crimen" }))
+                {
+                    <div class="container-fluid">
+                        <div class="form-group">
 
-                    </div>
-                    <div class="row">
 
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <div id="ModalMapPreview" style="width:100%; height:300px;"></div>
-                            </div>
-                            <div class="card card-wizard" id="wizardCard">
-                              
-                                <form id="wizardForm">
-                                   
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <div class="card card-wizard">
+
+
+
                                     <div class="header text-center">
                                         <h3 class="title">Hazle saber a la comunidad los que has visto! </h3>
                                         <p class="category">Solo sigue los siguientes pasos y las indicaciones que se muestran y espera a que el administrador verifique tu punto S.O.S</p>
@@ -477,158 +315,221 @@
                                     <div class="content">
                                         <ul class="nav">
                                             <li><a href="#tab1" data-toggle="tab">1-Selecciona una categoría</a></li>
-                                            <li><a href="#tab2" data-toggle="tab">2-Cuentanos que sucede </a></li>
-                                            <li><a href="#tab3" data-toggle="tab">3-Agrega una evidencia</a></li>
+                                            <li><a href="#tab2" data-toggle="tab">2-Ubicación</a></li>
+                                            <li><a href="#tab3" data-toggle="tab">3-Descripción del punto</a></li>
                                         </ul>
 
                                         <div class="tab-content">
                                             <div class="tab-pane" id="tab1">
                                                 <h5 class="text-center">Antes de comenzar selecciona la categoría de tu punto S.O.S!</h5>
-
+                                                <br />
                                                 <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <div class="form-group">
-                                                            <div id="sel_crimen" ></div>
-                                                           
-                                                        </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+
+                                                            <img src="~/puntosimg/1.png" style="width:100px; height:100px;" />
+
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "4", new { @name = "radio1", @id = "radio1" })
+                                                               
+                                                                <label for="radio1">
+                                                                    Asalto de auto
+                                                                </label>
+                                                            </div>
+
+
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+
+                                                            <img src="~/puntosimg/2.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "5", new { @name = "radio1", @id = "radio2" })
+                                                                
+                                                                <label for="radio2">
+                                                                    Asalto de casa
+                                                                </label>
+                                                            </div>
+
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+                                                            <img src="~/puntosimg/3.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "6", new { @name = "radio1", @id = "radio3" })
+                                                                
+                                                                <label for="radio3">
+                                                                    Asalto de comercio
+                                                                </label>
+                                                            </div>
+
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+                                                            <img src="~/puntosimg/4.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "7", new { @name = "radio1", @id = "radio4" })
+                                                         
+                                                                <label for="radio4">
+                                                                    Asalto de persona
+                                                                </label>
+                                                            </div>
+
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <center>
+
+                                                            <img src="~/puntosimg/actividad_sospechosa.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "8", new { @name = "radio1", @id = "radio5" })
+                                                              
+                                                                <label for="radio5">
+                                                                    Actividad sospechosa
+                                                                </label>
+                                                            </div>
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+
+                                                            <img src="~/puntosimg/5.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "9", new { @name = "radio1", @id = "radio6" })
+                                                              
+                                                                <label for="radio6">
+                                                                    Homicidio
+                                                                </label>
+                                                            </div>
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+                                                            <img src="~/puntosimg/6.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "1", new { @name = "radio1", @id = "radio7" })
+                                                               
+                                                                <label for="radio7">
+                                                                    Otros
+                                                                </label>
+                                                            </div>
+
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <center>
+                                                            <img src="~/puntosimg/7.png" style="width:100px; height:100px;" />
+                                                            <div class="radio">
+                                                                @Html.RadioButton("Gender", "10", new { @name = "radio1", @id = "radio8" })
+                                                                
+                                                                <label for="radio8">
+                                                                    Vandalismo
+                                                                </label>
+                                                            </div>
+
+                                                        </center>
                                                     </div>
                                                 </div>
 
                                             </div>
 
                                             <div class="tab-pane" id="tab2">
-                                                <h5 class="text-center">Ahora cuéntanos que paso en ese lugar, por favor se breve y claro </h5>
-                                                <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <div class="form-group">
-                                                            <label class="control-label">Your Website<star>*</star></label>
-                                                            <input class="form-control"
-                                                                   type="text"
-                                                                   name="website"
-                                                                   url="true"
-                                                                   placeholder="ex: http://www.creative-tim.com" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-5 col-md-offset-1">
-                                                        <div class="form-group">
-                                                            <label class="control-label">Framework Type</label>
-                                                            <input class="form-control"
-                                                                   type="text"
-                                                                   name="framework"
-                                                                   placeholder="ex: http://www.creative-tim.com" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-5">
-                                                        <div class="form-group">
-                                                            <label class="control-label">Language<star>*</star></label>
-
-                                                            <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, that's why we use the "default select" inside this wizard. We will try to contact the guys who are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
-                                                             -->
-
-                                                            <select name="cities" class="form-control">
-                                                                <option selected="" disabled="">- language -</option>
-                                                                <option value="ms">Bahasa Melayu</option>
-                                                                <option value="ca">Catal�</option>
-                                                                <option value="da">Dansk</option>
-                                                                <option value="de">Deutsch</option>
-                                                                <option value="en">English</option>
-                                                                <option value="es">Espa�ol</option>
-                                                                <option value="el">E???????</option>
-                                                                <option value="fr">Fran�ais</option>
-                                                                <option value="it">Italiano</option>
-                                                                <option value="hu">Magyar</option>
-                                                                <option value="nl">Nederlands</option>
-                                                                <option value="no">Norsk</option>
-                                                                <option value="pl">Polski</option>
-                                                                <option value="pt">Portugu�s</option>
-                                                                <option value="fi">Suomi</option>
-                                                                <option value="sv">Svenska</option>
-                                                                <option value="tr">T�rk�e</option>
-                                                                <option value="is">�slenska</option>
-                                                                <option value="cs">Ce�tina</option>
-                                                                <option value="ru">???????</option>
-                                                                <option value="th">???????</option>
-                                                                <option value="zh">?? (??)</option>
-                                                                <option value="zh-TW">?? (??)</option>
-                                                                <option value="ja">???</option>
-                                                                <option value="ko">???</option>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @Html.HiddenFor(x => x.id)
-
-                                                @Html.HiddenFor(x => x.longitud)
-                                                @Html.HiddenFor(x => x.latitud)
-                                                <div class="row">
-                                                    <div class="col-md-5 col-md-offset-1">
-                                                        <div class="form-group">
-                                                            <label class="control-label">Bootstrap Version</label>
-
-                                                            <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, that's why we use the "default select" inside this wizard. We will try to contact the guys who are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
-                                                             -->
-
-                                                            <select name="cities" class="form-control">
-                                                                <option selected="" disabled="">- version -</option>
-                                                                <option value="1.1">Bootstrap 1.1</option>
-                                                                <option value="2.0">Bootstrap 2.0</option>
-                                                                <option value="3.0">Bootstrap 3.0</option>
-                                                                <option value="4.0">Bootstrap 4.0(alpha)</option>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-5">
-                                                        <div class="form-group">
-                                                            <label class="control-label">Price</label>
-                                                            <input class="form-control"
-                                                                   type="text"
-                                                                   name="price"
-                                                                   placeholder="ex: 19.00" />
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="tab-pane" id="tab3">
+                                                <h5 class="text-center">Ahora indica donde sucedió el incidente, puedes usar el marcador o bien utilizar el buscador.</h5>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label>Zona</label>
+
+                                                            @Html.HiddenFor(x => x.id)
+
+                                                            @Html.HiddenFor(x => x.longitud)
+                                                            @Html.HiddenFor(x => x.latitud)
                                                             @Html.TextBoxFor(x => x.zona, new { @class = "form-control" })
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div id="ModalMapPreview" style="width:100%; height:300px;"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                            </div>
+
+                                            <div class="tab-pane" id="tab3">
+                                                <h5 class="text-center">Para finalizar indica la fecha en que sucedió, cuéntanos que paso o que acontece en el lugar y por ultimo si cuentas con una evidencia gráfica, agrégala… </h5>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-5 col-md-offset-1">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    @Html.TextBoxFor(x => x.fecha, new { @type = "date", @class = "form-control" })
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-10 col-md-offset-1">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Descripción:</label>
+                                                                    @Html.TextAreaFor(x => x.comentario, new { @class = "form-control", @style = "resize:none; height:260px; width:500px", @rows = "7", @cols = "60" })
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-10 ">
+                                                                <div class="form-group">
+
+
+                                                                    <center>
+                                                                        <img style="width:390px;height:300px;border-radius: 25px;" id="img_destino" src="../imagenes/delitoa.jpg" alt="Tu imagen">
+                                                                        <br />
+                                                                        <br />
+                                                                        @Html.TextBoxFor(x => x.imagen, htmlAttributes: new { @type = "file", @name = "imagen" })
+                                                                    </center>
+                                                                    <br />
+                                                                    <label class="control-label"><star>*</star>Si no cuentas con una imagen, no te preocupes puedes dejar este campo vacío.</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-1"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
                                             </div>
 
                                         </div>
                                     </div>
 
                                     <div class="footer">
-                                        <button type="button" class="btn btn-default btn-fill btn-wd btn-previous pull-left">Back</button>
 
-                                        <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Next</button>
-                                        <button type="button" class="btn btn-info btn-fill btn-wd btn-finish pull-right" onclick="onFinishWizard()">Finish</button>
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd btn-finish pull-right" onclick="onFinishWizard()">Finish</button>
 
                                         <div class="clearfix"></div>
                                     </div>
-                                </form>
-
+                                </div>
                             </div>
                         </div>
-
                     </div>
+                }
 
-                </div>
+
             </div>
 
             <footer class="footer">
@@ -670,95 +571,7 @@
 
 
 
-    <div class="fixed-plugin">
-        <div class="dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title">Configuration</li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Sidebar Image</p>
-                        <input class="switch switch-sidebar-image" type="checkbox" data-toggle="switch" checked=""
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Sidebar Mini</p>
-                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Fixed Navbar</p>
-                        <input class="switch switch-navbar-fixed" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Filters</p>
-                        <div class="pull-right">
-                            <span class="badge filter" data-color="black"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="header-title">Sidebar Images</li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../../assets/img/full-screen-image-1.jpg">
-                    </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../../assets/img/full-screen-image-2.jpg">
-                    </a>
-                </li>
-                <li class="active">
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../../assets/img/full-screen-image-3.jpg">
-                    </a>
-                </li>
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../../assets/img/full-screen-image-4.jpg">
-                    </a>
-                </li>
-
-                <li class="button-container">
-                    <div class="">
-                        <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard" target="_blank" class="btn btn-info btn-block">Get Free Demo</a>
-                    </div>
-                    <div class="">
-                        <a href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro" target="_blank" class="btn btn-info btn-block btn-fill">Buy Now!</a>
-                    </div>
-                </li>
-
-                <li class="header-title">Thank you for 452 shares!</li>
-
-                <li class="button-container">
-                    <button id="twitter" class="btn btn-social btn-twitter btn-round"><i class="fa fa-twitter"></i> &middot; 182</button>
-                    <button id="facebook" class="btn btn-social btn-facebook btn-round"><i class="fa fa-facebook-square"> &middot; 270</i></button>
-                </li>
-
-            </ul>
-        </div>
-    </div>
+   
 
 </body>
 
@@ -1036,6 +849,21 @@
 
 
      
+</script>
+<script>
+    function mostrarImagen(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img_destino').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imagen").change(function () {
+        mostrarImagen(this);
+    });
 </script>
 
 </html>
