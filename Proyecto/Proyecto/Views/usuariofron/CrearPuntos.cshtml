@@ -245,7 +245,7 @@
                                     <div class="content">
                                         <ul class="nav">
                                             <li><a href="#tab1" data-toggle="tab">1-Selecciona una categoría</a></li>
-                                            <li><a href="#tab2" data-toggle="tab">2-Ubicación</a></li>
+                                            <li><a href="#tab2" id="siguiente2" data-toggle="tab">2-Ubicación</a></li>
                                             <li><a href="#tab3" data-toggle="tab">3-Descripción del punto</a></li>
                                         </ul>
 
@@ -572,22 +572,37 @@
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="~/Content/assetspuntos/js/demo.js"></script>
  
+
+
+
 <script>
-    $('#ModalMapPreview').locationpicker({
-        radius: 0,
-        location: {
-            latitude: $('#longitud').val(),
-            longitude: $('#latitud').val()
-        },
-        inputBinding: {
-            latitudeInput: $('#latitud'),
-            longitudeInput: $('#longitud'),
-            locationNameInput: $('#zona')
-        },
-        enableAutocomplete: true
-
-
+    $("#siguiente2").click(function () {
+        setTimeout(function () {
+            $("#ModalMapPreview").load(mapa());
+        }, 500);
     });
+
+
+    function mapa() {
+        $('#ModalMapPreview').locationpicker({
+            radius: 0,
+            location: {
+                latitude: $('#longitud').val(),
+                longitude: $('#latitud').val()
+            },
+            inputBinding: {
+                latitudeInput: $('#latitud'),
+                longitudeInput: $('#longitud'),
+                locationNameInput: $('#zona')
+            },
+            enableAutocomplete: true
+
+
+        });
+    }
+  
+
+
 </script>
 
 
