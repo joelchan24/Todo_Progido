@@ -23,6 +23,7 @@ namespace Proyecto.Controllers
         IndexDAO Obj_indexdao = new IndexDAO();
         tipo_peligroDAO peligrodao = new tipo_peligroDAO();
         mensajeDAO obj_mensaje = new mensajeDAO();
+        BackudDAO bakk = new BackudDAO();
        
         public ActionResult Vprueba()
         {
@@ -198,15 +199,15 @@ namespace Proyecto.Controllers
             return View();
         }
 
-        public ActionResult Backud()
+        public ActionResult Backud(/*HttpPostedFileBase bakkk*/)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+                return View(bakk.Back());
             }
 
-            return View();
+            return View(bakk.Back());
         }
 
         public ActionResult Actividad()
