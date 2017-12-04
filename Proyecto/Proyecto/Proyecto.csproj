@@ -208,6 +208,7 @@
     <Compile Include="Controllers\usuariofronController.cs" />
     <Compile Include="Controllers\VBackendController.cs" />
     <Compile Include="DAO\BackEndDAO.cs" />
+    <Compile Include="DAO\BackudDAO.cs" />
     <Compile Include="DAO\char_.cs" />
     <Compile Include="DAO\ConexionDAO.cs" />
     <Compile Include="DAO\Conexion_DAOcomant.cs" />
@@ -690,6 +691,7 @@
     <Content Include="Views\usuariofron\puntos_usuario.cshtml" />
     <Content Include="Views\usuariofron\Tablapuntousuario.cshtml" />
     <Content Include="Views\usuariofron\editar_datos.cshtml" />
+    <Content Include="Views\VBackend\Modal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
