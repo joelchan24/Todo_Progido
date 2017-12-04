@@ -11,6 +11,9 @@ namespace Proyecto.DAO
 {
     public class IndexDAO
     {
+
+      
+
         public usuarioBO Obtenerindex()
         {
             ConexionDAO conex = new ConexionDAO();
@@ -49,7 +52,20 @@ namespace Proyecto.DAO
             indext.re3 = row["red3"].ToString();
             indext.red3 = row["redd3"].ToString();
 
+            indext.p1 = contar();
 
+            indext.p7 = contar7();
+
+            indext.p2 = contar2();
+            indext.p3= contar3();
+            indext.p4 = contar4();
+            indext.p5 = contar5();
+            indext.p6 = contar6();
+            indext.p7 = contar7();
+            indext.p8 = contar8();
+            indext.usua = usua();
+            indext.puntoss = cuentaspunt();
+            
             return indext;
         }
 
@@ -158,6 +174,117 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.imagenderecha;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
+        }
+
+
+        public int contar()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=1");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p1 = int.Parse(row["c"].ToString());
+            return indext.p1;
+        }
+
+        public int contar2()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=4");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p2 = int.Parse(row["c"].ToString());
+            return indext.p2;
+        }
+
+        public int contar3()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=5");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p3 = int.Parse(row["c"].ToString());
+            return indext.p3;
+        }
+
+        public int contar4()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=6");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p4 = int.Parse(row["c"].ToString());
+            return indext.p4;
+        }
+
+        public int contar5()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=7");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p5 = int.Parse(row["c"].ToString());
+            return indext.p5;
+        }
+
+        public int contar6()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=8");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p6 = int.Parse(row["c"].ToString());
+            return indext.p6;
+        }
+
+        public int  contar7()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=9");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p7 = int.Parse(row["c"].ToString());
+            return indext.p7;
+        }
+
+        public int contar8()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=10");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.p8 = int.Parse(row["c"].ToString());
+            return indext.p8;
+        }
+
+        public int usua()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format(" select COUNT(*)  as 'c' from Usuario");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.usua = int.Parse(row["c"].ToString());
+            return indext.usua;
+        }
+
+        public int cuentaspunt()
+        {
+            ConexionDAO conex = new ConexionDAO();
+            usuarioBO indext = new usuarioBO();
+            String strBuscar = string.Format(" select COUNT(*)  as 'c' from [Puntos-peligrosos]");
+            DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
+            DataRow row = datos.Rows[0];
+            indext.puntoss = int.Parse(row["c"].ToString());
+            return indext.puntoss;
         }
     }
 }

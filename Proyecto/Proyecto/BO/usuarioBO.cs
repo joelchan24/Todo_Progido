@@ -94,6 +94,19 @@ namespace Proyecto.BO
         public byte[] foto2 { get; set; }
         public byte[] foto3 { get; set; }
 
+        public int p1 { get; set; }
+        public int p2 { get; set; }
+        public int p3 { get; set; }
+        public int p4 { get; set; }
+        public int p5 { get; set; }
+        public int p6 { get; set; }
+        public int p7 { get; set; }
+        public int p8 { get; set; }
+
+
+        public int usua { get; set; }
+
+        public int puntoss { get; set; }
 
 
     }

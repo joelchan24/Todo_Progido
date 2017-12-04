@@ -214,10 +214,11 @@
                         <center>
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">chat</i>
+                                    <i class="material-icons">person</i>
                                 </div>
 
                                 <h4 class="info-title">Usuarios registrados</h4>
+                                <h4 class="info-title">@(Model.usua)+</h4>
                             </div>
 
                         </center>
@@ -235,6 +236,7 @@
                                 </div>
                                 <h3 id="counter2" class="info-title"></h3>
                                 <h4 class="info-title">Puntos creados</h4>
+                                <h4 class="info-title">@(Model.puntoss)+</h4>
                             </div>
 
                         </center>
@@ -247,7 +249,7 @@
 
             <!--     *********     FEATURES 5      *********      -->
          
-            <div class="features-5" style="background-image: url('../Imagenes/uSfurk36A7zVjHL1uM219x1v.jpeg')">
+            <div class="features-5" style="background-image: url('../Imagenes/uSfurk36A7zVjHL1uM219x1v.jpeg')" >
 
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <h2 class="title">Estadísticas de puntos creados</h2>
@@ -255,10 +257,10 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/1.png"  style="width:80px;height:80px;"/>
                                 </div>
                                 <h2 class="info-title">Asalto de auto</h2>
                                 <h3 id="as" class="info-title"></h3>
@@ -266,40 +268,40 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/2.png" style="width:80px;height:80px;" />
                                 </div>
                                 <h2 class="info-title">Asalto de casa</h2>
                                 <h3 id="ac" class="info-title"></h3>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/3.png" style="width:80px;height:80px;" />
                                 </div>
-                                <h3 class="info-title">Asalto de comercio</h3>
+                                <h2 class="info-title">Asalto de comercio</h2>
                                 <h3 id="aco" class="info-title"></h3>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/4.png" style="width:80px;height:80px;" />
                                 </div>
-                                <h3 class="info-title">Asalto de persona</h3>
+                                <h2 class="info-title">Asalto de persona</h2>
                                 <h3 id="ap" class="info-title"></h3>
                             </div>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3"  style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/actividad_sospechosa.png" style="width:80px;height:80px;" />
                                 </div>
                                 <h2 class="info-title">Actividad sospechosa</h2>
                                 <h3 id="asos" class="info-title"></h3>
@@ -307,30 +309,30 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-3"  style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/5.png" style="width:80px;height:80px;" />
                                 </div>
                                 <h2 class="info-title">Homicidio</h2>
                                 <h3 id="h" class="info-title"></h3>
 
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3"  style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/6.png" style="width:80px;height:80px;" />
                                 </div>
                                 <h2 class="info-title">Otros</h2>
                                 <h3 id="o" class="info-title"></h3>
 
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-3"  style="height:400px">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">code</i>
+                                    <img src="~/puntosimg/7.png" style="width:80px;height:80px;" />
                                 </div>
                                 <h2 class="info-title">Vandalismo</h2>
                                 <h3 id="v" class="info-title"></h3>
@@ -422,7 +424,7 @@
                 </div>
             </div>
             <br />
-            <div class="contactus-1 section-image" style="background-image: url('assets/img/examples/city.jpg')">
+            @*<div class="contactus-1 section-image" style="background-image: url('assets/img/examples/city.jpg')">
 
                 <div class="container">
                     <div class="row">
@@ -474,7 +476,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
             <div class="our-clients">
                 <div class="title">
@@ -518,31 +520,12 @@
         <div class="container">
             <nav class="pull-left">
                 <ul>
-                    <li>
-                        <a href="http://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.creative-tim.com/license">
-                            Licenses
-                        </a>
-                    </li>
+                  
                 </ul>
             </nav>
             <div class="copyright pull-right">
                 &copy;
-                <script>document.write(new Date().getFullYear())</script>, Creado con <i class="material-icons">favorite</i> por AAJ para una web mejor.
+                <script>document.write(new Date().getFullYear())</script> <a href="#">Todo Protegido SOS</a>, lo mejor en seguridad
             </div>
         </div>
     </footer>
@@ -602,7 +585,7 @@
             </form>
         </div>
         <div class="modal-footer text-center">
-            <button class="btn btn-simple btn-primary btn-lg"> Iniciar Sesión</button>  
+            <button class="btn btn-simple btn-primary btn-lg">Ingresar</button>  
         </div>
         <br />
     </div>
@@ -622,7 +605,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("as", 0, 4200, 0, 10, options);
+                var demo = new CountUp("as", 0, @(Model.p2), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -633,7 +616,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("ac", 0, 4200, 0, 10, options);
+                var demo = new CountUp("ac", 0, @(Model.p3), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -644,7 +627,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("aco", 0, 4200, 0, 10, options);
+                var demo = new CountUp("aco", 0, @(Model.p4), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -655,7 +638,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("ap", 0, 4200, 0, 10, options);
+                var demo = new CountUp("ap", 0, @(Model.p5), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -666,7 +649,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("asos", 0, 4200, 0, 10, options);
+                var demo = new CountUp("asos", 0, @(Model.p6), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -677,7 +660,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("h", 0, 4200, 0, 10, options);
+                var demo = new CountUp("h", 0, @(Model.p7), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -688,7 +671,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("o", 0, 4200, 0, 10, options);
+                var demo = new CountUp("o", 0, @(Model.p1), 0, 10, options);
                 demo.start();
     </script>
     <script type="text/javascript">
@@ -699,7 +682,7 @@
                     prefix: '',
                     suffix: '+'
                 };
-                var demo = new CountUp("v", 0, 4200, 0, 10, options);
+                var demo = new CountUp("v", 0, @(Model.p8), 0, 10, options);
                 demo.start();
     </script>
 

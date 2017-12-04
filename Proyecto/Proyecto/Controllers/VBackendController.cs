@@ -369,7 +369,7 @@ namespace Proyecto.Controllers
             {
                 Obj_indexdao.GuardarImagen(cliente);
 
-                return View();
+                return Redirect("~/VBackend/ConfiguracionIndex");
             }
 
             return View(cliente);
@@ -379,14 +379,14 @@ namespace Proyecto.Controllers
         {
             
             Obj_indexdao.Guardarpre(obj);
-            return Redirect("~/ VBackend / ConfiguracionIndex");
+            return Redirect("~/VBackend/ConfiguracionIndex");
         }
         [HttpPost, ValidateInput(false)]
         public ActionResult Guardarizquierda(usuarioBO obj)
         {
 
             Obj_indexdao.Guardarizquierda(obj);
-            return Redirect("~/ VBackend / ConfiguracionIndex");
+            return Redirect("~/VBackend/ConfiguracionIndex");
         }
 
         [HttpPost, ValidateInput(false)]
@@ -394,8 +394,8 @@ namespace Proyecto.Controllers
         {
 
             Obj_indexdao.Guardarderecha(obj);
-            return Redirect("~/ VBackend / ConfiguracionIndex");
-         
+            return Redirect("~/VBackend/ConfiguracionIndex");
+
         }
 
         
@@ -417,11 +417,11 @@ namespace Proyecto.Controllers
             }
             
             Obj_indexdao.integrante1(integrante1);
-            return Redirect("~/ VBackend / ConfiguracionIndex");
-            
+            return Redirect("~/VBackend/ConfiguracionIndex");
 
-       
-       
+
+
+
 
         }
 
@@ -441,7 +441,7 @@ namespace Proyecto.Controllers
             }
            
             Obj_indexdao.integrante2(obj);
-            return Redirect("~/ VBackend / ConfiguracionIndex");
+            return Redirect("~/VBackend/ConfiguracionIndex");
         }
 
 
@@ -461,7 +461,7 @@ namespace Proyecto.Controllers
             }
          
             Obj_indexdao.integrante3(obj);
-            return Redirect("~/ VBackend / ConfiguracionIndex");
+            return Redirect("~/VBackend/ConfiguracionIndex");
         }
 
         public ActionResult obtenerbanner()
@@ -489,7 +489,7 @@ namespace Proyecto.Controllers
             {
                 Obj_indexdao.Guardarizque(cliente);
 
-                return Redirect("~/ VBackend / ConfiguracionIndex");
+                return Redirect("~/VBackend/ConfiguracionIndex");
             }
 
             return View(cliente);
@@ -520,7 +520,7 @@ namespace Proyecto.Controllers
             {
                 Obj_indexdao.Guardardere(cliente);
 
-                return Redirect("~/ VBackend / ConfiguracionIndex");
+                return Redirect("~/VBackend/ConfiguracionIndex");
             }
 
             return View(cliente);
