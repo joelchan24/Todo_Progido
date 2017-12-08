@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Light Bootstrap Dashboard PRO by Creative Tim</title>
+    <title>Todo Protegido SOS</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -313,6 +313,7 @@
                                                     <th>Zona</th>
                                                     <th>Creador</th>
                                                     <th>Fecha</th>
+                                                    <th>Url noticia</th>
                                                     <th>Comentario</th>
                                                     <th class="disabled-sorting text-left">Actions</th>
                                                 </tr>
@@ -324,6 +325,7 @@
                                                     <th>Zona</th>
                                                     <th>Creador</th>
                                                     <th>Fecha</th>
+                                                    <th>Url noticia</th>
                                                     <th>Comentario</th>
                                                     <th class="text-left">Actions</th>
                                                 </tr>
@@ -343,6 +345,7 @@
                                                         <td style="width:80px;">@row1["Zona"]</td>
                                                         <td style="width:80px;">@row1["Nombre"]</td>
                                                         <td style="width:80px;">@Convert.ToDateTime(row1["Fecha"]).ToLongDateString()</td>
+                                                        <td style="width:80px"><a href="@row1["url"]" target="_blank">@row1["url"]</a></td>
                                                         <td style="width:230px;">@row1["comentario"]</td>
                                                         <td class="text-right" style="width:50px;">
 

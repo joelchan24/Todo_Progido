@@ -392,7 +392,7 @@
                                             </div>
 
                                             <div class="tab-pane" id="tab3">
-                                                <h5 class="text-center">Para finalizar indica la fecha en que sucedió, cuéntanos que paso o que acontece en el lugar y por ultimo si cuentas con una evidencia gráfica, agrégala… </h5>
+                                                <h5 class="text-center">Para finalizar indica la fecha en que sucedió, cuéntanos que paso o que acontece en el lugar, es NECESARIO que agregues un URL sobre alguna nota que se relacione con lo que pasa y/o alguna imagen como evidencia.  </h5>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="row">
@@ -400,6 +400,12 @@
                                                                 <div class="form-group">
                                                                     <label class="control-label">Fecha</label>
                                                                     @Html.TextBoxFor(x => x.fecha, new { @type = "date", @class = "form-control" })
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5 col-md-offset-1">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Url de nota</label>
+                                                                    @Html.TextBoxFor(x => x.nom_imagen, new { @type = "type", @class = "form-control", @url="true" })
                                                                 </div>
                                                             </div>
 
