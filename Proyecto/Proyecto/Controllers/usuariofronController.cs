@@ -16,9 +16,9 @@ namespace Proyecto.Controllers
         punto_DAO pun = new punto_DAO();
         ContactosDAO Obj = new ContactosDAO();
         loginDAO objlogin = new loginDAO();
-        usuarioDAO usuusuus = new usuarioDAO();
+        usuarioDAO objeditar = new usuarioDAO();
         
-             public ActionResult editar_datos()
+         public ActionResult editar_datos()
         {
             if (Session["usuario"] != null)
             {
@@ -27,6 +27,8 @@ namespace Proyecto.Controllers
             }
             return View(objlogin.obtenerperfil_usuario(ViewBag.usuario.id));
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult editar_datos_usuario([Bind(Include = "id,nombre,apellido,correo,telefono,mensajecontacto1,sexo")]usuarioBO usu, HttpPostedFileBase foto)
         {
             if (Session["usuario"] != null)
@@ -34,6 +36,7 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
 
             }
+           
             if (foto != null && foto.ContentLength > 0)
             {
                 byte[] imageData = null;
@@ -43,10 +46,27 @@ namespace Proyecto.Controllers
                 }
                 //setear la imagen a la entidad que se creara
                 usu.foto = imageData;
+               
+                if (ModelState.IsValid)
+                {
+                    objeditar.editar(usu, ViewBag.usuario.id, usu.mensajecontacto1);
+                    return Redirect("~/usuariofron/editar_datos");
+                }
             }
-           usuusuus.editar(usu,ViewBag.usuario.id,usu.mensajecontacto1);
+            else
+            {
+                
+                if (ModelState.IsValid)
+                {
+                    objeditar.editarsinf(usu, ViewBag.usuario.id, usu.mensajecontacto1);
+                    return Redirect("~/usuariofron/editar_datos");
+                }
+            }
 
-            return Redirect("~/usuariofron/editar_datos");
+            return View(usu);
+            
+
+           
         }
 
 

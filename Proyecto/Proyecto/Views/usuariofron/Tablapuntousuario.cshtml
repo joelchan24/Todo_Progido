@@ -89,7 +89,6 @@
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="info">
-                       
                         @if (ViewBag.usuario != null)
                         {
                             <div class="photo">
@@ -99,11 +98,20 @@
                                 <span>
                                     @ViewBag.usuario.nombre
                                     <p style="display:none">@ViewBag.usuario.id</p>
+                                    <b class="caret"></b>
                                 </span>
                             </a>
                         }
-
-                      
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="~/usuariofron/editar_datos">
+                                        <span class="sidebar-mini">MP</span>
+                                        <span class="sidebar-normal">Mi Perfil</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
