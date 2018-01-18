@@ -84,6 +84,7 @@ namespace Proyecto.DAO
         public usuarioBO obtenerperfil_usuario(int id)
         {
             string val = "";
+            
             ConexionDAO conexion = new ConexionDAO();
             var usuario = new usuarioBO();
             string strbuscar = string.Format("select * from Usuario where ID='"+id+"'");
@@ -96,7 +97,7 @@ namespace Proyecto.DAO
             usuario.sexo = row["sexo"].ToString();
             usuario.correo = row["Correo"].ToString();
             usuario.telefono = row["Telefono"].ToString();
-            usuario.contraseña = (Convert.ToDateTime(row["fecha"])).ToString("yyyy-MM-dd");
+            usuario.mensajecontacto1 = (Convert.ToDateTime(row["fecha"])).ToString("yyyy-MM-dd");
             usuario.foto = (byte[])row["foto"];
 
 

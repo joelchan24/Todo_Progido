@@ -27,7 +27,7 @@ namespace Proyecto.Controllers
             }
             return View(objlogin.obtenerperfil_usuario(ViewBag.usuario.id));
         }
-        public ActionResult editar_datos_usuario([Bind(Include = "id,nombre,apellido,correo,telefono,fecha,contraseña,sexo")]usuarioBO usu, HttpPostedFileBase foto)
+        public ActionResult editar_datos_usuario([Bind(Include = "id,nombre,apellido,correo,telefono,mensajecontacto1,sexo")]usuarioBO usu, HttpPostedFileBase foto)
         {
             if (Session["usuario"] != null)
             {
@@ -44,7 +44,7 @@ namespace Proyecto.Controllers
                 //setear la imagen a la entidad que se creara
                 usu.foto = imageData;
             }
-           usuusuus.editar(usu,ViewBag.usuario.id);
+           usuusuus.editar(usu,ViewBag.usuario.id,usu.mensajecontacto1);
 
             return Redirect("~/usuariofron/editar_datos");
         }
