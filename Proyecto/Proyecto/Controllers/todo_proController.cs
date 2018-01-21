@@ -52,16 +52,25 @@ namespace Proyecto.Controllers
                 {
                     imageData = binaryReader.ReadBytes(foto.ContentLength);
                 }
-                //setear la imagen a la entidad que se creara
                 cliente.foto = imageData;
+                if (ModelState.IsValid)
+                {
+                    usuario_dao.guardar(cliente);
+                    usuario_dao.guardarCorreo(cliente);
+                    return Redirect("~/todo_pro/IndexFinal");
+                }
             }
-            if (ModelState.IsValid)
+            else
             {
-                usuario_dao.guardar(cliente);
-                usuario_dao.guardarCorreo(cliente);
-
-                return Redirect("~/todo_pro/IndexFinal");
+                if (ModelState.IsValid)
+                {
+                    cliente.foto = usuario_dao.optenerimagenpel();
+                    usuario_dao.guardar(cliente);
+                    usuario_dao.guardarCorreo(cliente);
+                    return Redirect("~/todo_pro/IndexFinal");
+                }
             }
+          
 
             return View(cliente);
         }

@@ -29,44 +29,38 @@ namespace Proyecto.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult editar_datos_usuario([Bind(Include = "id,nombre,apellido,correo,telefono,mensajecontacto1,sexo")]usuarioBO usu, HttpPostedFileBase foto)
+        public ActionResult editar_datos([Bind(Include = "id,nombre,apellido,correo,telefono,mensajecontacto1,sexo,contraseña")]usuarioBO usu, HttpPostedFileBase foto)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
 
-            }
-           
-            if (foto != null && foto.ContentLength > 0)
-            {
-                byte[] imageData = null;
-                using (var binaryReader = new BinaryReader(foto.InputStream))
+                if (foto != null && foto.ContentLength > 0)
                 {
-                    imageData = binaryReader.ReadBytes(foto.ContentLength);
+                    byte[] imageData = null;
+                    using (var binaryReader = new BinaryReader(foto.InputStream))
+                    {
+                        imageData = binaryReader.ReadBytes(foto.ContentLength);
+                    }
+                    usu.foto = imageData;
+                    if (ModelState.IsValid)
+                    {
+                        objeditar.editar(usu, ViewBag.usuario.id, usu.mensajecontacto1);
+                        return Redirect("~/usuariofron/editar_datos");
+                    }
                 }
-                //setear la imagen a la entidad que se creara
-                usu.foto = imageData;
-               
-                if (ModelState.IsValid)
+                else
                 {
-                    objeditar.editar(usu, ViewBag.usuario.id, usu.mensajecontacto1);
-                    return Redirect("~/usuariofron/editar_datos");
+                    if(ModelState.IsValid)
+                    {
+                        objeditar.editarsinf(usu, ViewBag.usuario.id, usu.mensajecontacto1);
+                        return Redirect("~/usuariofron/editar_datos");
+                    }
+                  
                 }
-            }
-            else
-            {
-                
-                if (ModelState.IsValid)
-                {
-                    objeditar.editarsinf(usu, ViewBag.usuario.id, usu.mensajecontacto1);
-                    return Redirect("~/usuariofron/editar_datos");
-                }
-            }
 
-            return View(usu);
-            
-
-           
+            }
+            return View(usu);    
         }
 
 

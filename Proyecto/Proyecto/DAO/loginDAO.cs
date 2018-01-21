@@ -95,10 +95,10 @@ namespace Proyecto.DAO
             usuario.nombre = row["Nombre"].ToString();
             usuario.apellido = row["Apellido"].ToString();
             usuario.sexo = row["sexo"].ToString();
-            usuario.correo = row["Correo"].ToString();
             usuario.telefono = row["Telefono"].ToString();
             usuario.mensajecontacto1 = (Convert.ToDateTime(row["fecha"])).ToString("yyyy-MM-dd");
             usuario.foto = (byte[])row["foto"];
+            usuario.contraseña = row["Contraseña"].ToString();
 
 
             return usuario;
