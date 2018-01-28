@@ -19,10 +19,7 @@ namespace Proyecto.DAO
         {
           punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
             usuario.status = 1;
-            usuario.nom_imagen = "jj";
-         
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[url]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@url )");
-
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[url],[comentadmin]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@url,@comentadmin )");
             cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
@@ -30,16 +27,12 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = id_usuario;
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = usuario.fecha.ToString("yyyy-MM-dd");
-             cmd.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = usuario.imagen;
-            cmd.Parameters.Add("@url", SqlDbType.VarChar).Value = usuario.nom_imagen;
+            cmd.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = usuario.imagen;
+            cmd.Parameters.Add("@url", SqlDbType.VarChar).Value = usuario.url;
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
+            cmd.Parameters.Add("@comentadmin", SqlDbType.VarChar).Value = "Enviado para verificación";
             cmd.CommandType = CommandType.Text;
-          
-
             return conectar.EjecutarComando(cmd);
-
-
-
         }
         public int eliminar (int id)
         {
@@ -292,17 +285,19 @@ namespace Proyecto.DAO
         public int actaulzar_apro(int id)
         {
 
-            SqlCommand comando = new SqlCommand("update [Puntos-peligrosos] set estatus=0 where id=@id");
+            SqlCommand comando = new SqlCommand("update [Puntos-peligrosos] set estatus=0 , comentadmin=@comente where id=@id");
             comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
-            comando.CommandType = CommandType.Text;
+            comando.Parameters.Add("@comente", SqlDbType.Text).Value = "Tu punto se ha aprobado! gracias por alertar a la comunidad  ";
+          comando.CommandType = CommandType.Text;
             return conectar.EjecutarComando(comando);
 
         }
-        public int actaulzar_noapro(int id)
+        public int actaulzar_noapro(int id,string comentario)
         {
 
-            SqlCommand comando = new SqlCommand("update [Puntos-peligrosos] set estatus=1 where id=@id");
+            SqlCommand comando = new SqlCommand("update [Puntos-peligrosos] set estatus=2, comentadmin=@comente where id=@id");
             comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            comando.Parameters.Add("@comente", SqlDbType.Text).Value = comentario;
             comando.CommandType = CommandType.Text;
             return conectar.EjecutarComando(comando);
 
@@ -318,6 +313,12 @@ namespace Proyecto.DAO
         public DataTable CargarTablaPuntosaprovados()
         {
             String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=0");
+            return marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
+
+        public DataTable CargarTablaPuntosDesaprovados()
+        {
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=2");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 
@@ -357,7 +358,7 @@ namespace Proyecto.DAO
 
         public DataTable CargarTablausuario(int id)
         {
-            String strBuscar = string.Format("select [Niveles-peligro].Peligro,[Puntos-peligrosos].ID, [Puntos-peligrosos].Zona,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario,[Puntos-peligrosos].Estatus from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and Usuario.Id = '" + id + "'");
+            String strBuscar = string.Format("select [Niveles-peligro].Peligro,[Puntos-peligrosos].ID, [Puntos-peligrosos].Zona,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario,[Puntos-peligrosos].Estatus, [Puntos-peligrosos].comentadmin from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and Usuario.Id = '" + id + "'");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 

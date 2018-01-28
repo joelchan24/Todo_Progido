@@ -128,7 +128,7 @@ namespace Proyecto.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
+        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona,comentario,url")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
         {
             usu.id_peligro = int.Parse(frm["Gender"].ToString());
             if (Session["usuario"] != null)
@@ -304,6 +304,13 @@ namespace Proyecto.Controllers
 
             }
             return View();
+        }
+
+
+        public ActionResult cambioest(int ese)
+        {
+            string res = "Hola";
+            return View("Hola");
         }
     }
 }

@@ -53,6 +53,8 @@ namespace Proyecto.Controllers
         {
             if (Session["usuario"] != null)
             {
+                
+
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
     
             }
@@ -306,19 +308,21 @@ namespace Proyecto.Controllers
 
            
         }
-        public ActionResult Actualizar_apro(int id)
+        public ActionResult Actualizar_apro(int id, string mensaje)
         {
+            
             objpunto.actaulzar_apro(id);
 
             return Content("hecho");
         }
-        public ActionResult actualizar_no(int id)
+
+        public ActionResult Actualizar_den(int id, string mensaje)
         {
-            objpunto.actaulzar_noapro(id);
+
+            objpunto.actaulzar_noapro(id,mensaje);
 
             return Content("hecho");
         }
-       
          
         public ActionResult ListaDePuntosM()
         {
@@ -558,6 +562,11 @@ namespace Proyecto.Controllers
         {
             var imagenCliente = objpunto.ObtenerImagen(CodigoP) ;
             return File(imagenCliente.imagen, "image/jpeg");
+        }
+
+        public ActionResult PuntosD()
+        {
+            return View(objpunto.CargarTablaPuntosDesaprovados());
         }
 
     }

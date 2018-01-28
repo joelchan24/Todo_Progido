@@ -65,7 +65,7 @@
     <link href="~/Content/assets_tablanet/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
-<body>
+<body onload="cambiarest(1)">
 
     <div class="wrapper">
         <div class="sidebar" data-color="azure" data-image="../../assets/img/full-screen-image-3.jpg">
@@ -226,6 +226,7 @@
                                                     <th>Fecha</th>
                                                     <th>Comentario</th>
                                                     <th>Estatus</th>
+                                                    <th>Mensaje del estado</th>
                                                 </tr>
                                             </thead>
                                             <tfoot>
@@ -236,6 +237,7 @@
                                                     <th>Fecha</th>
                                                     <th>Comentario</th>
                                                     <th>Estatus</th>
+                                                    <th>Mensaje del estado</th>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
@@ -251,10 +253,11 @@
                                                         </td>
                                                         <td style="width:90px;">@row["Peligro"]</td>
                                                         <td style="width:80px;">@row["Zona"]</td>
-                                                   
                                                         <td style="width:80px;">@Convert.ToDateTime(row["Fecha"]).ToLongDateString()</td>
                                                         <td style="width:250px;">@row["comentario"]</td>
-                                                        <td style="width:80px;">@row["Estatus"]</td>
+                                                        <td style="width:80px;" name="estado2">@row["Estatus"]</td>
+                                                       
+                                                        <td style="width:250px;">@row["comentadmin"]</td>
 
                                                     </tr>
                                                 }
@@ -328,6 +331,17 @@
             </ul>
         </div>
     </div>
+    <script>
+         
+        window.onload = function cambiarest(est) {
+          if (est == 0) {
+              document.getElementsByName("estado1")[0].value = "Aprovado";
+          } else {
+              document.getElementsByName("estado2")[0].value = "Desaprovado";
+          }
+      }
+    
+    </script>
 
 </body>
 

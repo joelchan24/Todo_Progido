@@ -23,8 +23,8 @@ namespace Proyecto.DAO
         {
             //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=adan--pc; Initial catalog=ProyectoSOS;  integrated security=true";
-            //string cs = "Data Source=DESKTOP-TT12AGM\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
-            string cs = "Data Source=SQL5037.site4now.net;Initial Catalog=DB_A32939_ProyectoSOS;User Id=DB_A32939_ProyectoSOS_admin;Password=onichan12345;";
+            string cs = "Data Source=KAREN\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
+            //string cs = "Data Source=SQL5037.site4now.net;Initial Catalog=DB_A32939_ProyectoSOS;User Id=DB_A32939_ProyectoSOS_admin;Password=onichan12345;";
             coneccion = new SqlConnection(cs);
             return coneccion;
         }
@@ -101,7 +101,7 @@ namespace Proyecto.DAO
 
                         id = Convert.ToInt32(dr["clave"]),
 
-                    nom_imagen =Convert.ToDateTime(dr["fecha"]).ToString("yyyy-MM-dd"),
+                       url =Convert.ToDateTime(dr["fecha"]).ToString("yyyy-MM-dd"),
 
                         zona = dr["zona"].ToString(),
 
