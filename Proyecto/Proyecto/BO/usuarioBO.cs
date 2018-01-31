@@ -19,7 +19,6 @@ namespace Proyecto.BO
         public string contraseña { get; set; }
         [Required(ErrorMessage = "Campo Requerido")]
         public DateTime fecha { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
         public int id_tipo { get; set; }
         [Required(ErrorMessage = "Campo Requerido")]
         public string telefono { get; set; }

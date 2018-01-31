@@ -1,5 +1,5 @@
 ﻿@using Proyecto.BO
-@using System.Data
+@using System.Data;
 @model DataTable
 @{
     Layout = null;
@@ -88,19 +88,19 @@
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="info">
-                     @if (ViewBag.usuario != null)
-                     {
-                        <div class="photo">
-                            <img src=@Url.Action("Imagen_usuario", "VBackend") width="100%" height="100%" />
-                        </div>
+                        @if (ViewBag.usuario != null)
+                        {
+                            <div class="photo">
+                                <img src=@Url.Action("Imagen_usuario", "VBackend") width="100%" height="100%" />
+                            </div>
 
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <span>
-                                @ViewBag.usuario.nombre
+                            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                                <span>
+                                    @ViewBag.usuario.nombre
 
-                            </span>
-                        </a>
-                     }
+                                </span>
+                            </a>
+                        }
 
                         @*@RenderSection("Sideusu", required: true)*@
                     </div>
@@ -137,14 +137,14 @@
                                         <span class="sidebar-normal">Aprovar Puntos</span>
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="#">
+                                <li>
+                                    <a href="~/VBackend/PuntosAprovados">
                                         <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
                                         <span class="sidebar-normal">Puntos Aprovados</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="~/VBackend/PuntosD">
+                                <li class="active">
+                                    <a href="#">
                                         <span class="sidebar-mini"><i class="pe-7s-junk"></i></span>
                                         <span class="sidebar-normal">Puntos desaprobados</span>
                                     </a>
@@ -176,7 +176,7 @@
                                         <span class="sidebar-normal">Index</span>
                                     </a>
                                 </li>
-                               
+
 
                                 <li>
                                     <a href="~/VBackend/Backud">
@@ -189,33 +189,33 @@
                         </div>
                     </li>
                     @*<li>
-            <a data-toggle="collapse" href="#tablesExamples2">
-                <i class="pe-7s-mail"></i>
-                <p>
-                    Mensajeria
-                    <b class="caret"></b>
-                </p>
-            </a>
-            <div class="collapse" id="tablesExamples2">
-                <ul class="nav">
+                            <a data-toggle="collapse" href="#tablesExamples2">
+                                <i class="pe-7s-mail"></i>
+                                <p>
+                                    Mensajeria
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="tablesExamples2">
+                                <ul class="nav">
 
-                    <li>
-                        <a href="~/VBackend/mensajes">
-                            <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                            <span class="sidebar-normal">Mensajes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="~/VBackend/buzon_de_sugerencias">
-                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                            <span class="sidebar-normal">Buzón de Sugerencias</span>
-                        </a>
-                    </li>
+                                    <li>
+                                        <a href="~/VBackend/mensajes">
+                                            <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
+                                            <span class="sidebar-normal">Mensajes</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/VBackend/buzon_de_sugerencias">
+                                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
+                                            <span class="sidebar-normal">Buzón de Sugerencias</span>
+                                        </a>
+                                    </li>
 
 
-                </ul>
-            </div>
-        </li>*@
+                                </ul>
+                            </div>
+                        </li>*@
                     <li>
                         <a data-toggle="collapse" href="#tablesExamples3">
                             <i class="pe-7s-graph2"></i>
@@ -252,7 +252,7 @@
         <div class="main-panel">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                   
+
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse">
                             <span class="sr-only">Toggle navigation</span>
@@ -260,18 +260,18 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Puntos Aprovados</a>
+                        <a class="navbar-brand" href="#">Puntos Desaprovados</a>
                     </div>
                     <div class="collapse navbar-collapse">
 
-                       
+
 
                         <ul class="nav navbar-nav navbar-right">
-                            
 
-                            
 
-                         
+
+
+
 
                             <li class="dropdown dropdown-with-icons">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -281,7 +281,7 @@
                                         <b class="caret"></b>
                                     </p>
                                 </a>
-                                <ul class="dropdown-menu dropdown-with-icons">  
+                                <ul class="dropdown-menu dropdown-with-icons">
                                     <li>
                                         <a href="/todo_pro/cerrar" class="text-danger">
                                             <i class="pe-7s-close-circle"></i>
@@ -346,7 +346,7 @@
                                                         <td style="width:80px;">@row["Nombre"]</td>
                                                         <td style="width:80px;">@Convert.ToDateTime(row["Fecha"]).ToLongDateString()</td>
                                                         <td style="width:250px;">@row["comentario"]</td>
-                                                        
+
                                                     </tr>
                                                 }
                                             </tbody>

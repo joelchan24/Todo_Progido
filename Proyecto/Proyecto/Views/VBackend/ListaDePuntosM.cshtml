@@ -8,6 +8,7 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
@@ -66,363 +67,474 @@
 
 </head>
 <body>
+    <form id="frmlistapuntos">
+        <div class="wrapper">
+            <div class="sidebar" data-color="azure" data-image="../../assets/img/full-screen-image-3.jpg">
+                <!--
 
-    <div class="wrapper">
-        <div class="sidebar" data-color="orange" data-image="../../assets/img/full-screen-image-3.jpg">
-            <!--
+                    Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                    Tip 2: you can also add an image using data-image tag
 
-                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-                Tip 2: you can also add an image using data-image tag
+                -->
 
-            -->
+                <div class="logo">
+                    <a href="#" class="simple-text logo-mini">
+                        TP
+                    </a>
 
-            <div class="logo">
-                <a href="#" class="simple-text logo-mini">
-                    TP
-                </a>
+                    <a href="#" class="simple-text logo-normal">
+                        Todo Protegido SOS
+                    </a>
+                </div>
 
-                <a href="#" class="simple-text logo-normal">
-                    Todo Protegido SOS
-                </a>
+                <div class="sidebar-wrapper">
+                    <div class="user">
+                        <div class="info">
+                            @if (ViewBag.usuario != null)
+                            {
+                                <div class="photo">
+                                    <img src=@Url.Action("Imagen_usuario", "VBackend") width="100%" height="100%" />
+                                </div>
+
+                                <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                                    <span>
+                                        @ViewBag.usuario.nombre
+
+                                    </span>
+                                </a>
+                            }
+
+
+                            @*@RenderSection("Sideusu", required: true)*@
+                        </div>
+                    </div>
+
+                    <ul class="nav">
+                        <li>
+                            <a href="~/VBackend/estadisticas">
+                                <i class="pe-7s-global"></i>
+                                <p>Inicio</p>
+                            </a>
+                        </li>
+                        <li>
+
+
+                            <a href="~/VBackend/Mapa_admin">
+                                <i class="pe-7s-map-2"></i>
+                                <p>Mapa</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-toggle="collapse" href="#tablesExamples">
+                                <i class="pe-7s-map-marker"></i>
+                                <p>
+                                    Gestion de Puntos
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="tablesExamples">
+                                <ul class="nav">
+                                    <li class="active">
+                                        <a href="#">
+                                            <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
+                                            <span class="sidebar-normal">Aprovar Puntos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/VBackend/PuntosAprovados">
+                                            <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
+                                            <span class="sidebar-normal">Puntos Aprovados</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/VBackend/PuntosD">
+                                            <span class="sidebar-mini"><i class="pe-7s-junk"></i></span>
+                                            <span class="sidebar-normal">Puntos desaprobados</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/VBackend/tiposdepeligro">
+                                            <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
+                                            <span class="sidebar-normal">Tipos De delitos</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a data-toggle="collapse" href="#tablesExamples1">
+                                <i class="pe-7s-config"></i>
+                                <p>
+                                    Configuración
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="tablesExamples1">
+                                <ul class="nav">
+
+                                    <li>
+                                        <a href="~/VBackend/ConfiguracionIndex">
+                                            <span class="sidebar-mini"><i class="pe-7s-home"></i></span>
+                                            <span class="sidebar-normal">Index</span>
+                                        </a>
+                                    </li>
+
+
+                                    <li>
+                                        <a href="~/VBackend/Backud">
+                                            <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
+                                            <span class="sidebar-normal">Backup</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a data-toggle="collapse" href="#tablesExamples2">
+                                <i class="pe-7s-mail"></i>
+                                <p>
+                                    Mensajeria
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="tablesExamples2">
+                                <ul class="nav">
+
+                                    <li>
+                                        <a href="~/VBackend/mensajes">
+                                            <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
+                                            <span class="sidebar-normal">Mensajes</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/VBackend/buzon_de_sugerencias">
+                                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
+                                            <span class="sidebar-normal">Buzón de Sugerencias</span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a data-toggle="collapse" href="#tablesExamples3">
+                                <i class="pe-7s-graph2"></i>
+                                <p>
+                                    Reportes
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="tablesExamples3">
+                                <ul class="nav">
+
+                                    <li>
+                                        <a href="~/VBackend/Reporte_peligros">
+                                            <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
+                                            <span class="sidebar-normal">Reporte de peligros </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/VBackend/reporte_usuarios">
+                                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
+                                            <span class="sidebar-normal">Reporte de usuarios</span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
 
-            <div class="sidebar-wrapper">
-                <div class="user">
-                    <div class="info">
-                       @if (ViewBag.usuario != null)
-                       {
-                        <div class="photo">
-                            <img src=@Url.Action("Imagen_usuario", "VBackend") width="100%" height="100%" />
+            <div class="main-panel">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Aprovar Puntos</a>
                         </div>
-
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <span>
-                                @ViewBag.usuario.nombre
-
-                            </span>
-                        </a>
-                       }
+                        <div class="collapse navbar-collapse">
 
 
-                        @*@RenderSection("Sideusu", required: true)*@
+
+                            <ul class="nav navbar-nav navbar-right">
+
+
+
+
+
+                                <li class="dropdown dropdown-with-icons">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-list"></i>
+                                        <p class="hidden-md hidden-lg">
+                                            More
+                                            <b class="caret"></b>
+                                        </p>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-with-icons">
+
+                                        <li>
+                                            <a href="#" class="text-danger">
+                                                <i class="pe-7s-close-circle"></i>
+                                                Log out
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+
+
+                <div class="main-content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="content">
+                                        <div class="toolbar">
+                                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                                        </div>
+                                        <div class="fresh-datatables">
+                                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Imagen</th>
+                                                        <th>Tipo de Peligro</th>
+                                                        <th>Zona</th>
+                                                        <th>Creador</th>
+                                                        <th>Fecha</th>
+                                                        <th>Url noticia</th>
+                                                        <th>Comentario</th>
+                                                        <th class="disabled-sorting text-left">Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Imagen</th>
+                                                        <th>Tipo de Peligro</th>
+                                                        <th>Zona</th>
+                                                        <th>Creador</th>
+                                                        <th>Fecha</th>
+                                                        <th>Url noticia</th>
+                                                        <th>Comentario</th>
+                                                        <th class="text-left">Acciones</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+                                                    @foreach (DataRow row1 in Model.Rows)
+                                                    {
+                                                        <tr>
+                                                            <td style="width:80px;">
+                                                                <center>
+                                                                    <div class="img-container">
+                                                                        <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row1["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
+                                                                    </div>
+                                                                </center>
+                                                            </td>
+                                                            <td style="width:90px;">@row1["Peligro"]</td>
+                                                            <td style="width:80px;">@row1["Zona"]</td>
+                                                            <td style="width:80px;">@row1["Nombre"]</td>
+                                                            <td style="width:80px;">@Convert.ToDateTime(row1["Fecha"]).ToLongDateString()</td>
+                                                            <td style="width:80px"><a href="@row1["url"]" target="_blank">@row1["url"]</a></td>
+                                                            <td style="width:230px;">@row1["comentario"]</td>
+                                                            <td class="text-right" style="width:50px;">
+
+                                                                
+                                                                <a href="#" onclick="confirmar(@row1["ID"])" style="cursor:pointer" class="btn btn-simple btn-success btn-icon remove"><i class="fa fa-check-square"></i></a>
+                                                                <form id="idp"><a href="#" onclick="negar(@row1["ID"])" style="cursor:pointer" id="btnid" class="btn btn-simple btn-danger  btn-icon remove"><i class="fa fa-window-close"></i></a></form>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><!-- end content-->
+                                </div><!--  end card  -->
+                            </div> <!-- end col-md-12 -->
+                        </div> <!-- end row -->
+
                     </div>
                 </div>
 
-                <ul class="nav">
-                    <li>
-                        <a href="~/VBackend/estadisticas">
-                            <i class="pe-7s-global"></i>
-                            <p>Inicio</p>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+
+
+                        </nav>
+                        <p class="copyright pull-right">
+                            &copy;
+                            <script>document.write(new Date().getFullYear())</script> <a href="#">Todo Protegido SOS</a>, lo mejor en seguridad
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="fixed-plugin">
+            <div class="dropdown">
+                <a href="#" data-toggle="dropdown">
+                    <i class="fa fa-cog fa-2x"> </i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header-title">Configuracion</li>
+
+                    <li class="adjustments-line">
+                        <a href="javascript:void(0)" class="switch-trigger">
+                            <p>Minizar barra</p>
+                            <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
+                                   data-off-text="OFF"
+                                   data-on-text="ON" />
+                            <div class="clearfix"></div>
                         </a>
                     </li>
-                    <li>
 
-
-                        <a href="~/VBackend/Mapa_admin">
-                            <i class="pe-7s-map-2"></i>
-                            <p>Mapa</p>
+                    <li class="adjustments-line">
+                        <a href="javascript:void(0)" class="switch-trigger">
+                            <p>Filtros</p>
+                            <div class="pull-right">
+                                <span class="badge filter" data-color="black"></span>
+                                <span class="badge filter badge-azure" data-color="azure"></span>
+                                <span class="badge filter badge-green" data-color="green"></span>
+                                <span class="badge filter badge-orange active" data-color="orange"></span>
+                                <span class="badge filter badge-red" data-color="red"></span>
+                                <span class="badge filter badge-purple" data-color="purple"></span>
+                            </div>
+                            <div class="clearfix"></div>
                         </a>
                     </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples">
-                            <i class="pe-7s-map-marker"></i>
-                            <p>
-                                Gestion de Puntos
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples">
-                            <ul class="nav">
-                                <li class="active">
-                                    <a href="#">
-                                        <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                                        <span class="sidebar-normal">Aprovar Puntos</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/PuntosAprovados">
-                                        <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                                        <span class="sidebar-normal">Puntos Aprovados</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/tiposdepeligro">
-                                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
-                                        <span class="sidebar-normal">Tipos De delitos</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples1">
-                            <i class="pe-7s-config"></i>
-                            <p>
-                                Configuración
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples1">
-                            <ul class="nav">
-
-                                <li>
-                                    <a href="~/VBackend/ConfiguracionIndex">
-                                        <span class="sidebar-mini"><i class="pe-7s-home"></i></span>
-                                        <span class="sidebar-normal">Index</span>
-                                    </a>
-                                </li>
-                             
-
-                                <li>
-                                    <a href="~/VBackend/Backud">
-                                        <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
-                                        <span class="sidebar-normal">Backup</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples2">
-                            <i class="pe-7s-mail"></i>
-                            <p>
-                                Mensajeria
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples2">
-                            <ul class="nav">
-
-                                <li>
-                                    <a href="~/VBackend/mensajes">
-                                        <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                                        <span class="sidebar-normal">Mensajes</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/buzon_de_sugerencias">
-                                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                                        <span class="sidebar-normal">Buzón de Sugerencias</span>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples3">
-                            <i class="pe-7s-graph2"></i>
-                            <p>
-                                Reportes
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples3">
-                            <ul class="nav">
-
-                                <li>
-                                    <a href="~/VBackend/Reporte_peligros">
-                                        <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                                        <span class="sidebar-normal">Reporte de peligros </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/VBackend/reporte_usuarios">
-                                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                                        <span class="sidebar-normal">Reporte de usuarios</span>
-                                    </a>
-                                </li>
-
-
-                            </ul>
-                        </div>
-                    </li>
-                    
                 </ul>
             </div>
         </div>
 
-        <div class="main-panel">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                   
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Aprovar Puntos</a>
-                    </div>
-                    <div class="collapse navbar-collapse">
+        <script>
+            var tem;
+            
+            function negar(id) {
 
-                       
-
-                        <ul class="nav navbar-nav navbar-right">
-                          
-
-
+                 idpun=id;
+                 tem = id;
+                
+                swal({
+                    title: "¿Estas seguro?",
+                    text: "¿Deseas cancelar este punto?!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                           
+                                $("#mensajemodal").modal('show');
+                            
+                            
                             
 
-                            <li class="dropdown dropdown-with-icons">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i>
-                                    <p class="hidden-md hidden-lg">
-                                        More
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-with-icons">
-                                  
-                                    <li>
-                                        <a href="#" class="text-danger">
-                                            <i class="pe-7s-close-circle"></i>
-                                            Log out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                           
+                            //actualizar_apro(id);
+                            //$(document).ready(function () {
+                            
+                            //});
+                        } else {
+                            
+                        }
+                    });
+            }
+        function confirmar(id) {
+            swal({
+                title: "¿Estas seguro?",
+                text: "¿Deseas aprobar este punto?!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        actualizar_apro(id);
+                    } else {
+                       
+                    }
+                });
+        }
+        function actualizar_apro(id) {
+            $.ajax({
+                url: 'Actualizar_apro/',
+                type: "POST",
+                data: $("#frp").serialize(),
+                data: { id: id }
+            }).done(function () {
+                $().load('/VBackend/ListaDePuntosM')
+                swal("La solicitud se realizó con éxito!", {
+                    icon: "success",
+                });
+            })
 
-                        </ul>
+        }
+
+
+        function actualizar_den() {
+            var mensaje = document.getElementsByName("verificar123")[0].value;
+            $.ajax({
+                url: 'Actualizar_den/',
+               
+                data: { id: tem, mensaje: mensaje }
+            }).done(function () {
+                $().load('/VBackend/ListaDePuntosM')
+                swal("La solicitud se realizó con éxito!", {
+                    icon: "success",
+                });
+            })
+
+        }
+        </script>
+
+
+        <div class="modal fade" id="mensajemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title title" id="exampleModalLabel">Motivo de cancelación  </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="frp">
+                            <div class="form-group">
+                                <textarea class="form-control" style = "resize:none;"  rows="10" name="verificar123"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-wd" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-success btn-wd" onclick="actualizar_den()" data-dismiss="modal">Aceptar</button>
                     </div>
                 </div>
-            </nav>
-
-
-
-            <div class="main-content">
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="content">
-                                    <div class="toolbar">
-                                        <!--        Here you can write extra buttons/actions for the toolbar              -->
-                                    </div>
-                                    <div class="fresh-datatables">
-                                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Imagen</th>
-                                                    <th>Tipo de Peligro</th>
-                                                    <th>Zona</th>
-                                                    <th>Creador</th>
-                                                    <th>Fecha</th>
-                                                    <th>Url noticia</th>
-                                                    <th>Comentario</th>
-                                                    <th class="disabled-sorting text-left">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Imagen</th>
-                                                    <th>Tipo de Peligro</th>
-                                                    <th>Zona</th>
-                                                    <th>Creador</th>
-                                                    <th>Fecha</th>
-                                                    <th>Url noticia</th>
-                                                    <th>Comentario</th>
-                                                    <th class="text-left">Actions</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                @foreach (DataRow row1 in Model.Rows)
-                                                {
-                                                    <tr>
-                                                        <td style="width:80px;">
-                                                            <center>
-                                                                <div class="img-container">
-                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row1["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
-                                                                </div>
-                                                            </center>
-                                                        </td>
-                                                        <td style="width:90px;">@row1["Peligro"]</td>
-                                                        <td style="width:80px;">@row1["Zona"]</td>
-                                                        <td style="width:80px;">@row1["Nombre"]</td>
-                                                        <td style="width:80px;">@Convert.ToDateTime(row1["Fecha"]).ToLongDateString()</td>
-                                                        <td style="width:80px"><a href="@row1["url"]" target="_blank">@row1["url"]</a></td>
-                                                        <td style="width:230px;">@row1["comentario"]</td>
-                                                        <td class="text-right" style="width:50px;">
-
-                                                            <a href="#"  onclick="actualizar_apro(@row1["ID"])" style="cursor:pointer"class="btn btn-simple btn-success btn-icon remove"><i class="fa fa-check-square"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            </tbody>
-</table>
-                                    </div>
-                                </div><!-- end content-->
-                            </div><!--  end card  -->
-                        </div> <!-- end col-md-12 -->
-                    </div> <!-- end row -->
-
-                </div>
+               
             </div>
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="pull-left">
-                        
-                        
-                    </nav>
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>document.write(new Date().getFullYear())</script> <a href="#">Todo Protegido SOS</a>, lo mejor en seguridad
-                    </p>
-                </div>
-            </footer>
-
-
         </div>
-    </div>
 
-    <div class="fixed-plugin">
-        <div class="dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title">Configuracion</li>
 
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Minizar barra</p>
-                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Filtros</p>
-                        <div class="pull-right">
-                            <span class="badge filter" data-color="black"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
+        
+       
 
 
 
-
-
-
-            </ul>
-        </div>
-    </div>
-
+    </form>
 </body>
 
 <!--   Core JS Files  -->
@@ -463,7 +575,8 @@
 
 
 <!-- Sweet Alert 2 plugin -->
-<script src="~/Content/assets_tablanet/js/sweetalert2.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <!-- Vector Map plugin -->
@@ -501,61 +614,62 @@
 
 
 <script type="text/javascript">
-	    $(document).ready(function() {
-			$('#datatables').DataTable({
-			    "pagingType": "full_numbers",
-			    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todo"]],
-			    responsive: true,
-			    language: {
-			    search: "_INPUT_",
-			    searchPlaceholder: "Buscar",
-			    }
+    $(document).ready(function () {
+        $('#datatables').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todo"]],
+            responsive: true,
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Buscar",
+            }
 
-			});
+        });
 
 
-			var table = $('#datatables').DataTable();
+        var table = $('#datatables').DataTable();
 
-			// Edit record
-			table.on( 'click', '.edit', function () {
-	    		$tr = $(this).closest('tr');
+        // Edit record
+        table.on('click', '.edit', function () {
+            $tr = $(this).closest('tr');
 
-			    if($tr.hasClass('child')){
-			        $tr = $tr.prev('.parent');
-			    }
+            if ($tr.hasClass('child')) {
+                $tr = $tr.prev('.parent');
+            }
 
-	    		var data = table.row($tr).data();
-	        	alert( 'You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.' );
-	    	} );
+            var data = table.row($tr).data();
+            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+        });
 
-			// Delete a record
-			table.on( 'click', '.remove', function (e) {
-			    $tr = $(this).closest('tr');
-			    table.row($tr).remove().draw();
-			    e.preventDefault();
-			} );
+        // Delete a record
+        table.on('click', '.remove', function (e) {
+            $tr = $(this).closest('tr');
+            table.row($tr).remove().draw();
+            e.preventDefault();
+        });
 
-			//Like record
-			table.on( 'click', '.like', function () {
-			    alert('You clicked on Like button');
-			});
-		});
+        //Like record
+        table.on('click', '.like', function () {
+            alert('You clicked on Like button');
+        });
+    });
+
+
+
+
+ 
 </script>
 
-<script>
 
 
 
-    function actualizar_apro(id) {
-        $.ajax({
-            url: 'Actualizar_apro/',
-            data: { id: id },
-        }).done(function () {
-            $().load('/VBackend/ListaDePuntosM')
-        }
-            )
-        
-    }
-</script>
+
+
+
+
+
+
+
+
 
 </html>

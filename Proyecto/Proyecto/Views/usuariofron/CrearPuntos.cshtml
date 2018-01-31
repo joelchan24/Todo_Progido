@@ -75,7 +75,7 @@
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="orange" data-image="../../assets/img/full-screen-image-3.jpg">
+        <div class="sidebar" data-color="azure" data-image="../../assets/img/full-screen-image-3.jpg">
             <!--
 
             Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
@@ -109,26 +109,16 @@
                             </span>
                         </a>
                        }
-
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li>
-                                <a href="#pablo">
-                                    <span class="sidebar-mini">MP</span>
-                                    <span class="sidebar-normal">Mi Perfil</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#pablo">
-                                    <span class="sidebar-mini">EP</span>
-                                    <span class="sidebar-normal">Editar Perfil</span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </div>
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="~/usuariofron/editar_datos">
+                                        <span class="sidebar-mini">MP</span>
+                                        <span class="sidebar-normal">Mi Perfil</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -226,29 +216,20 @@
                 {
                     <div class="container-fluid">
                         <div class="form-group">
-
-
                         </div>
                         <div class="row">
-
                             <div class="col-md-12">
-
                                 <div class="card card-wizard">
-
-
-
                                     <div class="header text-center">
                                         <h3 class="title">Hazle saber a la comunidad lo que has visto! </h3>
                                         <p class="category">Solo sigue los siguientes pasos y las indicaciones que se muestran y espera a que el administrador verifique tu punto S.O.S</p>
                                     </div>
-
                                     <div class="content">
                                         <ul class="nav">
                                             <li><a href="#tab1" data-toggle="tab">1-Selecciona una categoría</a></li>
                                             <li><a href="#tab2" id="siguiente2" data-toggle="tab">2-Ubicación</a></li>
                                             <li><a href="#tab3" data-toggle="tab">3-Descripción del punto</a></li>
                                         </ul>
-
                                         <div class="tab-content">
                                             <div class="tab-pane" id="tab1">
                                                 <h5 class="text-center">Antes de comenzar selecciona la categoría de tu punto S.O.S!</h5>
@@ -256,9 +237,7 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <center>
-
                                                             <img src="~/puntosimg/1.png" style="width:100px; height:100px;" />
-
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "4", new { @name = "radio1", @id = "radio1" })
                                                                
@@ -266,8 +245,6 @@
                                                                     Asalto de auto
                                                                 </label>
                                                             </div>
-
-
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
@@ -281,7 +258,6 @@
                                                                     Asalto de casa
                                                                 </label>
                                                             </div>
-
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
@@ -294,7 +270,6 @@
                                                                     Asalto de comercio
                                                                 </label>
                                                             </div>
-
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
@@ -307,7 +282,6 @@
                                                                     Asalto de persona
                                                                 </label>
                                                             </div>
-
                                                         </center>
                                                     </div>
                                                 </div>
@@ -317,7 +291,6 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <center>
-
                                                             <img src="~/puntosimg/actividad_sospechosa.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "8", new { @name = "radio1", @id = "radio5" })
@@ -330,7 +303,6 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
-
                                                             <img src="~/puntosimg/5.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "9", new { @name = "radio1", @id = "radio6" })
@@ -345,41 +317,33 @@
                                                         <center>
                                                             <img src="~/puntosimg/6.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
-                                                                @Html.RadioButton("Gender", "1", new { @name = "radio1", @id = "radio7" })
-                                                               
+                                                                @Html.RadioButton("Gender", "1", new { @name = "radio1", @id = "radio7" })       
                                                                 <label for="radio7">
                                                                     Otros
                                                                 </label>
                                                             </div>
-
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
                                                             <img src="~/puntosimg/7.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
-                                                                @Html.RadioButton("Gender", "10", new { @name = "radio1", @id = "radio8" })
-                                                                
+                                                                @Html.RadioButton("Gender", "10", new { @name = "radio1", @id = "radio8" })    
                                                                 <label for="radio8">
                                                                     Vandalismo
                                                                 </label>
                                                             </div>
-
                                                         </center>
                                                     </div>
                                                 </div>
-
                                             </div>
-
                                             <div class="tab-pane" id="tab2">
                                                 <h5 class="text-center">Ahora indica donde sucedió el incidente, puedes usar el marcador o bien utilizar el buscador.</h5>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label>Zona</label>
-
                                                             @Html.HiddenFor(x => x.id)
-
                                                             @Html.HiddenFor(x => x.longitud)
                                                             @Html.HiddenFor(x => x.latitud)
                                                             @Html.TextBoxFor(x => x.zona, new { @class = "form-control" })
@@ -390,7 +354,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="tab-pane" id="tab3">
                                                 <h5 class="text-center">Para finalizar indica la fecha en que sucedió, cuéntanos que paso o que acontece en el lugar, es NECESARIO que agregues un URL sobre alguna nota que se relacione con lo que pasa y/o alguna imagen como evidencia.  </h5>
                                                 <div class="row">
@@ -405,10 +368,9 @@
                                                             <div class="col-md-5 col-md-offset-1">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Url de nota</label>
-                                                                    @Html.TextBoxFor(x => x.nom_imagen, new { @type = "type", @class = "form-control", @url="true" })
+                                                                    @Html.TextBoxFor(x => x.url, new { @type = "type", @class = "form-control", @url="true" })
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-10 col-md-offset-1">
@@ -418,7 +380,6 @@
 
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -434,27 +395,17 @@
                                                                     </center>
                                                                     <br />
                                                                     <label class="control-label"><star>*</star>Si no cuentas con una imagen, no te preocupes puedes dejar este campo vacío.</label>
-
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-1"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-
-
-
                                             </div>
-
                                         </div>
                                     </div>
-
                                     <div class="footer">
-
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd btn-finish pull-right" onclick="onFinishWizard()">Finish</button>
-
+                                        <button type="submit" class="btn btn-success btn-round btn-lg btn-fill btn-wd btn-finish pull-right" onclick="onFinishWizard()">Enviar</button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -593,8 +544,8 @@
         $('#ModalMapPreview').locationpicker({
             radius: 0,
             location: {
-                latitude: $('#longitud').val(),
-                longitude: $('#latitud').val()
+                latitude: 20.967778,
+                longitude: -89.621667
             },
             inputBinding: {
                 latitudeInput: $('#latitud'),

@@ -16,9 +16,9 @@ namespace Proyecto.Controllers
         punto_DAO pun = new punto_DAO();
         ContactosDAO Obj = new ContactosDAO();
         loginDAO objlogin = new loginDAO();
-        usuarioDAO usuusuus = new usuarioDAO();
+        usuarioDAO objeditar = new usuarioDAO();
         
-             public ActionResult editar_datos()
+         public ActionResult editar_datos()
         {
             if (Session["usuario"] != null)
             {
@@ -27,26 +27,40 @@ namespace Proyecto.Controllers
             }
             return View(objlogin.obtenerperfil_usuario(ViewBag.usuario.id));
         }
-        public ActionResult editar_datos_usuario([Bind(Include = "id,nombre,apellido,correo,telefono,mensajecontacto1,sexo")]usuarioBO usu, HttpPostedFileBase foto)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult editar_datos([Bind(Include = "id,nombre,apellido,correo,telefono,mensajecontacto1,sexo,contraseña")]usuarioBO usu, HttpPostedFileBase foto)
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
 
-            }
-            if (foto != null && foto.ContentLength > 0)
-            {
-                byte[] imageData = null;
-                using (var binaryReader = new BinaryReader(foto.InputStream))
+                if (foto != null && foto.ContentLength > 0)
                 {
-                    imageData = binaryReader.ReadBytes(foto.ContentLength);
+                    byte[] imageData = null;
+                    using (var binaryReader = new BinaryReader(foto.InputStream))
+                    {
+                        imageData = binaryReader.ReadBytes(foto.ContentLength);
+                    }
+                    usu.foto = imageData;
+                    if (ModelState.IsValid)
+                    {
+                        objeditar.editar(usu, ViewBag.usuario.id, usu.mensajecontacto1);
+                        return Redirect("~/usuariofron/editar_datos");
+                    }
                 }
-                //setear la imagen a la entidad que se creara
-                usu.foto = imageData;
-            }
-           usuusuus.editar(usu,ViewBag.usuario.id,usu.mensajecontacto1);
+                else
+                {
+                    if(ModelState.IsValid)
+                    {
+                        objeditar.editarsinf(usu, ViewBag.usuario.id, usu.mensajecontacto1);
+                        return Redirect("~/usuariofron/editar_datos");
+                    }
+                  
+                }
 
-            return Redirect("~/usuariofron/editar_datos");
+            }
+            return View(usu);    
         }
 
 
@@ -114,7 +128,7 @@ namespace Proyecto.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
+        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,fecha,zona,comentario,url")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
         {
             usu.id_peligro = int.Parse(frm["Gender"].ToString());
             if (Session["usuario"] != null)
@@ -290,6 +304,13 @@ namespace Proyecto.Controllers
 
             }
             return View();
+        }
+
+
+        public ActionResult cambioest(int ese)
+        {
+            string res = "Hola";
+            return View("Hola");
         }
     }
 }

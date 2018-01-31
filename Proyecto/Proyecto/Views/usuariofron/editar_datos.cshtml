@@ -4,7 +4,7 @@
     ViewBag.Title = "editar_datos";
     Layout = "~/Views/Shared/frontend_usuario.cshtml";
 }
-@section nombreseccion{<a class="navbar-brand" href="#">Mapa</a>}
+@section nombreseccion{<a class="navbar-brand" href="#">Mi perfil </a>}
 
 @section SideBar{
     <li>
@@ -51,31 +51,34 @@
 
 
 
-@using (Html.BeginForm("editar_datos_usuario", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("editar_datos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h4 class="title">Perfil de administrador</h4>
+                <h4 class="title">Datos de la cuenta</h4>
             </div>
             <div class="content">
                 <div class="row">
                     <div class="col-md-8">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <form>
                             @Html.HiddenFor(x => x.id)
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control" })
-
+                                        @Html.TextBoxFor(x => x.nombre, htmlAttributes: new { @class = "form-control", @id = "txt_nombre" })
+                                        @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Apellidos</label>
-                                        @Html.TextBoxFor(x => x.apellido, new { @class = "form-control" })
+                                        @Html.TextBoxFor(x => x.apellido, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                             </div>
@@ -83,22 +86,26 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Correo Electronico</label>
-                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled" })
+                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled", @placeholder="Ejem: protegido@outlook.com", @disabled="" })
+                                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control disabled", @placeholder = "Ejem: protegido@outlook.com", @style = "display:none" })
+                                        @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control disabled", @placeholder = "Ejem: protegido@outlook.com", @style = "display:none" })
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label>Numero Telefonico</label>
-                                        @Html.TextBoxFor(x => x.telefono, new { @class = "form-control disabled" })
+                                        <label>Número telefónico</label>
+                                        @Html.TextBoxFor(x => x.telefono,htmlAttributes: new { @class = "form-control disabled", @placeholder="(222)" })
+                                        @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fecha de nacimiento</label>
-                                        @Html.TextBoxFor(x => x.mensajecontacto1, new { @class = "form-control disabled", @type = "date" })
+                                        @Html.TextBoxFor(x => x.mensajecontacto1,htmlAttributes: new { @class = "form-control disabled", @type = "date" })
+                                        @Html.ValidationMessageFor(model => model.mensajecontacto1, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -138,11 +145,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-info btn-fill pull-left">Guardar cambios</button>
-
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-round btn-lg btn-success btn-fill pull-center">Realizar cambios</button>
+                        </div>
                     </div>
-
+                    <div class="col-md-4"></div>
+                  
                 </div>
             </div>
 
