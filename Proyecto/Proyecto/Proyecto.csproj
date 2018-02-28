@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BO\ContactoBO.cs" />
+    <Compile Include="BO\mama.cs" />
     <Compile Include="BO\mensajeBO.cs" />
     <Compile Include="BO\PeligroBO.cs" />
     <Compile Include="BO\punto_peligrosoBO.cs" />
