@@ -60,6 +60,8 @@ namespace Proyecto.BO
         //Seccion de index
 
         public byte[]imagenbanner { get; set; }
+        public byte[] imagenbanner2 { get; set; }
+        public byte[] imagenbanner3 { get; set; }
         public string textopresentacion { get; set; }
         public string titulopresentacion { get; set; }
         public string tituloizquierda { get; set; }

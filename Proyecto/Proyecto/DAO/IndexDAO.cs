@@ -75,6 +75,27 @@ namespace Proyecto.DAO
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
             SqlCommand cmd = new SqlCommand("UPDATE indext set imagenbanner=@foto where id=1");
+            //SqlCommand cmd = new SqlCommand("insert into evidencia (imagen) values (@foto)");
+            cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.imagenbanner;
+            cmd.CommandType = CommandType.Text;
+            return conectar.EjecutarComando(cmd);
+        }
+
+        public int GuardarImagen2(object agregar)
+        {
+            usuarioBO usuario = (usuarioBO)agregar;
+            Conexion_DAOcomant conectar = new Conexion_DAOcomant();
+            SqlCommand cmd = new SqlCommand("UPDATE indext set img2=@foto where id=1");
+            cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.imagenbanner;
+            cmd.CommandType = CommandType.Text;
+            return conectar.EjecutarComando(cmd);
+        }
+
+        public int GuardarImagen3(object agregar)
+        {
+            usuarioBO usuario = (usuarioBO)agregar;
+            Conexion_DAOcomant conectar = new Conexion_DAOcomant();
+            SqlCommand cmd = new SqlCommand("UPDATE indext set img3=@foto where id=1");
             cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.imagenbanner;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);

@@ -60,13 +60,13 @@ namespace Proyecto.DAO
         }
 
 
-        public byte[] optenerimagenpel()
+        public byte[] optenerimagenpel1()
         {
             ConexionDAO conex = new ConexionDAO();
-            String strBuscar = string.Format("select foto from evidencia");
+            String strBuscar = string.Format("select imagen from evidencia where id=3");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
-            byte[] img = (byte[])row["foto"];
+            byte[] img = (byte[])row["imagen"];
             return img;
         }
 

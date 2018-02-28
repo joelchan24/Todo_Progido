@@ -491,7 +491,6 @@
     <Content Include="Content\examples\profile-page.html" />
     <Content Include="Content\examples\signup-page.html" />
     <Content Include="Content\modo.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -509,6 +508,7 @@
     <Content Include="Imagenes\header.jpg" />
     <Content Include="Imagenes\image_placeholder.jpg" />
     <Content Include="Imagenes\logo UTM-01.png" />
+    <Content Include="favicon.ico" />
     <Content Include="Imagenes\mapaheader.jpg" />
     <Content Include="Imagenes\Sin título-1.png" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />

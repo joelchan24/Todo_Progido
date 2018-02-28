@@ -378,6 +378,58 @@ namespace Proyecto.Controllers
 
             return View(cliente);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Guardarimagenbanner2(HttpPostedFileBase imagenbanner)
+        {
+            usuarioBO cliente = new usuarioBO();
+            if (imagenbanner != null && imagenbanner.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(imagenbanner.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imagenbanner.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                cliente.imagenbanner = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                Obj_indexdao.GuardarImagen2(cliente);
+
+                return Redirect("~/VBackend/ConfiguracionIndex");
+            }
+
+            return View(cliente);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Guardarimagenbanner3(HttpPostedFileBase imagenbanner)
+        {
+            usuarioBO cliente = new usuarioBO();
+            if (imagenbanner != null && imagenbanner.ContentLength > 0)
+            {
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(imagenbanner.InputStream))
+                {
+                    imageData = binaryReader.ReadBytes(imagenbanner.ContentLength);
+                }
+                //setear la imagen a la entidad que se creara
+                cliente.imagenbanner = imageData;
+            }
+            if (ModelState.IsValid)
+            {
+                Obj_indexdao.GuardarImagen3(cliente);
+
+                return Redirect("~/VBackend/ConfiguracionIndex");
+            }
+
+            return View(cliente);
+        }
         [HttpPost,ValidateInput(false)]
         public ActionResult Guardarpresentacion(usuarioBO obj)
         {

@@ -367,7 +367,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
          
-            String strBuscar = string.Format("  select imagen from evidencia");
+            String strBuscar = string.Format("  select imagen from evidencia where id=2");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             byte[] img = (byte[])row["imagen"];

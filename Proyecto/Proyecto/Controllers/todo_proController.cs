@@ -64,7 +64,7 @@ namespace Proyecto.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    cliente.foto = usuario_dao.optenerimagenpel();
+                    cliente.foto = usuario_dao.optenerimagenpel1();
                     usuario_dao.guardar(cliente);
                     usuario_dao.guardarCorreo(cliente);
                     return Redirect("~/todo_pro/IndexFinal");
