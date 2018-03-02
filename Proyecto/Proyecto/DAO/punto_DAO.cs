@@ -19,16 +19,16 @@ namespace Proyecto.DAO
         {
           punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
             usuario.status = 1;
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[url],[comentadmin]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@url,@comentadmin )");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[comentadmin]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@comentadmin )");
             cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
             cmd.Parameters.Add("@zona", SqlDbType.VarChar).Value = usuario.zona;
             cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = id_usuario;
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
-            cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = usuario.fecha.ToString("yyyy-MM-dd");
+            cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = DateTime.Today;
             cmd.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = usuario.imagen;
-            cmd.Parameters.Add("@url", SqlDbType.VarChar).Value = usuario.url;
+           
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
             cmd.Parameters.Add("@comentadmin", SqlDbType.VarChar).Value = "Enviado para verificación";
             cmd.CommandType = CommandType.Text;
@@ -306,7 +306,7 @@ namespace Proyecto.DAO
 
         public DataTable CargarTablaPuntos()
         {
-            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario,[Puntos-peligrosos].url from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=1");
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=1");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 

@@ -134,13 +134,13 @@
                                 <li>
                                     <a href="~/VBackend/ListaDePuntosM">
                                         <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                                        <span class="sidebar-normal">Aprovar Puntos</span>
+                                        <span class="sidebar-normal">Aprobar Puntos</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="~/VBackend/PuntosAprovados">
                                         <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                                        <span class="sidebar-normal">Puntos Aprovados</span>
+                                        <span class="sidebar-normal">Puntos Aprobados</span>
                                     </a>
                                 </li>
                                 <li class="active">
@@ -149,12 +149,12 @@
                                         <span class="sidebar-normal">Puntos desaprobados</span>
                                     </a>
                                 </li>
-                                <li>
+                                @*<li>
                                     <a href="~/VBackend/tiposdepeligro">
                                         <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
                                         <span class="sidebar-normal">Tipos De delitos</span>
                                     </a>
-                                </li>
+                                </li>*@
 
                             </ul>
                         </div>
@@ -178,12 +178,12 @@
                                 </li>
 
 
-                                <li>
+                                @*<li>
                                     <a href="~/VBackend/Backud">
                                         <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
                                         <span class="sidebar-normal">Backup</span>
                                     </a>
-                                </li>
+                                </li>*@
 
                             </ul>
                         </div>
@@ -260,7 +260,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Puntos Desaprovados</a>
+                        <a class="navbar-brand" href="#">Puntos Desaprobados</a>
                     </div>
                     <div class="collapse navbar-collapse">
 
@@ -334,10 +334,10 @@
                                                 @foreach (DataRow row in Model.Rows)
                                                 {
                                                     <tr>
-                                                        <td style="width:80px;">
+                                                        <td style="width:200px;">
                                                             <center>
                                                                 <div class="img-container">
-                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
+                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row["ID"]}) style="width:200px; height:200px; border-radius:25px;" />
                                                                 </div>
                                                             </center>
                                                         </td>

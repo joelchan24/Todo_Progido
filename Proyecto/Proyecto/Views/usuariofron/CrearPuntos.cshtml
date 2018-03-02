@@ -126,7 +126,7 @@
                     <li>
                         <a href="~/usuariofron/mis_puntos">
                             <i class="pe-7s-map"></i>
-                            <p>Mapa</p>
+                            <p>Mapa de Incidencias</p>
                         </a>
                     </li>
                     <li class="active">
@@ -137,30 +137,14 @@
                     </li>
 
                     <li>
-                        <a data-toggle="collapse" href="#tablesExamples">
+                        <a href="~/usuariofron/Tablapuntousuario">
                             <i class="pe-7s-map-marker"></i>
-                            <p>
-                                Mis puntos
-                                <b class="caret"></b>
-                            </p>
+                            <p>Mis Incidencias</p>
                         </a>
-                        <div class="collapse" id="tablesExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="~/usuariofron/Tablapuntousuario">
-                                        <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                                        <span class="sidebar-normal">Ver información</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="~/usuariofron/puntos_usuario">
-                                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
-                                        <span class="sidebar-normal">Ver en Mapa</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
+                    
+                   
+            
                 </ul>
             </div>
         </div>
@@ -222,7 +206,7 @@
                                 <div class="card card-wizard">
                                     <div class="header text-center">
                                         <h3 class="title">Hazle saber a la comunidad lo que has visto! </h3>
-                                        <p class="category">Solo sigue los siguientes pasos y las indicaciones que se muestran y espera a que el administrador verifique tu punto S.O.S</p>
+                                        <h5></h5><p class="category">Solo sigue los siguientes pasos y las indicaciones que se muestran y espera a que el administrador verifique tu reporte de incidente </p>
                                     </div>
                                     <div class="content">
                                         <ul class="nav">
@@ -232,7 +216,7 @@
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane" id="tab1">
-                                                <h5 class="text-center">Antes de comenzar selecciona la categoría de tu punto S.O.S!</h5>
+                                                <h5 class="text-center">Antes de comenzar selecciona la categoría de tu incidente!</h5>
                                                 <br />
                                                 <div class="row">
                                                     <div class="col-md-3">
@@ -346,7 +330,10 @@
                                                             @Html.HiddenFor(x => x.id)
                                                             @Html.HiddenFor(x => x.longitud)
                                                             @Html.HiddenFor(x => x.latitud)
-                                                            @Html.TextBoxFor(x => x.zona, new { @class = "form-control" })
+                                                             <div class="form-group has-success">
+                                                                 @Html.TextBoxFor(x => x.zona, new { @class = "form-control" })
+                                                             </div>
+                                                          
                                                         </div>
                                                         <div class="form-group">
                                                             <div id="ModalMapPreview" style="width:100%; height:300px;"></div>
@@ -355,10 +342,10 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab3">
-                                                <h5 class="text-center">Para finalizar indica la fecha en que sucedió, cuéntanos que paso o que acontece en el lugar, es NECESARIO que agregues un URL sobre alguna nota que se relacione con lo que pasa y/o alguna imagen como evidencia.  </h5>
+                                                <h5 class="text-center">Para finalizar cuéntanos que pasó o que acontece en el lugar, agrega una imagen como evidencia, presiona “Enviar” y espera un tiempo de 24Hrs para tener un respuesta de tu reporte el cual lo veras en el apartado de “Mis incidencias”</h5>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="row">
+                                                        @*<div class="row">
                                                             <div class="col-md-5 col-md-offset-1">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Fecha</label>
@@ -371,13 +358,15 @@
                                                                     @Html.TextBoxFor(x => x.url, new { @type = "type", @class = "form-control", @url="true" })
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>*@
                                                         <div class="row">
                                                             <div class="col-md-10 col-md-offset-1">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Descripción:</label>
-                                                                    @Html.TextAreaFor(x => x.comentario, new { @class = "form-control", @style = "resize:none; height:260px; width:500px", @rows = "7", @cols = "60" })
+                                                                      <div class="form-group has-success">
 
+                                                                             @Html.TextAreaFor(x => x.comentario, new { @class = "form-control", @style = "resize:none; height:260px; width:500px", @rows = "7", @cols = "60" })
+                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>

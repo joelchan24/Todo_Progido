@@ -137,7 +137,7 @@
                                     <li class="active">
                                         <a href="#">
                                             <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                                            <span class="sidebar-normal">Aprovar Puntos</span>
+                                            <span class="sidebar-normal">Aprobar Puntos</span>
                                         </a>
                                     </li>
                                     <li>
@@ -152,12 +152,12 @@
                                             <span class="sidebar-normal">Puntos desaprobados</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    @*<li>
                                         <a href="~/VBackend/tiposdepeligro">
                                             <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
                                             <span class="sidebar-normal">Tipos De delitos</span>
                                         </a>
-                                    </li>
+                                    </li>*@
 
                                 </ul>
                             </div>
@@ -181,44 +181,18 @@
                                     </li>
 
 
-                                    <li>
+                                    @*<li>
                                         <a href="~/VBackend/Backud">
                                             <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
                                             <span class="sidebar-normal">Backup</span>
                                         </a>
-                                    </li>
+                                    </li>*@
 
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a data-toggle="collapse" href="#tablesExamples2">
-                                <i class="pe-7s-mail"></i>
-                                <p>
-                                    Mensajeria
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <div class="collapse" id="tablesExamples2">
-                                <ul class="nav">
+                    
 
-                                    <li>
-                                        <a href="~/VBackend/mensajes">
-                                            <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                                            <span class="sidebar-normal">Mensajes</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="~/VBackend/buzon_de_sugerencias">
-                                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                                            <span class="sidebar-normal">Buzón de Sugerencias</span>
-                                        </a>
-                                    </li>
-
-
-                                </ul>
-                            </div>
-                        </li>
                         <li>
                             <a data-toggle="collapse" href="#tablesExamples3">
                                 <i class="pe-7s-graph2"></i>
@@ -268,11 +242,7 @@
                         <div class="collapse navbar-collapse">
 
 
-
                             <ul class="nav navbar-nav navbar-right">
-
-
-
 
 
                                 <li class="dropdown dropdown-with-icons">
@@ -286,9 +256,9 @@
                                     <ul class="dropdown-menu dropdown-with-icons">
 
                                         <li>
-                                            <a href="#" class="text-danger">
+                                            <a href="/todo_pro/cerrar" class="text-danger">
                                                 <i class="pe-7s-close-circle"></i>
-                                                Log out
+                                                Cerrar Sesión
                                             </a>
                                         </li>
                                     </ul>
@@ -320,7 +290,7 @@
                                                         <th>Zona</th>
                                                         <th>Creador</th>
                                                         <th>Fecha</th>
-                                                        <th>Url noticia</th>
+                                                   
                                                         <th>Comentario</th>
                                                         <th class="disabled-sorting text-left">Acciones</th>
                                                     </tr>
@@ -332,7 +302,7 @@
                                                         <th>Zona</th>
                                                         <th>Creador</th>
                                                         <th>Fecha</th>
-                                                        <th>Url noticia</th>
+                                                      
                                                         <th>Comentario</th>
                                                         <th class="text-left">Acciones</th>
                                                     </tr>
@@ -341,10 +311,10 @@
                                                     @foreach (DataRow row1 in Model.Rows)
                                                     {
                                                         <tr>
-                                                            <td style="width:80px;">
+                                                            <td style="width:200px;">
                                                                 <center>
                                                                     <div class="img-container">
-                                                                        <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row1["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
+                                                                        <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row1["ID"]}) style="width:200px; height:200px; border-radius:25px;" />
                                                                     </div>
                                                                 </center>
                                                             </td>
@@ -352,7 +322,6 @@
                                                             <td style="width:80px;">@row1["Zona"]</td>
                                                             <td style="width:80px;">@row1["Nombre"]</td>
                                                             <td style="width:80px;">@Convert.ToDateTime(row1["Fecha"]).ToLongDateString()</td>
-                                                            <td style="width:80px"><a href="@row1["url"]" target="_blank">@row1["url"]</a></td>
                                                             <td style="width:230px;">@row1["comentario"]</td>
                                                             <td class="text-right" style="width:50px;">
 
