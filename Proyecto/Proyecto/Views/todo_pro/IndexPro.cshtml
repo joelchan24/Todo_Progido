@@ -78,7 +78,7 @@
                                                 <i class="material-icons">pin_drop</i>
                                             </div>
                                             <div class="description">
-                                                <h4 class="info-title">Únete con nosotros hoy ! Y se parte de este gran proyecto</h4>
+                                                <h4 class="info-title">Únete con nosotros hoy! Y se parte de este gran proyecto</h4>
                                                 <p class="description">
                                                     Únicamente llena los campos solicitados y listo, ya estarás formando parte de nosotros
                                                 </p>
@@ -133,16 +133,7 @@
                                     <div class="col-md-5">
 
                                         <div class="card-content">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">
-                                                    <i class="material-icons">stay_current_portrait</i>
-                                                </span>
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">Telefono celular</label>
-                                                    @Html.TextBoxFor(x => x.telefono, htmlAttributes: new { @class = "form-control", @type = "tel", @pattern = "[0-9]{10}" })
-                                                    @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
+                                          
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">date_range</i>
@@ -202,7 +193,7 @@
                                     <div class="col-md-4">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="optionsCheckboxes" checked>
+                                                <input type="checkbox" name="optionsCheckboxes" required >
                                                 Acepto <a href="#something" data-toggle="modal" data-target="#loginModal">los términos y condiciones </a>.
                                             </label>
                                         </div>
@@ -296,6 +287,7 @@
         </div>
     </div>
     <!--  End Modal -->
+
 
 </body>
 <script>

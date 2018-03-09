@@ -148,7 +148,7 @@ namespace Proyecto.DAO
 
                
                 Punto P = new Punto();
-                P.punton = "<h5>" + dr[12] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='data:image/jpg;base64,"+ Convert.ToBase64String(imagen)+"' "+"style ="+" width=100% height=300px />";
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='data:image/jpg;base64,"+ Convert.ToBase64String(imagen)+"' "+"style = width=200px height=200px />";
                 ;
               
                 P.id = dr[1].ToString();
@@ -319,6 +319,12 @@ namespace Proyecto.DAO
         public DataTable CargarTablaPuntosDesaprovados()
         {
             String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=2");
+            return marisa.ejercutarsentrenciasdatable(strBuscar);
+        }
+
+        public DataTable CargarTiposIncidentes()
+        {
+            String strBuscar = string.Format("select ID, Peligro from [Niveles-peligro]");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 

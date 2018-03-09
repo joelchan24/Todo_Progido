@@ -56,7 +56,6 @@ namespace Proyecto.Controllers
                 if (ModelState.IsValid)
                 {
                     usuario_dao.guardar(cliente);
-                    usuario_dao.guardarCorreo(cliente);
                     return Redirect("~/todo_pro/IndexFinal");
                 }
             }
@@ -66,7 +65,6 @@ namespace Proyecto.Controllers
                 {
                     cliente.foto = usuario_dao.optenerimagenpel1();
                     usuario_dao.guardar(cliente);
-                    usuario_dao.guardarCorreo(cliente);
                     return Redirect("~/todo_pro/IndexFinal");
                 }
             }
@@ -155,6 +153,18 @@ namespace Proyecto.Controllers
         {
             var Imagenbaner = ObjIndex.Obtenerindex();
             return File(Imagenbaner.foto3, "image/jpeg");
+        }
+
+        public ActionResult obtenerder()
+        {
+            var Imagenbaner = ObjIndex.Obtenerindex();
+            return File(Imagenbaner.imagenderecha, "image/jpeg");
+        }
+
+        public ActionResult obtenerizq()
+        {
+            var Imagenbaner = ObjIndex.Obtenerindex();
+            return File(Imagenbaner.imagenizquierda, "image/jpeg");
         }
     }
 }

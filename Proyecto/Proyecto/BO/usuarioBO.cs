@@ -20,8 +20,7 @@ namespace Proyecto.BO
         [Required(ErrorMessage = "Campo Requerido")]
         public DateTime fecha { get; set; }
         public int id_tipo { get; set; }
-        [Required(ErrorMessage = "Campo Requerido")]
-        public string telefono { get; set; }
+     
         [Required(ErrorMessage = "Campo Requerido")]
         public string correo { get; set; }
 

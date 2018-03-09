@@ -24,7 +24,7 @@ namespace Proyecto.Controllers
         tipo_peligroDAO peligrodao = new tipo_peligroDAO();
         mensajeDAO obj_mensaje = new mensajeDAO();
         BackudDAO bakk = new BackudDAO();
-       
+
         public ActionResult Vprueba()
         {
             return View();
@@ -36,9 +36,9 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
 
             }
-            
+
             var imagenCliente = objpunto.Obtener_cli();
-            return File(imagenCliente.foto ,"image/jpeg");
+            return File(imagenCliente.foto, "image/jpeg");
         }
         public ActionResult mensajes()
         {
@@ -53,22 +53,22 @@ namespace Proyecto.Controllers
         {
             if (Session["usuario"] != null)
             {
-                
+
 
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-    
+
             }
             int i = 2;
             obj_mensaje.Guardar(usu, ViewBag.usuario.id);
             return View();
         }
-        
+
         public ActionResult Mapa_admin()
         {
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                
+
             }
             ViewBag.da = 1;
             return View();
@@ -86,7 +86,7 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-               
+
             }
             usuarios dataset_usuarios = new usuarios();
             ReportViewer reporte = new ReportViewer();
@@ -99,7 +99,7 @@ namespace Proyecto.Controllers
             reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/usuarios1.rdlc";
             reporte.LocalReport.DataSources.Add(new ReportDataSource("usuarios", dataset_usuarios.Tables[0]));
             ViewBag.repo = reporte;
-          
+
             return View();
         }
 
@@ -108,11 +108,11 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                
+
             }
             return View();
         }
-       Proyecto.Reportes.peligros daset_reportes = new Proyecto.Reportes.peligros();
+        Proyecto.Reportes.peligros daset_reportes = new Proyecto.Reportes.peligros();
         //ReportViewer reporte = new ReportViewer();
         ////reporte.ProcessingMode = ProcessingMode.Local;
         //    reporte.SizeToReportContent = true;
@@ -123,7 +123,7 @@ namespace Proyecto.Controllers
         //SqlDataAdapter adaptador = new SqlDataAdapter(instrucción, cone.establecerConexion());
         ////ds.Tables.Add(sistema1.mostrar());
         //adaptador.Fill(ds, "prestamo1");
-            
+
         //    reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"reportes/Report1.rdlc";
         //    reporte.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables[0]));
         //    ViewBag.reporte12 = reporte;
@@ -133,12 +133,12 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                
+
             }
             ReportViewer reporte = new ReportViewer();
             reporte.ProcessingMode = ProcessingMode.Local;
             //reporte.Width = Unit.Percentage(1200);
-           //reporte.Height = Unit.Percentage(900);
+            //reporte.Height = Unit.Percentage(900);
             reporte.SizeToReportContent = true;
             string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
             ConexionDAO cone = new ConexionDAO();
@@ -154,7 +154,7 @@ namespace Proyecto.Controllers
             if (Session["usuario"] != null)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                
+
             }
             var r = peli.id > 0 ?
                 peligrodao.editar(peli) :
@@ -168,7 +168,7 @@ namespace Proyecto.Controllers
 
             return Content("hecho");
         }
-       
+
         public ActionResult estadisticas()
         {
             if (Session["usuario"] != null)
@@ -306,11 +306,11 @@ namespace Proyecto.Controllers
             viewModel.usuarios = objpunto.listartipo_usuarios();
             return PartialView(viewModel);
 
-           
+
         }
         public ActionResult Actualizar_apro(int id, string mensaje)
         {
-            
+
             objpunto.actaulzar_apro(id);
 
             return Content("hecho");
@@ -319,11 +319,11 @@ namespace Proyecto.Controllers
         public ActionResult Actualizar_den(int id, string mensaje)
         {
 
-            objpunto.actaulzar_noapro(id,mensaje);
+            objpunto.actaulzar_noapro(id, mensaje);
 
             return Content("hecho");
         }
-         
+
         public ActionResult ListaDePuntosM()
         {
             if (Session["usuario"] != null)
@@ -356,7 +356,7 @@ namespace Proyecto.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Guardarimagenbanner( HttpPostedFileBase imagenbanner)
+        public ActionResult Guardarimagenbanner(HttpPostedFileBase imagenbanner)
         {
             usuarioBO cliente = new usuarioBO();
             if (imagenbanner != null && imagenbanner.ContentLength > 0)
@@ -430,10 +430,10 @@ namespace Proyecto.Controllers
 
             return View(cliente);
         }
-        [HttpPost,ValidateInput(false)]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Guardarpresentacion(usuarioBO obj)
         {
-            
+
             Obj_indexdao.Guardarpre(obj);
             return Redirect("~/VBackend/ConfiguracionIndex");
         }
@@ -454,9 +454,9 @@ namespace Proyecto.Controllers
 
         }
 
-        
 
-  
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult in1([Bind(Include = "nom1,rol1,r1,re1,red1")]usuarioBO integrante1, HttpPostedFileBase foto1)
@@ -471,7 +471,7 @@ namespace Proyecto.Controllers
                 //setear la imagen a la entidad que se creara
                 integrante1.foto1 = imageData;
             }
-            
+
             Obj_indexdao.integrante1(integrante1);
             return Redirect("~/VBackend/ConfiguracionIndex");
 
@@ -495,7 +495,7 @@ namespace Proyecto.Controllers
                 //setear la imagen a la entidad que se creara
                 obj.foto2 = imageData;
             }
-           
+
             Obj_indexdao.integrante2(obj);
             return Redirect("~/VBackend/ConfiguracionIndex");
         }
@@ -515,7 +515,7 @@ namespace Proyecto.Controllers
                 //setear la imagen a la entidad que se creara
                 obj.foto3 = imageData;
             }
-         
+
             Obj_indexdao.integrante3(obj);
             return Redirect("~/VBackend/ConfiguracionIndex");
         }
@@ -588,6 +588,9 @@ namespace Proyecto.Controllers
             return File(Imagenbaner.imagenderecha, "image/jpeg");
         }
 
+
+      
+
         public ActionResult obtenern1()
         {
             var Imagenbaner = Obj_indexdao.Obtenerindex();
@@ -612,13 +615,17 @@ namespace Proyecto.Controllers
 
         public ActionResult ImagenPuntosTabla(int CodigoP)
         {
-            var imagenCliente = objpunto.ObtenerImagen(CodigoP) ;
+            var imagenCliente = objpunto.ObtenerImagen(CodigoP);
             return File(imagenCliente.imagen, "image/jpeg");
         }
 
         public ActionResult PuntosD()
         {
             return View(objpunto.CargarTablaPuntosDesaprovados());
+        }
+        public ActionResult Editar_puntos()
+        {
+            return View(objpunto.CargarTiposIncidentes());
         }
 
     }

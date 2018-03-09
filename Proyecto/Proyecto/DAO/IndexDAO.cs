@@ -202,7 +202,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=1");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=11 and Estatus=0 ");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p1 = int.Parse(row["c"].ToString());
@@ -213,7 +213,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=4");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=4 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p2 = int.Parse(row["c"].ToString());
@@ -224,7 +224,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=5");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=5 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p3 = int.Parse(row["c"].ToString());
@@ -235,7 +235,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=6");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=6 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p4 = int.Parse(row["c"].ToString());
@@ -246,7 +246,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=7");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=7 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p5 = int.Parse(row["c"].ToString());
@@ -257,7 +257,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=8");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=8 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p6 = int.Parse(row["c"].ToString());
@@ -268,7 +268,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=9");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=9 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p7 = int.Parse(row["c"].ToString());
@@ -279,7 +279,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=10");
+            String strBuscar = string.Format("select COUNT(*) as 'c' from [Puntos-peligrosos] where id_peligro=10 and Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.p8 = int.Parse(row["c"].ToString());
@@ -290,7 +290,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format(" select COUNT(*)  as 'c' from Usuario");
+            String strBuscar = string.Format(" select COUNT(*)  as 'c' from Usuario where id_tipo=1 ");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.usua = int.Parse(row["c"].ToString());
@@ -301,7 +301,7 @@ namespace Proyecto.DAO
         {
             ConexionDAO conex = new ConexionDAO();
             usuarioBO indext = new usuarioBO();
-            String strBuscar = string.Format(" select COUNT(*)  as 'c' from [Puntos-peligrosos]");
+            String strBuscar = string.Format(" select COUNT(*)  as 'c' from [Puntos-peligrosos] where Estatus=0");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
             indext.puntoss = int.Parse(row["c"].ToString());

@@ -75,6 +75,10 @@ namespace Proyecto.Controllers
             return View();
         }
 
+        public ActionResult CrearIncidencias()
+        {
+            return View();
+        }
 
 
         public ActionResult miscontactos(/*int id=0*/)
@@ -130,6 +134,7 @@ namespace Proyecto.Controllers
         [HttpPost]
         public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
         {
+            
             usu.id_peligro = int.Parse(frm["Gender"].ToString());
             if (Session["usuario"] != null)
             {
@@ -157,7 +162,7 @@ namespace Proyecto.Controllers
             }
             else
             {
-                 usu.imagen= pun.optenerimagenpel();
+                usu.imagen = pun.optenerimagenpel();
                 if (ModelState.IsValid)
                 {
                     var jjj = usu.id > 0 ?
@@ -167,15 +172,15 @@ namespace Proyecto.Controllers
                     return Redirect("~/usuariofron/Tablapuntousuario");
                 }
             }
-          
 
 
 
+           
             return View(usu);
 
 
 
-          
+
         }
 
         //public ActionResult Guardar_puntos(punto_peligrosoBO usu)
@@ -307,10 +312,10 @@ namespace Proyecto.Controllers
         }
 
 
-        public ActionResult cambioest(int ese)
+        public ActionResult cambioest()
         {
-            string res = "Hola";
-            return View("Hola");
+            
+            return Redirect("~/ usuariofron / editar_datos");
         }
     }
 }

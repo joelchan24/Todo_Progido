@@ -16,40 +16,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <!-- Canonical SEO -->
-    <link rel="canonical" href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro" />
-
-    <!--  Social tags      -->
-    <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap dashboard, bootstrap, css3 dashboard, bootstrap admin, light bootstrap dashboard, frontend, responsive bootstrap dashboard">
-
-    <meta name="description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Light Bootstrap Dashboard PRO by Creative Tim">
-    <meta itemprop="description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-
-    <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-    <!-- Twitter Card data -->
-
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="creativetim">
-    <meta name="twitter:title" content="Light Bootstrap Dashboard PRO by Creative Tim">
-
-    <meta name="twitter:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-    <meta name="twitter:creator" content="creativetim">
-    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-    <meta name="twitter:data1" content="Light Bootstrap Dashboard PRO by Creative Tim">
-    <meta name="twitter:label1" content="Product Type">
-    <meta name="twitter:data2" content="$29">
-    <meta name="twitter:label2" content="Price">
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="Light Bootstrap Dashboard PRO by Creative Tim" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html" />
-    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg" />
-    <meta property="og:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful." />
-    <meta property="og:site_name" content="Creative Tim" />
+  
 
     <!-- Bootstrap core CSS     -->
     <link href="~/Content/assetspuntos/css/bootstrap.min.css" rel="stylesheet" />
@@ -66,6 +33,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
     <script src="~/Content/assets/js/locationpicker.jquery.js"></script>
+    @*<link href="~/Content/Wizard/demowizzard.css" rel="stylesheet" />*@
 
 
 
@@ -84,11 +52,11 @@
         -->
 
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+                <a href="#" class="simple-text logo-mini">
                     TP
                 </a>
 
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <a href="#" class="simple-text logo-normal">
                     Todo Protegido SOS
                 </a>
             </div>
@@ -193,7 +161,7 @@
                 </div>
             </nav>
 
-
+        <!--  big container -->
 
             <div class="main-content">
                 @using (Html.BeginForm("Guardar_puntos", "usuariofron", FormMethod.Post, new { enctype = "multipart/form-data", UpdateTargetId = "sel_crimen" }))
@@ -203,6 +171,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+                               
                                 <div class="card card-wizard">
                                     <div class="header text-center">
                                         <h3 class="title">Hazle saber a la comunidad lo que has visto! </h3>
@@ -210,9 +179,9 @@
                                     </div>
                                     <div class="content">
                                         <ul class="nav">
-                                            <li><a href="#tab1" data-toggle="tab">1-Selecciona una categoría</a></li>
-                                            <li><a href="#tab2" id="siguiente2" data-toggle="tab">2-Ubicación</a></li>
-                                            <li><a href="#tab3" data-toggle="tab">3-Descripción del punto</a></li>
+                                            <li ><a href="#tab1" data-toggle="tab">1-Selecciona una categoría</a></li>
+                                            <li ><a  data-toggle="tab">2-Ubicación</a></li>
+                                            <li ><a  data-toggle="tab">3-Descripción del punto</a></li>
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane" id="tab1">
@@ -221,12 +190,12 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/1.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/bache.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "4", new { @name = "radio1", @id = "radio1" })
                                                                
                                                                 <label for="radio1">
-                                                                    Asalto de auto
+                                                                    Baches
                                                                 </label>
                                                             </div>
                                                         </center>
@@ -234,36 +203,36 @@
                                                     <div class="col-md-3">
                                                         <center>
 
-                                                            <img src="~/puntosimg/2.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/rostro-de-perro.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "5", new { @name = "radio1", @id = "radio2" })
                                                                 
                                                                 <label for="radio2">
-                                                                    Asalto de casa
+                                                                    Maltrato Animal
                                                                 </label>
                                                             </div>
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/3.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/silueta-del-icono-de-hogar.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "6", new { @name = "radio1", @id = "radio3" })
                                                                 
                                                                 <label for="radio3">
-                                                                    Asalto de comercio
+                                                                    Lotes Baldíos
                                                                 </label>
                                                             </div>
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/4.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/sirena.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "7", new { @name = "radio1", @id = "radio4" })
                                                          
                                                                 <label for="radio4">
-                                                                    Asalto de persona
+                                                                    Vandalismo 
                                                                 </label>
                                                             </div>
                                                         </center>
@@ -275,33 +244,33 @@
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/actividad_sospechosa.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/criminal.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "8", new { @name = "radio1", @id = "radio5" })
                                                               
                                                                 <label for="radio5">
-                                                                    Actividad sospechosa
+                                                                    Robo
                                                                 </label>
                                                             </div>
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/5.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/fuego(1).png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "9", new { @name = "radio1", @id = "radio6" })
                                                               
                                                                 <label for="radio6">
-                                                                    Homicidio
+                                                                    Quema de Basura
                                                                 </label>
                                                             </div>
                                                         </center>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/6.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/marcador-de-posicion.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
-                                                                @Html.RadioButton("Gender", "1", new { @name = "radio1", @id = "radio7" })       
+                                                                @Html.RadioButton("Gender", "11", new { @name = "radio1", @id = "radio7" })       
                                                                 <label for="radio7">
                                                                     Otros
                                                                 </label>
@@ -310,15 +279,20 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <center>
-                                                            <img src="~/puntosimg/7.png" style="width:100px; height:100px;" />
+                                                            <img src="~/puntosimg/colision-de-coches.png" style="width:100px; height:100px;" />
                                                             <div class="radio">
                                                                 @Html.RadioButton("Gender", "10", new { @name = "radio1", @id = "radio8" })    
                                                                 <label for="radio8">
-                                                                    Vandalismo
+                                                                    Accidentes Automovilísticos
                                                                 </label>
                                                             </div>
                                                         </center>
                                                     </div>
+                                                </div>
+                                                <br />
+                                                <div > 
+                                                    <a  href="#tab2" id="siguiente2" data-toggle="tab"  class="btn btn-info btn-fill btn-wd  pull-right">Siguiente</a>
+                                                    <div class="clearfix"></div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="tab2">
@@ -329,9 +303,10 @@
                                                             <label>Zona</label>
                                                             @Html.HiddenFor(x => x.id)
                                                             @Html.HiddenFor(x => x.longitud)
-                                                            @Html.HiddenFor(x => x.latitud)
+                                                            @Html.HiddenFor(x => x.latitud)   
                                                              <div class="form-group has-success">
                                                                  @Html.TextBoxFor(x => x.zona, new { @class = "form-control" })
+                                                                       
                                                              </div>
                                                           
                                                         </div>
@@ -340,36 +315,30 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div>
+                                                    <a href="#tab1" data-toggle="tab" class="btn btn-default btn-fill btn-wd pull-left">Anterior</a>
+                                                    <a href="#tab3" data-toggle="tab" class="btn btn-info btn-fill btn-wd pull-right">Siguiente</a>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                               
                                             </div>
                                             <div class="tab-pane" id="tab3">
-                                                <h5 class="text-center">Para finalizar cuéntanos que pasó o que acontece en el lugar, agrega una imagen como evidencia, presiona “Enviar” y espera un tiempo de 24Hrs para tener un respuesta de tu reporte el cual lo veras en el apartado de “Mis incidencias”</h5>
+                                                <h5 class="text-center">Para finalizar cuéntanos que pasó o que acontece en el lugar, agrega una imagen como evidencia, presiona “Enviar” y espera un tiempo mínimo de 24Hrs para tener un respuesta de tu reporte el cual lo veras en el apartado de “Mis incidencias”</h5>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        @*<div class="row">
-                                                            <div class="col-md-5 col-md-offset-1">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Fecha</label>
-                                                                    @Html.TextBoxFor(x => x.fecha, new { @type = "date", @class = "form-control" })
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5 col-md-offset-1">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Url de nota</label>
-                                                                    @Html.TextBoxFor(x => x.url, new { @type = "type", @class = "form-control", @url="true" })
-                                                                </div>
-                                                            </div>
-                                                        </div>*@
+                                                        
                                                         <div class="row">
                                                             <div class="col-md-10 col-md-offset-1">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Descripción:</label>
                                                                       <div class="form-group has-success">
-
-                                                                             @Html.TextAreaFor(x => x.comentario, new { @class = "form-control", @style = "resize:none; height:260px; width:500px", @rows = "7", @cols = "60" })
+                                                                   
+                                                                          @Html.TextAreaFor(x => x.comentario, new { @class = "form-control", @style = "resize:none; height:260px; width:500px", @rows = "7", @cols = "60" })
                                                                      </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="row">
@@ -387,17 +356,24 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-1"></div>
+                                                           
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="footer">
+                                                    <a href="#tab2" data-toggle="tab" class="btn btn-default btn-fill btn-wd pull-left">Anterior</a>
+                                                    <button type="submit" class="btn btn-success  btn-fill btn-wd  pull-right" onclick="onFinishWizard()" >Enviar</button>
+                                                    
+                                                    <div class="clearfix"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="footer">
-                                        <button type="submit" class="btn btn-success btn-round btn-lg btn-fill btn-wd btn-finish pull-right" onclick="onFinishWizard()">Enviar</button>
-                                        <div class="clearfix"></div>
+                                       
                                     </div>
                                 </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -463,6 +439,44 @@
             </ul>
         </div>
     </div>
+    <script>
+        function enviar_datos() {
+            swal({
+                title: "¿Estas seguro?",
+                text: "¿Deseas aprobar este punto?!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        guardar();
+                    } else {
+
+                    }
+                });
+        }
+        function guardar() {
+            var lon = document.getElementsByName("longitud")[0].value;
+            var lati = document.getElementsByName("latitud")[1].value;
+            var zona = document.getElementsByName("zona")[2].value;
+            var comentario = document.getElementsByName("comentario")[3].value;
+            var foto = document.getElementsByName("imagen")[4].value;
+            $.ajax({
+                url: 'Guardar_puntos/',
+                type: "POST",
+                data: { lon: lon, lati: lati, zona: zona, comentario: comentario, imagen: foto }
+            }).done(function () {
+                $().load('/VBackend/ListaDePuntosM')
+                swal("La solicitud se realizó con éxito!", {
+                    icon: "success",
+                });
+            })
+
+        }
+
+
+    </script>
 
 
    
@@ -476,8 +490,7 @@
 
 
 <!--  Forms Validations Plugin -->
-<script src="~/Content/assetspuntos/js/jquery.validate.min.js"></script>
-
+<script src="~/Content/Wizard/jquery.validate.min.js"></script>
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 <script src="~/Content/assetspuntos/js/moment.min.js"></script>
 
@@ -491,18 +504,19 @@
 <!--  Charts Plugin -->
 <script src="~/Content/assetspuntos/js/chartist.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="~/Content/assetspuntos/js/bootstrap-notify.js"></script>
-<!-- Sweet Alert 2 plugin -->
-<script src="~/Content/assetspuntos/js/sweetalert2.js"></script>
 
+<script src="~/Content/Wizard/bootstrap-notify.js"></script>
+<!-- Sweet Alert 2 plugin -->
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Vector Map plugin -->
 
 <!--  Google Maps Plugin    -->
 
 
 <!-- Wizard Plugin    -->
-<script src="~/Content/assetspuntos/js/jquery.bootstrap.wizard.min.js"></script>
 
+<script src="~/Content/Wizard/jquery.bootstrap.wizard.js"></script>
 <!--  Bootstrap Table Plugin    -->
 <script src="~/Content/assetspuntos/js/bootstrap-table.js"></script>
 
@@ -517,7 +531,8 @@
 <script src="~/Content/assetspuntos/js/jquery.sharrre.js"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="~/Content/assetspuntos/js/demo.js"></script>
- 
+
+
 
 
 
@@ -750,11 +765,11 @@
 
         });
 
-        function onFinishWizard(){
+function onFinishWizard(){
             //here you can do something, sent the form to server via ajax and show a success message with swal
 
             swal("Punto Enviado!", "Ahora solo espera que el administrador lo verifique ", "success");
-        }
+        }     
 
 
      
