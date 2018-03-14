@@ -34,6 +34,10 @@
     <link href="~/Content/assetsPRO/css/vertical-nav.css" rel="stylesheet" />
     <link href="~/Content/assetsPRO/css/demo.css" rel="stylesheet" />
     <link href="~/Content/modo.css" rel="stylesheet" />
+
+    
+
+
 </head>
 
 <body class="index-page">
@@ -85,39 +89,53 @@
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner">
                                             <div class="item active">
-                                                
-                                                    <img src="../Imagenes/ee.jpg"  alt="Awesome Image">
-
-                                                
+                                                    <img src="../Imagenes/fondocel11.jpg"  alt="Awesome Image">
                                                 <div class="hero">
-                                                    <hgroup >
+                                                    <hgroup class="row"> 
+                                                        <div class="col-md-6 text-left" >
+                                                            <h1 class="title-container">Todo Protegido SOS</h1>
+                                                            <h4>Has saber a los tuyos y a los demás que sucede a tu alrededor!</h4>
+                                                            <br>
+                                                        </div>
+                                                    </hgroup> 
+                                                </div>
+                                            </div>
+                                            <div class="item header-filter " filter-color="info">
+                                                <img src="../Imagenes/Sin título-1.jpg" alt="Awesome Image">
+                                                <div class="hero">
+                                                    <hgroup class="row">
                                                         
-                                                        <h1>Todo Protegido SOS</h1>
-                                                        <h3><strong>Has saber a los tuyos donde estas y a los demás que sucede a tu alrededor!</strong></h3>
+                                                      
+                                                        <div class="col-md-12 text-center">
+                                                            <img src="~/Imagenes/logosos.png" style="width:200px; height:200px" />
+                                                            <h2 class="title">Indica a los demás que sucede en tu vecindario</h2>
+                                                            <h4> <strong>Inicia sesión para comenzar</strong></h4>
+                                                            <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#loginModal">Iniciar sesión</button>
+                                                        </div>
+                                                       
                                                     </hgroup>
-                                                  
+                                                    
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <img src="../Imagenes/0002.png" alt="Awesome Image">
+                                                <img src="../Imagenes/laptop.jpg" alt="Awesome Image">
                                                 <div class="hero">
-                                                    <hgroup>
-                                                        <h1>Indica a los demás que sucede en tu vecindario</h1>
-                                                        <h3> <strong>Inicia sesión para comenzar</strong></h3>
+                                                    <hgroup class="row">
+                                                        <div class="col-md-4"></div>
+                                                        <div class="col-md-4"></div>
+                                                        <div class="col-md-4 text-left">
+                                                            <h1 style="font-size:60px">Forma parte de este proyecto</h1>
+                                                            <h3>Haz clic en el siguiente botón para registrarte</h3>
+                                                            <center>
+                                                                <a href="@Url.Action("IndexPro", "todo_pro")" class="btn btn-default btn-round ">
+                                                                    <i class="material-icons">person_add</i> Registrarse
+                                                                </a>
+                                                            </center>
+                                                            
+                                                        </div>
+                                                      
                                                     </hgroup>
-                                                    <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#loginModal" >Iniciar sesión</button>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <img src="../Imagenes/ban.png" alt="Awesome Image">
-                                                <div class="hero">
-                                                    <hgroup>
-                                                        <h1>Forma parte de este proyecto</h1>
-                                                        <h3><strong>Haz clic en el siguiente botón para registrarte</strong></h3>
-                                                    </hgroup>
-                                                    <a href="@Url.Action("IndexPro", "todo_pro")" class="btn btn-danger btn-round">
-                                                        <i class="material-icons">person_add</i> Registrarse
-                                                    </a>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +151,6 @@
                                 </div>
                             </div>
                             <!-- End Carousel Card -->
-
                         </div>
                     </div>
             </div>
@@ -164,112 +181,214 @@
                         </div>
                     </div>
                 </div>
-                <br />
-                <br />
-                <div class="section-components">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <h3 class="title">@Html.Raw(Model.tituloizquierda)</h3>
-                                <h5 class="description">@Html.Raw(Model.textoizquierda)</h5>
-                             
-                                <center>
-                                    <a href="#pablo" class="btn btn-danger btn-round">
-                                        <i class="material-icons">subject</i> Descargar
-                                    </a>
-                                </center>
-
-                            </div>
-                            <div class="col-md-6 col-md-offset-1">
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <div class="image-container">
-                                    <img src=@Url.Action("obtenerizq", "todo_pro") style="width:500px; height:500px" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="section-components">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-md-6 ">
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <div class="image-container">
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <img src=@Url.Action("obtenerder", "todo_pro") style="width:600px; height:400px" />
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-md-offset-1">
-                                <h3 class="title">@Html.Raw(Model.tituloderecha)</h3>
-
-                                <h5 class="description">@Html.Raw(Model.textoderecha)</h5>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="section-gray">
+            
                 <div class="row">
-                    <div class="col-md-6">
-                        <center>
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">person</i>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="features-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <div id="map" class="img img-raised" style="width:450px; height:550px "></div>
+                                    <script>
+                                        var markers;
+                                        $.ajax({
+                                            url: "/todo_pro/devolverpuntos",
+                                            success: function (data) {
+                                                var array = []
+                                                for (var i = 0; i < data.length; i++) {
+                                                    array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                                markers = array;
+
+                                                initMap();
+                                            }
+
+                                        })
+                                        var image = {
+                                            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                                            // This marker is 20 pixels wide by 32 pixels high.
+                                            size: new google.maps.Size(40, 52),
+                                            // The origin for this image is (0, 0).
+                                            origin: new google.maps.Point(0, 0),
+                                            // The anchor for this image is the base of the flagpole at (0, 32).
+                                            anchor: new google.maps.Point(0, 32)
+                                        };
+                                       
+                                          function initMap() {
+                                              var myOptions = {
+                                                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                  mapTypeControl: false,
+                                                  disableDefaultUI: true,
+                                                  zoom:3,
+                                                  center: {lat:  20.967778, lng:  -89.621667},
+                                                
+
+                                              };
+                                              var map = new google.maps.Map(document.getElementById("map"), myOptions);
+                                            
+                                              var marker, i;
+                                              var bounds = new google.maps.LatLngBounds();
+
+     
+                                          
+
+
+                                              for (i = 0; i < markers.length; i++) {
+                                                  if (markers[i][3] == 11)
+                                                      //robo
+                                                  {
+                                                      image = "../puntosimg/112.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 4)//asalto de auto
+                                                  {
+                                                      image = "../puntosimg/42.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 5) {//asaldo de casa
+                                                      image = "../puntosimg/52.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 6) {//asalro de comercio
+                                                      image = "../puntosimg/62.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 7) {//asalro de persona
+                                                      image = "../puntosimg/72.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 8) {//actividad sospechopsa
+                                                      image = "../puntosimg/82.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 9) {//homicidio
+                                                      image = "../puntosimg/92.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  else if (markers[i][3] == 10) {//vandalismo
+                                                      image = "../puntosimg/102.png";
+                                                      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                                                      bounds.extend(pos);
+                                                      marker = new google.maps.Marker({
+                                                          position: pos,
+                                                          map: map,
+                                                          icon: image
+                                                      });
+                                                  }
+                                                  google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                                      return function () {
+                                                          infowindow.setContent(markers[i][0]);
+                                                          infowindow.open(map, marker);
+                                                      }
+                                                  })(marker, i));
+                                              }
+                                              map.fitBounds(bounds);
+                                        
+                                          }
+                                    </script>
+                                    <script src="~/Content/assets/js/locationpicker.jquery.js"></script>
+                                    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA" async defer></script>
                                 </div>
-
-                                <h4 class="info-title">Usuarios registrados</h4>
-                                <h4 class="info-title">@(Model.usua)+</h4>
-                            </div>
-
-                        </center>
-
-
-
-
-
-                    </div>
-                    <div class="col-md-6">
-                        <center>
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">place</i>
+                                <div class="col-md-6">
+                                    <!-- Some <br /> tags to push the text to align with the image, you can remove it if you have more text on the right side :-) -->
+                                    <h2 class="title"></h2>
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-primary">
+                                            <i class="material-icons">pin_drop</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Crea incidencias</h4>
+                                            <p>Ingresa, selecciona una categoría y llena los demás datos, finalmente espera que un administrador verifique tu incidente para que los demás sepan que ocurre en la ciudad.</p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-primary">
+                                            <i class="material-icons">person_add</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Regístrate</h4>
+                                            <p>Crea tu cuenta ahora para poder crear tus incidencias y saber que sucede en la ciudad.</p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-primary">
+                                            <i class="material-icons">poll</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title">Graficas de incidencias</h4>
+                                            <p>Desde la aplicación móvil podrás saber cómo va el registro de incidencias de una colonia en específico, así como otras búsquedas que podrás realizar a través de ella.</p>
+                                            <center>
+                                                <a href="" class="btn btn-danger btn-round">
+                                                    <i class="material-icons">file_download</i> Descargar
+                                                </a>
+                                            </center>
+                                          
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 id="counter2" class="info-title"></h3>
-                                <h4 class="info-title">Puntos creados</h4>
-                                <h4 class="info-title">@(Model.puntoss)+</h4>
                             </div>
-
-                        </center>
+                        </div>
                     </div>
+                    <div class="col-md-1"></div>
                 </div>
-
             </div>
-            <br />
-            <br />
+            <!--     *********     FEATURES 4      *********      -->
+          
+
+          
+          
+         
 
             <!--     *********     FEATURES 5      *********      -->
-         
-            <div class="features-5" style="background-image: url('../Imagenes/uSfurk36A7zVjHL1uM219x1v.jpeg')" >
-
+            <div class="features-5" style="background-image: url('../Imagenes/Sin título-1.jpg')" >
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <h2 class="title">Estadísticas de puntos creados</h2>
                 </div>
-
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3" style="height:400px">
@@ -288,7 +407,7 @@
                                 <div class="icon">
                                     <img src="~/puntosimg/rostro-de-perro.png" style="width:80px;height:80px;" />
                                 </div>
-                                <h2 class="info-title">Maltrato animal</h2>
+                                <h2 class="info-title">Maltrato Animal</h2>
                                 <h3 id="ac" class="info-title"></h3>
                             </div>
                         </div>
@@ -329,7 +448,7 @@
                                 <div class="icon">
                                     <img src="~/puntosimg/fuego(1).png" style="width:80px;height:80px;" />
                                 </div>
-                                <h2 class="info-title">Quema de busara</h2>
+                                <h2 class="info-title">Quema de Basura</h2>
                                 <h3 id="h" class="info-title"></h3>
 
                             </div>
@@ -439,59 +558,7 @@
                 </div>
             </div>
             <br />
-            @*<div class="contactus-1 section-image" style="background-image: url('assets/img/examples/city.jpg')">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2">
-
-
-                        </div>
-                        <div class="col-md-8 ">
-                            <div class="card card-contact">
-                                <form role="form" id="contact-form" method="post">
-                                    <div class="header header-raised header-primary text-center">
-                                        <h4 class="card-title">Tienes alguna sugerencia?</h4>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group label-floating">
-                                                    <label class="control-label">Nombre</label>
-                                                    <input type="text" name="name" class="form-control">
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Correo Electronico</label>
-                                            <input type="email" name="email" class="form-control" />
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Cuentanos tu seugerencia...</label>
-                                            <textarea name="message" class="form-control" id="message" rows="6"></textarea>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="submit" class="btn btn-primary pull-right">ENVIAR</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>*@
+           
 
             <div class="our-clients">
                 <div class="title">
@@ -582,7 +649,7 @@
 
                         <div class="form-group label-floating">
                             <label class="control-label">Email</label>
-                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @type = "email", @id = "txt_nombre" })
+                            @Html.TextBoxFor(x => x.nombre, new  { @class = "form-control", @type = "email", @id = "txt_nombre" })
                         </div>
                     </div>
                     <div class="input-group">
@@ -701,7 +768,10 @@
                 demo.start();
     </script>
 
+    <script>
+     
 
+    </script>
 
 </body>
 <!--   Core JS Files   -->
@@ -727,17 +797,12 @@
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
 <script src="~/Content/assetsPRO/js/jasny-bootstrap.min.js"></script>
 
-<!-- Plugin For Google Maps -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFPQibxeDaLIUHsC6_KqDdFaUdhrbhZ3M"></script>
-
-<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-
-
 <script src="~/Content/assetsPRO/js/material-kit.js"></script>
 
 <!-- Fixed Sidebar Nav - JS For Demo Purpose, Don't Include it in your project -->
 <script src="~/Content/assetsPRO/js/modernizr.js"></script>
 <script src="~/Content/assetsPRO/js/vertical-nav.js"></script>
+
 
 <script type="text/javascript">
 

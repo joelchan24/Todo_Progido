@@ -523,6 +523,7 @@
     <Content Include="Imagenes\0002.png" />
     <Content Include="Imagenes\00220.png" />
     <Content Include="Imagenes\11.png" />
+    <Content Include="Imagenes\azul2.jpg" />
     <Content Include="Imagenes\ban.png" />
     <Content Include="Imagenes\bootstrap_logo.png" />
     <Content Include="Imagenes\card-profile1.jpg" />
@@ -531,12 +532,15 @@
     <Content Include="Imagenes\Creative-Tim-logo-5b8666f5.png" />
     <Content Include="Imagenes\delitoa.jpg" />
     <Content Include="Imagenes\ee.jpg" />
+    <Content Include="Imagenes\fondocel11.jpg" />
     <Content Include="Imagenes\header.jpg" />
     <Content Include="Imagenes\image_placeholder.jpg" />
+    <Content Include="Imagenes\laptop.jpg" />
     <Content Include="Imagenes\logo UTM-01.png" />
     <Content Include="favicon.ico" />
     <Content Include="Imagenes\logosos.png" />
     <Content Include="Imagenes\mapaheader.jpg" />
+    <Content Include="Imagenes\Sin título-1.jpg" />
     <Content Include="Imagenes\Sin título-1.png" />
     <Content Include="Imagenes\uSfurk36A7zVjHL1uM219x1v.jpeg" />
     <Content Include="puntosimg\102.png" />

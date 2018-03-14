@@ -134,7 +134,11 @@ namespace Proyecto.Controllers
         [HttpPost]
         public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
         {
-            
+            string NameImage = Path.GetFileName(imagen.FileName);
+            //Cargar imagen, obtener una copia y guardarla
+            imagen.SaveAs(Server.MapPath("~/Imagenes/") + NameImage);
+            usu.ruta = "/" + NameImage;
+
             usu.id_peligro = int.Parse(frm["Gender"].ToString());
             if (Session["usuario"] != null)
             {

@@ -30,6 +30,8 @@ namespace Proyecto.BO
 
         public string nombre_usuario { get; set; }
 
+        public string ruta { get; set; }
+
 
 
 

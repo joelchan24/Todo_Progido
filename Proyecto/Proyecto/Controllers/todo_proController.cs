@@ -17,6 +17,7 @@ namespace Proyecto.Controllers
         usuarioDAO usuario_dao = new usuarioDAO();
         BackEndDAO Obj_back = new BackEndDAO();
         IndexDAO ObjIndex = new IndexDAO();
+        punto_DAO pun = new punto_DAO();
 
         public ActionResult IndexFinal()
         {
@@ -165,6 +166,11 @@ namespace Proyecto.Controllers
         {
             var Imagenbaner = ObjIndex.Obtenerindex();
             return File(Imagenbaner.imagenizquierda, "image/jpeg");
+        }
+
+        public ActionResult devolverpuntos()
+        {
+            return Json(pun.mandaedatosindex(), JsonRequestBehavior.AllowGet);
         }
     }
 }

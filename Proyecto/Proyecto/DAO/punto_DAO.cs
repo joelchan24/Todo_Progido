@@ -19,7 +19,7 @@ namespace Proyecto.DAO
         {
           punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
             usuario.status = 1;
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[comentadmin]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@comentadmin )");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[comentadmin],[ruta]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@comentadmin,@ruta )");
             cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
@@ -28,7 +28,7 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = DateTime.Today;
             cmd.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = usuario.imagen;
-           
+            cmd.Parameters.Add("@ruta", SqlDbType.VarChar).Value = usuario.ruta;
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
             cmd.Parameters.Add("@comentadmin", SqlDbType.VarChar).Value = "Enviado para verificación";
             cmd.CommandType = CommandType.Text;
@@ -158,7 +158,35 @@ namespace Proyecto.DAO
             }
             return Lista;
         }
-       
+
+
+        public List<Punto> mandaedatosindex()
+        {
+            DataTable tabla = mostrar().Tables[0];
+            List<Punto> Lista = new List<Punto>();
+            byte[] imagen;
+
+
+            foreach (DataRow dr in tabla.Rows)
+            {
+
+
+                imagen = (byte[])dr[8];
+
+
+
+
+                Punto P = new Punto();
+              
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Lista.Add(P);
+            }
+            return Lista;
+        }
+
         public List<Punto> mandaedatos_al_admin()
         {
             DataTable tabla = mostrar().Tables[0];
