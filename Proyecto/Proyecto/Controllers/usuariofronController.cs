@@ -7,6 +7,8 @@ using Proyecto.BO;
 using Proyecto.DAO;
 using Proyecto.Models;
 using System.IO;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace Proyecto.Controllers
 {
@@ -134,10 +136,29 @@ namespace Proyecto.Controllers
         [HttpPost]
         public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
         {
-            string NameImage = Path.GetFileName(imagen.FileName);
-            //Cargar imagen, obtener una copia y guardarla
-            imagen.SaveAs(Server.MapPath("~/Imagenes/") + NameImage);
-            usu.ruta = "/" + NameImage;
+
+            Account account = new Account(
+                "dyhowxkye",
+                "739723474219958",
+                "jQttMABV1zBRO8jkQ3_FAiRhkrE"
+                );
+
+            Cloudinary cloudinary = new Cloudinary(account);
+            MemoryStream ms = new MemoryStream();
+            ms = new MemoryStream(imagen.ContentLength);
+
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(imagen.FileName,ms)
+            };
+            var uploadResult = cloudinary.Upload(uploadParams);
+
+
+
+            //string NameImage = Path.GetFileName(imagen.FileName);
+            ////Cargar imagen, obtener una copia y guardarla
+            //imagen.SaveAs(Server.MapPath("~/Imagenes/") + NameImage);
+            //usu.ruta = "/" + NameImage;
 
             usu.id_peligro = int.Parse(frm["Gender"].ToString());
             if (Session["usuario"] != null)
