@@ -16,42 +16,6 @@
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-    <!-- Canonical SEO -->
-    <link rel="canonical" href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro" />
-
-    <!--  Social tags      -->
-    <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap dashboard, bootstrap, css3 dashboard, bootstrap admin, light bootstrap dashboard, frontend, responsive bootstrap dashboard">
-
-    <meta name="description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Light Bootstrap Dashboard PRO by Creative Tim">
-    <meta itemprop="description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-
-    <meta itemprop="image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-    <!-- Twitter Card data -->
-
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="creativetim">
-    <meta name="twitter:title" content="Light Bootstrap Dashboard PRO by Creative Tim">
-
-    <meta name="twitter:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful.">
-    <meta name="twitter:creator" content="creativetim">
-    <meta name="twitter:image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg">
-    <meta name="twitter:data1" content="Light Bootstrap Dashboard PRO by Creative Tim">
-    <meta name="twitter:label1" content="Product Type">
-    <meta name="twitter:data2" content="$29">
-    <meta name="twitter:label2" content="Price">
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="Light Bootstrap Dashboard PRO by Creative Tim" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://demos.creative-tim.com/light-bootstrap-dashboard-pro/examples/dashboard.html" />
-    <meta property="og:image" content="http://s3.amazonaws.com/creativetim_bucket/products/34/original/opt_lbd_pro_thumbnail.jpg" />
-    <meta property="og:description" content="Forget about boring dashboards, get an admin template designed to be simple and beautiful." />
-    <meta property="og:site_name" content="Creative Tim" />
-
     <!-- Bootstrap core CSS     -->
     <link href="~/Content/assets_tablanet/css/bootstrap.min.css" rel="stylesheet" />
     <!--  Light Bootstrap Dashboard core CSS    -->
@@ -91,7 +55,7 @@
                         @if (ViewBag.usuario != null)
                         {
                             <div class="photo">
-                                <img src=@Url.Action("Imagen_usuario", "VBackend") width="100%" height="100%" />
+                                <img src=@ViewBag.usuario.foto  width="100%" height="100%" />
                             </div>
 
                             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -230,7 +194,7 @@
                                 <li>
                                     <a href="~/VBackend/Reporte_peligros">
                                         <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                                        <span class="sidebar-normal">Reporte de peligros </span>
+                                        <span class="sidebar-normal">Reporte de incidencias</span>
                                     </a>
                                 </li>
                                 <li>
@@ -262,37 +226,19 @@
                         </button>
                         <a class="navbar-brand" href="#">Puntos Desaprobados</a>
                     </div>
-                    <div class="collapse navbar-collapse">
-
-
-
-                        <ul class="nav navbar-nav navbar-right">
-
-
-
-
-
-
-                            <li class="dropdown dropdown-with-icons">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i>
-                                    <p class="hidden-md hidden-lg">
-                                        More
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-with-icons">
-                                    <li>
-                                        <a href="/todo_pro/cerrar" class="text-danger">
-                                            <i class="pe-7s-close-circle"></i>
-                                            Cerrar Sesión
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </div>
+                    @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
+                    {
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <button type="submit" class="btn btn-link btn-simple text-danger">
+                                        <i class="pe-7s-power"></i>
+                                        Cerrar Sesión
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    }
                 </div>
             </nav>
 
@@ -337,7 +283,7 @@
                                                         <td style="width:200px;">
                                                             <center>
                                                                 <div class="img-container">
-                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row["ID"]}) style="width:200px; height:200px; border-radius:25px;" />
+                                                                    <img src=@row["imagen"] style="width:200px; height:200px; border-radius:25px;" />
                                                                 </div>
                                                             </center>
                                                         </td>
@@ -375,49 +321,6 @@
 
         </div>
     </div>
-
-    <div class="fixed-plugin">
-        <div class="dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title">Configuracion</li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Minizar barra</p>
-                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Filtros</p>
-                        <div class="pull-right">
-                            <span class="badge filter" data-color="black"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-
-
-
-
-
-            </ul>
-        </div>
-    </div>
-
 </body>
 
 <!--   Core JS Files  -->

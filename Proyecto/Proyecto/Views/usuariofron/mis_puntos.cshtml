@@ -1,244 +1,610 @@
 ﻿
 @{
-    ViewBag.Title = "mis_puntos";
-    Layout = "~/Views/Shared/frontend_usuario.cshtml";
+    Layout = null;
+
 }
 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+    <title>Todo Protegido SOS</title>
 
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-@*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>*@
-<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
-<script src="~/Content/assets/js/locationpicker.jquery.js"></script>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 
-@section nombreseccion{<a class="navbar-brand" href="#">Mapa</a>}  
+    <!-- Bootstrap core CSS     -->
+    <link href="~/Content/assetsBack/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Light Bootstrap Dashboard core CSS    -->
+    <link href="~/Content/assetsBack/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="~/Content/assetsBack/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="~/Content/assetsBack/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
+    <script src="~/Content/assets/js/locationpicker.jquery.js"></script>
 
-@section SideBar{
-    <li class="active">
-        <a href="#">
-            <i class="pe-7s-map"></i>
-            <p>Mapa de Incidencias</p>
-        </a>
-    </li>
-    <li>
-        <a href="~/usuariofron/CrearPuntos">
-            <i class="pe-7s-map-2 "></i>
-            <p>Agregar Puntos </p>
-        </a>
-    </li>
-
-    <li>
-   
-
-    <a href="~/usuariofron/Tablapuntousuario">
-        <i class="pe-7s-map-marker"></i>
-        <p>Mis Incidencias</p>
-    </a>
-
-    </li>
-}
-
-
-
-
-
-
-
-
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-@*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>*@
-<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
-
-<div id="map_canvas" style="width:100%; height:680px " ></div>
-<div id="legend"></div>
-
-
-<script type="text/javascript">
-
-    var markers;
-
-    $.ajax({
-        url: "/usuariofron/devolverpuntos",
-        success: function (data) {
-            var array = []
-            for (var i = 0; i < data.length; i++) {
-                array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
-            }
-            markers = array;
-
-            initializeMaps();
+    <style>
+        #legend {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid #000;
         }
 
-    })
-    var image = {
-        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-        // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(40, 52),
-        // The origin for this image is (0, 0).
-        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 32)
-    };
-
-    function initializeMaps() {
-        var myOptions = {
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            mapTypeControl: false
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        var infowindow = new google.maps.InfoWindow();
-        var marker, i;
-        var bounds = new google.maps.LatLngBounds();
-
-     
-        var icons = {
-            i1: {
-                name: 'BACHES',
-                icon: '../puntosimg/42.png'
-
-            },
-            i2: {
-                name: 'MALTRATO ANIMAL',
-                icon: "../puntosimg/52.png"
-
-            },
-            i3: {
-                name: 'LOTES BALDÍOS',
-                icon: "../puntosimg/62.png"
-            },
-            i4: {
-                name: 'VANDALISMO ',
-                icon: "../puntosimg/72.png"
-            },
-            i5: {
-                name: 'ROBO',
-                icon: "../puntosimg/82.png"
-            },
-            i6: {
-                name: 'QUEMA DE BASURA',
-                icon: "../puntosimg/92.png"
-            },
-            i7: {
-                name: 'ACCIDENTES AUTOMOVILÍSTICOS',
-                icon: "../puntosimg/102.png"
-            },
-            i8: {
-                name: 'OTROS',
-                icon: "../puntosimg/112.png"
+            #legend img {
+                vertical-align: middle;
             }
-        };
+
+        #soy {
+            margin: 10px;
+            background: #fff;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        #map_canvas {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <!-------inicio barra lateral------->
+    <div class="wrapper">
+        <div class="sidebar" data-color="azure" data-image="../../assets/img/full-screen-image-3.jpg">
+            <!--
+
+                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                Tip 2: you can also add an image using data-image tag
+
+            -->
+
+            <div class="logo">
+                <a href="#" class="simple-text logo-mini">
+                    TP
+                </a>
+
+                <a href="#" class="simple-text logo-normal">
+                    Todo Protegido SOS
+                </a>
+            </div>
+
+            <div class="sidebar-wrapper">
+                <div class="user">
+
+                    <div class="info">
+                        @if (ViewBag.usuario != null)
+                        {
+                            <div class="photo">
+                                <img src=@ViewBag.usuario.foto width="100%" height="100%" />
+                            </div>
+
+                            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                                <span>
+                                    @ViewBag.usuario.nombre
+                                    <b class="caret"></b>
+                                </span>
+                            </a>
+                        }
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="~/usuariofron/editar_datos">
+                                        <span class="sidebar-mini">MP</span>
+                                        <span class="sidebar-normal">Mi Perfil</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">
+                            <i class="pe-7s-map"></i>
+                            <p>Mapa de Incidencias</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/usuariofron/CrearPuntos">
+                            <i class="pe-7s-map-2 "></i>
+                            <p>Agregar Puntos </p>
+                        </a>
+                    </li>
+
+                    <li>
 
 
-        for (i = 0; i < markers.length; i++) {
-            if (markers[i][3] == 11)
-                //robo
+                        <a href="~/usuariofron/Tablapuntousuario">
+                            <i class="pe-7s-map-marker"></i>
+                            <p>Mis Incidencias</p>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!---------- fin barra lateral--------------->
+        <div class="main-panel">
+            <!------- barra superior inicio------->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+
+                        <a class="navbar-brand" href="#">Mapa de Incidencias</a>
+
+                    </div>
+                    @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
+                    {
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <button type="submit" class="btn btn-link btn-simple text-danger">
+                                        <i class="pe-7s-power"></i>
+                                        Cerrar Sesión
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </nav>
+
+            <!------- barra superior fin------->
+
+            @if (ViewBag.da != null)
             {
-                image = "../puntosimg/112.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
+
+                @RenderBody()
             }
-            else if (markers[i][3] == 4)//asalto de auto
+            else
             {
-                image = "../puntosimg/42.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 5) {//asaldo de casa
-                image = "../puntosimg/52.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 6) {//asalro de comercio
-                image = "../puntosimg/62.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 7) {//asalro de persona
-                image = "../puntosimg/72.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 8) {//actividad sospechopsa
-                image = "../puntosimg/82.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 9) {//homicidio
-                image = "../puntosimg/92.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 10) {//vandalismo
-                image = "../puntosimg/102.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                return function () {
-                    infowindow.setContent(markers[i][0]);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
-        }
-        map.fitBounds(bounds);
-        var legend = document.getElementById('legend');
-        for (var key in icons) {
-            var type = icons[key];
-            var name = type.name;
-            var icon = type.icon;
-            var div = document.createElement('div');
-            div.innerHTML = '<br/> <img src="' + icon + '"> ' + name;
-            legend.appendChild(div);
-        }
 
-        map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(document.getElementById('legend'));
 
-    }
+                <div id="map_canvas"></div>
+                        <div id="legend"></div>
+                        <div id="soy">
+                            <select name="producto" class="selectpicker" onchange="ShowSelected();" id="producto" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                                <option value="1" selected>TODOS</option>
+                                <option value="2">BACHES</option>
+                                <option value="3">MALTRATO ANIMAL</option>
+                                <option value="4">LOTES BALDÍOS</option>
+                                <option value="5">VANDALISMO </option>
+                                <option value="6">ROBO</option>
+                                <option value="7">INCENDIOS</option>
+                                <option value="8">ACCIDENTES AUTOMOVILÍSTICOS</option>
+                                <option value="9">OTROS</option>
+                            </select>
+                        </div>
 
-   
-</script>
 
+                        <script type="text/javascript">
+                                initMap();
+                                var markers;
+                                var array = [];
+                                var map;
+                                var infowindow;
+
+                                function initMap() {
+                                    var h = { lat: 20.967778, lng: -89.621667 };
+                                    var myOptions = {
+                                        zoom: 12,
+                                        center: h,
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                        mapTypeControl: false
+                                    };
+                                    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                                    infowindow = new google.maps.InfoWindow();
+                                    //var marker, i;
+                                    //var bounds = new google.maps.LatLngBounds();
+                                    var icons = {
+                                        i1: {
+                                            name: 'BACHES',
+                                            icon: '../puntosimg/42.png'
+
+                                        },
+                                        i2: {
+                                            name: 'MALTRATO ANIMAL',
+                                            icon: "../puntosimg/52.png"
+
+                                        },
+                                        i3: {
+                                            name: 'LOTES BALDÍOS',
+                                            icon: "../puntosimg/62.png"
+                                        },
+                                        i4: {
+                                            name: 'VANDALISMO ',
+                                            icon: "../puntosimg/72.png"
+                                        },
+                                        i5: {
+                                            name: 'ROBO',
+                                            icon: "../puntosimg/82.png"
+                                        },
+                                        i6: {
+                                            name: 'INCENDIOS',
+                                            icon: "../puntosimg/92.png"
+                                        },
+                                        i7: {
+                                            name: 'ACCIDENTES AUTOMOVILÍSTICOS',
+                                            icon: "../puntosimg/102.png"
+                                        },
+                                        i8: {
+                                            name: 'OTROS',
+                                            icon: "../puntosimg/112.png"
+                                        }
+
+                                    };
+                                    var legend = document.getElementById('legend');
+                                    for (var key in icons) {
+                                        var type = icons[key];
+                                        var name = type.name;
+                                        var icon = type.icon;
+                                        var div = document.createElement('div');
+                                        div.innerHTML = '<br/><img src="' + icon + '"> ' + name;
+                                        legend.appendChild(div);
+                                    }
+
+                                    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(document.getElementById('legend'));
+                                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById('soy'));
+                                }
+
+
+                                $.ajax({
+                                    url: "/usuariofron/devolverpuntos",
+                                    success: function (data) {
+                                        for (var i = 0; i < data.length; i++) {
+                                            var des = (data[i]["punton"]);
+                                            var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                            var tipo = (data[i]["id"]);
+                                            addMarker(des, location, tipo,i);
+                                            //var mues = (location + tipo+des);
+                                            //alert(mues);
+                                            //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                        }
+                                    }
+                                })
+
+                                function addMarker(d, l, t, i) {
+                                    if (t == 11) {
+                                        image = "../puntosimg/112.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t== 4){
+                                        image = "../puntosimg/42.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t == 5) {
+                                        image = "../puntosimg/52.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t == 6) {
+                                        image = "../puntosimg/62.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t == 7) {
+                                        image = "../puntosimg/72.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t == 8) {
+                                        image = "../puntosimg/82.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t == 9) {
+                                        image = "../puntosimg/92.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                    else if (t == 10) {
+                                        image = "../puntosimg/102.png";
+                                        var marker = new google.maps.Marker({
+                                            position: l,
+                                            map: map,
+                                            icon: image
+                                        });
+                                        array.push(marker);
+                                    }
+                                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                            return function () {
+                                                infowindow.setContent(d);
+                                                infowindow.open(map, marker);
+                                            }
+                                        })(marker, i));
+                                }
+
+
+
+                                function setMapOnAll(map) {
+                                    for (var i = 0; i < array.length; i++) {
+                                        array[i].setMap(map);
+                                    }
+                                }
+
+
+
+
+
+                                function ShowSelected() {
+
+                                    var code = document.getElementById("producto").value;
+
+                                    if (code == 1) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/devolverpuntos",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 2) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d4",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 3) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d5",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+
+
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 4) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d6",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 5) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d7",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 6) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d8",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 7) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d9",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 8) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/d10",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+                                    else if (code == 9) {
+                                        setMapOnAll(null);
+                                        array = [];
+                                        $.ajax({
+                                            url: "/usuariofron/otrosdevolver",
+                                            success: function (data) {
+                                                for (var i = 0; i < data.length; i++) {
+                                                    var des = (data[i]["punton"]);
+                                                    var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                                                    var tipo = (data[i]["id"]);
+                                                    addMarker(des, location, tipo, i);
+                                                    //var mues = (location + tipo+des);
+                                                    //alert(mues);
+                                                    //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                                                }
+                                            }
+                                        })
+                                    }
+
+                                }
+                        </script>
+                        <footer class="footer">
+                            <div class="container-fluid">
+
+
+                                <p class="copyright pull-right">
+                                    &copy;
+                                    <script>document.write(new Date().getFullYear())</script> <a href="@*http://www.creative-tim.com*@">Todo Protegido SOS</a>, lo mejor en seguridad
+                                </p>
+                            </div>
+                        </footer>
+            }
+
+        </div>
+    </div>
+</body>
+<!--   Core JS Files  -->
+
+
+<script src="~/Content/assetsBack/js/jquery.min.js"></script>
+
+<script src="~/Content/assetsBack/js/bootstrap.min.js"></script>
+
+<script src="~/Content/assetsBack/js/perfect-scrollbar.jquery.min.js"></script>
+<!--  Forms Validations Plugin -->
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+
+
+<script src="~/Content/assetsBack/js/moment.min.js"></script>
+<!--  Date Time Picker Plugin is included in this js file -->
+
+
+<script src="~/Content/assetsBack/js/bootstrap-datetimepicker.min.js"></script>
+<!--  Select Picker Plugin -->
+<script src="~/Content/assetsBack/js/bootstrap-selectpicker.js"></script>
+
+<!--  Checkbox, Radio, Switch and Tags Input Plugins -->
+<script src="~/Content/assetsBack/js/bootstrap-switch-tags.min.js"></script>
+
+<!--  Charts Plugin -->
+<script src="~/Content/assetsBack/js/chartist.min.js"></script>
+<
+<!--  Notifications Plugin    -->
+<script src="~/Content/assetsBack/js/bootstrap-notify.js"></script>
+
+<!-- Sweet Alert 2 plugin -->
+<script src="~/Content/assetsBack/js/sweetalert2.js"></script>
+
+<!-- Vector Map plugin -->
+<!--  Google Maps Plugin    -->
+<!-- Wizard Plugin    -->
+<script src="~/Content/assetsBack/js/jquery.bootstrap.wizard.min.js"></script>
+
+<!--  Bootstrap Table Plugin    -->
+<script src="~/Content/assetsBack/js/bootstrap-table.js"></script>
+
+<!--  Plugin for DataTables.net  -->
+
+<script src="assetsBack/js/jquery.datatables.js"></script>
+<!--  Full Calendar Plugin    -->
+<script src="~/Content/assetsBack/js/fullcalendar.min.js"></script>
+
+<!-- Light Bootstrap Dashboard Core javascript and methods -->
+<script src="~/Content/assetsBack/js/light-bootstrap-dashboard.js"></script>
+
+<!--   Sharrre Library    -->
+<script src="~/Content/assetsBack/js/jquery.sharrre.js"></script>
+
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="~/Content/assetsBack/js/demo.js"></script>
+
+</html>

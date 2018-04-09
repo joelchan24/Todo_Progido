@@ -107,7 +107,7 @@
                                 <div class="content">
                                     <div class="author">
 
-                                        <img class="avatar border-gray" style="width:190px; height:190px;" id="img_destino" src="@Url.Action("Imagen_usuario", "usuariofron", new { id = @ViewBag.usuario.id })" />
+                                        <img class="avatar border-gray" style="width:190px; height:190px;" id="img_destino" src="@ViewBag.usuario.foto" />
                                         <div class="col-md-offset-2 col-md-10">
                                             @Html.TextBoxFor(model => model.foto, htmlAttributes: new { @type = "file", @name = "foto", @style = "width:200px;" })
                                         </div>

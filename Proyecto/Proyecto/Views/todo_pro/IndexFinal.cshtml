@@ -45,12 +45,18 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+              
+                <ul class="nav navbar-nav navbar-left">
+                   
+                    <li class="dropdown nav-item">
+                        <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+                            <div class="profile-photo-small">
+                                <img src="~/Imagenes/logosos.png" alt="Circle Image" class="img-circle img-fluid">
+                            </div>
+                        </a>
+                    </li>
+                    <li></li>
+                </ul>
                 <a class="navbar-brand">Todo Protegido SOS</a>
             </div>
             <div class="collapse navbar-collapse">
@@ -65,6 +71,17 @@
                             <i class="material-icons">person</i> Iniciar sesión
                         </a>
                     </li>
+                    @*<li class="dropdown nav-item">
+                        <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+                            <div class="profile-photo-small">
+                                <img src=@Url.Action("obtenern3", "VBackend")  alt="Circle Image" class="img-circle img-fluid">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="@Url.Action("IndexPro", "todo_pro")" class="dropdown-header">Cerrar sesión</a>
+                           
+                        </div>
+                    </li>*@
                 </ul>
             </div>
         </div>
@@ -89,7 +106,7 @@
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner">
                                             <div class="item active">
-                                                    <img src="../Imagenes/fondocel11.jpg"  alt="Awesome Image">
+                                                    <img src="@Url.Action("obtenerbanner", "VBackend")"  alt="Awesome Image">
                                                 <div class="hero">
                                                     <hgroup class="row"> 
                                                         <div class="col-md-6 text-left" >
@@ -100,8 +117,8 @@
                                                     </hgroup> 
                                                 </div>
                                             </div>
-                                            <div class="item header-filter " filter-color="info">
-                                                <img src="../Imagenes/Sin título-1.jpg" alt="Awesome Image">
+                                            <div class="item " filter-color="info">
+                                                <img src="@Url.Action("obtenerizque", "VBackend")" alt="Awesome Image">
                                                 <div class="hero">
                                                     <hgroup class="row">
                                                         
@@ -118,7 +135,7 @@
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <img src="../Imagenes/laptop.jpg" alt="Awesome Image">
+                                                <img src="@Url.Action("obtenerdere", "VBackend")" alt="Awesome Image">
                                                 <div class="hero">
                                                     <hgroup class="row">
                                                         <div class="col-md-4"></div>
@@ -363,8 +380,8 @@
                                             <h4 class="info-title">Graficas de incidencias</h4>
                                             <p>Desde la aplicación móvil podrás saber cómo va el registro de incidencias de una colonia en específico, así como otras búsquedas que podrás realizar a través de ella.</p>
                                             <center>
-                                                <a href="" class="btn btn-danger btn-round">
-                                                    <i class="material-icons">file_download</i> Descargar
+                                                <a href="@(Model.tituloizquierda)" target="_blank" class="btn btn-danger btn-round">
+                                                    <i class="material-icons">file_download</i> Descargar Aplicación 
                                                 </a>
                                             </center>
                                           
@@ -448,7 +465,7 @@
                                 <div class="icon">
                                     <img src="~/puntosimg/fuego(1).png" style="width:80px;height:80px;" />
                                 </div>
-                                <h2 class="info-title">Quema de Basura</h2>
+                                <h2 class="info-title">Incendios</h2>
                                 <h3 id="h" class="info-title"></h3>
 
                             </div>
@@ -483,7 +500,41 @@
             </div>
             <br />
             <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                        <center><h3 class="title">Descarga los manuales de usuario y tecnico</h3></center>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p class="text-muted">En ellos podrás encontrar toda la información referente al funcionamiento de la aplicación móvil y de la página web.</p>
+                </div>
+                <div class="col-md-3"></div>
 
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-3">
+                    <center>
+                        <a href="@(Model.textoizquierda)" target="_blank" class="btn btn-danger btn-round">
+                            <i class="material-icons">file_download</i> Manual tecnico
+                        </a>
+                    </center>
+                    
+                </div>
+                <div class="col-md-3">
+                    <center>
+                        <a href="@(Model.tituloderecha)" target="_blank" class="btn btn-danger btn-round">
+                            <i class="material-icons">file_download</i> Manual usuario
+                        </a>
+                    </center>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
             <br />
             <br />
             <div class="cards">
@@ -506,9 +557,9 @@
                                     <h6 class="category text-gray">@(Model.rol1)</h6>
 
                                     <div class="footer">
-                                        <a href="@(Model.r1)" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        @*<a href="@(Model.r1)" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
                                         <a href="@(Model.re1)" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
-                                        <a href="@(Model.red1)" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>
+                                        <a href="@(Model.red1)" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>*@
                                     </div>
                                 </div>
                             </div>
@@ -526,9 +577,9 @@
                                     <h6 class="category text-gray">@(Model.rol2)</h6>
 
                                     <div class="footer">
-                                        <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        @*<a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
                                         <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>*@
                                     </div>
                                 </div>
                             </div>
@@ -546,9 +597,9 @@
                                     <h6 class="category text-gray">@(Model.rol3)</h6>
 
                                     <div class="footer">
-                                        <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
+                                        @*<a href="#pablo" class="btn btn-just-icon btn-twitter btn-round"><i class="fa fa-twitter"></i></a>
                                         <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round"><i class="fa fa-facebook-square"></i></a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>
+                                        <a href="#pablo" class="btn btn-just-icon btn-instagram btn-round"><i class="fa fa-instagram"></i></a>*@
                                     </div>
                                 </div>
                             </div>

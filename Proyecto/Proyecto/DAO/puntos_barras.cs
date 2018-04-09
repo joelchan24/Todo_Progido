@@ -7,7 +7,7 @@ namespace Proyecto.DAO
 {
     public class puntos_barras
     {
-        public int aprovados;
-        public int no_aprovados;
+        public int aprobados;
+        public int no_aprobados;
     }
 }

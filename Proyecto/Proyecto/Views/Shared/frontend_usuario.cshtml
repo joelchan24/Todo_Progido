@@ -3,8 +3,6 @@
     Layout = null;
 }
 
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,13 +34,20 @@
             padding: 10px;
             margin: 10px;
             border: 3px solid #000;
-          
         }
 
-         #legend img {
-        vertical-align: middle;
+            #legend img {
+                vertical-align: middle;
+            }
+
+        #soy {
+            margin: 10px;
+            background: #fff;
         }
 
+        body {
+            overflow: hidden;
+        }
     </style>
 
 </head>
@@ -71,19 +76,19 @@
                 <div class="user">
 
                     <div class="info">
-@if (ViewBag.usuario != null)
-{
-                        <div class="photo">
-                            <img src=@Url.Action("Imagen_usuario", "usuariofron" ,new {id=@ViewBag.usuario.id })  width="100%" height="100%" />
-                        </div>
+                        @if (ViewBag.usuario != null)
+                        {
+                            <div class="photo">
+                                <img src=@ViewBag.usuario.foto width="100%" height="100%" />
+                            </div>
 
-                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <span>
-                             @ViewBag.usuario.nombre
-                                <b class="caret"></b>
-                            </span>
-                        </a>
-}
+                            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                                <span>
+                                    @ViewBag.usuario.nombre
+                                    <b class="caret"></b>
+                                </span>
+                            </a>
+                        }
                         <div class="collapse" id="collapseExample">
                             <ul class="nav">
                                 <li>
@@ -106,7 +111,7 @@
             <!------- barra superior inicio------->
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                  
+
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse">
                             <span class="sr-only">Toggle navigation</span>
@@ -115,207 +120,58 @@
                             <span class="icon-bar"></span>
                         </button>
                         @RenderSection("nombreseccion", required: true)
-                       
+
                     </div>
-                    <div class="collapse navbar-collapse">
-
-                        @*<form class="navbar-form navbar-left navbar-search-form" role="search">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                                <input type="text" value="" class="form-control" placeholder="Search...">
-                            </div>
-                        </form>*@
-
-                        <ul class="nav navbar-nav navbar-right">
-                            @*<li>
-                                <a href="../charts.html">
-                                    <i class="fa fa-line-chart"></i>
-                                    <p>Stats</p>
-                                </a>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-gavel"></i>
-                                    <p class="hidden-md hidden-lg">
-                                        Actions
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Create New Post</a></li>
-                                    <li><a href="#">Manage Something</a></li>
-                                    <li><a href="#">Do Nothing</a></li>
-                                    <li><a href="#">Submit to live</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Another Action</a></li>
-                                </ul>
-                            </li>*@
-
-                            @*<li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="notification">5</span>
-                                    <p class="hidden-md hidden-lg">
-                                        Notifications
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notification 1</a></li>
-                                    <li><a href="#">Notification 2</a></li>
-                                    <li><a href="#">Notification 3</a></li>
-                                    <li><a href="#">Notification 4</a></li>
-                                    <li><a href="#">Another notification</a></li>
-                                </ul>
-                            </li>*@
-
-                            <li class="dropdown dropdown-with-icons">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i>
-                                    <p class="hidden-md hidden-lg">
-                                        More
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-with-icons">
-                                    @*<li>
-                                        <a href="#">
-                                            <i class="pe-7s-mail"></i> Messages
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="pe-7s-help1"></i> Help Center
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="pe-7s-tools"></i> Settings
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="pe-7s-lock"></i> Lock Screen
-                                        </a>
-                                    </li>*@
-                                    <li>
-                                        <a href="/todo_pro/cerrar" class="text-danger">
-                                            <i class="pe-7s-close-circle"></i>
-                                            Cerrar Sesión
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </div>
+                    @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
+                    {
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <button type="submit" class="btn btn-link btn-simple text-danger">
+                                        <i class="pe-7s-power"></i>
+                                        Cerrar Sesión
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    }
                 </div>
             </nav>
 
             <!------- barra superior fin------->
-         
-          @if (ViewBag.da != null)
-          {
 
-            @RenderBody()
-          }
-          else
-          {
-              <div class="main-content">
-                <div class="container-fluid">
-                  
-                  
-                  
-                    @RenderBody()
+            @if (ViewBag.da != null)
+            {
 
+                @RenderBody()
+            }
+            else
+            {
+                <div class="main-content">
+                    <div class="container-fluid">
+
+
+
+                        @RenderBody()
+
+                    </div>
                 </div>
-            </div>
 
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    @*<nav class="pull-left">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Portfolio
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Blog
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>*@
+                <footer class="footer">
+                    <div class="container-fluid">
 
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>document.write(new Date().getFullYear())</script> <a href="@*http://www.creative-tim.com*@">Todo Protegido SOS</a>, lo mejor en seguridad
-                    </p>
-                </div>
-            </footer>
-          }
+
+                        <p class="copyright pull-right">
+                            &copy;
+                            <script>document.write(new Date().getFullYear())</script> <a href="@*http://www.creative-tim.com*@">Todo Protegido SOS</a>, lo mejor en seguridad
+                        </p>
+                    </div>
+                </footer>
+            }
 
         </div>
     </div>
-
-
-
-    <div class="fixed-plugin">
-        <div class="dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title">Configuracion</li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Minizar barra</p>
-                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Filtros</p>
-                        <div class="pull-right">
-                            <span class="badge filter" data-color="black"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-
-
-
-
-
-            </ul>
-        </div>
-    </div>
-
 </body>
 <!--   Core JS Files  -->
 
@@ -326,9 +182,6 @@
 
 <script src="~/Content/assetsBack/js/perfect-scrollbar.jquery.min.js"></script>
 <!--  Forms Validations Plugin -->
-
-
-<script src="~/Content/assetsBack/js/jquery.validate.min.js"></script>
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 
 
@@ -354,8 +207,6 @@
 
 <!-- Vector Map plugin -->
 <!--  Google Maps Plugin    -->
-
-
 <!-- Wizard Plugin    -->
 <script src="~/Content/assetsBack/js/jquery.bootstrap.wizard.min.js"></script>
 
@@ -378,5 +229,6 @@
 <script src="~/Content/assetsBack/js/demo.js"></script>
 @RenderSection("scripts", required: false)
 </html>
+
 
 

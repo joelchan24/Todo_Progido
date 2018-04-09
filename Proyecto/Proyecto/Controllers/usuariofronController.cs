@@ -19,13 +19,26 @@ namespace Proyecto.Controllers
         ContactosDAO Obj = new ContactosDAO();
         loginDAO objlogin = new loginDAO();
         usuarioDAO objeditar = new usuarioDAO();
-        
-         public ActionResult editar_datos()
+        loginDAO log = new loginDAO();
+        usuarioBO usuario = new usuarioBO();
+
+        public ActionResult editar_datos()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            
+
+           
+            if (Session["usuario"] == null )
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
+            {
+                return Redirect("~/VBackend/estadisticas");
             }
             return View(objlogin.obtenerperfil_usuario(ViewBag.usuario.id));
         }
@@ -39,14 +52,22 @@ namespace Proyecto.Controllers
 
                 if (foto != null && foto.ContentLength > 0)
                 {
-                    byte[] imageData = null;
-                    using (var binaryReader = new BinaryReader(foto.InputStream))
-                    {
-                        imageData = binaryReader.ReadBytes(foto.ContentLength);
-                    }
-                    usu.foto = imageData;
+                   
+                    //usu.foto = imageData;
                     if (ModelState.IsValid)
                     {
+                        Account account = new Account(
+                         "dyhowxkye",
+                         "739723474219958",
+                         "jQttMABV1zBRO8jkQ3_FAiRhkrE"
+                         );
+                        Cloudinary cloud = new Cloudinary(account);
+                        var upload = new ImageUploadParams()
+                        {
+                            File = new FileDescription("Foto", foto.InputStream)
+                        };
+                        var uploadResult = cloud.Upload(upload);
+                        usu.foto = uploadResult.SecureUri.ToString();
                         objeditar.editar(usu, ViewBag.usuario.id, usu.mensajecontacto1);
                         return Redirect("~/usuariofron/editar_datos");
                     }
@@ -61,6 +82,10 @@ namespace Proyecto.Controllers
                   
                 }
 
+            }
+            else
+            {
+                return Redirect("~/todo_pro/IndexFinal");
             }
             return View(usu);    
         }
@@ -90,6 +115,7 @@ namespace Proyecto.Controllers
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                 return View(Obj.ObtenerContactos());
             }
+
 
             return View(Obj.ObtenerContactos());
         }
@@ -124,84 +150,73 @@ namespace Proyecto.Controllers
         }
         public ActionResult mis_puntos()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if  (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2){
+                return Redirect("~/VBackend/estadisticas"); 
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-               
             }
-            ViewBag.da = 1;
-          
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen,FormCollection frm)
-        {
-
-            Account account = new Account(
-                "dyhowxkye",
-                "739723474219958",
-                "jQttMABV1zBRO8jkQ3_FAiRhkrE"
-                );
-
-            Cloudinary cloudinary = new Cloudinary(account);
-            MemoryStream ms = new MemoryStream();
-            ms = new MemoryStream(imagen.ContentLength);
-
-            var uploadParams = new ImageUploadParams()
-            {
-                File = new FileDescription(imagen.FileName,ms)
-            };
-            var uploadResult = cloudinary.Upload(uploadParams);
-
-
-
-            //string NameImage = Path.GetFileName(imagen.FileName);
-            ////Cargar imagen, obtener una copia y guardarla
-            //imagen.SaveAs(Server.MapPath("~/Imagenes/") + NameImage);
-            //usu.ruta = "/" + NameImage;
-
-            usu.id_peligro = int.Parse(frm["Gender"].ToString());
-            if (Session["usuario"] != null)
-            {
-                ViewBag.usuario = (usuarioBO)Session["usuario"];
-
-            }
-            if (imagen != null && imagen.ContentLength > 0)
-            {
-                byte[] imageData = null;
-                using (var binaryReader = new BinaryReader(imagen.InputStream))
-                {
-                    imageData = binaryReader.ReadBytes(imagen.ContentLength);
-                }
-                //setear la imagen a la entidad que se creara
-                usu.imagen = imageData;
-
-                if (ModelState.IsValid)
-                {
-                    var jjj = usu.id > 0 ?
-                      pun.editar(usu) :
-                      pun.Guardar(usu, ViewBag.usuario.id);
-
-                    return Redirect("~/usuariofron/Tablapuntousuario");
-                }
-            }
-            else
-            {
-                usu.imagen = pun.optenerimagenpel();
-                if (ModelState.IsValid)
-                {
-                    var jjj = usu.id > 0 ?
-                      pun.editar(usu) :
-                      pun.Guardar(usu, ViewBag.usuario.id);
-
-                    return Redirect("~/usuariofron/Tablapuntousuario");
-                }
-            }
-
-
-
            
-            return View(usu);
+            return View();
+        } 
+        
+        public ActionResult Guardar_puntos(int id, int longitud, int latitud, string zona, string comentario, HttpPostedFileBase imagen )
+        {
+            punto_peligrosoBO usu = new punto_peligrosoBO();
+            //string comentario, FormCollection frm, HttpPostedFileBase imagen
+
+
+
+            if (Session["usuario"] != null)
+            {
+                //ViewBag.usuario = (usuarioBO)Session["usuario"];
+                //usu.id_peligro = int.Parse(frm["Gender"].ToString());
+                if (imagen != null && imagen.ContentLength > 0)
+                {
+                    Account account = new Account(
+                     "dyhowxkye",
+                     "739723474219958",
+                     "jQttMABV1zBRO8jkQ3_FAiRhkrE"
+                     );
+                    Cloudinary cloud = new Cloudinary(account);
+                    var upload = new ImageUploadParams()
+                    {
+                        File = new FileDescription("Foto", imagen.InputStream)
+                    };
+                    var uploadResult = cloud.Upload(upload);
+                    usu.imagen = uploadResult.SecureUri.ToString();
+
+                    if (ModelState.IsValid)
+                    {
+                        var jjj = usu.id > 0 ?
+                          pun.editar(usu) :
+                          pun.Guardar(usu, ViewBag.usuario.id);
+
+                        return Redirect("~/usuariofron/Tablapuntousuario");
+                    }
+                }
+                //else
+                //{
+                //    usu.imagen = "https://res.cloudinary.com/dyhowxkye/image/upload/v1521322391/image_placeholder.jpg";
+                //    if (ModelState.IsValid)
+                //    {
+                //        var jjj = usu.id > 0 ?
+                //          pun.editar(usu) :
+                //          pun.Guardar(usu, ViewBag.usuario.id);
+
+                //        return Redirect("~/usuariofron/Tablapuntousuario");
+                //    }
+                //}
+            }
+            return View(comentario);
+
 
 
 
@@ -283,6 +298,41 @@ namespace Proyecto.Controllers
         {
             return Json(pun.mandaedatos(), JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult otrosdevolver()
+        {
+            return Json(pun.mandaedatosotros(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult d4()
+        {
+            return Json(pun.mandaedatos4(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult d5()
+        {
+            return Json(pun.mandaedatos5(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult d6()
+        {
+            return Json(pun.mandaedatos6(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult d7()
+        {
+            return Json(pun.mandaedatos7(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult d8()
+        {
+            return Json(pun.mandaedatos8(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult d9()
+        {
+            return Json(pun.mandaedatos9(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult d10()
+        {
+            return Json(pun.mandaedatos10(), JsonRequestBehavior.AllowGet);
+        }
         public ActionResult devolverpuntos_personales()
         {
             if (Session["usuario"] != null)
@@ -304,12 +354,20 @@ namespace Proyecto.Controllers
 
         public ActionResult CrearPuntos()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
+            {
+                return Redirect("~/VBackend/estadisticas");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-
             }
-          
             return View();
         }
         public ActionResult Imagen_usuario(int id)
@@ -327,13 +385,21 @@ namespace Proyecto.Controllers
 
         public ActionResult Tablapuntousuario()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
+            {
+                return Redirect("~/VBackend/estadisticas");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View(pun.CargarTablausuario(ViewBag.usuario.id));
-
             }
-            return View();
+            return View(pun.CargarTablausuario(ViewBag.usuario.id));
         }
 
 
@@ -342,5 +408,21 @@ namespace Proyecto.Controllers
             
             return Redirect("~/ usuariofron / editar_datos");
         }
+
+  
+
+        public ActionResult cerrar_sesion()
+        {
+            Session.Remove("usuario");
+            return Redirect("~/todo_pro/IndexFinal");
+
+
+        }
+
+        public ActionResult Incidencias()
+        {
+            return View();
+        }
+
     }
 }

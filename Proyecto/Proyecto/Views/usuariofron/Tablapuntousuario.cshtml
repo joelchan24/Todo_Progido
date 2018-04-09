@@ -92,7 +92,7 @@
                         @if (ViewBag.usuario != null)
                         {
                             <div class="photo">
-                                <img src=@Url.Action("Imagen_usuario", "usuariofron" ,new {id=@ViewBag.usuario.id }) width="100%" height="100%" />
+                                <img src=@ViewBag.usuario.foto width="100%" height="100%" />
                             </div>
                             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                                 <span>
@@ -125,7 +125,7 @@
                     <li >
                         <a href="~/usuariofron/CrearPuntos">
                             <i class="pe-7s-map-2 "></i>
-                            <p>Agregar Puntos </p>
+                            <p>Agregar Incidencias</p>
                         </a>
                     </li>
 
@@ -151,38 +151,23 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Ver información</a>
+                        <a class="navbar-brand" href="#">Mis Incidencias</a>
                     </div>
-                    <div class="collapse navbar-collapse">
+                    @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
+                    {
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <button type="submit" class="btn btn-link btn-simple text-danger">
+                                        <i class="pe-7s-power"></i>
+                                        Cerrar Sesión
+                                    </button>
 
-                        
-
-                        <ul class="nav navbar-nav navbar-right">
-                           
-
-
-                           
-
-                            <li class="dropdown dropdown-with-icons">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i>
-                                    <p class="hidden-md hidden-lg">
-                                        More
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-with-icons">
-                                    <li>
-                                        <a href="/todo_pro/cerrar" class="text-danger">
-                                            <i class="pe-7s-close-circle"></i>
-                                            Cerrar Sesión
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                        </ul>
-                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                   
                 </div>
             </nav>
 
@@ -229,7 +214,7 @@
                                                         <td style="width:80px;">
                                                             <center>
                                                                 <div class="img-container">
-                                                                    <img src=@Url.Action("ImagenPuntosTabla", "VBackend", new {CodigoP = @row["ID"]}) style="width:120px; height:120px; border-radius:25px;" />
+                                                                    <img src=@row["imagen"] style="width:120px; height:120px; border-radius:25px;" />
                                                                 </div>
                                                             </center>
                                                         </td>
@@ -272,47 +257,7 @@
         </div>
     </div>
 
-    <div class="fixed-plugin">
-        <div class="dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title">Configuracion</li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Minizar barra</p>
-                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Filtros</p>
-                        <div class="pull-right">
-                            <span class="badge filter" data-color="black"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-
-
-
-
-
-            </ul>
-        </div>
-    </div>
+    
     <script>
          
         window.onload = function cambiarest(est) {

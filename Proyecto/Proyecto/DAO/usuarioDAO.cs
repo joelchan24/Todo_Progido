@@ -21,7 +21,7 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@id_tipo", SqlDbType.Int).Value = usuario.id_tipo;
             cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = usuario.correo;
             cmd.Parameters.Add("@apellido", SqlDbType.VarChar).Value = usuario.apellido;
-            cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.foto;
+            cmd.Parameters.Add("@foto", SqlDbType.VarChar).Value = usuario.foto;
 
             cmd.Parameters.Add("@sexo", SqlDbType.VarChar).Value = usuario.sexo;
             cmd.CommandType = CommandType.Text;
@@ -81,7 +81,7 @@ namespace Proyecto.DAO
     
             cmd.Parameters.Add("@correo", SqlDbType.VarChar).Value = usuario.correo;
             cmd.Parameters.Add("@apellido", SqlDbType.VarChar).Value = usuario.apellido;
-            cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.foto;
+            cmd.Parameters.Add("@foto", SqlDbType.VarChar).Value = usuario.foto;
             cmd.Parameters.Add("@sexo", SqlDbType.VarChar).Value = usuario.sexo;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);

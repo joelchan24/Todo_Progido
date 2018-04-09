@@ -3,20 +3,6 @@
     ViewBag.Title = "estadisticas";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
-
-@section Sideusu{
-    <div class="collapse" id="collapseExample">
-        <ul class="nav">
-            <li class="active">
-                <a href="~/VBackend/PerfilAdmin">
-                    <span class="sidebar-mini">EP</span>
-                    <span class="sidebar-normal">Editar Perfil</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-}
-
 @section SideBar{
     <li class="active">
         <a href="~/VBackend/estadisticas">
@@ -45,13 +31,13 @@
                 <li>
                     <a href="~/VBackend/ListaDePuntosM">
                         <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                        <span class="sidebar-normal">Aprovar Puntos</span>
+                        <span class="sidebar-normal">Aprobar Puntos</span>
                     </a>
                 </li>
                 <li>
                     <a href="~/VBackend/PuntosAprovados">
                         <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                        <span class="sidebar-normal">Puntos Aprovados</span>
+                        <span class="sidebar-normal">Puntos Aprobados</span>
                     </a>
                 </li>
                 <li>
@@ -60,13 +46,6 @@
                         <span class="sidebar-normal">Puntos desaprobados</span>
                     </a>
                 </li>
-                @*<li>
-                    <a href="~/VBackend/tiposdepeligro">
-                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
-                        <span class="sidebar-normal">Tipos De delitos</span>
-                    </a>
-                </li>*@
-
             </ul>
         </div>
     </li>
@@ -87,46 +66,9 @@
                         <span class="sidebar-normal">Index</span>
                     </a>
                 </li>
-              
-
-                @*<li>
-                    <a href="~/VBackend/Backud">
-                        <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
-                        <span class="sidebar-normal">Backup</span>
-                    </a>
-                </li>*@
-
             </ul>
         </div>
     </li>
-    @*<li>
-        <a data-toggle="collapse" href="#tablesExamples2">
-            <i class="pe-7s-mail"></i>
-            <p>
-                Mensajeria
-                <b class="caret"></b>
-            </p>
-        </a>
-        <div class="collapse" id="tablesExamples2">
-            <ul class="nav">
-
-                <li>
-                    <a href="~/VBackend/mensajes">
-                        <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                        <span class="sidebar-normal">Mensajes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/VBackend/buzon_de_sugerencias">
-                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                        <span class="sidebar-normal">Buzón de Sugerencias</span>
-                    </a>
-                </li>
-
-
-            </ul>
-        </div>
-    </li>*@
     <li>
         <a data-toggle="collapse" href="#tablesExamples3">
             <i class="pe-7s-graph2"></i>
@@ -141,7 +83,7 @@
                 <li>
                     <a href="~/VBackend/Reporte_peligros">
                         <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                        <span class="sidebar-normal">Reporte de peligros </span>
+                        <span class="sidebar-normal">Reporte de incidencias</span>
                     </a>
                 </li>
                 <li>
@@ -160,7 +102,9 @@
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-           
+            <div class="header">
+                <h4 class="title">Graficas de los puntos aprobados y no aprobados</h4>
+            </div>
             <div id="donutchart"
                  style="width:500px;height:455px;"></div>
         </div>
@@ -168,7 +112,9 @@
 
     <div class="col-md-6">
         <div class="card">
-         
+            <div class="header">
+                <h4 class="title">Grafica de delitos más Demandados</h4>
+            </div>
             <div id="piechart"
                  style="width:500px;height:455px;"></div>
         </div>
@@ -200,7 +146,7 @@
         var data = google.visualization.arrayToDataTable(markers);
 
         var options = {
-          title: 'Grafica de delitos más Demandados'
+          title: ''
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -295,8 +241,8 @@
             var array1 = [['Task', 'Hours per Day'], ]
 
 
-            array1.push(['No Aprovados', data1[0]["aprovados"]])
-            array1.push(['Aprovados', data1[0]["no_aprovados"]])
+            array1.push(['No Aprobados', data1[0]["aprobados"]])
+            array1.push(['Aprobados', data1[0]["no_aprobados"]])
 
             markers1 = array1;
 
@@ -308,7 +254,7 @@
         var data = google.visualization.arrayToDataTable(markers1);
 
         var options = {
-            title: 'Graficas de los puntos aprovados y no aprovados',
+            title: '',
             pieHole: 0.4,
             chartArea: { left: '100' },
             pieSliceText: 'label',

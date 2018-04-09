@@ -19,7 +19,7 @@ namespace Proyecto.DAO
         {
           punto_peligrosoBO usuario = (punto_peligrosoBO)agregar;
             usuario.status = 1;
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[comentadmin],[ruta]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@comentadmin,@ruta )");
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Puntos-peligrosos]([id_peligro],[Longitud] ,[Latitud],[Zona],[id_usuario],[Estatus],[fecha] ,[imagen],[comentario],[comentadmin]) VALUES(@id_peligro,@longitud,@latitud,@zona,@id_usuario,@estatus,@fecha,@imagen,@comentario,@comentadmin )");
             cmd.Parameters.Add("@id_peligro", SqlDbType.Int).Value = usuario.id_peligro;
             cmd.Parameters.Add("@longitud", SqlDbType.VarChar).Value = usuario.longitud;
             cmd.Parameters.Add("@latitud", SqlDbType.VarChar).Value = usuario.latitud;
@@ -27,8 +27,7 @@ namespace Proyecto.DAO
             cmd.Parameters.Add("@id_usuario", SqlDbType.Int).Value = id_usuario;
             cmd.Parameters.Add("@estatus", SqlDbType.Bit).Value = usuario.status;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = DateTime.Today;
-            cmd.Parameters.Add("@imagen", SqlDbType.VarBinary).Value = usuario.imagen;
-            cmd.Parameters.Add("@ruta", SqlDbType.VarChar).Value = usuario.ruta;
+            cmd.Parameters.Add("@imagen", SqlDbType.VarChar).Value = usuario.imagen;
             cmd.Parameters.Add("@comentario", SqlDbType.VarChar).Value = usuario.comentario;
             cmd.Parameters.Add("@comentadmin", SqlDbType.VarChar).Value = "Enviado para verificación";
             cmd.CommandType = CommandType.Text;
@@ -104,7 +103,7 @@ namespace Proyecto.DAO
         public DataSet mostrar_pie_char()
         {
 
-            SqlCommand comando = new SqlCommand("   select n.Peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro   ");
+            SqlCommand comando = new SqlCommand("   select n.Peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro and p.Estatus=0 GROUP BY n.Peligro   ");
 
             comando.CommandType = CommandType.Text;
             return conectar.EjecutarSentencia(comando);
@@ -135,20 +134,10 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar().Tables[0];
             List<Punto> Lista = new List<Punto>();
-            byte[] imagen;
-          
-
             foreach (DataRow dr in tabla.Rows)
-            {
-                
-               
-                imagen = (byte[])dr[8];
-                
-               
-
-               
+            {    
                 Punto P = new Punto();
-                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='data:image/jpg;base64,"+ Convert.ToBase64String(imagen)+"' "+"style = width=200px height=200px />";
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
                 ;
               
                 P.id = dr[1].ToString();
@@ -171,7 +160,7 @@ namespace Proyecto.DAO
             {
 
 
-                imagen = (byte[])dr[8];
+       
 
 
 
@@ -216,7 +205,7 @@ namespace Proyecto.DAO
             {
                 imagen = (byte[])dr[8];
                 Punto P = new Punto();
-                P.punton = "<h5 style='center'>" + dr[12] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='data:image/jpg;base64," + Convert.ToBase64String(imagen) + "' " + "style =" + " width=100% height=300px />";
+                P.punton = "<h5 style='center'>" + dr[12] + "</h5>" + "<p>" + dr[10] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[8]+ "' " + "style =" + " width=100% height=300px />";
                 P.id = dr[1].ToString();
                 P.x = double.Parse(dr[3].ToString());
                 P.y = double.Parse(dr[2].ToString());
@@ -228,7 +217,7 @@ namespace Proyecto.DAO
         {
             DataTable tabla = mostrar_char_ba().Tables[0];
             List<puntos_barras> Lista = new List<puntos_barras>();
-            string [] array = { "no aprovados", "aprovados" };
+            string [] array = { "no aprobados", "aprobados" };
             //byte[] imagen;
             //Convert.ToBase64String(imagen)
             foreach (DataRow dr in tabla.Rows)
@@ -237,8 +226,8 @@ namespace Proyecto.DAO
                 puntos_barras P = new puntos_barras();
         
 
-                P.aprovados = int.Parse(dr[1].ToString());
-                P.no_aprovados = int.Parse(dr[0].ToString());
+                P.aprobados = int.Parse(dr[1].ToString());
+                P.no_aprobados = int.Parse(dr[0].ToString());
                 Lista.Add(P);
             }
             return Lista;
@@ -334,19 +323,19 @@ namespace Proyecto.DAO
 
         public DataTable CargarTablaPuntos()
         {
-            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=1");
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, [Puntos-peligrosos].imagen,Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=1");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 
         public DataTable CargarTablaPuntosaprovados()
         {
-            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=0");
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona,  [Puntos-peligrosos].imagen,Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=0");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 
         public DataTable CargarTablaPuntosDesaprovados()
         {
-            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=2");
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, [Puntos-peligrosos].imagen, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=2");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 
@@ -363,7 +352,7 @@ namespace Proyecto.DAO
             String strBuscar = string.Format("SELECT * FROM  [Puntos-peligrosos] where ID='"+id+"'");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
-            imagenp.imagen = (byte[])row["imagen"];
+            imagenp.imagen = row["imagen"].ToString();
 
             return imagenp;
         }
@@ -374,7 +363,7 @@ namespace Proyecto.DAO
             String strBuscar = string.Format("select foto from usuario where id =1006");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
-            imagenp.foto = (byte[])row["foto"];
+            //imagenp.foto = (byte[])row["foto"];
 
             return imagenp;
         }
@@ -385,14 +374,14 @@ namespace Proyecto.DAO
             String strBuscar = string.Format("select foto from usuario where id ='" + id + "'");
             DataTable datos = conex.ejercutarsentrenciasdatable(strBuscar);
             DataRow row = datos.Rows[0];
-            imagenp.foto = (byte[])row["foto"];
+            //imagenp.foto = (byte[])row["foto"];
 
             return imagenp;
         }
 
         public DataTable CargarTablausuario(int id)
         {
-            String strBuscar = string.Format("select [Niveles-peligro].Peligro,[Puntos-peligrosos].ID, [Puntos-peligrosos].Zona,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario,[Puntos-peligrosos].Estatus, [Puntos-peligrosos].comentadmin from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and Usuario.Id = '" + id + "'");
+            String strBuscar = string.Format("select [Puntos-peligrosos].imagen,[Niveles-peligro].Peligro,[Puntos-peligrosos].ID, [Puntos-peligrosos].Zona,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario,[Puntos-peligrosos].Estatus, [Puntos-peligrosos].comentadmin from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and Usuario.Id = '" + id + "'");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 
@@ -407,5 +396,234 @@ namespace Proyecto.DAO
             byte[] img = (byte[])row["imagen"];
             return img;
         }
+
+        public DataSet mostrarotros()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 11");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatosotros()
+        {
+            DataTable tabla = mostrarotros().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+
+        public DataSet baches()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 4");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos4()
+        {
+            DataTable tabla = baches().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+        public DataSet animal()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 5");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos5()
+        {
+            DataTable tabla = animal().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+        public DataSet lotes()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 6");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos6()
+        {
+            DataTable tabla = lotes().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+
+        public DataSet VANDALISMO()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 7");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos7()
+        {
+            DataTable tabla = VANDALISMO().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+
+        public DataSet ROBO()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 8");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos8()
+        {
+            DataTable tabla = ROBO().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+
+
+        public DataSet quema()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 9");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos9()
+        {
+            DataTable tabla = quema().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+
+        public DataSet auto()
+        {
+
+            SqlCommand comando = new SqlCommand("select * from[Puntos-peligrosos] p inner join[Niveles-peligro] n on p.id_peligro = n.id where p.Estatus = 0 and p.id_peligro = 10");
+
+            comando.CommandType = CommandType.Text;
+            return conectar.EjecutarSentencia(comando);
+
+        }
+
+        public List<Punto> mandaedatos10()
+        {
+            DataTable tabla = auto().Tables[0];
+            List<Punto> Listas = new List<Punto>();
+            foreach (DataRow dr in tabla.Rows)
+            {
+                Punto P = new Punto();
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                ;
+
+                P.id = dr[1].ToString();
+                P.x = double.Parse(dr[3].ToString());
+                P.y = double.Parse(dr[2].ToString());
+                Listas.Add(P);
+            }
+            return Listas;
+        }
+
+
+
+
+
+
     }
 }

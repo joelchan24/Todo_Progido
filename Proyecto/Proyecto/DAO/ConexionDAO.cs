@@ -21,10 +21,10 @@ namespace Proyecto.DAO
 
         public SqlConnection establecerConexion()
         {
-            string cs = "Data Source=KAREN\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
+            //string cs = "Data Source=KAREN\\SQLEXPRESS; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=DESKTOP-TT12AGM; Initial catalog=ProyectoSOS;  integrated security=true";
             //string cs = "Data Source=adan--pc; Initial catalog=ProyectoSOS;  integrated security=true";
-            //string cs = "Data Source = SQL7004.site4now.net; Initial Catalog = DB_A36E57_proyectoprotegidos; User Id = DB_A36E57_proyectoprotegidos_admin; Password = proyecto123;";
+            string cs = "Data Source = SQL7004.site4now.net; Initial Catalog = DB_A36E57_proyectoprotegidos; User Id = DB_A36E57_proyectoprotegidos_admin; Password = proyecto123;";
             //string cs = "Data Source=SQL7004.site4now.net;Initial Catalog=DB_A3402C_Todoprotegidosos2;User Id=DB_A3402C_Todoprotegidosos2_admin;Password=onichan12345;";
             //string cs = "Data Source=SQL5037.site4now.net;Initial Catalog=DB_A32939_ProyectoSOS;User Id=DB_A32939_ProyectoSOS_admin;Password=onichan12345;";
             coneccion = new SqlConnection(cs);

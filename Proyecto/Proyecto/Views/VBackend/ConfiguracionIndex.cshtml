@@ -4,20 +4,6 @@
     ViewBag.Title = "ConfiguracionIndex";
     Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
 }
-
-@section Sideusu{
-    <div class="collapse" id="collapseExample">
-        <ul class="nav">
-            <li class="active">
-                <a href="~/VBackend/PerfilAdmin">
-                    <span class="sidebar-mini">EP</span>
-                    <span class="sidebar-normal">Editar Perfil</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-}
-
 @section SideBar{
     <li>
         <a href="~/VBackend/estadisticas">
@@ -61,13 +47,6 @@
                         <span class="sidebar-normal">Puntos desaprobados</span>
                     </a>
                 </li>
-                @*<li>
-                    <a href="~/VBackend/tiposdepeligro">
-                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
-                        <span class="sidebar-normal">Tipos De delitos</span>
-                    </a>
-                </li>*@
-
             </ul>
         </div>
     </li>
@@ -88,46 +67,9 @@
                         <span class="sidebar-normal">Index</span>
                     </a>
                 </li>
-              
-
-                @*<li>
-                    <a href="~/VBackend/Backud">
-                        <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
-                        <span class="sidebar-normal">Backup</span>
-                    </a>
-                </li>*@
-
             </ul>
         </div>
     </li>
-    @*<li>
-            <a data-toggle="collapse" href="#tablesExamples2">
-                <i class="pe-7s-mail"></i>
-                <p>
-                    Mensajeria
-                    <b class="caret"></b>
-                </p>
-            </a>
-            <div class="collapse" id="tablesExamples2">
-                <ul class="nav">
-
-                    <li>
-                        <a href="~/VBackend/mensajes">
-                            <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                            <span class="sidebar-normal">Mensajes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="~/VBackend/buzon_de_sugerencias">
-                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                            <span class="sidebar-normal">Buzón de Sugerencias</span>
-                        </a>
-                    </li>
-
-
-                </ul>
-            </div>
-        </li>*@
     <li>
         <a data-toggle="collapse" href="#tablesExamples3">
             <i class="pe-7s-graph2"></i>
@@ -142,7 +84,7 @@
                 <li>
                     <a href="~/VBackend/Reporte_peligros">
                         <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                        <span class="sidebar-normal">Reporte de peligros </span>
+                        <span class="sidebar-normal">Reporte de incidencias</span>
                     </a>
                 </li>
                 <li>
@@ -211,13 +153,12 @@
                         <div class="form-group">
                             <div class="img-container">
                                 <center>
-
-                                    <img style="width:270px;height:230px;border-radius: 25px;" id="img_destinodos" src="@Url.Action("obtenerbanner", "VBackend")">
+                                    <img style="width:270px;height:230px;border-radius: 25px;" id="img_izque" src="@Url.Action("obtenerizque", "VBackend")">
                                 </center>
                             </div>
                             <br />
                             <div class="col-md-offset-2 col-md-10">
-                                @Html.TextBoxFor(model => model.imagenbanner, htmlAttributes: new { @type = "file", @name = "imagenbanner2", @style = "width:200px;" })
+                                @Html.TextBoxFor(model => model.imagenizquierda, htmlAttributes: new { @type = "file", @name = "imagenizquierda", @style = "width:200px;" })
                             </div>
                         </div>
                     </div>
@@ -231,6 +172,7 @@
 
             </div>
         </div>
+
     }
 
     @using (Html.BeginForm("Guardarimagenbanner3", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -247,13 +189,12 @@
                         <div class="form-group">
                             <div class="img-container">
                                 <center>
-
-                                    <img style="width:270px;height:230px;border-radius: 25px;" id="img_destinotres" src="@Url.Action("obtenerbanner", "VBackend")">
+                                    <img style="width:270px;height:230px;border-radius: 25px;" id="img_dere" src="@Url.Action("obtenerdere", "VBackend")">
                                 </center>
                             </div>
                             <br />
                             <div class="col-md-offset-2 col-md-10">
-                                @Html.TextBoxFor(model => model.imagenbanner, htmlAttributes: new { @type = "file", @name = "imagenbanner3", @style = "width:200px;" })
+                                @Html.TextBoxFor(model => model.imagenderecha, htmlAttributes: new { @type = "file", @name = "imagenderecha", @style = "width:200px;" })
                             </div>
                         </div>
                     </div>
@@ -310,24 +251,29 @@
 </div>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
 @using (Html.BeginForm("Guardarizquierda", "VBackend", FormMethod.Post))
 {
         <div class="card">
             <div class="header">
-                <h4 class="title">Presentación Izquierda</h4>
+                <h4 class="title">Enlaces</h4>
             </div>
             <div class="content">
                 <div class="ct-chart">
                     <form>
                         <div class="form-group">
-                            <label>Titulo</label>
+                            <label>Aplicación móvil</label>
                           @Html.TextBoxFor(x => x.tituloizquierda, new { @class = "form-control", @type = "text" })
                         </div>
                         <div class="form-group">
-                            <label>Texto</label>
-                            @Html.TextAreaFor(x => x.textoizquierda, new { @class = "form-control", @style = "resize:none", @rows = "7", @cols = "50" })
+                            <label>Manual técnico</label>
+                            @Html.TextBoxFor(x => x.textoizquierda, new { @class = "form-control", @type = "text" })
                         </div>
+                        <div class="form-group">
+                            <label>Manual de usuario</label>
+                            @Html.TextBoxFor(x => x.tituloderecha, new { @class = "form-control", @type = "text" })
+                        </div>
+                      
 
                     </form>
                 </div>
@@ -343,110 +289,12 @@
     </div>
 @using (Html.BeginForm("imagenizquierdasave", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    <div class="col-md-4">
-        <div class="card">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="header">
-                <h4 class="title">Imagen Izquierda</h4>
-            </div>
-            <div class="content">
-                <div class="ct-chart">
-                    <div class="form-group">
-                        <div class="img-container">
-                            <center>
-                                <img style="width:270px;height:230px;border-radius: 25px;" id="img_izque" src="@Url.Action("obtenerizque", "VBackend")">
-                            </center>
-                        </div>
-                        <br />
-                        <div class="col-md-offset-2 col-md-10">
-                            @Html.TextBoxFor(model => model.imagenizquierda, htmlAttributes: new { @type = "file", @name = "imagenizquierda", @style = "width:200px;" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <hr>
-                <div class="stats">
-                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+  
 }
 
   
 </div>
 
-<div class="row">
-@using (Html.BeginForm("imagenderechasave", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    <div class="col-md-4">
-        <div class="card">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="header">
-                <h4 class="title">Imagen Derecha</h4>
-            </div>
-            <div class="content">
-                <div class="ct-chart">
-                    <div class="form-group">
-                        <div class="img-container">
-                            <center>
-                                <img style="width:270px;height:230px;border-radius: 25px;" id="img_dere" src="@Url.Action("obtenerdere", "VBackend")">
-                            </center>
-                        </div>
-                        <br />
-                        <div class="col-md-offset-2 col-md-10">
-                            @Html.TextBoxFor(model => model.imagenderecha, htmlAttributes: new { @type = "file", @name = "imagenderecha", @style = "width:200px;" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <hr>
-                <div class="stats">
-                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-}
-
-    <div class="col-md-8">
-@using (Html.BeginForm("Guardarderecha", "VBackend", FormMethod.Post))
-{
-        <div class="card">
-            <div class="header">
-                <h4 class="title">Presentación Derecha</h4>
-            </div>
-            <div class="content">
-                <div class="ct-chart">
-                    <form>
-                        <div class="form-group">
-                            <label>Titulo</label>
-                            @Html.TextBoxFor(x => x.tituloderecha, new { @class = "form-control", @type = "text" })
-                        </div>
-                        <div class="form-group">
-                            <label>Texto</label>
-                            @Html.TextAreaFor(x => x.textoderecha, new { @class = "form-control", @style = "resize:none", @rows = "7", @cols = "50" })
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-            <div class="footer">
-                <hr>
-                <div class="stats">
-                    <button class="btn btn-primary btn-fill btn-wd">Guardar cambio</button>
-                </div>
-            </div>
-        </div>
-}
-    </div>
-</div>
 <div class="row">
     <div class="col-md-4">
 @using (Html.BeginForm("in1", "VBackend", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -478,26 +326,7 @@
                                     <label>Rol del integrante</label>
                                     @Html.TextBoxFor(x => x.rol1, new { @class = "form-control", @type = "text" })
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <i class="fa fa-twitter"></i>
-                                            @Html.TextBoxFor(x => x.r1, new { @class = "form-control", @type = "text" })
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <i class="fa fa-facebook-square"></i>
-                                            @Html.TextBoxFor(x => x.re1, new { @class = "form-control", @type = "text" })
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <i class="fa fa-instagram"></i>
-                                            @Html.TextBoxFor(x => x.red1, new { @class = "form-control", @type = "text" })
-                                        </div>
-                                    </div>
-                                </div>
+                              
                                
                             </div>
                     </div>
@@ -541,26 +370,7 @@
                                 <label>Rol del integrante</label>
                                 @Html.TextBoxFor(x => x.rol2, new { @class = "form-control", @type = "text" })
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <i class="fa fa-twitter"></i>
-                                        @Html.TextBoxFor(x => x.r2, new { @class = "form-control", @type = "text" })
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <i class="fa fa-facebook-square"></i>
-                                        @Html.TextBoxFor(x => x.re2, new { @class = "form-control", @type = "text" })
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <i class="fa fa-instagram"></i>
-                                        @Html.TextBoxFor(x => x.red2, new { @class = "form-control", @type = "text" })
-                                    </div>
-                                </div>
-                            </div>
+                      
 
                         </div>
                     </div>
@@ -604,26 +414,7 @@
                                 <label>Rol del integrante</label>
                                 @Html.TextBoxFor(x => x.rol3, new { @class = "form-control", @type = "text" })
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <i class="fa fa-twitter"></i>
-                                        @Html.TextBoxFor(x => x.r3, new { @class = "form-control", @type = "text" })
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <i class="fa fa-facebook-square"></i>
-                                        @Html.TextBoxFor(x => x.re3, new { @class = "form-control", @type = "text" })
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <i class="fa fa-instagram"></i>
-                                        @Html.TextBoxFor(x => x.red3, new { @class = "form-control", @type = "text" })
-                                    </div>
-                                </div>
-                            </div>
+                          
 
                         </div>
                     </div>

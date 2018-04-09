@@ -24,7 +24,7 @@ namespace Proyecto.BO
         [Required(ErrorMessage = "Campo Requerido")]
         public string correo { get; set; }
 
-        public byte[] foto { get; set; }
+        public string foto { get; set; }
 
 
         //Seccion de contactos

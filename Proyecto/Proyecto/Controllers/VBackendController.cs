@@ -65,12 +65,19 @@ namespace Proyecto.Controllers
 
         public ActionResult Mapa_admin()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-
             }
-            ViewBag.da = 1;
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
+            }
             return View();
         }
         public ActionResult listadeusuarios()
@@ -83,22 +90,32 @@ namespace Proyecto.Controllers
         }
         public ActionResult reporte_usuarios()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-
+                usuarios dataset_usuarios = new usuarios();
+                ReportViewer reporte = new ReportViewer();
+                reporte.ProcessingMode = ProcessingMode.Local;
+                reporte.SizeToReportContent = true;
+                string consulta = " select * from usuario";
+                ConexionDAO cone = new ConexionDAO();
+                SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
+                adaptador.Fill(dataset_usuarios, "datos");
+                reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/usuarios1.rdlc";
+                reporte.LocalReport.DataSources.Add(new ReportDataSource("usuarios", dataset_usuarios.Tables[0]));
+                ViewBag.repo = reporte;
             }
-            usuarios dataset_usuarios = new usuarios();
-            ReportViewer reporte = new ReportViewer();
-            reporte.ProcessingMode = ProcessingMode.Local;
-            reporte.SizeToReportContent = true;
-            string consulta = " select * from usuario";
-            ConexionDAO cone = new ConexionDAO();
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
-            adaptador.Fill(dataset_usuarios, "datos");
-            reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/usuarios1.rdlc";
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("usuarios", dataset_usuarios.Tables[0]));
-            ViewBag.repo = reporte;
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
+            }
+
+           
 
             return View();
         }
@@ -130,23 +147,33 @@ namespace Proyecto.Controllers
         //    return View();
         public ActionResult Reporte_peligros()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
+                ReportViewer reporte = new ReportViewer();
+                reporte.ProcessingMode = ProcessingMode.Local;
+                //reporte.Width = Unit.Percentage(1200);
+                //reporte.Height = Unit.Percentage(900);
+                reporte.SizeToReportContent = true;
+                string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
+                ConexionDAO cone = new ConexionDAO();
+                SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
+                adaptador.Fill(daset_reportes, "peligros1");
+                reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/peligros.rdlc";
+                reporte.LocalReport.DataSources.Add(new ReportDataSource("peligros", daset_reportes.Tables[0]));
+                ViewBag.repo = reporte;
 
             }
-            ReportViewer reporte = new ReportViewer();
-            reporte.ProcessingMode = ProcessingMode.Local;
-            //reporte.Width = Unit.Percentage(1200);
-            //reporte.Height = Unit.Percentage(900);
-            reporte.SizeToReportContent = true;
-            string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
-            ConexionDAO cone = new ConexionDAO();
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
-            adaptador.Fill(daset_reportes, "peligros1");
-            reporte.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reportes/peligros.rdlc";
-            reporte.LocalReport.DataSources.Add(new ReportDataSource("peligros", daset_reportes.Tables[0]));
-            ViewBag.repo = reporte;
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
+            }
+           
             return View();
         }
         public ActionResult guardar_peligro(PeligroBO peli)
@@ -171,10 +198,18 @@ namespace Proyecto.Controllers
 
         public ActionResult estadisticas()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View();
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
             }
             return View();
         }
@@ -326,30 +361,56 @@ namespace Proyecto.Controllers
 
         public ActionResult ListaDePuntosM()
         {
-            if (Session["usuario"] != null)
+          
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
                 return View(objpunto.CargarTablaPuntos());
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
             }
             return View(objpunto.CargarTablaPuntos());
         }
 
         public ActionResult PuntosAprovados()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-                return View(objpunto.CargarTablaPuntosaprovados());
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
             }
             return View(objpunto.CargarTablaPuntosaprovados());
         }
 
         public ActionResult ConfiguracionIndex()
         {
-            if (Session["usuario"] != null)
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
             {
                 ViewBag.usuario = (usuarioBO)Session["usuario"];
-
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
             }
             return View(Obj_indexdao.Obtenerindex());
         }
@@ -408,15 +469,15 @@ namespace Proyecto.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Guardarimagenbanner3(HttpPostedFileBase imagenbanner)
+        public ActionResult Guardarimagenbanner3(HttpPostedFileBase imagenderecha)
         {
             usuarioBO cliente = new usuarioBO();
-            if (imagenbanner != null && imagenbanner.ContentLength > 0)
+            if (imagenderecha != null && imagenderecha.ContentLength > 0)
             {
                 byte[] imageData = null;
-                using (var binaryReader = new BinaryReader(imagenbanner.InputStream))
+                using (var binaryReader = new BinaryReader(imagenderecha.InputStream))
                 {
-                    imageData = binaryReader.ReadBytes(imagenbanner.ContentLength);
+                    imageData = binaryReader.ReadBytes(imagenderecha.ContentLength);
                 }
                 //setear la imagen a la entidad que se creara
                 cliente.imagenbanner = imageData;
@@ -621,6 +682,19 @@ namespace Proyecto.Controllers
 
         public ActionResult PuntosD()
         {
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return Redirect("~/todo_pro/IndexFinal");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
+            {
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
+            }
             return View(objpunto.CargarTablaPuntosDesaprovados());
         }
         public ActionResult Editar_puntos()

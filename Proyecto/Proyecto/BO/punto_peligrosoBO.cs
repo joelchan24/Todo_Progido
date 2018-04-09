@@ -19,7 +19,7 @@ namespace Proyecto.BO
 
         public byte status { get; set; }
         public DateTime fecha { get; set; }
-        public byte[] imagen { get; set; }
+        public string imagen { get; set; }
 
 
         public string url { get; set; }

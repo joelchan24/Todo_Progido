@@ -85,7 +85,7 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("UPDATE indext set img2=@foto where id=1");
+            SqlCommand cmd = new SqlCommand("UPDATE indext set imagenizquierda=@foto where id=1");
             cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.imagenbanner;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
@@ -95,7 +95,7 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("UPDATE indext set img3=@foto where id=1");
+            SqlCommand cmd = new SqlCommand("UPDATE indext set imagenderecha=@foto where id=1");
             cmd.Parameters.Add("@foto", SqlDbType.VarBinary).Value = usuario.imagenbanner;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
@@ -116,9 +116,10 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("UPDATE indext set  tituloizquierda=@titulo,textoizquierda=@texto  where id=1");
+            SqlCommand cmd = new SqlCommand("UPDATE indext set  tituloizquierda=@titulo,textoizquierda=@texto,tituloderecha=@p2   where id=1");
             cmd.Parameters.Add("@titulo", SqlDbType.VarChar).Value = usuario.tituloizquierda;
             cmd.Parameters.Add("@texto", SqlDbType.Text).Value = usuario.textoizquierda;
+            cmd.Parameters.Add("@p2", SqlDbType.Text).Value = usuario.tituloderecha;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
         }
@@ -137,12 +138,9 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("UPDATE indext set n1=@n1, r1=@r1,re1=@re, red1=@red, redd1=@redd,f1=@fotoi  where id=1");
+            SqlCommand cmd = new SqlCommand("UPDATE indext set n1=@n1, r1=@r1,f1=@fotoi  where id=1");
             cmd.Parameters.Add("@n1", SqlDbType.Text).Value = usuario.nom1;
             cmd.Parameters.Add("@r1", SqlDbType.Text).Value = usuario.rol1;
-            cmd.Parameters.Add("@re", SqlDbType.Text).Value = usuario.r1;
-            cmd.Parameters.Add("@red", SqlDbType.Text).Value = usuario.re1;
-            cmd.Parameters.Add("@redd", SqlDbType.Text).Value = usuario.red1;
             cmd.Parameters.Add("@fotoi", SqlDbType.VarBinary).Value = usuario.foto1;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
@@ -151,12 +149,9 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("UPDATE indext set n3=@n1, r3=@r1,re3=@re, red3=@red, redd3=@redd,f3=@fotoi  where id=1");
+            SqlCommand cmd = new SqlCommand("UPDATE indext set n3=@n1, r3=@r1,f3=@fotoi  where id=1");
             cmd.Parameters.Add("@n1", SqlDbType.Text).Value = usuario.nom3;
             cmd.Parameters.Add("@r1", SqlDbType.Text).Value = usuario.rol3;
-            cmd.Parameters.Add("@re", SqlDbType.Text).Value = usuario.r3;
-            cmd.Parameters.Add("@red", SqlDbType.Text).Value = usuario.re3;
-            cmd.Parameters.Add("@redd", SqlDbType.Text).Value = usuario.red3;
             cmd.Parameters.Add("@fotoi", SqlDbType.VarBinary).Value = usuario.foto3;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);
@@ -165,12 +160,9 @@ namespace Proyecto.DAO
         {
             usuarioBO usuario = (usuarioBO)agregar;
             Conexion_DAOcomant conectar = new Conexion_DAOcomant();
-            SqlCommand cmd = new SqlCommand("UPDATE indext set n2=@n2, r2=@r1,re2=@re, red2=@red, redd2=@redd, f2=@fotoi where id=1");
+            SqlCommand cmd = new SqlCommand("UPDATE indext set n2=@n2, r2=@r1,f2=@fotoi where id=1");
             cmd.Parameters.Add("@n2", SqlDbType.Text).Value = usuario.nom2;
             cmd.Parameters.Add("@r1", SqlDbType.Text).Value = usuario.rol2;
-            cmd.Parameters.Add("@re", SqlDbType.Text).Value = usuario.r2;
-            cmd.Parameters.Add("@red", SqlDbType.Text).Value = usuario.re2;
-            cmd.Parameters.Add("@redd", SqlDbType.Text).Value = usuario.red2;
             cmd.Parameters.Add("@fotoi", SqlDbType.VarBinary).Value = usuario.foto2;
             cmd.CommandType = CommandType.Text;
             return conectar.EjecutarComando(cmd);

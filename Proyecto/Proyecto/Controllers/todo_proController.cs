@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Proyecto.BO;
 using Proyecto.DAO;
 using System.IO;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 
 namespace Proyecto.Controllers
@@ -21,11 +23,39 @@ namespace Proyecto.Controllers
 
         public ActionResult IndexFinal()
         {
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+
+
+            if (Session["usuario"] == null)
+            {
+                return View(ObjIndex.Obtenerindex());
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
+            {
+                return Redirect("~/VBackend/estadisticas");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
+            }
             return View(ObjIndex.Obtenerindex());
         }
 
         public ActionResult IndexPro()
         {
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
+            if (Session["usuario"] == null)
+            {
+                return View();
+            }
+            if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 2)
+            {
+                return Redirect("~/VBackend/estadisticas");
+            }
+            else if (Session["usuario"] != null & ViewBag.usuario.id_tipo == 1)
+            {
+                return Redirect("~/usuariofron/mis_puntos");
+            }
             return View();
         }
 
@@ -48,14 +78,22 @@ namespace Proyecto.Controllers
         {
             if (foto != null && foto.ContentLength > 0)
             {
-                byte[] imageData = null;
-                using (var binaryReader = new BinaryReader(foto.InputStream))
-                {
-                    imageData = binaryReader.ReadBytes(foto.ContentLength);
-                }
-                cliente.foto = imageData;
+               
+                //cliente.foto = imageData;
                 if (ModelState.IsValid)
                 {
+                    Account account = new Account(
+                   "dyhowxkye",
+                   "739723474219958",
+                   "jQttMABV1zBRO8jkQ3_FAiRhkrE"
+                   );
+                    Cloudinary cloud = new Cloudinary(account);
+                    var upload = new ImageUploadParams()
+                    {
+                        File = new FileDescription("Foto", foto.InputStream)
+                    };
+                    var uploadResult = cloud.Upload(upload);
+                    cliente.foto = uploadResult.SecureUri.ToString();
                     usuario_dao.guardar(cliente);
                     return Redirect("~/todo_pro/IndexFinal");
                 }
@@ -64,7 +102,7 @@ namespace Proyecto.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    cliente.foto = usuario_dao.optenerimagenpel1();
+                    cliente.foto = "https://res.cloudinary.com/dyhowxkye/image/upload/v1521322391/image_placeholder.jpg";
                     usuario_dao.guardar(cliente);
                     return Redirect("~/todo_pro/IndexFinal");
                 }

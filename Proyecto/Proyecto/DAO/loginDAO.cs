@@ -51,7 +51,8 @@ namespace Proyecto.DAO
             usuario.correo = row["correo"].ToString();
             usuario.nombre = row["nombre"].ToString();
             usuario.apellido = row["Apellido"].ToString();
-            //usuario.foto = (byte[])row["foto"];
+            usuario.foto = row["foto"].ToString();
+            usuario.id_tipo = Convert.ToInt32(row["id_tipo"]);
             idtemp = i;
           
             
@@ -76,7 +77,7 @@ namespace Proyecto.DAO
             usuario.correo = row["Correo"].ToString();
 
             usuario.contraseña = (Convert.ToDateTime(row["fecha"])).ToString("yyyy-MM-dd");
-            usuario.foto = (byte[])row["foto"];
+         
 
 
             return usuario;
@@ -97,7 +98,7 @@ namespace Proyecto.DAO
             usuario.sexo = row["sexo"].ToString();
            
             usuario.mensajecontacto1 = (Convert.ToDateTime(row["fecha"])).ToString("yyyy-MM-dd");
-            usuario.foto = (byte[])row["foto"];
+            usuario.foto = row["foto"].ToString();
             usuario.contraseña = row["Contraseña"].ToString();
 
 
@@ -114,7 +115,7 @@ namespace Proyecto.DAO
             DataRow row = dats.Rows[0];
 
       
-            usuario.foto = (byte[])row["foto"];
+
 
 
             return usuario;

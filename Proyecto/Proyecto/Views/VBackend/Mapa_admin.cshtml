@@ -1,211 +1,282 @@
 ﻿
 @{
-    ViewBag.Title = "Mapa_admin";
-    Layout = "~/Views/Shared/IndexBackEndMaster.cshtml";
+    Layout = null;
 }
 
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-@section Sideusu{
-    <div class="collapse" id="collapseExample">
-        <ul class="nav">
-            <li class="active">
-                <a href="~/VBackend/PerfilAdmin">
-                    <span class="sidebar-mini">EP</span>
-                    <span class="sidebar-normal">Editar Perfil</span>
+    <title>Todo Protegido SOS Administracion</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap core CSS     -->
+    <link href="~/Content/assetsBack/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Light Bootstrap Dashboard core CSS    -->
+    <link href="~/Content/assetsBack/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="~/Content/assetsBack/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="~/Content/assetsBack/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    @*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>*@
+    <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
+    <script src="~/Content/assets/js/locationpicker.jquery.js"></script>
+    <style>
+        #legend {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid #000;
+        }
+
+            #legend img {
+                vertical-align: middle;
+            }
+
+        #soy {
+            margin: 10px;
+            background: #fff;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        #map_canvas {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-------inicio barra lateral------->
+    <div class="wrapper">
+        <div class="sidebar" data-color="azure" data-image="../../assets/img/full-screen-image-3.jpg">
+            <!--
+
+                Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                Tip 2: you can also add an image using data-image tag
+
+            -->
+
+            <div class="logo">
+                <a href="#" class="simple-text logo-mini">
+                    TP
                 </a>
-            </li>
-        </ul>
-    </div>
-}
 
+                <a href="#" class="simple-text logo-normal">
+                    Todo Protegido SOS
+                </a>
+            </div>
 
+            <div class="sidebar-wrapper">
 
-@section SideBar{
-    <li>
-        <a href="~/VBackend/estadisticas">
-            <i class="pe-7s-global"></i>
-            <p>Inicio</p>
-        </a>
-    </li>
-    <li class="active">
+                <div class="user">
+                    <div class="info">
+                        @if (ViewBag.usuario != null)
+                        {
+                            <div class="photo">
+                                <img src=@ViewBag.usuario.foto width="100%" height="100%" />
+                            </div>
 
+                            <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                                <span>
+                                    @ViewBag.usuario.nombre
 
-        <a href="~/VBackend/Mapa_admin">
-            <i class="pe-7s-map-2"></i>
-            <p>Mapa</p>
-        </a>
-    </li>
-    <li>
-        <a data-toggle="collapse" href="#tablesExamples">
-            <i class="pe-7s-map-marker"></i>
-            <p>
-                Gestion de Puntos
-                <b class="caret"></b>
-            </p>
-        </a>
-        <div class="collapse" id="tablesExamples">
-            <ul class="nav">
-                <li>
-                    <a href="~/VBackend/ListaDePuntosM">
-                        <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                        <span class="sidebar-normal">Aprobar Puntos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/VBackend/PuntosAprovados">
-                        <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                        <span class="sidebar-normal">Puntos Aprobados</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/VBackend/PuntosD">
-                        <span class="sidebar-mini"><i class="pe-7s-junk"></i></span>
-                        <span class="sidebar-normal">Puntos desaprobados</span>
-                    </a>
-                </li>
-                @*<li>
-                    <a href="~/VBackend/tiposdepeligro">
-                        <span class="sidebar-mini"><i class="pe-7s-map"></i></span>
-                        <span class="sidebar-normal">Tipos De delitos</span>
-                    </a>
-                </li>*@
+                                </span>
+                            </a>
+                        }
+                    </div>
+                </div>
 
-            </ul>
-        </div>
-    </li>
-    <li>
-        <a data-toggle="collapse" href="#tablesExamples1">
-            <i class="pe-7s-config"></i>
-            <p>
-                Configuración
-                <b class="caret"></b>
-            </p>
-        </a>
-        <div class="collapse" id="tablesExamples1">
-            <ul class="nav">
-
-                <li>
-                    <a href="~/VBackend/ConfiguracionIndex">
-                        <span class="sidebar-mini"><i class="pe-7s-home"></i></span>
-                        <span class="sidebar-normal">Index</span>
-                    </a>
-                </li>
-             
-
-                @*<li>
-                    <a href="~/VBackend/Backud">
-                        <span class="sidebar-mini"><i class="pe-7s-server"></i></span>
-                        <span class="sidebar-normal">Backup</span>
-                    </a>
-                </li>*@
-
-            </ul>
-        </div>
-    </li>
-    @*<li>
-            <a data-toggle="collapse" href="#tablesExamples2">
-                <i class="pe-7s-mail"></i>
-                <p>
-                    Mensajeria
-                    <b class="caret"></b>
-                </p>
-            </a>
-            <div class="collapse" id="tablesExamples2">
                 <ul class="nav">
-
                     <li>
-                        <a href="~/VBackend/mensajes">
-                            <span class="sidebar-mini"><i class="pe-7s-mail-open-file"></i></span>
-                            <span class="sidebar-normal">Mensajes</span>
+                        <a href="~/VBackend/estadisticas">
+                            <i class="pe-7s-global"></i>
+                            <p>Inicio</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="~/VBackend/Mapa_admin">
+                            <i class="pe-7s-map-2"></i>
+                            <p>Mapa</p>
                         </a>
                     </li>
                     <li>
-                        <a href="~/VBackend/buzon_de_sugerencias">
-                            <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                            <span class="sidebar-normal">Buzón de Sugerencias</span>
+                        <a data-toggle="collapse" href="#tablesExamples">
+                            <i class="pe-7s-map-marker"></i>
+                            <p>
+                                Gestion de Puntos
+                                <b class="caret"></b>
+                            </p>
                         </a>
+                        <div class="collapse" id="tablesExamples">
+                            <ul class="nav">
+                                <li>
+                                    <a href="~/VBackend/ListaDePuntosM">
+                                        <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
+                                        <span class="sidebar-normal">Aprobar Puntos</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/VBackend/PuntosAprovados">
+                                        <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
+                                        <span class="sidebar-normal">Puntos Aprobados</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/VBackend/PuntosD">
+                                        <span class="sidebar-mini"><i class="pe-7s-junk"></i></span>
+                                        <span class="sidebar-normal">Puntos desaprobados</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+                    <li>
+                        <a data-toggle="collapse" href="#tablesExamples1">
+                            <i class="pe-7s-config"></i>
+                            <p>
+                                Configuración
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="tablesExamples1">
+                            <ul class="nav">
 
+                                <li>
+                                    <a href="~/VBackend/ConfiguracionIndex">
+                                        <span class="sidebar-mini"><i class="pe-7s-home"></i></span>
+                                        <span class="sidebar-normal">Index</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#tablesExamples3">
+                            <i class="pe-7s-graph2"></i>
+                            <p>
+                                Reportes
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="tablesExamples3">
+                            <ul class="nav">
 
+                                <li>
+                                    <a href="~/VBackend/Reporte_peligros">
+                                        <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
+                                        <span class="sidebar-normal">Reporte de incidencias</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="~/VBackend/reporte_usuarios">
+                                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
+                                        <span class="sidebar-normal">Reporte de usuarios</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
-        </li>*@
-    <li>
-        <a data-toggle="collapse" href="#tablesExamples3">
-            <i class="pe-7s-graph2"></i>
-            <p>
-                Reportes
-                <b class="caret"></b>
-            </p>
-        </a>
-        <div class="collapse" id="tablesExamples3">
-            <ul class="nav">
-
-                <li>
-                    <a href="~/VBackend/Reporte_peligros">
-                        <span class="sidebar-mini"><i class="pe-7s-graph1"></i></span>
-                        <span class="sidebar-normal">Reporte de peligros </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/VBackend/reporte_usuarios">
-                        <span class="sidebar-mini"><i class="pe-7s-portfolio"></i></span>
-                        <span class="sidebar-normal">Reporte de usuarios</span>
-                    </a>
-                </li>
-
-
-            </ul>
         </div>
-    </li>
+        <!---------- fin barra lateral--------------->
+        <div class="main-panel">
+            <!------- barra superior inicio------->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
 
-}
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Mostrar</a>
+                    </div>
+                    @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
+                    {
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <button type="submit" class="btn btn-link btn-simple text-danger">
+                                        <i class="pe-7s-power"></i>
+                                        Cerrar Sesión
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </nav>
+            @if (ViewBag.da != null)
+            {
 
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-@*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>*@
-<script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCuiUJxL3eVPwCyGdf1P6g9TUQ4KW95YtA'></script>
+                @RenderBody()
+            }
+            else
+            {
 
-<div id="map_canvas" style="width:100%; height:680px "></div>
-<div id="legend"></div>
+                <div id="map_canvas" class="map-container"></div>
+                <div id="legend"></div>
+                <div id="soy">
+                    <select name="producto" class="selectpicker" onchange="ShowSelected();" id="producto" data-style="btn-default btn-outline" data-menu-style="dropdown-blue">
+                        <option value="1" selected>TODOS</option>
+                        <option value="2">BACHES</option>
+                        <option value="3">MALTRATO ANIMAL</option>
+                        <option value="4">LOTES BALDÍOS</option>
+                        <option value="5">VANDALISMO </option>
+                        <option value="6">ROBO</option>
+                        <option value="7">INCENDIOS</option>
+                        <option value="8">ACCIDENTES AUTOMOVILÍSTICOS</option>
+                        <option value="9">OTROS</option>
+                    </select>
+                </div>
 
-<script type="text/javascript">
-
-    var markers;
-
+                <script type="text/javascript">
+    initMap();
     $.ajax({
         url: "/usuariofron/devolverpuntos",
         success: function (data) {
-            var array = []
             for (var i = 0; i < data.length; i++) {
-                array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                var des = (data[i]["punton"]);
+                var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                var tipo = (data[i]["id"]);
+                addMarker(des, location, tipo, i);
             }
-            markers = array;
-
-            initializeMaps();
         }
-
     })
-    var image = {
-        url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-        // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(40, 52),
-        // The origin for this image is (0, 0).
-        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 32)
-    };
+    var markers;
+    var array = [];
+    var map;
+    var infowindow;
 
-    function initializeMaps() {
+    function initMap() {
+        var h = { lat: 20.967778, lng: -89.621667 };
         var myOptions = {
+            zoom: 12,
+            center: h,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false
         };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        var infowindow = new google.maps.InfoWindow();
-        var marker, i;
-        var bounds = new google.maps.LatLngBounds();
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        infowindow = new google.maps.InfoWindow();
+        //var marker, i;
+        //var bounds = new google.maps.LatLngBounds();
         var icons = {
             i1: {
                 name: 'BACHES',
@@ -230,7 +301,7 @@
                 icon: "../puntosimg/82.png"
             },
             i6: {
-                name: 'QUEMA DE BASURA',
+                name: 'INCENDIOS',
                 icon: "../puntosimg/92.png"
             },
             i7: {
@@ -241,101 +312,8 @@
                 name: 'OTROS',
                 icon: "../puntosimg/112.png"
             }
-           
-        };
 
-        for (i = 0; i < markers.length; i++) {
-            if (markers[i][3] == 11)
-                //robo
-            {
-                image = "../puntosimg/112.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 4)//asalto de auto
-            {
-                image = "../puntosimg/42.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 5) {//asaldo de casa
-                image = "../puntosimg/52.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 6) {//asalro de comercio
-                image = "../puntosimg/62.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 7) {//asalro de persona
-                image = "../puntosimg/72.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 8) {//actividad sospechopsa
-                image = "../puntosimg/82.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 9) {//homicidio
-                image = "../puntosimg/92.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            else if (markers[i][3] == 10) {//vandalismo
-                image = "../puntosimg/102.png";
-                var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
-                bounds.extend(pos);
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: image
-                });
-            }
-            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                return function () {
-                    infowindow.setContent(markers[i][0]);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
-        }
-        map.fitBounds(bounds);
+        };
         var legend = document.getElementById('legend');
         for (var key in icons) {
             var type = icons[key];
@@ -347,7 +325,398 @@
         }
 
         map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(document.getElementById('legend'));
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById('soy'));
     }
 
 
+
+
+    function addMarker(d, l, t, i) {
+        if (t == 11) {
+            image = "../puntosimg/112.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t== 4){
+            image = "../puntosimg/42.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t == 5) {
+            image = "../puntosimg/52.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t == 6) {
+            image = "../puntosimg/62.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t == 7) {
+            image = "../puntosimg/72.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t == 8) {
+            image = "../puntosimg/82.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t == 9) {
+            image = "../puntosimg/92.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+        else if (t == 10) {
+            image = "../puntosimg/102.png";
+            var marker = new google.maps.Marker({
+                position: l,
+                map: map,
+                icon: image
+            });
+            array.push(marker);
+        }
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(d);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+    }
+
+
+
+    function setMapOnAll(map) {
+        for (var i = 0; i < array.length; i++) {
+            array[i].setMap(map);
+        }
+    }
+
+
+
+
+
+    function ShowSelected() {
+
+        var code = document.getElementById("producto").value;
+
+        if (code == 1) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/devolverpuntos",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 2) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d4",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 3) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d5",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+
+
+                    }
+                }
+            })
+        }
+        else if (code == 4) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d6",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 5) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d7",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 6) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d8",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 7) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d9",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 8) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/d10",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+        else if (code == 9) {
+            setMapOnAll(null);
+            array = [];
+            $.ajax({
+                url: "/usuariofron/otrosdevolver",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var des = (data[i]["punton"]);
+                        var location = new google.maps.LatLng(data[i]["x"], data[i]["y"]);
+                        var tipo = (data[i]["id"]);
+                        addMarker(des, location, tipo, i);
+                        //var mues = (location + tipo+des);
+                        //alert(mues);
+                        //array.push([data[i]["punton"], data[i]["x"], data[i]["y"], data[i]["id"]])
+                    }
+                }
+            })
+        }
+
+    }
+
+
+
+
+                </script>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                        </nav>
+                        <p class="copyright pull-right">
+                            &copy;
+                            <script>document.write(new Date().getFullYear())</script> <a href="#">Todo Protegido SOS</a>, lo mejor en seguridad
+                        </p>
+                    </div>
+                </footer>
+            }
+
+        </div>
+    </div>
+
+
+
+
+    <div class="fixed-plugin">
+        <div class="dropdown">
+            <a href="#" data-toggle="dropdown">
+                <i class="fa fa-cog fa-2x"> </i>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header-title">Configuracion</li>
+
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Minizar barra</p>
+                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
+                               data-off-text="OFF"
+                               data-on-text="ON" />
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Filtros</p>
+                        <div class="pull-right">
+                            <span class="badge filter" data-color="black"></span>
+                            <span class="badge filter badge-azure" data-color="azure"></span>
+                            <span class="badge filter badge-green" data-color="green"></span>
+                            <span class="badge filter badge-orange active" data-color="orange"></span>
+                            <span class="badge filter badge-red" data-color="red"></span>
+                            <span class="badge filter badge-purple" data-color="purple"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+<!--   Core JS Files  -->
+<script>
+    $("#container").load("url");
 </script>
+
+<script src="~/Content/assetsBack/js/jquery.min.js"></script>
+
+<script src="~/Content/assetsBack/js/bootstrap.min.js"></script>
+
+<script src="~/Content/assetsBack/js/perfect-scrollbar.jquery.min.js"></script>
+<!--  Forms Validations Plugin -->
+
+
+<script src="~/Content/assetsBack/js/jquery.validate.min.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+
+
+<script src="~/Content/assetsBack/js/moment.min.js"></script>
+<!--  Date Time Picker Plugin is included in this js file -->
+
+
+<script src="~/Content/assetsBack/js/bootstrap-datetimepicker.min.js"></script>
+<!--  Select Picker Plugin -->
+<script src="~/Content/assetsBack/js/bootstrap-selectpicker.js"></script>
+
+<!--  Checkbox, Radio, Switch and Tags Input Plugins -->
+<script src="~/Content/assetsBack/js/bootstrap-switch-tags.min.js"></script>
+
+<!--  Charts Plugin -->
+<script src="~/Content/assetsBack/js/chartist.min.js"></script>
+<
+<!--  Notifications Plugin    -->
+<script src="~/Content/assetsBack/js/bootstrap-notify.js"></script>
+
+<!-- Sweet Alert 2 plugin -->
+<script src="~/Content/assetsBack/js/sweetalert2.js"></script>
+
+<!-- Vector Map plugin -->
+<!--  Google Maps Plugin    -->
+<!-- Wizard Plugin    -->
+<script src="~/Content/assetsBack/js/jquery.bootstrap.wizard.min.js"></script>
+
+<!--  Bootstrap Table Plugin    -->
+<script src="~/Content/assetsBack/js/bootstrap-table.js"></script>
+
+<!--  Plugin for DataTables.net  -->
+
+<script src="assetsBack/js/jquery.datatables.js"></script>
+<!--  Full Calendar Plugin    -->
+<script src="~/Content/assetsBack/js/fullcalendar.min.js"></script>
+
+<!-- Light Bootstrap Dashboard Core javascript and methods -->
+<script src="~/Content/assetsBack/js/light-bootstrap-dashboard.js"></script>
+
+<!--   Sharrre Library    -->
+<script src="~/Content/assetsBack/js/jquery.sharrre.js"></script>
+
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="~/Content/assetsBack/js/demo.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</html>
