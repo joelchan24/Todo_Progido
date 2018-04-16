@@ -102,7 +102,7 @@ namespace Proyecto.Controllers
                 ReportViewer reporte = new ReportViewer();
                 reporte.ProcessingMode = ProcessingMode.Local;
                 reporte.SizeToReportContent = true;
-                string consulta = " select * from usuario";
+                string consulta = " select * from usuario where id=1";
                 ConexionDAO cone = new ConexionDAO();
                 SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
                 adaptador.Fill(dataset_usuarios, "datos");
@@ -160,7 +160,7 @@ namespace Proyecto.Controllers
                 //reporte.Width = Unit.Percentage(1200);
                 //reporte.Height = Unit.Percentage(900);
                 reporte.SizeToReportContent = true;
-                string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro   GROUP BY n.Peligro";
+                string consulta = "select n.Peligro as peligro , count( n.Peligro) as total from [Puntos-peligrosos] p inner join [niveles-peligro] n on n.ID=p.id_peligro and p.Estatus =0   GROUP BY n.Peligro";
                 ConexionDAO cone = new ConexionDAO();
                 SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
                 adaptador.Fill(daset_reportes, "peligros1");

@@ -102,7 +102,7 @@ namespace Proyecto.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    cliente.foto = "https://res.cloudinary.com/dyhowxkye/image/upload/v1521322391/image_placeholder.jpg";
+                    cliente.foto = "https://res.cloudinary.com/dyhowxkye/image/upload/v1523834686/%C3%ADndice.jpg";
                     usuario_dao.guardar(cliente);
                     return Redirect("~/todo_pro/IndexFinal");
                 }

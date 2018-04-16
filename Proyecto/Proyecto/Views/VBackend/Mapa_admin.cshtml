@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Todo Protegido SOS Administracion</title>
+    <title>Todo Protegido SOS</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -117,7 +117,7 @@
                         <a data-toggle="collapse" href="#tablesExamples">
                             <i class="pe-7s-map-marker"></i>
                             <p>
-                                Gestion de Puntos
+                                Gestion de Incidencias
                                 <b class="caret"></b>
                             </p>
                         </a>
@@ -126,19 +126,19 @@
                                 <li>
                                     <a href="~/VBackend/ListaDePuntosM">
                                         <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                                        <span class="sidebar-normal">Aprobar Puntos</span>
+                                        <span class="sidebar-normal">Aprobar Incidencias</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="~/VBackend/PuntosAprovados">
                                         <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                                        <span class="sidebar-normal">Puntos Aprobados</span>
+                                        <span class="sidebar-normal">Incidencias Aprobadas</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="~/VBackend/PuntosD">
                                         <span class="sidebar-mini"><i class="pe-7s-junk"></i></span>
-                                        <span class="sidebar-normal">Puntos desaprobados</span>
+                                        <span class="sidebar-normal">Incidencias Desaprobadas</span>
                                     </a>
                                 </li>
                             </ul>
@@ -206,7 +206,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Mostrar</a>
+                        <a class="navbar-brand" href="#">Mapa</a>
                     </div>
                     @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
                     {
@@ -608,51 +608,6 @@
                 </footer>
             }
 
-        </div>
-    </div>
-
-
-
-
-    <div class="fixed-plugin">
-        <div class="dropdown">
-            <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-                <li class="header-title">Configuracion</li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Minizar barra</p>
-                        <input class="switch switch-sidebar-mini" type="checkbox" data-toggle="switch"
-                               data-off-text="OFF"
-                               data-on-text="ON" />
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Filtros</p>
-                        <div class="pull-right">
-                            <span class="badge filter" data-color="black"></span>
-                            <span class="badge filter badge-azure" data-color="azure"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-purple" data-color="purple"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-
-
-
-
-
-            </ul>
         </div>
     </div>
 

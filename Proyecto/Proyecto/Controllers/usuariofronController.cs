@@ -165,19 +165,19 @@ namespace Proyecto.Controllers
             }
            
             return View();
-        } 
-        
-        public ActionResult Guardar_puntos(int id, int longitud, int latitud, string zona, string comentario, HttpPostedFileBase imagen )
+        }
+        [HttpPost]
+        public ActionResult Guardar_puntos([Bind(Include = "longitud,latitud,zona,comentario")]punto_peligrosoBO usu, HttpPostedFileBase imagen, FormCollection frm)
         {
-            punto_peligrosoBO usu = new punto_peligrosoBO();
+
             //string comentario, FormCollection frm, HttpPostedFileBase imagen
 
 
-
+            ViewBag.usuario = (usuarioBO)Session["usuario"];
             if (Session["usuario"] != null)
             {
-                //ViewBag.usuario = (usuarioBO)Session["usuario"];
-                //usu.id_peligro = int.Parse(frm["Gender"].ToString());
+                ViewBag.usuario = (usuarioBO)Session["usuario"];
+                usu.id_peligro = int.Parse(frm["Gender"].ToString());
                 if (imagen != null && imagen.ContentLength > 0)
                 {
                     Account account = new Account(
@@ -202,20 +202,20 @@ namespace Proyecto.Controllers
                         return Redirect("~/usuariofron/Tablapuntousuario");
                     }
                 }
-                //else
-                //{
-                //    usu.imagen = "https://res.cloudinary.com/dyhowxkye/image/upload/v1521322391/image_placeholder.jpg";
-                //    if (ModelState.IsValid)
-                //    {
-                //        var jjj = usu.id > 0 ?
-                //          pun.editar(usu) :
-                //          pun.Guardar(usu, ViewBag.usuario.id);
+                else
+                {
+                    usu.imagen = "https://res.cloudinary.com/dyhowxkye/image/upload/v1521322391/image_placeholder.jpg";
+                    if (ModelState.IsValid)
+                    {
+                        var jjj = usu.id > 0 ?
+                          pun.editar(usu) :
+                          pun.Guardar(usu, ViewBag.usuario.id);
 
-                //        return Redirect("~/usuariofron/Tablapuntousuario");
-                //    }
-                //}
+                        return Redirect("~/usuariofron/Tablapuntousuario");
+                    }
+                }
             }
-            return View(comentario);
+            return View(usu);
 
 
 
@@ -420,6 +420,21 @@ namespace Proyecto.Controllers
         }
 
         public ActionResult Incidencias()
+        {
+            return View();
+        }
+
+        public ActionResult xd(string texto, HttpPostedFileBase imagen)
+        {
+
+            string sum =  "holoa";
+             
+            return View();
+        }
+
+
+        
+        public ActionResult Prueba()
         {
             return View();
         }

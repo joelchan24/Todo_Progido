@@ -144,7 +144,7 @@
                                                             <h1 style="font-size:60px">Forma parte de este proyecto</h1>
                                                             <h3>Haz clic en el siguiente botón para registrarte</h3>
                                                             <center>
-                                                                <a href="@Url.Action("IndexPro", "todo_pro")" class="btn btn-default btn-round ">
+                                                                <a href="@Url.Action("IndexPro", "todo_pro")" class="btn btn-danger btn-round ">
                                                                     <i class="material-icons">person_add</i> Registrarse
                                                                 </a>
                                                             </center>
@@ -192,7 +192,7 @@
                             <center>
                                 <h4 class="title">Así que únete hoy mismo y se parte de este gran proyecto!!!</h4>
                                 <a  href="@Url.Action("IndexPro", "todo_pro")" class="btn btn-danger btn-round">
-                                    <i class="material-icons">subject</i> Registrarse
+                                    <i class="material-icons">person_add</i> Registrarse
                                 </a>
                             </center>
                         </div>
@@ -700,7 +700,7 @@
 
                         <div class="form-group label-floating">
                             <label class="control-label">Email</label>
-                            @Html.TextBoxFor(x => x.nombre, new  { @class = "form-control", @type = "email", @id = "txt_nombre" })
+                            @Html.TextBoxFor(x => x.nombre, new  { @class = "form-control", @type = "email", @id = "txt_nombre", @required="true" })
                         </div>
                     </div>
                     <div class="input-group">
@@ -709,7 +709,7 @@
                         </span>
                         <div class="form-group label-floating">
                             <label class="control-label">Contraseña</label>
-                            @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password" })
+                            @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password", @required = "true" })
                         </div>
                     </div>
 
@@ -718,7 +718,7 @@
             </form>
         </div>
         <div class="modal-footer text-center">
-            <button class="btn btn-primary">Ingresar</button>  
+            <button class="btn btn-primary" type="submit">Ingresar</button>  
         </div>
         <br />
     </div>

@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Prueba</title>
+</head>
+<body>
+    <div> 
+
+        <input type="text" id="texto" />
+        <input type="file" id="fot" />
+        <input type="button" value="enviar" onclick="uploadAjax()" />
+       
+
+
+
+        <script>
+
+            function uploadAjax() {
+                var inputFileImage = document.getElementById("fot").value;
+                var texto = document.getElementById("texto").value;
+                alert(texto + inputFileImage);
+                $.ajax({
+
+                    url: 'xd/',
+                    type: "POST",
+                    data: { texto: texto, imagen: inputFileImage }
+                });
+            }
+        </script>
+
+
+
+    </div>
+    <script src="~/Content/assets_tablanet/js/jquery.min.js"></script>
+</body>
+</html>

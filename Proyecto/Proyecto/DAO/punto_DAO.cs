@@ -137,7 +137,7 @@ namespace Proyecto.DAO
             foreach (DataRow dr in tabla.Rows)
             {    
                 Punto P = new Punto();
-                P.punton = "<h5>" + dr[13] + "</h5>" + "<p>" + dr[9] + "</p>" + "<p>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
+                P.punton = "<h5>" + dr[13] + "</h5>" + "<p style=width:300px>" + dr[9] + "</p>" + "<p  style=width:300px>" + " en  " + dr[4] + "</p>" + "<img src ='" + dr[11] + "' " + "style=width:350px;height:250px />";
                 ;
               
                 P.id = dr[1].ToString();
@@ -335,7 +335,7 @@ namespace Proyecto.DAO
 
         public DataTable CargarTablaPuntosDesaprovados()
         {
-            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, [Puntos-peligrosos].imagen, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=2");
+            String strBuscar = string.Format("select [Puntos-peligrosos].ID,[Niveles-peligro].Peligro, [Puntos-peligrosos].Zona, [Puntos-peligrosos].imagen, Usuario.Nombre,[Puntos-peligrosos].fecha, [Puntos-peligrosos].comentario, [Puntos-peligrosos].comentadmin  from [Puntos-peligrosos],[Niveles-peligro], Usuario where [Puntos-peligrosos].id_peligro = [Niveles-peligro].ID and [Puntos-peligrosos].id_usuario =Usuario.ID and [Puntos-peligrosos].Estatus=2");
             return marisa.ejercutarsentrenciasdatable(strBuscar);
         }
 

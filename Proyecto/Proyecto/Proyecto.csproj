@@ -779,6 +779,7 @@
     <Content Include="Views\usuariofron\editar_datos.cshtml" />
     <Content Include="Views\todo_pro\IndexFinal.cshtml" />
     <Content Include="Views\usuariofron\Incidencias.cshtml" />
+    <Content Include="Views\usuariofron\Prueba.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

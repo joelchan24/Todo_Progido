@@ -92,7 +92,7 @@
                             <a data-toggle="collapse" href="#tablesExamples">
                                 <i class="pe-7s-map-marker"></i>
                                 <p>
-                                    Gestion de Puntos
+                                    Gestion de Incidencias
                                     <b class="caret"></b>
                                 </p>
                             </a>
@@ -101,19 +101,19 @@
                                     <li class="active">
                                         <a href="#">
                                             <span class="sidebar-mini"><i class="pe-7s-like2"></i></span>
-                                            <span class="sidebar-normal">Aprobar Puntos</span>
+                                            <span class="sidebar-normal">Aprobar Incidencias</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="~/VBackend/PuntosAprovados">
                                             <span class="sidebar-mini"><i class="pe-7s-check"></i></span>
-                                            <span class="sidebar-normal">Puntos Aprobados</span>
+                                            <span class="sidebar-normal">Incidencias Aprobadas</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="~/VBackend/PuntosD">
                                             <span class="sidebar-mini"><i class="pe-7s-junk"></i></span>
-                                            <span class="sidebar-normal">Puntos desaprobados</span>
+                                            <span class="sidebar-normal">Incidencias Desaprobadas</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -185,7 +185,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Aprobar Puntos</a>
+                            <a class="navbar-brand" href="#">Aprobar Incidencias</a>
                         </div>
                         @using (Html.BeginForm("cerrar_sesion", "usuariofron", FormMethod.Post))
                         {
@@ -221,25 +221,25 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Imagen</th>
-                                                        <th>Tipo de Peligro</th>
+                                                        <th>Tipo de Incidencia</th>
                                                         <th>Zona</th>
                                                         <th>Creador</th>
                                                         <th>Fecha</th>
-                                                   
                                                         <th>Comentario</th>
-                                                        <th class="disabled-sorting text-left">Acciones</th>
+                                                        <th>Acciones</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
                                                         <th>Imagen</th>
-                                                        <th>Tipo de Peligro</th>
+                                                        <th>Tipo de Incidencia</th>
                                                         <th>Zona</th>
                                                         <th>Creador</th>
                                                         <th>Fecha</th>
-                                                      
                                                         <th>Comentario</th>
-                                                        <th class="text-center">Acciones</th>
+                                                        <th>Acciones</th>
+                                                        <th></th>
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
@@ -258,6 +258,7 @@
                                                             <td style="width:80px;">@row1["Nombre"]</td>
                                                             <td style="width:80px;">@Convert.ToDateTime(row1["Fecha"]).ToLongDateString()</td>
                                                             <td style="width:230px;">@row1["comentario"]</td>
+                                                       
                                                             <td  style="width:25px;">
 
                                                                 
@@ -402,11 +403,11 @@
                         <h4 class="modal-title title" id="exampleModalLabel">Motivo de cancelación  </h4>
                     </div>
                     <div class="modal-body">
-                        <form id="frp">
+                   
                             <div class="form-group">
-                                <textarea class="form-control" style = "resize:none;"  rows="10" name="verificar123"></textarea>
+                                <textarea class="form-control" style = "resize:none;"  rows="10" name="verificar123" required></textarea>
                             </div>
-                        </form>
+                  
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-wd" data-dismiss="modal">Cerrar</button>

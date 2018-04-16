@@ -254,7 +254,7 @@
 
                                         <div class="form-group label-floating">
                                             <label class="control-label">Email</label>
-                                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @type = "email", @id = "txt_nombre" })
+                                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @type = "email", @id = "txt_nombre", @required = "true" })
                                         </div>
                                     </div>
                                     <div class="input-group">
@@ -263,7 +263,7 @@
                                         </span>
                                         <div class="form-group label-floating">
                                             <label class="control-label">Contraseña</label>
-                                            @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password" })
+                                            @Html.TextBoxFor(x => x.contraseña, new { @class = "form-control", @type = "password", @required = "true" })
                                         </div>
                                     </div>
 
