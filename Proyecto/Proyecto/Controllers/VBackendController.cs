@@ -102,7 +102,7 @@ namespace Proyecto.Controllers
                 ReportViewer reporte = new ReportViewer();
                 reporte.ProcessingMode = ProcessingMode.Local;
                 reporte.SizeToReportContent = true;
-                string consulta = " select * from usuario where id=1";
+                string consulta = "select * from usuario where id_tipo=1";
                 ConexionDAO cone = new ConexionDAO();
                 SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cone.establecerConexion());
                 adaptador.Fill(dataset_usuarios, "datos");
